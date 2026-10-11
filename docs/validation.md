@@ -25,3 +25,5 @@ Foi observada uma demora no primeiro 404 do adaptador (96 s), resolvida com resp
 Inspeção visual: hero desktop, versão móvel e formulário EN, com imagens reais e sistema visual claro. Capturas integrais exigem carregar imagens lazy antes da fotografia; isso é feito apenas na captura de QA, a aplicação mantém lazy loading. Os assets WebP são validados por ficheiro e foram verificados sem EXIF.
 
 Limites: não certifica WCAG; falta avaliação completa com leitores de ecrã, email real, dados jurídicos definitivos, direitos de fotografia, domínio/migração e acessibilidade legal aplicável. Ver docs/launch-checklist.md. A alternativa Vercel/Next nativa e o pipeline de deployment automático externo não foram implantados. CI de validação está preparado, não conectado a uma conta GitHub por esta tarefa.
+
+O deployment Sites terminou com estado succeeded em 2026-10-11 21:24 Europe/Lisbon. A confirmação nativa valida publicação; não constitui uma repetição dos testes de browser no URL privado. Browser e Lighthouse foram executados na compilação local de produção.

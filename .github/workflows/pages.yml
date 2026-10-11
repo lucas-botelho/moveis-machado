@@ -1,0 +1,53 @@
+name: Validate and deploy GitHub Pages
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:content
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - name: Build static website
+        run: npm run build:pages
+        env:
+          PAGES_BASE_PATH: /moveis-machado
+          PAGES_ORIGIN: https://lucas-botelho.github.io
+      - run: npx playwright install --with-deps chromium
+      - name: Browser and accessibility checks
+        run: npm run test:pages
+      - uses: actions/upload-pages-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          path: pages-build
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy validated website
+        id: deployment
+        uses: actions/deploy-pages@v4

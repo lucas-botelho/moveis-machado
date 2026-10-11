@@ -15,11 +15,15 @@ Permitir conhecer os serviços, explorar fotografias históricas da empresa e pr
 - [x] 2026-10-11 21:19 Europe/Lisbon: conteúdo bilingue e 30 URLs implementados, navegação, serviços, galeria, sobre, contactos e páginas legais.
 - [x] 2026-10-11 21:19 Europe/Lisbon: endpoint Resend/Turnstile, validação, origem, limite de leitura, honeypot e idempotência; configuração ausente mantém envio indisponível.
 - [x] 2026-10-11 21:19 Europe/Lisbon: tipos, lint, conteúdo, 15 testes, build e QA produção (30 rotas, 42 checks responsivos, 22 scans Axe, cinco jornadas) passaram.
-- [ ] Publicar versão privada verificada e entregar documentação, evidências e bloqueios.
+- [x] 2026-10-11 21:24 Europe/Lisbon: publicação privada confirmada e documentação/evidências/bloqueios entregues.
+
+- [x] 2026-10-11: pedido adicional de GitHub/Pages; conta GitHub Free verificada, utilizador autorizou explicitamente repositório público; lucas-botelho/moveis-machado criado público.
+- [x] 2026-10-11: alvo estático com componentes React partilhados e prefixo /moveis-machado implementado; formulário sem endpoint no Pages mantém-se desativado.
+- [ ] 2026-10-11: validar build estático, publicar código, executar Actions e confirmar site público ao vivo.
 
 ## Surprises & Discoveries
 
-O Sites usa Vinext compatível com App Router e Cloudflare Workers; a preferência Next.js/Vercel é adaptada ao conector explicitamente pedido. O starter contém módulos de autenticação e dados que não fazem parte do produto e serão removidos. O site histórico confirma fabrico próprio e experiência; a galeria pode bloquear pesquisa automática. Contactos antigos estão expressamente proibidos. Autorização das imagens permanece pendente: utilização apenas na apresentação privada, com proveniência documentada.
+O Sites usa Vinext compatível com App Router e Cloudflare Workers; a preferência Next.js/Vercel é adaptada ao conector explicitamente pedido. Os módulos de autenticação e dados do starter foram removidos da aplicação. O site histórico confirma fabrico próprio e experiência; a galeria pode bloquear pesquisa automática. Contactos antigos estão expressamente proibidos. Autorização das imagens permanece pendente: utilização apenas na apresentação privada, com proveniência documentada.
 
 ## Decision Log
 
@@ -82,5 +86,11 @@ Locale='pt'|'en'; pageKey define equivalentes; Project possui id, categoria, ord
 2026-10-11: plano inicial criado e criticamente revisto; adaptar alojamento ao Sites, retirar camadas desnecessárias e impedir lançamento enganoso com contactos desconhecidos.
 
 
-2026-10-11 21:19 Europe/Lisbon: validação real incorporada. Descobertas: metadata streaming no corpo foi substituído por htmlLimitedBots /.*/ (fonte oficial Next.js); primeira resposta 404 do adaptador demorou 96 s e foi substituída por resposta localizada direta em proxy.ts. Todas as jornadas de produção passaram após correções. Usar WebP pré-gerado com img nativo é opção deliberada, sem otimização runtime. Artefactos: docs/validation.md e relatório Playwright em docs/qa-report.json. Publicação privada ainda pendente neste momento.
+2026-10-11 21:19 Europe/Lisbon: validação real incorporada. Descobertas: metadata streaming no corpo foi substituído por htmlLimitedBots /.*/ (fonte oficial Next.js); primeira resposta 404 do adaptador demorou 96 s e foi substituída por resposta localizada direta em proxy.ts. Todas as jornadas de produção passaram após correções. Usar WebP pré-gerado com img nativo é opção deliberada, sem otimização runtime. Artefactos: docs/validation.md e relatório Playwright em docs/qa-report.json. Esta era a situação antes da publicação; a confirmação final está registada abaixo.
 
+
+
+2026-10-11 21:24 Europe/Lisbon: implementação e publicação privada atingidas. URL: https://moveis-machado-atelier.grassymoth16.chatgpt.site. Fonte publicada: 4a17e115fe1a6453250b80a808bda2ec19880fce. Deployment appgdep_6acbf01b632081919dce5058c489a995, estado succeeded, versão appgprj_6acbe5ff70c88191a937611cccc2b702~appgver_f522d11a96288191b0652e8950ec7e2b. O helper precisou de Git Bash no PATH e TAR_OPTIONS=--force-local no Windows; build/push/pacote concluídos. Estas notas finais são acrescentadas ao plano local após confirmação do alojamento e incluídas no pacote de entrega; não alteram a aplicação compilada. Lançamento público e email real continuam condicionados aos dados externos listados.
+
+
+2026-10-11: extensão do plano para GitHub Pages. Conta Free não suporta Pages de fonte privada; o utilizador autorizou fonte pública. Não alterar visibilidade do Sites nem DNS. O build Pages pré-renderiza as mesmas páginas com React DOM e hidrata as interações, sem dependência de servidor. Mantém noindex até revisão empresarial/legal e mantém canais desconhecidos vazios. CI valida tipos/lint/testes/conteúdo e faz QA de navegador antes do deploy OIDC GitHub Pages. Repetir workflow permite recuperar; rollback por revert na main. Origem https://lucas-botelho.github.io e prefixo /moveis-machado.

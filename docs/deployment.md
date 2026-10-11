@@ -29,3 +29,5 @@ Depois de autorização: configurar domínio/HTTPS no fornecedor, aplicar DNS in
 ## Custos e manutenção
 
 Sem base de dados, CMS, contas ou processamento de imagens por pedido. Custos dependem do plano Sites/Cloudflare, domínio e envio; confirmar preços/quotas na conta no lançamento, sem estimativas monetárias assumidas. Rever build/dependências antes de atualizações, disponibilidade do formulário e delivery failures. Não recolher dados pessoais em monitorização. Conteúdo atualiza-se em messages e src/content; fotografias em public/images/projects. Rever direitos/retention após alterações. Após incidente usar rollback, manter contacto indisponível se entrega falhar e verificar nova versão antes de ativar.
+
+Publicação confirmada em 2026-10-11 21:24 Europe/Lisbon: https://moveis-machado-atelier.grassymoth16.chatgpt.site, fonte 4a17e115fe1a6453250b80a808bda2ec19880fce, versão appgprj_6acbe5ff70c88191a937611cccc2b702~appgver_f522d11a96288191b0652e8950ec7e2b. No Windows, o empacotamento exigiu Git Bash no PATH e TAR_OPTIONS=--force-local, para evitar WSL inexistente e interpretação do drive C: como destino remoto. Não houve alterações DNS nem migração.

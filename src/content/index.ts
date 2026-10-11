@@ -1,3 +1,4 @@
+import { publicPath } from "../i18n/routes.mjs";
 import data from "./projects.json";
 export type Locale = "pt" | "en";
 export type ProjectTranslation = {
@@ -21,7 +22,7 @@ export const projects = (data as PortfolioProject[])
   .filter((p) => p.published)
   .sort((a, b) => a.order - b.order);
 export const photo = (name: string, size = 1600) =>
-  `/images/projects/${name}-${size}.webp`;
+  publicPath(`/images/projects/${name}-${size}.webp`);
 export const services = [
   {
     id: "kitchens",

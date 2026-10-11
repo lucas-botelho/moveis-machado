@@ -17,6 +17,7 @@ import { business } from "@/src/content/business";
 import { projects, services, type Locale } from "@/src/content";
 import { getMessages } from "@/src/i18n";
 import {
+  publicPath,
   pagePath,
   projectPath,
   resolvePage,
@@ -45,8 +46,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const route = await params;
   const page = resolvePage(route.locale, route.slug || [], projects);
-  const locale: Locale = route.locale === 'en' ? 'en' : 'pt';
-  if (!page) return { title: `${getMessages(locale).common.notFound} | Móveis Machado`, robots: {index: false, follow: false} };
+  const locale: Locale = route.locale === "en" ? "en" : "pt";
+  if (!page)
+    return {
+      title: `${getMessages(locale).common.notFound} | Móveis Machado`,
+      robots: { index: false, follow: false },
+    };
   const other = locale === "pt" ? "en" : "pt";
   const title =
     page.key === "project"
@@ -103,7 +108,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alternateLocale: locale === "pt" ? "en_GB" : "pt_PT",
       images: [
         {
-          url: "/images/projects/cozinha-ilha-ceramica-4-1600.webp",
+          url: publicPath("/images/projects/cozinha-ilha-ceramica-4-1600.webp"),
           width: 1600,
           height: 1200,
           alt: m.home.imageCaption,
@@ -114,12 +119,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/projects/cozinha-ilha-ceramica-4-1600.webp"],
+      images: [
+        publicPath("/images/projects/cozinha-ilha-ceramica-4-1600.webp"),
+      ],
     },
   };
 }
 export default async function Page({ params }: Props) {
   const { locale, page } = await getPage(params);
+  return <PageContent locale={locale} page={page} />;
+}
+export function PageContent({
+  locale,
+  page,
+}: {
+  locale: Locale;
+  page: NonNullable<ReturnType<typeof resolvePage>>;
+}) {
   const other = locale === "pt" ? "en" : "pt";
   const project = page.key === "project" ? page.project : undefined;
   const current = project

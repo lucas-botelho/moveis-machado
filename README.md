@@ -2,6 +2,21 @@
 
 Website bilingue PT-PT/EN para apresentação de serviços e portefólio, com tema claro, fotografias reais otimizadas, galeria acessível e contactos com configuração segura. Implementação Sites/Vinext, App Router, TypeScript e React. Sem CMS, autenticação de aplicação, base de dados ou tracking de marketing.
 
+## GitHub Pages e CI/CD
+
+Repositório público autorizado: https://github.com/lucas-botelho/moveis-machado. Site: https://lucas-botelho.github.io/moveis-machado/. A conta Free não permite Pages com fonte privada; a visibilidade pública foi escolhida expressamente pelo proprietário.
+
+Cada push para `main` valida conteúdo, tipos, lint e testes, gera 30 páginas estáticas e executa QA de navegador/Axe antes de publicar com GitHub Actions. Pull requests executam as mesmas verificações sem publicar. Workflow manual disponível. Consulte [operação do Pages](docs/github-pages.md).
+
+```sh
+npm ci
+npm run build:pages
+npx playwright install chromium
+npm run test:pages
+```
+
+GitHub Pages não executa o endpoint de email: o formulário fica desativado. A aplicação Worker original preserva a integração de servidor para ativação futura. A apresentação pública mantém noindex enquanto os dados e textos legais estão pendentes.
+
 ## Começar
 
 Node >=22.13 e npm. Na raiz deste projeto:

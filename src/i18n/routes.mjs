@@ -11,8 +11,14 @@ export const pageSlugs = {
   furniture: { pt: "moveis-por-medida", en: "bespoke-furniture" },
   doors: { pt: "portas-interiores", en: "interior-doors" },
 };
+export function publicPath(path) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  return base + path;
+}
 export function pagePath(locale, key) {
-  return `/${locale}${pageSlugs[key][locale] ? "/" + pageSlugs[key][locale] : ""}`;
+  return publicPath(
+    `/${locale}${pageSlugs[key][locale] ? "/" + pageSlugs[key][locale] : ""}`,
+  );
 }
 export function projectPath(locale, project) {
   return `${pagePath(locale, "projects")}/${project.translations[locale].slug}`;

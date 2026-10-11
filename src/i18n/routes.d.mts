@@ -12,6 +12,7 @@ export type PageKey =
   | "furniture"
   | "doors";
 export const pageSlugs: Record<PageKey, Record<Locale, string>>;
+export function publicPath(path: string): string;
 export function pagePath(locale: Locale, key: PageKey): string;
 export function projectPath(locale: Locale, project: PortfolioProject): string;
 export function resolvePage(

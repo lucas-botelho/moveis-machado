@@ -36,3 +36,5 @@ Estes elementos bloqueiam lançamento comercial; não bloqueiam o desenvolviment
 - Verificar link de privacidade no formulário, páginas jurídicas acessíveis no rodapé e informação consumerista efetivamente preenchida.
 - Testar envio em ambiente controlado após configuração, falha do provider, rate limiting e direitos de acesso/eliminação no processo operacional.
 - Atualizar a coluna de implementação com evidência da versão final antes de declarar conclusão. Este documento foi produzido durante implementação e não atesta testes de produção.
+
+Evidência final: docs/validation.md e docs/qa-report.json registam 22 scans sem violações nas regras testadas, formulário desativado/API 503 sem configuração e inexistência de canais históricos no HTML. Não é uma declaração de conformidade jurídica, auditoria de plataforma completa ou teste de envio real. A versão Sites está publicada com acesso privado.
