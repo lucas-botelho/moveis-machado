@@ -1,0 +1,303 @@
+{
+  "routes": [
+    "/pt",
+    "/pt/projetos",
+    "/pt/sobre-nos",
+    "/pt/contactos",
+    "/pt/privacidade",
+    "/pt/informacao-legal",
+    "/pt/acessibilidade",
+    "/pt/cozinhas-por-medida",
+    "/pt/roupeiros-por-medida",
+    "/pt/moveis-por-medida",
+    "/pt/portas-interiores",
+    "/pt/projetos/cozinha-com-ilha",
+    "/pt/projetos/cozinha-branco-madeira",
+    "/pt/projetos/cozinha-linhas-contemporaneas",
+    "/pt/projetos/cozinha-com-peninsula",
+    "/en",
+    "/en/projects",
+    "/en/about",
+    "/en/contact",
+    "/en/privacy",
+    "/en/legal-information",
+    "/en/accessibility",
+    "/en/bespoke-kitchens",
+    "/en/custom-wardrobes",
+    "/en/bespoke-furniture",
+    "/en/interior-doors",
+    "/en/projects/kitchen-with-island",
+    "/en/projects/white-and-wood-kitchen",
+    "/en/projects/contemporary-kitchen",
+    "/en/projects/peninsula-kitchen"
+  ],
+  "responsive": [
+    {
+      "width": 320,
+      "path": "/pt"
+    },
+    {
+      "width": 320,
+      "path": "/en"
+    },
+    {
+      "width": 320,
+      "path": "/pt/contactos"
+    },
+    {
+      "width": 320,
+      "path": "/en/projects"
+    },
+    {
+      "width": 320,
+      "path": "/pt/projetos/cozinha-com-ilha"
+    },
+    {
+      "width": 320,
+      "path": "/pt/roupeiros-por-medida"
+    },
+    {
+      "width": 375,
+      "path": "/pt"
+    },
+    {
+      "width": 375,
+      "path": "/en"
+    },
+    {
+      "width": 375,
+      "path": "/pt/contactos"
+    },
+    {
+      "width": 375,
+      "path": "/en/projects"
+    },
+    {
+      "width": 375,
+      "path": "/pt/projetos/cozinha-com-ilha"
+    },
+    {
+      "width": 375,
+      "path": "/pt/roupeiros-por-medida"
+    },
+    {
+      "width": 390,
+      "path": "/pt"
+    },
+    {
+      "width": 390,
+      "path": "/en"
+    },
+    {
+      "width": 390,
+      "path": "/pt/contactos"
+    },
+    {
+      "width": 390,
+      "path": "/en/projects"
+    },
+    {
+      "width": 390,
+      "path": "/pt/projetos/cozinha-com-ilha"
+    },
+    {
+      "width": 390,
+      "path": "/pt/roupeiros-por-medida"
+    },
+    {
+      "width": 768,
+      "path": "/pt"
+    },
+    {
+      "width": 768,
+      "path": "/en"
+    },
+    {
+      "width": 768,
+      "path": "/pt/contactos"
+    },
+    {
+      "width": 768,
+      "path": "/en/projects"
+    },
+    {
+      "width": 768,
+      "path": "/pt/projetos/cozinha-com-ilha"
+    },
+    {
+      "width": 768,
+      "path": "/pt/roupeiros-por-medida"
+    },
+    {
+      "width": 1024,
+      "path": "/pt"
+    },
+    {
+      "width": 1024,
+      "path": "/en"
+    },
+    {
+      "width": 1024,
+      "path": "/pt/contactos"
+    },
+    {
+      "width": 1024,
+      "path": "/en/projects"
+    },
+    {
+      "width": 1024,
+      "path": "/pt/projetos/cozinha-com-ilha"
+    },
+    {
+      "width": 1024,
+      "path": "/pt/roupeiros-por-medida"
+    },
+    {
+      "width": 1440,
+      "path": "/pt"
+    },
+    {
+      "width": 1440,
+      "path": "/en"
+    },
+    {
+      "width": 1440,
+      "path": "/pt/contactos"
+    },
+    {
+      "width": 1440,
+      "path": "/en/projects"
+    },
+    {
+      "width": 1440,
+      "path": "/pt/projetos/cozinha-com-ilha"
+    },
+    {
+      "width": 1440,
+      "path": "/pt/roupeiros-por-medida"
+    },
+    {
+      "width": 1920,
+      "path": "/pt"
+    },
+    {
+      "width": 1920,
+      "path": "/en"
+    },
+    {
+      "width": 1920,
+      "path": "/pt/contactos"
+    },
+    {
+      "width": 1920,
+      "path": "/en/projects"
+    },
+    {
+      "width": 1920,
+      "path": "/pt/projetos/cozinha-com-ilha"
+    },
+    {
+      "width": 1920,
+      "path": "/pt/roupeiros-por-medida"
+    }
+  ],
+  "accessibility": [
+    {
+      "path": "/pt",
+      "violations": []
+    },
+    {
+      "path": "/pt/projetos",
+      "violations": []
+    },
+    {
+      "path": "/pt/sobre-nos",
+      "violations": []
+    },
+    {
+      "path": "/pt/contactos",
+      "violations": []
+    },
+    {
+      "path": "/pt/privacidade",
+      "violations": []
+    },
+    {
+      "path": "/pt/informacao-legal",
+      "violations": []
+    },
+    {
+      "path": "/pt/acessibilidade",
+      "violations": []
+    },
+    {
+      "path": "/pt/cozinhas-por-medida",
+      "violations": []
+    },
+    {
+      "path": "/pt/roupeiros-por-medida",
+      "violations": []
+    },
+    {
+      "path": "/pt/moveis-por-medida",
+      "violations": []
+    },
+    {
+      "path": "/pt/portas-interiores",
+      "violations": []
+    },
+    {
+      "path": "/en",
+      "violations": []
+    },
+    {
+      "path": "/en/projects",
+      "violations": []
+    },
+    {
+      "path": "/en/about",
+      "violations": []
+    },
+    {
+      "path": "/en/contact",
+      "violations": []
+    },
+    {
+      "path": "/en/privacy",
+      "violations": []
+    },
+    {
+      "path": "/en/legal-information",
+      "violations": []
+    },
+    {
+      "path": "/en/accessibility",
+      "violations": []
+    },
+    {
+      "path": "/en/bespoke-kitchens",
+      "violations": []
+    },
+    {
+      "path": "/en/custom-wardrobes",
+      "violations": []
+    },
+    {
+      "path": "/en/bespoke-furniture",
+      "violations": []
+    },
+    {
+      "path": "/en/interior-doors",
+      "violations": []
+    }
+  ],
+  "journeys": [
+    "mobile menu, Escape and navigation",
+    "portfolio filter, gallery arrows, Escape and focus restoration",
+    "equivalent project language switch",
+    "missing channels and disabled form",
+    "contact 503, localized 404, root redirect, sitemap and private robots"
+  ],
+  "errors": [],
+  "passed": true
+}

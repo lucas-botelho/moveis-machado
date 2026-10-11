@@ -1,0 +1,239 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "services": "What we make",
+    "about": "About us",
+    "contact": "Contact",
+    "quote": "Request a quote",
+    "menu": "Open menu",
+    "close": "Close menu",
+    "skip": "Skip to content"
+  },
+  "home": {
+    "eyebrow": "OUR OWN MANUFACTURING · ODIVELAS, LISBON",
+    "title": "Made for your home.",
+    "italic": "Designed for your life.",
+    "description": "Bespoke kitchens and furniture. Over 40 years of experience turning ideas into spaces to live in.",
+    "view": "Explore projects",
+    "imageCaption": "Kitchen with island · Móveis Machado portfolio",
+    "scroll": "Discover our work",
+    "introLabel": "THE ESSENCE OF MÓVEIS MACHADO",
+    "introTitle": "Some homes call for something unique.",
+    "introText": "A kitchen where everything has its place. A wardrobe that makes every centimetre count. A piece of furniture that feels as though it has always belonged. We build around your space, your needs and the people who live there.",
+    "experience": "years of experience",
+    "manufacturing": "Our own manufacturing",
+    "manufacturingSub": "From design to installation",
+    "area": "Greater Lisbon",
+    "areaSub": "Odivelas and the surrounding area",
+    "servicesLabel": "WHAT WE MAKE",
+    "servicesTitle": "Made to fit every space.",
+    "projectsLabel": "OUR WORK",
+    "projectsTitle": "Ideas brought to life.",
+    "allProjects": "View all projects",
+    "craftLabel": "DESIGN. MAKE. CARE.",
+    "craftTitle": "The difference is in the details.",
+    "craftText": "In the choice of materials, the meeting of two pieces, a carefully finished surface. Our own manufacturing allows us to follow every stage and create furniture built for everyday life.",
+    "craftLink": "Meet Móveis Machado",
+    "processLabel": "HOW WE WORK",
+    "processTitle": "From your first idea to your home.",
+    "locationTitle": "Close to you. In Greater Lisbon.",
+    "locationText": "We are based in Odivelas and work mainly in Lisbon and the surrounding area. Every project starts with a conversation about your space.",
+    "faqLabel": "FREQUENTLY ASKED QUESTIONS",
+    "faqTitle": "Before we begin."
+  },
+  "common": {
+    "home": "Home",
+    "projects": "Projects",
+    "kitchens": "Bespoke kitchens",
+    "project": "Project",
+    "details": "Explore the project",
+    "readMore": "Find out more",
+    "quoteTitle": "Your next idea starts here.",
+    "quoteText": "Tell us what you imagine for your home. Let’s give your project shape.",
+    "quote": "Let’s talk",
+    "directions": "Get directions",
+    "process": "Our process",
+    "materials": "Materials and finishes",
+    "materialsText": "Solid wood, lacquered MDF and technical materials. Your choices depend on use, design and the finish you want. Options and suitability are assessed individually for every project.",
+    "related": "Keep exploring.",
+    "archive": "Photographs from the Móveis Machado project archive. Descriptions refer to visible features; dates, locations and technical specifications are unavailable.",
+    "openImage": "Enlarge photograph",
+    "closeGallery": "Close gallery",
+    "previous": "Previous photograph",
+    "next": "Next photograph",
+    "image": "Photograph",
+    "of": "of",
+    "serviceDrawing": "A study of proportions · illustration",
+    "otherServices": "Other ideas for your home.",
+    "backProjects": "All projects",
+    "footerLine": "Furniture that fits your life.",
+    "footerDescription": "Our own manufacturing of bespoke kitchens, wardrobes and furniture in Odivelas. Lisbon and the surrounding area.",
+    "follow": "Find us",
+    "privacy": "Privacy",
+    "legal": "Legal information",
+    "accessibility": "Accessibility",
+    "copyright": "All rights reserved.",
+    "noProjects": "New projects will be presented here.",
+    "notFound": "We couldn’t find this page.",
+    "notFoundText": "You can continue exploring our services and projects from the homepage."
+  },
+  "projectsPage": {
+    "eyebrow": "PORTFOLIO",
+    "title": "Spaces with character.",
+    "text": "A selection of kitchens from our project archive. Different spaces, one approach: made to measure.",
+    "filterAll": "All projects",
+    "filterIsland": "With an island",
+    "filterClassic": "Other kitchens",
+    "count": "projects"
+  },
+  "about": {
+    "label": "ABOUT MÓVEIS MACHADO",
+    "title": "Experience in every piece.",
+    "text": "We manufacture bespoke furniture in Odivelas. With over 40 years of experience and our own production, we support residential projects from planning through to installation.",
+    "secondTitle": "Your home. Our attention to detail.",
+    "secondText": "Every space has different dimensions, uses and possibilities. Our role is to understand those details and translate them into furniture that belongs in your home. We bring together individual design, knowledge of materials and careful workmanship.",
+    "values": [
+      {
+        "title": "Made to measure",
+        "text": "Solutions designed for the dimensions and needs of each home."
+      },
+      {
+        "title": "Our own production",
+        "text": "Attention to construction and finishing throughout manufacturing."
+      },
+      {
+        "title": "From start to finish",
+        "text": "Planning, manufacturing and installation as parts of one project."
+      }
+    ]
+  },
+  "contact": {
+    "label": "LET’S TALK",
+    "title": "Tell us your idea.",
+    "text": "A new kitchen, more storage or a special piece. The first step is understanding your space and what you have in mind.",
+    "visit": "Find us in Odivelas",
+    "area": "Where we work",
+    "areaText": "Lisbon, Odivelas and the surrounding area. Travel feasibility is assessed for each project.",
+    "prepare": "Preparing your enquiry",
+    "prepareText": "Approximate dimensions, photographs of your space and a few references are a useful starting point.",
+    "unavailable": "Online enquiries are not yet available. See our location to find us.",
+    "formTitle": "Your project",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "type": "Project type",
+    "select": "Choose an option",
+    "other": "Other project",
+    "message": "What do you have in mind?",
+    "placeholder": "Tell us about your space, your ideas and what you’re looking for…",
+    "send": "Send enquiry",
+    "sending": "Sending…",
+    "privacyText": "We use these details to respond to your enquiry and prepare a possible quotation.",
+    "privacyLink": "Read how we handle your information.",
+    "success": "Your enquiry has been accepted by the email service. Thank you for getting in touch.",
+    "error": "We couldn’t send your enquiry. Please try again later.",
+    "invalid": "Please check the fields. Enter a name, a valid email and a message of at least 20 characters.",
+    "challenge": "Please complete the security check before sending.",
+    "whatsapp": "Chat on WhatsApp",
+    "call": "Call us",
+    "callCost": "Call to a Portuguese national network. Charges depend on your phone plan."
+  },
+  "process": [
+    {
+      "title": "We listen",
+      "text": "We get to know your space, your ideas and the needs of the project."
+    },
+    {
+      "title": "We plan",
+      "text": "We define dimensions, layout, materials and finishes."
+    },
+    {
+      "title": "We make",
+      "text": "We manufacture your furniture ourselves, with care for every detail."
+    },
+    {
+      "title": "We install",
+      "text": "We bring the project into your home and carry out the installation."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What furniture do you manufacture?",
+      "a": "Kitchens, wardrobes, bespoke furniture and interior doors for homes. Each solution is defined around the space and the individual project."
+    },
+    {
+      "q": "Where do you work?",
+      "a": "We are based in Odivelas and work mainly in Lisbon and the surrounding area. Location and project conditions are discussed during the initial enquiry."
+    },
+    {
+      "q": "Do you manufacture your own furniture?",
+      "a": "Yes. Móveis Machado manufactures its furniture and supports each project from planning through to installation."
+    },
+    {
+      "q": "Which materials can be used?",
+      "a": "We work with solid wood, lacquered MDF and technical materials. Material and finish options are chosen to suit each project’s needs."
+    },
+    {
+      "q": "How can I prepare a quotation request?",
+      "a": "Gather approximate dimensions, photographs of the space and references for what you have in mind. Timing and price depend on the scope, materials and project conditions."
+    }
+  ],
+  "legalPages": {
+    "privacyTitle": "Privacy and personal information",
+    "privacyIntro": "This presentation version does not accept online enquiries until current contact channels and the data controller’s information have been confirmed.",
+    "legalTitle": "Legal information",
+    "legalIntro": "Móveis Machado is the trading name shown on this website. Full legal identification and current contact details await confirmation before public launch.",
+    "accessibilityTitle": "Accessibility",
+    "accessibilityIntro": "We want everyone to be able to use this website. Its design and development are guided by WCAG 2.2, Level AA.",
+    "privacySections": [
+      {
+        "title": "Contact enquiries",
+        "text": "Once the form is active, it will request name, email, project type and message. Phone will be optional. The purpose will be to respond and take pre-contractual steps where applicable, under Article 6(1)(b) of the GDPR."
+      },
+      {
+        "title": "Providers and security",
+        "text": "This presentation is hosted through Sites on Cloudflare infrastructure. Planned email delivery uses Resend and abuse protection uses Cloudflare Turnstile. These services will only be activated for the form after configuration and review of processing terms and applicable transfers."
+      },
+      {
+        "title": "Retention and rights",
+        "text": "The retention period, controller identity and contact channel for rights of access, rectification, erasure, restriction, objection and portability will be confirmed before collection. Complaints may be submitted to the Portuguese Data Protection Authority at cnpd.pt."
+      },
+      {
+        "title": "Cookies and external content",
+        "text": "The application includes no analytics, advertising, marketing pixels or embedded maps. Hosting infrastructure may use mechanisms necessary for security and access control. Cookies actually used must be reviewed for the public version. External links open only when you select them."
+      }
+    ],
+    "legalSections": [
+      {
+        "title": "Location",
+        "text": "Rua Vítor Cordon 6A, 2675-459 Odivelas, Portugal. Full opening hours are not published without confirmation."
+      },
+      {
+        "title": "Identification and consumer information",
+        "text": "Legal entity name, tax identification, registration information and current contact details must be available before public launch. Registration in the Portuguese electronic complaints book and the competent alternative dispute resolution entity require business confirmation."
+      },
+      {
+        "title": "Content and photographs",
+        "text": "Services are described using supplied information and the company website. Photographs come from the published Móveis Machado archive and are used in this private presentation; reuse permission must be confirmed before public publication."
+      },
+      {
+        "title": "Quotations",
+        "text": "This website does not support online purchases or contracting. Scope, materials, price and conditions are defined in the relevant quotation and agreement."
+      }
+    ],
+    "accessibilitySections": [
+      {
+        "title": "Using the site",
+        "text": "You can navigate with the keyboard, use the skip link, open menus and enlarge photographs. The gallery closes with Escape and supports arrow keys."
+      },
+      {
+        "title": "Preferences and reading",
+        "text": "The site adapts to small screens, includes form labels and respects reduced-motion preferences. It does not rely on animation to convey information."
+      },
+      {
+        "title": "Ongoing improvements",
+        "text": "The WCAG 2.2 AA target is not a certification. Evaluation with assistive technologies and a contact channel to report difficulties must be completed and confirmed before public launch."
+      }
+    ]
+  }
+}
