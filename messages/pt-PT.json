@@ -182,7 +182,7 @@
     "privacyTitle": "Privacidade e dados pessoais",
     "privacyIntro": "Esta versão de apresentação não aceita pedidos online enquanto os canais de contacto e a informação do responsável não estiverem confirmados.",
     "legalTitle": "Informação legal",
-    "legalIntro": "Móveis Machado é a designação comercial apresentada neste site. A identificação jurídica completa e os contactos atuais aguardam confirmação antes do lançamento público.",
+    "legalIntro": "Móveis Machado é a designação comercial apresentada neste site. A identificação jurídica completa e os contactos atuais ainda aguardam confirmação. Esta apresentação não aceita pedidos online.",
     "accessibilityTitle": "Acessibilidade",
     "accessibilityIntro": "Queremos que este site possa ser utilizado por todas as pessoas. O desenho e o desenvolvimento têm como referência as WCAG 2.2, nível AA.",
     "privacySections": [
@@ -192,7 +192,7 @@
       },
       {
         "title": "Prestadores e segurança",
-        "text": "O alojamento desta apresentação é fornecido através de Sites, com infraestrutura Cloudflare. O envio previsto utiliza Resend e a proteção contra abuso utiliza Cloudflare Turnstile. Estes serviços só serão ativados no formulário após configuração e revisão das condições de tratamento e das transferências aplicáveis."
+        "text": "A versão pública é alojada no GitHub Pages; a apresentação privada original utiliza Sites e infraestrutura Cloudflare. O GitHub Pages regista endereços IP dos visitantes para segurança. O formulário está desativado nesta versão estática. O envio preparado para a aplicação com servidor utiliza Resend e proteção Cloudflare Turnstile, sujeitos a configuração e revisão das condições de tratamento e transferências aplicáveis."
       },
       {
         "title": "Conservação e direitos",
@@ -210,7 +210,7 @@
       },
       {
         "title": "Identificação e informação ao consumidor",
-        "text": "A denominação jurídica, NIF/NIPC, dados de registo e contactos atuais deverão estar disponíveis antes do lançamento público. O registo no Livro de Reclamações Eletrónico e a entidade de resolução alternativa de litígios competente precisam de confirmação empresarial."
+        "text": "A denominação jurídica, NIF/NIPC, dados de registo e contactos atuais ainda aguardam confirmação. O registo no Livro de Reclamações Eletrónico e a entidade de resolução alternativa de litígios competente precisam de confirmação empresarial. Estas informações devem ser concluídas para a utilização comercial do site."
       },
       {
         "title": "Conteúdos e fotografias",
@@ -232,7 +232,7 @@
       },
       {
         "title": "Melhoria contínua",
-        "text": "O objetivo WCAG 2.2 AA não equivale a uma certificação. A avaliação com tecnologias de apoio e o contacto para reportar dificuldades devem ser concluídos e confirmados antes do lançamento público."
+        "text": "O objetivo WCAG 2.2 AA não equivale a uma certificação. A avaliação com tecnologias de apoio e o contacto para reportar dificuldades permanecem pendentes."
       }
     ]
   }

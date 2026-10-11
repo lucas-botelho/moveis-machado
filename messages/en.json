@@ -182,7 +182,7 @@
     "privacyTitle": "Privacy and personal information",
     "privacyIntro": "This presentation version does not accept online enquiries until current contact channels and the data controller’s information have been confirmed.",
     "legalTitle": "Legal information",
-    "legalIntro": "Móveis Machado is the trading name shown on this website. Full legal identification and current contact details await confirmation before public launch.",
+    "legalIntro": "Móveis Machado is the trading name shown on this website. Full legal identification and current contact details still await confirmation. This presentation does not accept online enquiries.",
     "accessibilityTitle": "Accessibility",
     "accessibilityIntro": "We want everyone to be able to use this website. Its design and development are guided by WCAG 2.2, Level AA.",
     "privacySections": [
@@ -192,7 +192,7 @@
       },
       {
         "title": "Providers and security",
-        "text": "This presentation is hosted through Sites on Cloudflare infrastructure. Planned email delivery uses Resend and abuse protection uses Cloudflare Turnstile. These services will only be activated for the form after configuration and review of processing terms and applicable transfers."
+        "text": "The public version is hosted on GitHub Pages; the original private presentation uses Sites and Cloudflare infrastructure. GitHub Pages logs visitor IP addresses for security. The form is disabled in this static version. The prepared server application uses Resend for delivery and Cloudflare Turnstile for abuse protection, subject to configuration and review of processing terms and applicable transfers."
       },
       {
         "title": "Retention and rights",
@@ -210,7 +210,7 @@
       },
       {
         "title": "Identification and consumer information",
-        "text": "Legal entity name, tax identification, registration information and current contact details must be available before public launch. Registration in the Portuguese electronic complaints book and the competent alternative dispute resolution entity require business confirmation."
+        "text": "Legal entity name, tax identification, registration information and current contact details still await confirmation. Registration in the Portuguese electronic complaints book and the competent alternative dispute resolution entity require business confirmation. This information must be completed for commercial use of the site."
       },
       {
         "title": "Content and photographs",
@@ -232,7 +232,7 @@
       },
       {
         "title": "Ongoing improvements",
-        "text": "The WCAG 2.2 AA target is not a certification. Evaluation with assistive technologies and a contact channel to report difficulties must be completed and confirmed before public launch."
+        "text": "The WCAG 2.2 AA target is not a certification. Evaluation with assistive technologies and a contact channel to report difficulties remain pending."
       }
     ]
   }
