@@ -172,11 +172,14 @@ try {
     404,
   );
   assert.equal(
-    (
-      await context.request.post(base + prefix + "/api/contact", { data: {} })
-    ).status(),
+    (await context.request.get(base + prefix + "/api/contact")).status(),
     404,
   );
+  const postStatus = (
+    await context.request.post(base + prefix + "/api/contact", { data: {} })
+  ).status();
+  // GitHub Pages rejects all POST methods with 405; the local static server returns 404.
+  assert([404, 405].includes(postStatus));
   const sitemap = await context.request.get(base + prefix + "/sitemap.xml");
   assert.equal((await sitemap.text()).match(/<loc>/g).length, 30);
   await page.goto(base + prefix + "/");
