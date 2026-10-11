@@ -149,7 +149,8 @@ export function PageContent({
     : pagePath(other, page.key as PageKey);
   const m = getMessages(locale);
   const base = business.origin;
-  const businessId = base + "/#business";
+  const siteRoot = base + publicPath("/");
+  const businessId = siteRoot + "#business";
   const schemas: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
@@ -171,9 +172,9 @@ export function PageContent({
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "@id": base + "/#website",
+      "@id": siteRoot + "#website",
       name: business.name,
-      url: base,
+      url: siteRoot,
       inLanguage: ["pt-PT", "en"],
       publisher: { "@id": businessId },
     },

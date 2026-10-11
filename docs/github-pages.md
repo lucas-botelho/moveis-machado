@@ -22,6 +22,10 @@ Editar os mesmos ficheiros de conteúdo e tradução, executar as verificações
 
 Para validar localmente no Windows com Edge, definir PLAYWRIGHT_CHANNEL=msedge antes de npm run test:pages. O teste inicia e termina o seu próprio servidor local. PAGES_TEST_URL permite repetir o mesmo teste contra o site publicado. Relatório local: work/pages-qa/report.json (não versionado).
 
+## Fontes do alojamento
+
+[GitHub Pages e recolha de IP para segurança](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages). [Publicação por Actions e permissões OIDC](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+
 ## Estado
 
-Build estático criado. A confirmação de execução Actions e disponibilidade pública será registada após o deploy.
+Publicação automática confirmada: build e deploy aprovados em https://github.com/lucas-botelho/moveis-machado/actions/runs/38176127421, commit 8003273. As 30 rotas, 30 scans Axe, 12 verificações responsivas e interações passaram no Chromium do GitHub Actions. A compilação do alvo Worker também passou localmente. Ajustes finais de metadata e documentação seguem no commit posterior com publicação automática pelo mesmo workflow.

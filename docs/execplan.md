@@ -19,7 +19,8 @@ Permitir conhecer os serviços, explorar fotografias históricas da empresa e pr
 
 - [x] 2026-10-11: pedido adicional de GitHub/Pages; conta GitHub Free verificada, utilizador autorizou explicitamente repositório público; lucas-botelho/moveis-machado criado público.
 - [x] 2026-10-11: alvo estático com componentes React partilhados e prefixo /moveis-machado implementado; formulário sem endpoint no Pages mantém-se desativado.
-- [ ] 2026-10-11: validar build estático, publicar código, executar Actions e confirmar site público ao vivo.
+- [x] 2026-10-11: build estático e código enviados; Actions 38176127421 concluiu build/deploy com sucesso, 30 rotas, 30 scans Axe, 12 verificações responsivas e jornadas aprovadas.
+- [ ] 2026-10-11: confirmar a revisão final e repetir a verificação contra o endereço público.
 
 ## Surprises & Discoveries
 
@@ -94,3 +95,6 @@ Locale='pt'|'en'; pageKey define equivalentes; Project possui id, categoria, ord
 
 
 2026-10-11: extensão do plano para GitHub Pages. Conta Free não suporta Pages de fonte privada; o utilizador autorizou fonte pública. Não alterar visibilidade do Sites nem DNS. O build Pages pré-renderiza as mesmas páginas com React DOM e hidrata as interações, sem dependência de servidor. Mantém noindex até revisão empresarial/legal e mantém canais desconhecidos vazios. CI valida tipos/lint/testes/conteúdo e faz QA de navegador antes do deploy OIDC GitHub Pages. Repetir workflow permite recuperar; rollback por revert na main. Origem https://lucas-botelho.github.io e prefixo /moveis-machado.
+
+
+2026-10-11: CI/CD externo comprovado no GitHub Actions, não apenas workflow preparado. Build/deploy 38176127421 (8003273) aprovados. Privacidade atualizada para GitHub Pages e recolha de IP de segurança documentada pelo próprio GitHub. Metadata final ajustada para que IDs WebSite/LocalBusiness pertençam à raiz /moveis-machado/, preservando Open Graph/Twitter no alvo estático.
