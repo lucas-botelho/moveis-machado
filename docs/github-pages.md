@@ -28,4 +28,8 @@ Para validar localmente no Windows com Edge, definir PLAYWRIGHT_CHANNEL=msedge a
 
 ## Estado
 
-Publicação automática confirmada: build e deploy aprovados em https://github.com/lucas-botelho/moveis-machado/actions/runs/38176127421, commit 8003273. As 30 rotas, 30 scans Axe, 12 verificações responsivas e interações passaram no Chromium do GitHub Actions. A compilação do alvo Worker também passou localmente. Ajustes finais de metadata e documentação seguem no commit posterior com publicação automática pelo mesmo workflow.
+Publicação final confirmada: build e deploy aprovados em https://github.com/lucas-botelho/moveis-machado/actions/runs/38176345586, commit 6f94375. A execução valida conteúdo, tipos, lint, 15 testes de lógica, 30 rotas, 30 scans Axe, 12 verificações responsivas e jornadas no Chromium.
+
+O endereço público foi testado também no Edge: 30 páginas, 30 scans Axe, 12 verificações responsivas e interações passaram. Depois do deploy final, as 30 páginas responderam HTTP 200 com metadata Twitter e IDs estruturados corretos da raiz /moveis-machado/. Evidência em github-pages-qa.json e github-pages-live-check.json. GET /api/contact retorna 404 e POST retorna 405 no Pages; nenhum pedido é enviado.
+
+A compilação do alvo Worker também passou localmente. Apenas a atualização final de evidências/documentação usa [skip ci], pois não altera a aplicação publicada.

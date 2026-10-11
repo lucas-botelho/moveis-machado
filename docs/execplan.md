@@ -20,7 +20,7 @@ Permitir conhecer os serviços, explorar fotografias históricas da empresa e pr
 - [x] 2026-10-11: pedido adicional de GitHub/Pages; conta GitHub Free verificada, utilizador autorizou explicitamente repositório público; lucas-botelho/moveis-machado criado público.
 - [x] 2026-10-11: alvo estático com componentes React partilhados e prefixo /moveis-machado implementado; formulário sem endpoint no Pages mantém-se desativado.
 - [x] 2026-10-11: build estático e código enviados; Actions 38176127421 concluiu build/deploy com sucesso, 30 rotas, 30 scans Axe, 12 verificações responsivas e jornadas aprovadas.
-- [ ] 2026-10-11: confirmar a revisão final e repetir a verificação contra o endereço público.
+- [x] 2026-10-11: revisão final 6f94375 publicada por Actions 38176345586; browser QA no site público passou e 30 páginas responderam 200 com metadata final correta.
 
 ## Surprises & Discoveries
 
@@ -98,3 +98,6 @@ Locale='pt'|'en'; pageKey define equivalentes; Project possui id, categoria, ord
 
 
 2026-10-11: CI/CD externo comprovado no GitHub Actions, não apenas workflow preparado. Build/deploy 38176127421 (8003273) aprovados. Privacidade atualizada para GitHub Pages e recolha de IP de segurança documentada pelo próprio GitHub. Metadata final ajustada para que IDs WebSite/LocalBusiness pertençam à raiz /moveis-machado/, preservando Open Graph/Twitter no alvo estático.
+
+
+2026-10-11: objetivo GitHub/Pages concluído. Fonte pública autorizada em lucas-botelho/moveis-machado. Deploy final 6f94375, run 38176345586, build/deploy success. Browser Edge no site público: 30 rotas, 30 scans Axe e 12 checks responsivos, com interações aprovadas; verificação HTTP final das 30 páginas confirma metadata e IDs de dados estruturados corretos. Evidências em docs/github-pages-qa.json e docs/github-pages-live-check.json. Atualização final documental [skip ci] não altera a aplicação. Contactos/envio e indexação continuam desativados enquanto dados empresariais e jurídicos estão pendentes.

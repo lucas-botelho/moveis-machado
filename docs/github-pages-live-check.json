@@ -1,0 +1,157 @@
+{
+  "deploymentCommit": "6f94375",
+  "deploymentRun": "https://github.com/lucas-botelho/moveis-machado/actions/runs/38176345586",
+  "pages": [
+    {
+      "path": "en",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/about",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/accessibility",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/bespoke-furniture",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/bespoke-kitchens",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/contact",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/custom-wardrobes",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/interior-doors",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/legal-information",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/privacy",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/projects",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/projects/contemporary-kitchen",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/projects/kitchen-with-island",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/projects/peninsula-kitchen",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "en/projects/white-and-wood-kitchen",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/acessibilidade",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/contactos",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/cozinhas-por-medida",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/informacao-legal",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/moveis-por-medida",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/portas-interiores",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/privacidade",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/projetos",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/projetos/cozinha-branco-madeira",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/projetos/cozinha-com-ilha",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/projetos/cozinha-com-peninsula",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/projetos/cozinha-linhas-contemporaneas",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/roupeiros-por-medida",
+      "status": 200,
+      "finalMetadata": true
+    },
+    {
+      "path": "pt/sobre-nos",
+      "status": 200,
+      "finalMetadata": true
+    }
+  ],
+  "passed": true
+}
