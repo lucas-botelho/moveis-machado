@@ -217,6 +217,9 @@ a {
 }
 .brand-mark-front {
   fill: var(--primary);
+  stroke: var(--background);
+  stroke-width: 2;
+  paint-order: stroke fill;
 }
 .brand-name {
   display: block;
