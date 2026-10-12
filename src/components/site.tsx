@@ -18,6 +18,7 @@ function Brand() {
         <path className="brand-mark-back" d="M2 42 10 9l8 12 8-18 11 39-7 2-7-26-5 13-7-10-4 23z" />
         <path
           className="brand-mark-front"
+          transform="translate(-4 0)"
           d="m29 47 8-30 8 13 9-22 14 37-8 2-7-24-6 14-6-10-4 21z"
         />
       </svg>
