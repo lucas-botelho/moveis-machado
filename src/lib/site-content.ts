@@ -1,6 +1,6 @@
-import walnut from "@/assets/kitchen-walnut.jpg";
-import island from "@/assets/kitchen-island.jpg";
-import contemporary from "@/assets/kitchen-contemporary.jpg";
+import walnut from "@/assets/kitchen-walnut.webp";
+import island from "@/assets/kitchen-island.webp";
+import contemporary from "@/assets/kitchen-contemporary.webp";
 export type Language = "pt" | "en";
 export function resolveLanguage(value: unknown): Language {
   return value === "en" ? "en" : "pt";
