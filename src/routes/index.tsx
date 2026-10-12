@@ -19,9 +19,10 @@ export const Route = createFileRoute("/")({
           "Cozinhas e mobiliário por medida",
           "Mais de 40 anos de experiência em cozinhas, roupeiros e mobiliário por medida. Fabrico próprio em Odivelas, Grande Lisboa.",
         ),
-  component: Index,
+  component: HomePage,
 });
-function Index() {
+
+export function HomePage() {
   return (
     <main>
       <Hero />

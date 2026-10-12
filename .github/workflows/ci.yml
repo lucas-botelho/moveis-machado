@@ -23,5 +23,35 @@ jobs:
           bun-version: latest
       - run: bun install --frozen-lockfile
       - run: bun run lint
-      - run: bun run test
       - run: bun run build
+        env:
+          PAGES_BASE_PATH: /moveis-machado
+      - name: Verify GitHub Pages files
+        run: |
+          test -s dist/client/index.html
+          test -s dist/client/pt/index.html
+          test -s dist/client/about/index.html
+          test -s dist/client/contact/index.html
+          test -s dist/client/projects/index.html
+          test -s dist/client/services/index.html
+          test -f dist/client/.nojekyll
+      - run: bun run test
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: dist/client
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: validate
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy validated app
+        id: deployment
+        uses: actions/deploy-pages@v4

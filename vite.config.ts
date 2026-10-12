@@ -6,10 +6,44 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const pagesBasePath = process.env.PAGES_BASE_PATH?.replace(/\/+$/, "") ?? "";
+const publicBase = pagesBasePath ? `${pagesBasePath}/` : "/";
+
 export default defineConfig({
+  vite: {
+    base: publicBase,
+  },
+  nitro: false,
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    router: { basepath: pagesBasePath || "/" },
+    prerender: {
+      enabled: true,
+      autoStaticPathsDiscovery: false,
+      crawlLinks: true,
+      failOnError: true,
+    },
+    pages: [
+      { path: `${pagesBasePath}/`, prerender: { enabled: true, outputPath: "/index.html" } },
+      { path: `${pagesBasePath}/pt`, prerender: { enabled: true, outputPath: "/pt/index.html" } },
+      {
+        path: `${pagesBasePath}/about`,
+        prerender: { enabled: true, outputPath: "/about/index.html" },
+      },
+      {
+        path: `${pagesBasePath}/contact`,
+        prerender: { enabled: true, outputPath: "/contact/index.html" },
+      },
+      {
+        path: `${pagesBasePath}/projects`,
+        prerender: { enabled: true, outputPath: "/projects/index.html" },
+      },
+      {
+        path: `${pagesBasePath}/services`,
+        prerender: { enabled: true, outputPath: "/services/index.html" },
+      },
+    ],
   },
 });

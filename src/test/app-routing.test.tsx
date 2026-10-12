@@ -14,4 +14,16 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("matches the Portuguese landing page at the GitHub Pages subpath", () => {
+    const router = createRouter({
+      routeTree,
+      basepath: "/moveis-machado",
+      context: { queryClient: new QueryClient() },
+    });
+
+    const matches = router.matchRoutes("/moveis-machado/pt/");
+
+    expect(matches.at(-1)?.routeId).toBe("/pt");
+  });
 });
