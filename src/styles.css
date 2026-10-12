@@ -218,9 +218,6 @@ a {
 .brand-mark-front {
   fill: var(--primary);
 }
-.brand-mark-detail {
-  fill: var(--background);
-}
 .brand-name {
   display: block;
   font-family: var(--font-display);
