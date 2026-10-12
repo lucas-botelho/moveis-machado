@@ -14,12 +14,14 @@ function Brand() {
   const lang = useLanguage();
   return (
     <Link to="/" search={{ lang }} className="brand">
-      <svg className="brand-mark" viewBox="0 0 72 50" aria-hidden="true" focusable="false">
-        <path className="brand-mark-back" d="M2 42 10 9l8 12 8-18 11 39-7 2-7-26-5 13-7-10-4 23z" />
+      <svg className="brand-mark" viewBox="0 0 108 100" aria-hidden="true" focusable="false">
+        <path
+          className="brand-mark-back"
+          d="M2 76 18 18 34 35 51 7 74 64 60 73 51 49 37 65 24 50 17 79z"
+        />
         <path
           className="brand-mark-front"
-          transform="translate(-4 0)"
-          d="m29 47 8-30 8 13 9-22 14 37-8 2-7-24-6 14-6-10-4 21z"
+          d="M28 96 43 47 58 63 76 34 106 91 87 98 76 72 60 89 48 73 40 99z"
         />
       </svg>
       <span>
