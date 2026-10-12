@@ -22,8 +22,9 @@ describe("App routing", () => {
       context: { queryClient: new QueryClient() },
     });
 
-    const matches = router.matchRoutes("/moveis-machado/pt/");
+    const matches = router.matchRoutes("/pt/");
 
     expect(matches.at(-1)?.routeId).toBe("/pt");
+    expect(router.buildLocation({ to: "/pt" }).href).toBe("/moveis-machado/pt");
   });
 });
