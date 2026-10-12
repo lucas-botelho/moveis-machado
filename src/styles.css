@@ -205,10 +205,21 @@ a {
   gap: 13px;
   flex-shrink: 0;
 }
-.brand img {
+.brand-mark {
+  display: block;
   width: 49px;
   height: 40px;
-  object-fit: contain;
+  flex: none;
+  overflow: visible;
+}
+.brand-mark-back {
+  fill: var(--detail);
+}
+.brand-mark-front {
+  fill: var(--primary);
+}
+.brand-mark-detail {
+  fill: var(--background);
 }
 .brand-name {
   display: block;
@@ -829,7 +840,7 @@ a {
 .site-footer .brand-name {
   font-size: 36px;
 }
-.site-footer .brand img {
+.site-footer .brand-mark {
   width: 60px;
   height: 48px;
 }
@@ -1023,8 +1034,9 @@ a {
   .brand-name {
     font-size: 25px;
   }
-  .brand img {
+  .brand-mark {
     width: 40px;
+    height: 35px;
   }
   .header-enquiry {
     display: none;

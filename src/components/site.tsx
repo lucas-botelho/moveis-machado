@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowDown, Menu, X, Ruler, Hammer, MapPin, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mark from "@/assets/brand-mark.png.asset.json";
 import heroImage from "@/assets/interior-hero.jpg";
 import materialImage from "@/assets/material-study.jpg";
 import { content, projects, facebookUrl, mapsUrl, type Language } from "@/lib/site-content";
@@ -15,7 +14,17 @@ function Brand() {
   const lang = useLanguage();
   return (
     <Link to="/" search={{ lang }} className="brand">
-      <img src={mark.url} alt="" width={49} height={40} />
+      <svg className="brand-mark" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
+        <path
+          className="brand-mark-back"
+          d="M3 36.5 10.7 9l9.1 14.2L29.1 5l8.2 29.8-6.1 2.1-4.3-16.3-7.4 11.1-7.1-10.9-3.5 17.3z"
+        />
+        <path
+          className="brand-mark-front"
+          d="m17.1 42.2 7.1-22.9 8.4 12.2L42 12.4l10.2 29.2-6.6 2.2-5.8-17.2-7.1 12.1-7.2-10.5-2.4 14.1z"
+        />
+        <path className="brand-mark-detail" d="m25.8 30.1 3.9-12.8 5.3 7.8-4.6 8.3z" />
+      </svg>
       <span>
         <span className="brand-name">Móveis Machado</span>
         <span className="brand-tagline">{content[lang].tagline}</span>
