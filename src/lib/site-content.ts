@@ -1,14 +1,14 @@
-import walnut from "@/assets/kitchen-walnut.webp.asset.json";
-import island from "@/assets/kitchen-island.webp.asset.json";
-import gloss from "@/assets/kitchen-gloss.webp.asset.json";
+import walnut from "@/assets/kitchen-walnut.jpg";
+import island from "@/assets/kitchen-island.jpg";
+import contemporary from "@/assets/kitchen-contemporary.jpg";
 export type Language = "pt" | "en";
 export function resolveLanguage(value: unknown): Language {
   return value === "en" ? "en" : "pt";
 }
 export const projects = [
-  { image: island.url, pt: "Cozinha com ilha", en: "Kitchen with an island" },
-  { image: walnut.url, pt: "Branco e madeira", en: "White & walnut" },
-  { image: gloss.url, pt: "Linhas contemporâneas", en: "Contemporary lines" },
+  { image: island, pt: "Cozinha com ilha", en: "Kitchen with an island" },
+  { image: walnut, pt: "Branco e madeira", en: "White & walnut" },
+  { image: contemporary, pt: "Linhas contemporâneas", en: "Contemporary lines" },
 ];
 export const content = {
   pt: {
