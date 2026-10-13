@@ -202,7 +202,7 @@ export function ServicesPreview() {
     </section>
   );
 }
-export function ProjectGrid({ editorial = false }: { editorial?: boolean }) {
+export function ProjectGrid() {
   const lang = useLanguage();
   const t = content[lang];
   const [selected, setSelected] = useState<number | null>(null);
@@ -222,7 +222,7 @@ export function ProjectGrid({ editorial = false }: { editorial?: boolean }) {
   }, [selected]);
   return (
     <>
-      <div className={`project-grid ${editorial ? "project-grid-editorial" : ""}`}>
+      <div className="project-grid">
         {projects.map((p, i) => (
           <article key={p.pt}>
             <Button
@@ -283,7 +283,7 @@ export function ProjectsPreview() {
           {t.projectsLink}
         </Link>
       </div>
-      <ProjectGrid editorial />
+      <ProjectGrid />
     </section>
   );
 }
