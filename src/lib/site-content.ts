@@ -75,10 +75,10 @@ export const content = {
     directions: "Como chegar",
     rights: "Todos os direitos reservados.",
     contactTitle: "Contactos e orçamentos.",
-    contactIntro: "Visite-nos em Odivelas ou fale connosco através do Facebook.",
+    contactIntro: "Visite-nos em Odivelas ou fale connosco pelo WhatsApp.",
     contactSub: "Odivelas e Grande Lisboa.",
     contactCopy: "Trabalhamos principalmente em Lisboa, Odivelas e na região envolvente.",
-    facebook: "Falar pelo Facebook",
+    whatsapp: "Falar pelo WhatsApp",
     prepare: "Como preparar o seu projeto?",
     prepareCopy:
       "Reúna medidas aproximadas, fotografias do espaço e referências do que pretende. O prazo e o valor dependem do âmbito, dos materiais e das condições do projeto.",
@@ -156,10 +156,10 @@ export const content = {
     directions: "Get directions",
     rights: "All rights reserved.",
     contactTitle: "Contact and quotes.",
-    contactIntro: "Visit us in Odivelas or get in touch through Facebook.",
+    contactIntro: "Visit us in Odivelas or message us on WhatsApp.",
     contactSub: "Odivelas and Greater Lisbon.",
     contactCopy: "We work mainly in Lisbon, Odivelas and the surrounding area.",
-    facebook: "Talk to us on Facebook",
+    whatsapp: "Message us on WhatsApp",
     prepare: "How can I prepare for my project?",
     prepareCopy:
       "Gather approximate measurements, photographs of the space and references for what you have in mind. Timing and cost depend on the scope, materials and conditions of the project.",
@@ -173,7 +173,7 @@ export const content = {
     aboutIntro: "We are based in Odivelas and work across Lisbon and the surrounding area.",
   },
 };
-export const facebookUrl = "https://www.facebook.com/MoveisdeCozinhaPorMedida/";
+export const whatsappUrl = "https://wa.me/351933776729";
 export const mapsUrl = "https://share.google/uK5M3YaRHoAcBMNPD";
 export const mapsEmbedUrl =
   "https://www.google.com/maps?q=Rua+V%C3%ADtor+Cordon+6A,+2675-459+Odivelas,+Portugal&output=embed";

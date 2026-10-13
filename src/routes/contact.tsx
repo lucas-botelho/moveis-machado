@@ -2,17 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { useLanguage, PageHeading, Eyebrow } from "@/components/site";
 import { Button } from "@/components/ui/button";
-import { content, pageMeta, facebookUrl, mapsUrl, mapsEmbedUrl } from "@/lib/site-content";
+import { content, pageMeta, whatsappUrl, mapsUrl, mapsEmbedUrl } from "@/lib/site-content";
 export const Route = createFileRoute("/contact")({
   head: ({ match }) =>
     match.search.lang === "en"
       ? pageMeta(
           "Contact & quotes",
-          "Start your bespoke furniture project with Móveis Machado. Visit us at Rua Vítor Cordon 6A, Odivelas, or contact us on Facebook.",
+          "Start your bespoke furniture project with Móveis Machado. Visit us at Rua Vítor Cordon 6A, Odivelas, or message us on WhatsApp.",
         )
       : pageMeta(
           "Contactos e orçamentos",
-          "Comece o seu projeto com a Móveis Machado. Visite-nos na Rua Vítor Cordon 6A, Odivelas, ou fale connosco através do Facebook.",
+          "Comece o seu projeto com a Móveis Machado. Visite-nos na Rua Vítor Cordon 6A, Odivelas, ou fale connosco pelo WhatsApp.",
         ),
   component: Contact,
 });
@@ -28,8 +28,8 @@ function Contact() {
           <h2 className="section-title">{t.contactSub}</h2>
           <p className="body-copy">{t.contactCopy}</p>
           <Button variant="luxury" asChild>
-            <a href={facebookUrl} target="_blank" rel="noreferrer">
-              {t.facebook}
+            <a href={whatsappUrl} target="_blank" rel="noreferrer">
+              {t.whatsapp}
               <ArrowUpRight />
             </a>
           </Button>
