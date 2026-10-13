@@ -2,6 +2,12 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { SITE_URL } from "./lib/seo";
+import {
+  createRobotsTxt,
+  createSitemapXml,
+  getLegacyPortugueseRedirectUrl,
+} from "./lib/seo-shared";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -47,6 +53,27 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const requestPath = new URL(request.url).pathname.replace(/\/+$/, "");
+      if (requestPath.endsWith("/sitemap.xml")) {
+        return new Response(createSitemapXml(SITE_URL), {
+          headers: { "content-type": "application/xml; charset=utf-8" },
+        });
+      }
+
+      if (requestPath.endsWith("/robots.txt")) {
+        return new Response(createRobotsTxt(SITE_URL), {
+          headers: { "content-type": "text/plain; charset=utf-8" },
+        });
+      }
+
+      const legacyPortugueseUrl = getLegacyPortugueseRedirectUrl(request.url);
+      if (legacyPortugueseUrl) {
+        return new Response(null, {
+          status: 308,
+          headers: { location: legacyPortugueseUrl },
+        });
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);

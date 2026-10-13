@@ -5,13 +5,15 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { seoFilesPlugin } from "./build/seo-files";
 
-const pagesBasePath = process.env.PAGES_BASE_PATH?.replace(/\/+$/, "") ?? "";
+const pagesBasePath = process.env["PAGES_BASE_PATH"]?.replace(/\/+$/, "") ?? "";
 const publicBase = pagesBasePath ? `${pagesBasePath}/` : "/";
 
 export default defineConfig({
   vite: {
     base: publicBase,
+    plugins: [seoFilesPlugin()],
   },
   nitro: false,
   tanstackStart: {

@@ -15,7 +15,7 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 
-  it("matches the Portuguese landing page at the GitHub Pages subpath", () => {
+  it("keeps the legacy Portuguese route matchable so its redirect can run", () => {
     const router = createRouter({
       routeTree,
       basepath: "/moveis-machado",
@@ -25,6 +25,8 @@ describe("App routing", () => {
     const matches = router.matchRoutes("/pt/");
 
     expect(matches.at(-1)?.routeId).toBe("/pt");
-    expect(router.buildLocation({ to: "/pt" }).href).toBe("/moveis-machado/pt");
+    expect(router.buildLocation({ to: "/pt", search: { lang: "pt" } }).href).toBe(
+      "/moveis-machado/pt?lang=pt",
+    );
   });
 });
