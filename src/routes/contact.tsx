@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { useLanguage, PageHeading, Eyebrow } from "@/components/site";
 import { Button } from "@/components/ui/button";
-import { content, pageMeta, facebookUrl, mapsUrl } from "@/lib/site-content";
+import { content, pageMeta, facebookUrl, mapsUrl, mapsEmbedUrl } from "@/lib/site-content";
 export const Route = createFileRoute("/contact")({
   head: ({ match }) =>
     match.search.lang === "en"
@@ -56,6 +56,18 @@ function Contact() {
             {t.directions}
             <ArrowUpRight />
           </a>
+          <iframe
+            className="contact-map"
+            src={mapsEmbedUrl}
+            title={
+              lang === "pt"
+                ? "Mapa da Móveis Machado em Odivelas"
+                : "Map to Móveis Machado in Odivelas"
+            }
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
         </div>
       </section>
     </main>

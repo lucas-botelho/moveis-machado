@@ -899,6 +899,14 @@ a {
   line-height: 2;
   margin-bottom: 25px;
 }
+.contact-map {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  margin-top: 28px;
+  border: 0;
+}
 .faq {
   padding-top: 15px;
   border-top: 1px solid var(--border);

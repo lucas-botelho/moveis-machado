@@ -175,6 +175,8 @@ export const content = {
 };
 export const facebookUrl = "https://www.facebook.com/MoveisdeCozinhaPorMedida/";
 export const mapsUrl = "https://share.google/uK5M3YaRHoAcBMNPD";
+export const mapsEmbedUrl =
+  "https://www.google.com/maps?q=Rua+V%C3%ADtor+Cordon+6A,+2675-459+Odivelas,+Portugal&output=embed";
 export function pageMeta(title: string, description: string) {
   return {
     meta: [
