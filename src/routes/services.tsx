@@ -5,12 +5,12 @@ export const Route = createFileRoute("/services")({
   head: ({ match }) =>
     match.search.lang === "en"
       ? pageMeta(
-          "Our bespoke solutions",
-          "Bespoke kitchens, custom wardrobes, furniture and interior doors. Designed and made in our own workshop in Odivelas.",
+          "Our services",
+          "Kitchens, wardrobes and furniture made to measure in our Odivelas workshop. From design to installation.",
         )
       : pageMeta(
           "O que fazemos",
-          "Cozinhas, roupeiros, móveis por medida e portas interiores. Soluções de fabrico próprio pensadas para o seu espaço.",
+          "Fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas. Do desenho à instalação.",
         ),
   component: Services,
 });
@@ -23,7 +23,6 @@ function Services() {
       <section className="section">
         {t.services.map((s, i) => (
           <article className="service-detail" key={s}>
-            <span>0{i + 1}</span>
             <h2>{s}</h2>
             <p>{t.serviceLong[i]}</p>
           </article>

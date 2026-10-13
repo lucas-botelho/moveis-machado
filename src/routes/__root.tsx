@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter } from "@/components/site";
 import { resolveLanguage } from "@/lib/site-content";
+import brandMark from "@/assets/brand-mark.svg?url&no-inline";
+import brandIcon from "@/assets/brand-mark-32.png?url&no-inline";
 
 function NotFoundComponent() {
   return (
@@ -51,9 +53,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
           This page didn't load
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">Try again or return to the home page.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -100,7 +100,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "icon", href: brandIcon, type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: brandMark, type: "image/svg+xml", sizes: "any" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&display=swap",

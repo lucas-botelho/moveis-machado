@@ -4,6 +4,7 @@ import { ArrowUpRight, ArrowDown, Menu, X, Ruler, Hammer, MapPin, BadgeCheck } f
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/interior-hero.jpg";
 import materialImage from "@/assets/material-study.jpg";
+import brandMark from "@/assets/brand-mark.svg?url&no-inline";
 import { content, projects, facebookUrl, mapsUrl, type Language } from "@/lib/site-content";
 export function useLanguage() {
   const search = useSearch({ from: "__root__" });
@@ -14,16 +15,14 @@ function Brand() {
   const lang = useLanguage();
   return (
     <Link to="/" search={{ lang }} className="brand">
-      <svg className="brand-mark" viewBox="0 0 108 100" aria-hidden="true" focusable="false">
-        <path
-          className="brand-mark-back"
-          d="M2 76 18 18 34 35 51 7 74 64 60 73 51 49 37 65 24 50 17 79z"
-        />
-        <path
-          className="brand-mark-front"
-          d="M28 96 43 47 58 63 76 34 106 91 87 98 76 72 60 89 48 73 40 99z"
-        />
-      </svg>
+      <img
+        className="brand-mark"
+        src={brandMark}
+        alt=""
+        aria-hidden="true"
+        width={108}
+        height={100}
+      />
       <span>
         <span className="brand-name">Móveis Machado</span>
         <span className="brand-tagline">{content[lang].tagline}</span>
@@ -155,9 +154,7 @@ export function Hero() {
             {t.scroll}
           </a>
           <span className="hero-image-label">
-            {lang === "pt"
-              ? "Espaços para viver. Peças para ficar."
-              : "Spaces to live in. Pieces to keep."}
+            {lang === "pt" ? "Imagem de inspiração" : "Inspiration image"}
           </span>
         </div>
       </section>
@@ -201,7 +198,6 @@ export function ServicesPreview() {
         {t.services.map((name, i) => (
           <Link to="/services" search={{ lang }} className="service-item" key={name}>
             <div className="service-top">
-              <span>0{i + 1}</span>
               <ArrowUpRight />
             </div>
             <h3>{name}</h3>
@@ -251,7 +247,6 @@ export function ProjectGrid({ editorial = false }: { editorial?: boolean }) {
                 <h3>{p[lang]}</h3>
                 <p>{t.category}</p>
               </div>
-              <span className="project-number">0{i + 1}</span>
             </div>
           </article>
         ))}
@@ -288,10 +283,6 @@ export function ProjectsPreview() {
   const t = content[lang];
   return (
     <section className="section projects-section">
-      <div className="section-chapter">
-        <span>01 / {t.projectsLabel}</span>
-        <span>MÓVEIS MACHADO</span>
-      </div>
       <div className="section-heading">
         <div>
           <Eyebrow>{t.projectsLabel}</Eyebrow>
@@ -341,8 +332,8 @@ export function Story({ full = false }: { full?: boolean }) {
           height={1024}
         />
         <figcaption>
-          {lang === "pt" ? "A beleza começa na matéria." : "Beauty begins with the material."}
-          <span>02 / {lang === "pt" ? "MATÉRIA & DETALHE" : "MATERIAL & DETAIL"}</span>
+          {lang === "pt" ? "Estudo de materiais" : "Material study"}
+          <span>{lang === "pt" ? "Imagem de inspiração" : "Inspiration image"}</span>
         </figcaption>
       </figure>
       <div className="story-stats">
@@ -356,7 +347,6 @@ export function Story({ full = false }: { full?: boolean }) {
           <strong>{t.own}</strong>
           <span>{t.ownSub}</span>
         </div>
-        <span className="story-stat-note">{t.made}</span>
       </div>
     </section>
   );
@@ -386,7 +376,6 @@ export function Process() {
       <div className="process-grid">
         {t.steps.map((s, i) => (
           <div className="process-item" key={s}>
-            <span>0{i + 1}</span>
             <div>
               <h3>{s}</h3>
               <p>{t.stepCopy[i]}</p>
@@ -487,7 +476,6 @@ export function SiteFooter() {
         <span>
           © {new Date().getFullYear()} Móveis Machado. {t.rights}
         </span>
-        <span>{t.made}</span>
       </div>
     </footer>
   );

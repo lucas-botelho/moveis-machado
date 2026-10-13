@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
     match.search.lang === "en"
       ? pageMeta(
           "Bespoke kitchens & furniture",
-          "Over 40 years creating bespoke kitchens, wardrobes and furniture in Odivelas, Greater Lisbon. Made for your home, designed for your life.",
+          "Over 40 years making kitchens, wardrobes and furniture to measure in Odivelas, Greater Lisbon. From design to installation.",
         )
       : pageMeta(
           "Cozinhas e mobiliário por medida",

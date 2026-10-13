@@ -6,11 +6,11 @@ export const Route = createFileRoute("/about")({
     match.search.lang === "en"
       ? pageMeta(
           "Our story",
-          "Discover Móveis Machado: over 40 years of craftsmanship and bespoke furniture manufacturing in Odivelas.",
+          "Móveis Machado: over 40 years making kitchens, wardrobes and furniture to measure in Odivelas.",
         )
       : pageMeta(
           "A nossa história",
-          "Mais de 40 anos de saber-fazer. Conheça a Móveis Machado, especialista em mobiliário por medida de fabrico próprio em Odivelas.",
+          "Móveis Machado: mais de 40 anos de fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas.",
         ),
   component: About,
 });
@@ -19,7 +19,7 @@ function About() {
   const t = content[lang];
   return (
     <main>
-      <PageHeading label={t.storyLabel} title={t.storyTitle} description={t.aboutIntro} />
+      <PageHeading label="MÓVEIS MACHADO" title={t.nav[3]} description={t.aboutIntro} />
       <Story full />
       <Process />
       <ContactBand />
