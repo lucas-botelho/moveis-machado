@@ -173,6 +173,7 @@ export const content = {
     aboutIntro: "We are based in Odivelas and work across Lisbon and the surrounding area.",
   },
 };
+export const facebookUrl = "https://www.facebook.com/MoveisdeCozinhaPorMedida/";
 export const whatsappUrl = "https://wa.me/351933776729";
 export const mapsUrl = "https://share.google/uK5M3YaRHoAcBMNPD";
 export const mapsEmbedUrl =
