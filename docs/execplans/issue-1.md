@@ -18,7 +18,7 @@ O requisito aprovado é a issue GitHub #1, https://github.com/lucas-botelho/move
 - [x] (2026-10-13 19:50 WEST) Resolver `/pt`, gerar sitemap/robots e confirmar estado 404 real.
 - [x] (2026-10-13 19:50 WEST) Adicionar testes de canonical, hreflang, sitemap, idioma e routing.
 - [x] (2026-10-13 19:51 WEST) Executar testes, lint e build; fazer QA do HTML/HTTP produzido.
-- [ ] Atualizar este plano, issue e PR com evidência; integrar quando todos os gates passarem.
+- [ ] (2026-10-13 19:56 WEST) Plano, issue e PR atualizados; CI #36 passou. Integração aguarda autorização porque o merge inicia deployment automático em GitHub Pages.
 
 ## Surprises & Discoveries
 
@@ -45,7 +45,7 @@ O requisito aprovado é a issue GitHub #1, https://github.com/lucas-botelho/move
 
 ## Outcomes & Retrospective
 
-A fundação técnica está implementada e validada localmente. Canonicals e alternates são emitidos no HTML SSR para PT e EN, parâmetros irrelevantes são excluídos do canonical, sitemap e robots existem tanto como assets de build como respostas SSR, `/pt` devolve 308 no runtime e a página desconhecida normalizada devolve 404. Restam commit, publicação, PR, checks e integração.
+A fundação técnica está implementada e validada localmente e em CI. Canonicals e alternates são emitidos no HTML SSR para PT e EN, parâmetros irrelevantes são excluídos do canonical, sitemap e robots existem tanto como assets de build como respostas SSR, `/pt` devolve 308 no runtime e a página desconhecida normalizada devolve 404. O PR #8 está aberto, sem conflitos, sem reviews ou threads pendentes e com CI aprovado. Resta autorização para integrar, pois o workflow de `main` publica automaticamente no GitHub Pages.
 
 ## Context and Orientation
 
@@ -118,6 +118,7 @@ Evidência observada:
     GET /sitemap.xml: 200 application/xml
     GET /pt: 308 para https://example.com/?lang=pt
     GET /nao-existe?lang=pt: 404 text/html
+    GitHub Actions Validate Lovable app #36: success
 
 O sitemap final tem 10 entradas (`5 rotas x 2 idiomas`) e 30 links alternativos (`3 por entrada`), sem `/pt`.
 
