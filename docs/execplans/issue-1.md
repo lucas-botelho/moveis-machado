@@ -27,6 +27,7 @@ O requisito aprovado é a issue GitHub #1, https://github.com/lucas-botelho/move
 - A rota `/pt` é atualmente prerenderizada e duplica a homepage, enquanto as variantes de idioma usam `?lang=pt|en`.
 - O prerender estático segue o redirecionamento de `/pt` e grava uma cópia da homepage no caminho legado. Essa cópia contém canonical para `/?lang=pt` e não entra no sitemap; no runtime SSR, o wrapper devolve 308 antes do router.
 - Um URL inexistente sem `lang` é primeiro normalizado pelo router com 307 para `?lang=pt`; o URL normalizado devolve 404 real. Esta normalização é comportamento preexistente do search validator.
+- O primeiro CI do PR falhou ao prerenderizar `/moveis-machado/pt`: o redirecionamento removia também a barra final do base path e o destino `/moveis-machado?lang=pt` devolvia 404. A recuperação preserva agora `/moveis-machado/?lang=pt` e fica coberta por teste.
 
 ## Decision Log
 
@@ -109,6 +110,7 @@ Evidência observada:
     bunx tsc --noEmit: sucesso, sem diagnósticos
     bun run lint final: 0 erros, os mesmos 7 avisos preexistentes
     bun run build final fora da sandbox: sucesso; 1922 módulos client e 81 módulos SSR transformados
+    PAGES_BASE_PATH=/moveis-machado bun run build: sucesso após correção; 11 páginas prerenderizadas
     GET /contact?lang=pt: 200, html lang pt-PT, canonical PT e hreflang
     GET /contact?lang=en: 200, html lang en, canonical EN e hreflang
     GET /contact?lang=pt&utm_source=test: 200, canonical sem parâmetro irrelevante
@@ -130,3 +132,5 @@ O sitemap final tem 10 entradas (`5 rotas x 2 idiomas`) e 30 links alternativos 
 2026-10-13: plano inicial criado após inspeção da issue, arquitetura, testes, configuração de build e comportamento baseline. Registado o bloqueio `EPERM` da sandbox para não o confundir com regressão da implementação.
 
 2026-10-13: atualizado após implementação e QA. Registados o comportamento distinto de `/pt` em prerender e SSR, a normalização 307 dos URLs sem `lang` e toda a evidência final disponível antes do PR.
+
+2026-10-13: revisto após o primeiro CI do PR. Corrigido o destino do redirect quando existe `PAGES_BASE_PATH` e acrescentada validação local com o mesmo ambiente do workflow.

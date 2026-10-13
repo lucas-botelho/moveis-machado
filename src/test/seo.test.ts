@@ -73,7 +73,7 @@ describe("legacy Portuguese URL", () => {
       "https://example.com/?lang=pt",
     );
     expect(getLegacyPortugueseRedirectUrl("https://example.com/moveis-machado/pt/")).toBe(
-      "https://example.com/moveis-machado?lang=pt",
+      "https://example.com/moveis-machado/?lang=pt",
     );
     expect(getLegacyPortugueseRedirectUrl("https://example.com/projects?lang=pt")).toBeUndefined();
   });

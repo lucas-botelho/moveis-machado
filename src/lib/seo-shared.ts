@@ -96,7 +96,8 @@ export function getLegacyPortugueseRedirectUrl(requestUrl: string): string | und
 
   if (!pathname.endsWith("/pt")) return undefined;
 
-  url.pathname = pathname.slice(0, -3) || "/";
+  const deploymentBase = pathname.slice(0, -3);
+  url.pathname = deploymentBase ? `${deploymentBase}/` : "/";
   url.search = new URLSearchParams({ lang: "pt" }).toString();
   url.hash = "";
   return url.toString();
