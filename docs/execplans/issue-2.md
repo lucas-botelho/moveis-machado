@@ -18,7 +18,9 @@ O requisito aprovado é a issue GitHub #2, https://github.com/lucas-botelho/move
 - [x] (2026-10-13 22:49 WEST) Atualizar ligações internas, sitemap/prerender e apresentação responsiva.
 - [x] (2026-10-13 22:49 WEST) Adicionar testes de routing, conteúdo bilingue, unicidade de metadados e links preservando `lang`.
 - [x] (2026-10-13 22:49 WEST) Executar typecheck, testes, lint, build normal e build com base path de GitHub Pages.
-- [ ] Rever critérios, publicar branch, abrir PR, verificar gates; integrar depois da revisão editorial exigida pela issue.
+- [x] (2026-10-13 22:51 WEST) Publicar `codex/issue-2-service-pages` e abrir o PR #9 em rascunho.
+- [x] (2026-10-13 22:51 WEST) CI do PR #9 concluiu com sucesso (run #41).
+- [ ] Obter revisão editorial do responsável e só então finalizar o PR/integrar.
 
 ## Surprises & Discoveries
 
@@ -44,7 +46,7 @@ O requisito aprovado é a issue GitHub #2, https://github.com/lucas-botelho/move
 
 ## Outcomes & Retrospective
 
-A implementação local está completa e os builds produziram as três páginas com H1/title únicos e links internos em PT/EN. Ainda falta a revisão editorial pelo responsável da Móveis Machado, requerida explicitamente antes da publicação, e os gates remotos de PR/CI. Não integrar nem fechar a issue até essa revisão estar registada.
+A implementação local e o CI do PR estão completos; os builds produziram as três páginas com H1/title únicos e links internos em PT/EN. Falta a revisão editorial pelo responsável da Móveis Machado, requerida explicitamente antes da publicação. O PR #9 permanece em rascunho e a issue #2 continua aberta até essa revisão estar registada.
 
 ## Context and Orientation
 
@@ -108,6 +110,7 @@ Baseline observado:
     lint: bun run lint — 0 erros; 7 avisos preexistentes de Fast Refresh
     builds: bun run build — sucesso; PAGES_BASE_PATH=/moveis-machado bun run build — sucesso
     HTML dos três serviços: lang=pt-PT; title/H1 distintos; 1 canonical; 3 alternates; assets com base path correto
+    PR #9: aberto em rascunho, mergeable=true; GitHub Actions Validate Lovable app #41: success
 
 ## Interfaces and Dependencies
 
@@ -117,4 +120,4 @@ Baseline observado:
 
 2026-10-13: plano inicial criado depois de confirmar a issue #2 e inspecionar a arquitetura, conteúdo, rotas, testes, sitemap e configuração de prerender.
 
-2026-10-13: registada implementação e validação local, incluindo a correção da relação layout/rotas filhas; a integração permanece condicionada pela revisão editorial explicitamente pedida nos critérios da issue.
+2026-10-13: registada implementação, validação local e CI bem-sucedidos, incluindo a correção da relação layout/rotas filhas; a integração permanece condicionada pela revisão editorial explicitamente pedida nos critérios da issue.
