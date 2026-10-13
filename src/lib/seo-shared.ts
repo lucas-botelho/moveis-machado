@@ -2,7 +2,16 @@ export type SeoLanguage = "pt" | "en";
 
 export const DEFAULT_SITE_URL = "https://artisan-ambiance-hub.lovable.app";
 
-export const PUBLIC_PATHS = ["/", "/services", "/projects", "/about", "/contact"] as const;
+export const PUBLIC_PATHS = [
+  "/",
+  "/services",
+  "/services/kitchens",
+  "/services/wardrobes",
+  "/services/furniture",
+  "/projects",
+  "/about",
+  "/contact",
+] as const;
 
 export type PublicPath = (typeof PUBLIC_PATHS)[number];
 

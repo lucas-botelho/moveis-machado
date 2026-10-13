@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { pageMeta } from "@/lib/site-content";
+import { pageMeta, servicePaths } from "@/lib/site-content";
 import {
   DEFAULT_SITE_URL,
   PUBLIC_PATHS,
@@ -55,6 +55,9 @@ describe("SEO discovery files", () => {
     expect(languageLinks).toHaveLength(PUBLIC_PATHS.length * SEO_LANGUAGES.length * 3);
     expect(sitemap).toContain("https://example.com/services?lang=pt");
     expect(sitemap).toContain("https://example.com/services?lang=en");
+    expect(sitemap).toContain(`https://example.com${servicePaths.kitchens}?lang=pt`);
+    expect(sitemap).toContain(`https://example.com${servicePaths.wardrobes}?lang=en`);
+    expect(sitemap).toContain(`https://example.com${servicePaths.furniture}?lang=pt`);
     expect(sitemap).not.toContain("/pt?");
   });
 

@@ -5,7 +5,16 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/interior-hero.jpg";
 import materialImage from "@/assets/material-study.jpg";
 import brandMark from "@/assets/brand-mark.svg?url&no-inline";
-import { content, projects, mapsUrl, type Language } from "@/lib/site-content";
+import {
+  content,
+  projects,
+  mapsUrl,
+  servicePages,
+  servicePaths,
+  serviceSlugs,
+  type Language,
+  type ServiceSlug,
+} from "@/lib/site-content";
 export function useLanguage() {
   const search = useSearch({ from: "__root__" });
   return search.lang;
@@ -192,9 +201,9 @@ export function ServicesPreview() {
         </Link>
       </div>
       <div className="service-grid">
-        {t.services.map((name, i) => (
-          <Link to="/services" search={{ lang }} className="service-item" key={name}>
-            <h3>{name}</h3>
+        {serviceSlugs.map((slug, i) => (
+          <Link to={servicePaths[slug]} search={{ lang }} className="service-item" key={slug}>
+            <h3>{t.services[i]}</h3>
             <p>{t.serviceShort[i]}</p>
           </Link>
         ))}
@@ -419,6 +428,67 @@ export function PageHeading({
     </div>
   );
 }
+
+export function ServicePage({ service }: { service: ServiceSlug }) {
+  const lang = useLanguage();
+  const page = servicePages[lang][service];
+
+  return (
+    <main>
+      <PageHeading label={page.label} title={page.title} description={page.description} />
+      <section className="section service-page-section">
+        <div className="service-page-primary">
+          <Eyebrow line>{page.label}</Eyebrow>
+          <h2 className="section-title">{page.scopeTitle}</h2>
+          <p className="body-copy">{page.scopeCopy}</p>
+          <div className="service-page-planning">
+            <h3>{page.planningTitle}</h3>
+            <p>{page.planningCopy}</p>
+          </div>
+        </div>
+        <div className="service-page-facts">
+          <article>
+            <h2>{page.materialsTitle}</h2>
+            <p>{page.materialsCopy}</p>
+          </article>
+          <article>
+            <h2>{page.areaTitle}</h2>
+            <p>{page.areaCopy}</p>
+          </article>
+        </div>
+      </section>
+      <section className="section service-page-process">
+        <div className="section-heading">
+          <div>
+            <Eyebrow>{content[lang].processLabel}</Eyebrow>
+            <h2 className="section-title">{page.processTitle}</h2>
+          </div>
+        </div>
+        <ol className="service-page-steps">
+          {page.process.map((step, index) => (
+            <li key={step}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{step}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+      <section className="service-page-cta">
+        <div>
+          <Eyebrow>{content[lang].ctaLabel}</Eyebrow>
+          <h2>{page.ctaTitle}</h2>
+          <p>{page.ctaCopy}</p>
+        </div>
+        <Button variant="hero" asChild>
+          <Link to="/contact" search={{ lang }}>
+            {page.ctaLabel}
+          </Link>
+        </Button>
+      </section>
+    </main>
+  );
+}
+
 export function SiteFooter() {
   const lang = useLanguage();
   const t = content[lang];
@@ -432,9 +502,9 @@ export function SiteFooter() {
         <div>
           <h2 className="footer-heading">{t.servicesLabel}</h2>
           <div className="footer-links">
-            {t.services.map((s) => (
-              <Link to="/services" search={{ lang }} key={s}>
-                {s}
+            {serviceSlugs.map((slug, index) => (
+              <Link to={servicePaths[slug]} search={{ lang }} key={slug}>
+                {t.services[index]}
               </Link>
             ))}
           </div>

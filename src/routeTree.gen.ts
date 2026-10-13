@@ -15,6 +15,10 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as PtRouteImport } from './routes/pt'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesFurnitureRouteImport } from './routes/services.furniture'
+import { Route as ServicesKitchensRouteImport } from './routes/services.kitchens'
+import { Route as ServicesWardrobesRouteImport } from './routes/services.wardrobes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +50,26 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesFurnitureRoute = ServicesFurnitureRouteImport.update({
+  id: '/furniture',
+  path: '/furniture',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesKitchensRoute = ServicesKitchensRouteImport.update({
+  id: '/kitchens',
+  path: '/kitchens',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesWardrobesRoute = ServicesWardrobesRouteImport.update({
+  id: '/wardrobes',
+  path: '/wardrobes',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,7 +77,11 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/pt': typeof PtRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/furniture': typeof ServicesFurnitureRoute
+  '/services/kitchens': typeof ServicesKitchensRoute
+  '/services/wardrobes': typeof ServicesWardrobesRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +89,10 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/pt': typeof PtRoute
-  '/services': typeof ServicesRoute
+  '/services/furniture': typeof ServicesFurnitureRoute
+  '/services/kitchens': typeof ServicesKitchensRoute
+  '/services/wardrobes': typeof ServicesWardrobesRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,15 +101,48 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/pt': typeof PtRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/furniture': typeof ServicesFurnitureRoute
+  '/services/kitchens': typeof ServicesKitchensRoute
+  '/services/wardrobes': typeof ServicesWardrobesRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/projects' | '/pt' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/pt'
+    | '/services'
+    | '/services/furniture'
+    | '/services/kitchens'
+    | '/services/wardrobes'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/projects' | '/pt' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/pt'
+    | '/services/furniture'
+    | '/services/kitchens'
+    | '/services/wardrobes'
+    | '/services'
   id:
-    '__root__' | '/' | '/about' | '/contact' | '/projects' | '/pt' | '/services'
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/pt'
+    | '/services'
+    | '/services/furniture'
+    | '/services/kitchens'
+    | '/services/wardrobes'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -87,7 +151,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRoute
   PtRoute: typeof PtRoute
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -134,8 +198,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/furniture': {
+      id: '/services/furniture'
+      path: '/furniture'
+      fullPath: '/services/furniture'
+      preLoaderRoute: typeof ServicesFurnitureRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/kitchens': {
+      id: '/services/kitchens'
+      path: '/kitchens'
+      fullPath: '/services/kitchens'
+      preLoaderRoute: typeof ServicesKitchensRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/wardrobes': {
+      id: '/services/wardrobes'
+      path: '/wardrobes'
+      fullPath: '/services/wardrobes'
+      preLoaderRoute: typeof ServicesWardrobesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
+
+interface ServicesRouteChildren {
+  ServicesFurnitureRoute: typeof ServicesFurnitureRoute
+  ServicesKitchensRoute: typeof ServicesKitchensRoute
+  ServicesWardrobesRoute: typeof ServicesWardrobesRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesFurnitureRoute: ServicesFurnitureRoute,
+  ServicesKitchensRoute: ServicesKitchensRoute,
+  ServicesWardrobesRoute: ServicesWardrobesRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -143,7 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRoute,
   PtRoute: PtRoute,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

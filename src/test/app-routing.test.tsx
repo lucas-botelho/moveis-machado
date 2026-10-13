@@ -4,6 +4,8 @@ import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
 
+const serviceRoutes = ["/services/kitchens", "/services/wardrobes", "/services/furniture"] as const;
+
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
 describe("App routing", () => {
@@ -28,5 +30,14 @@ describe("App routing", () => {
     expect(router.buildLocation({ to: "/pt", search: { lang: "pt" } }).href).toBe(
       "/moveis-machado/pt?lang=pt",
     );
+  });
+
+  it.each(serviceRoutes)("matches the service page at %s and preserves English", (path) => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    const matches = router.matchRoutes(path);
+
+    expect(matches.at(-1)?.routeId).toBe(path);
+    expect(router.buildLocation({ to: path, search: { lang: "en" } }).href).toBe(`${path}?lang=en`);
   });
 });

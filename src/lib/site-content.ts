@@ -5,6 +5,234 @@ import { createPageHead } from "@/lib/seo";
 import type { PublicPath, SeoLanguage } from "@/lib/seo-shared";
 
 export type Language = SeoLanguage;
+export const serviceSlugs = ["kitchens", "wardrobes", "furniture"] as const;
+export type ServiceSlug = (typeof serviceSlugs)[number];
+export const servicePaths = {
+  kitchens: "/services/kitchens",
+  wardrobes: "/services/wardrobes",
+  furniture: "/services/furniture",
+} as const satisfies Record<ServiceSlug, PublicPath>;
+
+type ServicePageContent = {
+  metaTitle: string;
+  metaDescription: string;
+  label: string;
+  title: string;
+  description: string;
+  scopeTitle: string;
+  scopeCopy: string;
+  planningTitle: string;
+  planningCopy: string;
+  materialsTitle: string;
+  materialsCopy: string;
+  areaTitle: string;
+  areaCopy: string;
+  processTitle: string;
+  process: readonly string[];
+  ctaTitle: string;
+  ctaCopy: string;
+  ctaLabel: string;
+};
+
+export const servicePages: Record<Language, Record<ServiceSlug, ServicePageContent>> = {
+  pt: {
+    kitchens: {
+      metaTitle: "Cozinhas por medida em Odivelas",
+      metaDescription:
+        "Cozinhas por medida com fabrico próprio em Odivelas. Planeamento, materiais, acabamentos e instalação para projetos na Grande Lisboa.",
+      label: "COZINHAS POR MEDIDA",
+      title: "Uma cozinha pensada para o seu espaço.",
+      description:
+        "Planeamos e fabricamos cozinhas por medida na nossa oficina em Odivelas, acompanhando cada projeto do desenho à instalação.",
+      scopeTitle: "Disposição, arrumação e utilização",
+      scopeCopy:
+        "Definimos a disposição dos armários e das bancadas de acordo com as características do espaço e a forma como utiliza a cozinha. Cada decisão procura conciliar arrumação, circulação e o uso diário.",
+      planningTitle: "O que definimos consigo",
+      planningCopy:
+        "Partimos das medidas do espaço e das suas referências para preparar a disposição, as dimensões, os materiais e os acabamentos. O âmbito final é ajustado às necessidades concretas do projeto.",
+      materialsTitle: "Materiais e acabamentos",
+      materialsCopy:
+        "Trabalhamos com madeira maciça, MDF lacado e materiais técnicos. A escolha é feita para cada projeto, tendo em conta o resultado pretendido e as condições do espaço.",
+      areaTitle: "Oficina em Odivelas",
+      areaCopy:
+        "Fabricamos em Odivelas e trabalhamos principalmente em Lisboa, Odivelas e na região envolvente. Confirme connosco a localização do seu projeto ao pedir orçamento.",
+      processTitle: "Da primeira conversa à instalação",
+      process: [
+        "Conversamos sobre a cozinha, o espaço e a forma como pretende utilizá-la.",
+        "Definimos medidas, disposição, materiais e acabamentos.",
+        "Fabricamos os elementos na nossa oficina.",
+        "Fazemos a montagem e a instalação no local.",
+      ],
+      ctaTitle: "Tem um projeto de cozinha?",
+      ctaCopy:
+        "Envie-nos medidas aproximadas, fotografias do espaço e referências do que pretende. Falamos consigo sobre os próximos passos.",
+      ctaLabel: "Pedir orçamento de cozinha",
+    },
+    wardrobes: {
+      metaTitle: "Roupeiros por medida em Odivelas",
+      metaDescription:
+        "Roupeiros por medida com fabrico próprio em Odivelas. Dimensões, arrumação interior, materiais e acabamentos definidos para cada espaço.",
+      label: "ROUPEIROS POR MEDIDA",
+      title: "Arrumação desenhada para o que precisa.",
+      description:
+        "Fabricamos roupeiros com dimensões e organização interior adaptadas ao espaço, desde o planeamento até à instalação.",
+      scopeTitle: "Aproveitar o espaço disponível",
+      scopeCopy:
+        "Um roupeiro por medida permite ajustar as dimensões ao local e organizar o interior de acordo com o que precisa de guardar. O desenho parte sempre do espaço real e da utilização pretendida.",
+      planningTitle: "O que definimos consigo",
+      planningCopy:
+        "Revemos as medidas, a configuração interior, os materiais e os acabamentos. Estas escolhas são feitas para cada projeto, sem soluções ou dimensões predefinidas.",
+      materialsTitle: "Materiais e acabamentos",
+      materialsCopy:
+        "Podemos trabalhar com madeira maciça, MDF lacado e materiais técnicos. A combinação adequada é definida durante o planeamento do projeto.",
+      areaTitle: "Fabrico próprio em Odivelas",
+      areaCopy:
+        "A produção é feita na nossa oficina em Odivelas. Trabalhamos principalmente em Lisboa, Odivelas e na região envolvente, mediante confirmação do local do projeto.",
+      processTitle: "Do espaço à instalação",
+      process: [
+        "Percebemos o espaço disponível e o que precisa de guardar.",
+        "Planeamos dimensões, organização interior, materiais e acabamentos.",
+        "Produzimos o roupeiro na nossa oficina.",
+        "Montamos e instalamos o roupeiro no local.",
+      ],
+      ctaTitle: "Quer planear um roupeiro por medida?",
+      ctaCopy:
+        "Partilhe medidas aproximadas, fotografias e as suas necessidades de arrumação para iniciarmos a conversa.",
+      ctaLabel: "Pedir orçamento de roupeiro",
+    },
+    furniture: {
+      metaTitle: "Móveis por medida em Odivelas",
+      metaDescription:
+        "Móveis por medida para salas e espaços de trabalho, com fabrico próprio em Odivelas e acompanhamento do desenho à instalação.",
+      label: "MÓVEIS POR MEDIDA",
+      title: "Mobiliário feito para a sua utilização.",
+      description:
+        "Desenhamos e fabricamos móveis por medida para salas e espaços de trabalho, adaptando cada peça ao espaço e à função.",
+      scopeTitle: "Uma peça com medidas e função próprias",
+      scopeCopy:
+        "Planeamos mobiliário para salas e espaços de trabalho a partir das dimensões disponíveis e da utilização de cada peça. O desenho procura responder ao contexto concreto do espaço.",
+      planningTitle: "O que definimos consigo",
+      planningCopy:
+        "Conversamos sobre a função do móvel, analisamos as medidas e definimos materiais e acabamentos. O projeto resulta dessas escolhas e não de uma configuração genérica.",
+      materialsTitle: "Materiais e acabamentos",
+      materialsCopy:
+        "Trabalhamos com madeira maciça, MDF lacado e materiais técnicos. Selecionamos os materiais e acabamentos de acordo com as necessidades de cada peça.",
+      areaTitle: "Da oficina de Odivelas à instalação",
+      areaCopy:
+        "Fabricamos em Odivelas e trabalhamos principalmente em Lisboa, Odivelas e na região envolvente. A localização é confirmada connosco antes de avançar.",
+      processTitle: "Do desenho ao móvel instalado",
+      process: [
+        "Conversamos sobre a peça, a utilização e o espaço onde ficará.",
+        "Definimos medidas, desenho, materiais e acabamentos.",
+        "Fabricamos o móvel na nossa oficina.",
+        "Tratamos da montagem e instalação no local.",
+      ],
+      ctaTitle: "Tem uma peça em mente?",
+      ctaCopy:
+        "Envie-nos medidas aproximadas, fotografias do espaço e referências para avaliarmos consigo o projeto.",
+      ctaLabel: "Pedir orçamento de mobiliário",
+    },
+  },
+  en: {
+    kitchens: {
+      metaTitle: "Bespoke kitchens in Odivelas",
+      metaDescription:
+        "Bespoke kitchens made in our Odivelas workshop. Planning, materials, finishes and installation for projects across Greater Lisbon.",
+      label: "BESPOKE KITCHENS",
+      title: "A kitchen planned for your space.",
+      description:
+        "We plan and make bespoke kitchens in our Odivelas workshop, handling each project from design to installation.",
+      scopeTitle: "Layout, storage and everyday use",
+      scopeCopy:
+        "We plan cabinets and worktops around the characteristics of the space and how you use your kitchen. Each decision considers storage, movement and day-to-day use.",
+      planningTitle: "What we define with you",
+      planningCopy:
+        "We start with the measurements of the space and your references, then define the layout, dimensions, materials and finishes. The final scope is adapted to the needs of the project.",
+      materialsTitle: "Materials and finishes",
+      materialsCopy:
+        "We work with solid wood, lacquered MDF and technical materials. The selection is made for each project, considering the intended result and the conditions of the space.",
+      areaTitle: "Our workshop in Odivelas",
+      areaCopy:
+        "We make our furniture in Odivelas and work mainly in Lisbon, Odivelas and the surrounding area. Confirm your project location with us when requesting a quote.",
+      processTitle: "From the first conversation to installation",
+      process: [
+        "We discuss the kitchen, the space and how you intend to use it.",
+        "We define measurements, layout, materials and finishes.",
+        "We make the components in our own workshop.",
+        "We assemble and install the kitchen on site.",
+      ],
+      ctaTitle: "Planning a new kitchen?",
+      ctaCopy:
+        "Send us approximate measurements, photographs of the space and references for what you have in mind. We will discuss the next steps with you.",
+      ctaLabel: "Request a kitchen quote",
+    },
+    wardrobes: {
+      metaTitle: "Custom wardrobes in Odivelas",
+      metaDescription:
+        "Custom wardrobes made in our Odivelas workshop. Dimensions, internal storage, materials and finishes planned for each space.",
+      label: "CUSTOM WARDROBES",
+      title: "Storage designed around what you need.",
+      description:
+        "We make wardrobes with dimensions and internal organisation suited to your space, from planning through to installation.",
+      scopeTitle: "Making use of the available space",
+      scopeCopy:
+        "A custom wardrobe can be sized for its location and organised around what you need to keep. The design always starts with the actual space and its intended use.",
+      planningTitle: "What we define with you",
+      planningCopy:
+        "We review measurements, internal organisation, materials and finishes. These choices are made for each project, without predefined dimensions or configurations.",
+      materialsTitle: "Materials and finishes",
+      materialsCopy:
+        "We can work with solid wood, lacquered MDF and technical materials. The appropriate combination is selected while planning the project.",
+      areaTitle: "Made in our Odivelas workshop",
+      areaCopy:
+        "Production takes place in our Odivelas workshop. We work mainly in Lisbon, Odivelas and the surrounding area, subject to confirmation of the project location.",
+      processTitle: "From the space to installation",
+      process: [
+        "We understand the available space and what you need to store.",
+        "We plan dimensions, internal organisation, materials and finishes.",
+        "We make the wardrobe in our own workshop.",
+        "We assemble and install the wardrobe on site.",
+      ],
+      ctaTitle: "Would you like to plan a custom wardrobe?",
+      ctaCopy:
+        "Share approximate measurements, photographs and your storage needs to start the conversation.",
+      ctaLabel: "Request a wardrobe quote",
+    },
+    furniture: {
+      metaTitle: "Bespoke furniture in Odivelas",
+      metaDescription:
+        "Bespoke furniture for living rooms and workspaces, made in our Odivelas workshop and handled from design to installation.",
+      label: "BESPOKE FURNITURE",
+      title: "Furniture made for how you use it.",
+      description:
+        "We design and make bespoke furniture for living rooms and workspaces, adapting each piece to its setting and purpose.",
+      scopeTitle: "A piece with its own dimensions and purpose",
+      scopeCopy:
+        "We plan furniture for living rooms and workspaces around the available dimensions and the purpose of each piece. The design responds to the specific setting.",
+      planningTitle: "What we define with you",
+      planningCopy:
+        "We discuss the purpose of the piece, review the dimensions and define materials and finishes. The project grows from those choices rather than a generic configuration.",
+      materialsTitle: "Materials and finishes",
+      materialsCopy:
+        "We work with solid wood, lacquered MDF and technical materials. Materials and finishes are selected to suit the needs of each piece.",
+      areaTitle: "From our Odivelas workshop to installation",
+      areaCopy:
+        "We make our furniture in Odivelas and work mainly in Lisbon, Odivelas and the surrounding area. We confirm the location with you before proceeding.",
+      processTitle: "From the drawing to installed furniture",
+      process: [
+        "We discuss the piece, its purpose and the space where it will be used.",
+        "We define measurements, design, materials and finishes.",
+        "We make the furniture in our own workshop.",
+        "We handle assembly and installation on site.",
+      ],
+      ctaTitle: "Do you have a piece in mind?",
+      ctaCopy:
+        "Send us approximate measurements, photographs of the space and references so we can discuss the project with you.",
+      ctaLabel: "Request a furniture quote",
+    },
+  },
+};
+
 export function resolveLanguage(value: unknown): Language {
   return value === "en" ? "en" : "pt";
 }
