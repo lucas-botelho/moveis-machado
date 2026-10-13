@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/interior-hero.jpg";
 import materialImage from "@/assets/material-study.jpg";
 import brandMark from "@/assets/brand-mark.svg?url&no-inline";
-import { content, projects, facebookUrl, mapsUrl, type Language } from "@/lib/site-content";
+import { content, projects, mapsUrl, type Language } from "@/lib/site-content";
 export function useLanguage() {
   const search = useSearch({ from: "__root__" });
   return search.lang;
@@ -465,9 +465,6 @@ export function SiteFooter() {
             </span>
             <a href={mapsUrl} target="_blank" rel="noreferrer">
               {t.directions} ↗
-            </a>
-            <a href={facebookUrl} target="_blank" rel="noreferrer">
-              Facebook ↗
             </a>
           </div>
         </div>
