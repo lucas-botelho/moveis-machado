@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowDown, Menu, X, Ruler, Hammer, MapPin, BadgeCheck } from "lucide-react";
+import { ArrowDown, Menu, X, Ruler, Hammer, MapPin, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/interior-hero.jpg";
 import materialImage from "@/assets/material-study.jpg";
@@ -82,7 +82,6 @@ export function SiteHeader() {
         <Button variant="luxury" asChild className="header-enquiry">
           <Link to="/contact" search={{ lang }}>
             {t.quote}
-            <ArrowUpRight />
           </Link>
         </Button>
         <Button
@@ -144,7 +143,6 @@ export function Hero() {
           <Button variant="hero" asChild>
             <Link to="/projects" search={{ lang }}>
               {t.explore}
-              <ArrowUpRight />
             </Link>
           </Button>
         </div>
@@ -191,15 +189,11 @@ export function ServicesPreview() {
         </div>
         <Link to="/services" search={{ lang }} className="text-link">
           {t.servicesLink}
-          <ArrowUpRight />
         </Link>
       </div>
       <div className="service-grid">
         {t.services.map((name, i) => (
           <Link to="/services" search={{ lang }} className="service-item" key={name}>
-            <div className="service-top">
-              <ArrowUpRight />
-            </div>
             <h3>{name}</h3>
             <p>{t.serviceShort[i]}</p>
           </Link>
@@ -238,9 +232,6 @@ export function ProjectGrid({ editorial = false }: { editorial?: boolean }) {
               aria-label={p[lang]}
             >
               <img src={p.image} alt={p[lang]} loading="lazy" width={1600} height={1200} />
-              <span className="project-arrow">
-                <ArrowUpRight />
-              </span>
             </Button>
             <div className="project-info">
               <div>
@@ -290,7 +281,6 @@ export function ProjectsPreview() {
         </div>
         <Link to="/projects" search={{ lang }} className="text-link">
           {t.projectsLink}
-          <ArrowUpRight />
         </Link>
       </div>
       <ProjectGrid editorial />
@@ -310,7 +300,6 @@ export function Story({ full = false }: { full?: boolean }) {
         {!full && (
           <Link className="text-link" to="/about" search={{ lang }}>
             {t.storyLink}
-            <ArrowUpRight />
           </Link>
         )}
         <div className="story-signature">
@@ -367,10 +356,7 @@ export function Process() {
             width={1600}
             height={1200}
           />
-          <figcaption>
-            {t.ownSub}
-            <ArrowUpRight size={16} />
-          </figcaption>
+          <figcaption>{t.ownSub}</figcaption>
         </figure>
       </div>
       <div className="process-grid">
@@ -380,7 +366,6 @@ export function Process() {
               <h3>{s}</h3>
               <p>{t.stepCopy[i]}</p>
             </div>
-            <ArrowUpRight className="process-step-arrow" size={18} />
           </div>
         ))}
       </div>
@@ -407,7 +392,6 @@ export function ContactBand() {
         <Button variant="hero" asChild>
           <Link to="/contact" search={{ lang }}>
             {t.talk}
-            <ArrowUpRight />
           </Link>
         </Button>
       </div>
@@ -464,7 +448,7 @@ export function SiteFooter() {
               2675-459 Odivelas, Portugal
             </span>
             <a href={mapsUrl} target="_blank" rel="noreferrer">
-              {t.directions} ↗
+              {t.directions}
             </a>
           </div>
         </div>

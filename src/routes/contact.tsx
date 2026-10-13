@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { useLanguage, PageHeading, Eyebrow } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import { content, pageMeta, whatsappUrl, mapsUrl, mapsEmbedUrl } from "@/lib/site-content";
@@ -30,7 +30,6 @@ function Contact() {
           <Button variant="luxury" asChild>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">
               {t.whatsapp}
-              <ArrowUpRight />
             </a>
           </Button>
           <details className="faq">
@@ -54,7 +53,6 @@ function Contact() {
           </address>
           <a href={mapsUrl} target="_blank" rel="noreferrer" className="text-link">
             {t.directions}
-            <ArrowUpRight />
           </a>
           <iframe
             className="contact-map"

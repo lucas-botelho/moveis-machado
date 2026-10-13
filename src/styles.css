@@ -279,7 +279,7 @@ a {
   height: 45px;
   border-radius: 0;
   padding: 0 23px;
-  gap: 25px;
+  gap: 0;
   transition:
     background 0.25s,
     color 0.25s;
@@ -429,14 +429,13 @@ a {
   font-size: 10px;
   display: inline-flex;
   align-items: center;
-  gap: 30px;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 9px;
+  padding: 8px 12px 9px 0;
   white-space: nowrap;
+  transition: background 0.2s;
 }
-.text-link svg {
-  width: 15px;
-  height: 15px;
+.text-link:hover {
+  background: var(--brand-soft);
 }
 .service-grid {
   display: grid;
@@ -453,18 +452,6 @@ a {
 }
 .service-item:hover {
   background: var(--brand-soft);
-}
-.service-top {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  color: var(--muted-foreground);
-  font-size: 9px;
-  margin-bottom: 23px;
-}
-.service-top svg {
-  width: 17px;
-  height: 17px;
 }
 .service-item h3 {
   font-family: var(--font-display);
@@ -514,11 +501,6 @@ a {
 .project-grid-editorial .project-info h3 {
   font-size: 31px;
 }
-.project-grid-editorial .project-arrow {
-  width: 48px;
-  height: 48px;
-  background: var(--background);
-}
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -543,21 +525,6 @@ a {
 }
 .project-image-button:hover img {
   transform: scale(1.035);
-}
-.project-arrow {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  color: var(--foreground);
-  background: var(--background);
-}
-.project-arrow svg {
-  width: 16px;
-  height: 16px;
 }
 .project-info {
   display: flex;
@@ -721,8 +688,7 @@ a {
 }
 .process-item {
   display: grid;
-  grid-template-columns: 1fr 20px;
-  gap: 22px;
+  grid-template-columns: 1fr;
   border-top: 1px solid var(--border);
   padding: 25px 0 28px;
 }
@@ -740,10 +706,6 @@ a {
   color: var(--muted-foreground);
   line-height: 1.9;
   max-width: 330px;
-}
-.process-step-arrow {
-  color: var(--muted-foreground);
-  margin-top: 9px;
 }
 .contact-band {
   position: relative;
@@ -1162,8 +1124,7 @@ a {
     gap: 0;
   }
   .process-item {
-    grid-template-columns: 1fr 18px;
-    gap: 15px;
+    grid-template-columns: 1fr;
   }
   .contact-band {
     padding: 65px 7% 100px;
