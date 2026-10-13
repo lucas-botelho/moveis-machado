@@ -7,10 +7,14 @@ export const Route = createFileRoute("/contact")({
   head: ({ match }) =>
     match.search.lang === "en"
       ? pageMeta(
+          "/contact",
+          "en",
           "Contact & quotes",
           "Start your bespoke furniture project with Móveis Machado. Visit us at Rua Vítor Cordon 6A, Odivelas, or message us on WhatsApp.",
         )
       : pageMeta(
+          "/contact",
+          "pt",
           "Contactos e orçamentos",
           "Comece o seu projeto com a Móveis Machado. Visite-nos na Rua Vítor Cordon 6A, Odivelas, ou fale connosco pelo WhatsApp.",
         ),

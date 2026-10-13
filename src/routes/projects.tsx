@@ -5,10 +5,14 @@ export const Route = createFileRoute("/projects")({
   head: ({ match }) =>
     match.search.lang === "en"
       ? pageMeta(
+          "/projects",
+          "en",
           "Our projects",
           "Explore real Móveis Machado kitchen projects: island kitchens, walnut finishes and contemporary lines.",
         )
       : pageMeta(
+          "/projects",
+          "pt",
           "Os nossos projetos",
           "Conheça os projetos Móveis Machado. Cozinhas com ilha, acabamentos em madeira e linhas contemporâneas.",
         ),

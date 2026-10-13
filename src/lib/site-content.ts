@@ -1,7 +1,10 @@
 import walnut from "@/assets/kitchen-walnut.webp";
 import island from "@/assets/kitchen-island.webp";
 import contemporary from "@/assets/kitchen-contemporary.webp";
-export type Language = "pt" | "en";
+import { createPageHead } from "@/lib/seo";
+import type { PublicPath, SeoLanguage } from "@/lib/seo-shared";
+
+export type Language = SeoLanguage;
 export function resolveLanguage(value: unknown): Language {
   return value === "en" ? "en" : "pt";
 }
@@ -177,15 +180,6 @@ export const whatsappUrl = "https://wa.me/351933776729";
 export const mapsUrl = "https://share.google/uK5M3YaRHoAcBMNPD";
 export const mapsEmbedUrl =
   "https://www.google.com/maps?q=Rua+V%C3%ADtor+Cordon+6A,+2675-459+Odivelas,+Portugal&output=embed";
-export function pageMeta(title: string, description: string) {
-  return {
-    meta: [
-      { title: `${title} | Móveis Machado` },
-      { name: "description", content: description },
-      { property: "og:title", content: `${title} | Móveis Machado` },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  };
+export function pageMeta(path: PublicPath, language: Language, title: string, description: string) {
+  return createPageHead({ path, language, title, description });
 }
