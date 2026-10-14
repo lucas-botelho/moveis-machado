@@ -25,7 +25,7 @@ function Projects() {
     <main>
       <PageHeading label={t.projectsLabel} title={t.projectsTitle} description={t.projectIntro} />
       <section className="section">
-        <ProjectGrid />
+        <ProjectGrid priorityFirstImage />
       </section>
       <ContactBand />
     </main>

@@ -144,8 +144,8 @@
 }
 
 @theme inline {
-  --font-sans: "Manrope", sans-serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope Variable", sans-serif;
+  --font-display: "Cormorant Garamond Variable", Georgia, serif;
   --color-inverse: var(--inverse);
   --color-brand-soft: var(--brand-soft);
   --color-atelier: var(--atelier);

@@ -131,7 +131,7 @@ export function Hero() {
           height={1088}
           fetchPriority="high"
         />
-        <div className="hero-content entrance">
+        <div className="hero-content">
           <Eyebrow line>{t.heroLabel}</Eyebrow>
           <h1>Móveis Machado</h1>
           <h2>
@@ -202,7 +202,7 @@ export function ServicesPreview() {
     </section>
   );
 }
-export function ProjectGrid() {
+export function ProjectGrid({ priorityFirstImage = false }: { priorityFirstImage?: boolean }) {
   const lang = useLanguage();
   const t = content[lang];
   const [selected, setSelected] = useState<number | null>(null);
@@ -231,7 +231,14 @@ export function ProjectGrid() {
               onClick={() => setSelected(i)}
               aria-label={p[lang]}
             >
-              <img src={p.image} alt={p[lang]} loading="lazy" width={1600} height={1200} />
+              <img
+                src={p.image}
+                alt={p[lang]}
+                loading={priorityFirstImage && i === 0 ? "eager" : "lazy"}
+                fetchPriority={priorityFirstImage && i === 0 ? "high" : "auto"}
+                width={1600}
+                height={1200}
+              />
             </Button>
             <div className="project-info">
               <div>
@@ -412,7 +419,7 @@ export function PageHeading({
   description: string;
 }) {
   return (
-    <div className="page-heading entrance">
+    <div className="page-heading">
       <Eyebrow>{label}</Eyebrow>
       <h1>{title}</h1>
       <p>{description}</p>
