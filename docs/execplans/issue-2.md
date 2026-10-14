@@ -23,6 +23,7 @@ O requisito aprovado é a issue GitHub #2, https://github.com/lucas-botelho/move
 - [x] (2026-10-14 12:03 WEST) Rever o estado atual do PR #9 e detetar repetição do rótulo do serviço entre `PageHeading` e o início do conteúdo.
 - [x] (2026-10-14 12:06 WEST) Remover o segundo rótulo sem alterar a hierarquia ou a cópia; build Pages gerou 17 páginas e as três rotas de serviço ficaram com um H1 e uma ocorrência do rótulo.
 - [x] (2026-10-14 12:06 WEST) Revalidar 14 testes, typecheck, lint dirigido, Prettier, build Pages e destinos internos; tudo passou (um aviso Fast Refresh preexistente).
+- [x] (2026-10-14 12:09 WEST) Publicar o commit `7ae2bae` no branch do PR #9; CI run #61 passou (lint, build, verificação GitHub Pages e testes).
 - [ ] Obter revisão editorial do responsável e só então finalizar o PR/integrar.
 
 ## Surprises & Discoveries
@@ -55,7 +56,7 @@ O requisito aprovado é a issue GitHub #2, https://github.com/lucas-botelho/move
 
 ## Outcomes & Retrospective
 
-A implementação e a validação local incluem agora a remoção da repetição do rótulo. Os 14 testes, typecheck, lint dirigido, Prettier e build Pages passaram; HTML das três páginas tem H1 e rótulo únicos e os destinos internos resolvem. Falta revisão editorial pelo responsável da Móveis Machado, requerida explicitamente antes da publicação. O PR #9 permanece draft e a issue #2 continua aberta até essa revisão estar registada e CI atualizar o novo head.
+A implementação e a validação incluem agora a remoção da repetição do rótulo. Os 14 testes, typecheck, lint dirigido, Prettier e build Pages locais passaram; HTML das três páginas tem H1 e rótulo únicos e os destinos internos resolvem. O CI remoto do commit `7ae2bae` passou no run #61 (lint, build, verificação Pages e testes). Falta revisão editorial pelo responsável da Móveis Machado, requerida explicitamente antes da publicação. O PR #9 permanece draft e a issue #2 continua aberta até essa revisão estar registada.
 
 ## Context and Orientation
 
@@ -134,4 +135,4 @@ Baseline observado:
 2026-10-13: plano inicial criado depois de confirmar a issue #2 e inspecionar a arquitetura, conteúdo, rotas, testes, sitemap e configuração de prerender.
 
 2026-10-13: registada implementação, validação local e CI bem-sucedidos, incluindo a correção da relação layout/rotas filhas; a integração permanece condicionada pela revisão editorial explicitamente pedida nos critérios da issue.
-2026-10-14: removido o segundo eyebrow repetido após PageHeading e validados 14 testes, typecheck, lint dirigido, Prettier e build Pages com 17 páginas; a revisão editorial e CI do novo head continuam pendentes.
+2026-10-14: removido o segundo eyebrow repetido após PageHeading e validados 14 testes, typecheck, lint dirigido, Prettier e build Pages com 17 páginas; commit `7ae2bae` foi publicado e o CI run #61 passou. A revisão editorial continua pendente.
