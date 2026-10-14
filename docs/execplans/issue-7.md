@@ -20,7 +20,7 @@ A origem aprovada do âmbito é a issue GitHub #7, `https://github.com/lucas-bot
 - [x] (2026-10-14 13:04 WEST) Criar a Política de Cookies bilingue e os links permanentes no rodapé.
 - [x] (2026-10-14 13:04 WEST) Cobrir primeira visita, aceitação, rejeição, escolha parcial, revogação e mudança de versão com testes.
 - [x] (2026-10-14 13:04 WEST) Validar tipos, testes, lint dirigido, build, HTML/bundle e comportamento visual desktop/mobile.
-- [ ] Publicar branch e PR draft, atualizar a issue com evidência e aguardar aprovação empresarial antes de integrar.
+- [x] (2026-10-14 13:08 WEST) Publicar a branch e abrir o PR draft #18 com evidência; a integração continua a aguardar aprovação empresarial.
 
 ## Surprises & Discoveries
 
@@ -58,6 +58,8 @@ A origem aprovada do âmbito é a issue GitHub #7, `https://github.com/lucas-bot
 A implementação ficou tecnicamente concluída na branch de trabalho. O site guarda apenas versão, categorias e timestamp; não cria o iframe Google Maps nem usa hooks Lovable antes da categoria respetiva; e permite aceitar, rejeitar, personalizar e revogar no rodapé. A Política de Cookies PT-PT/EN, o placeholder acessível e a rota prerenderizada foram adicionados sem dependências novas.
 
 Os 25 testes passaram, o typecheck passou e o build prerenderizou 19 páginas, incluindo `/cookies` e `/cookies?lang=pt`. O lint dirigido terminou sem erros, mantendo apenas dois avisos Fast Refresh já explicáveis por ficheiros que exportam componentes e helpers. A inspeção real em 1440 px e 390 px confirmou ausência de iframe antes do opt-in, diálogo acessível, opt-in parcial, carregamento do mapa e remoção imediata por revogação. A entrega continua deliberadamente bloqueada para integração/publicação até aprovação empresarial do texto e resolução ou aceitação explícita da dependência de Política de Privacidade.
+
+A branch `codex/issue-7-cookie-consent` foi publicada e o PR draft #18 ficou disponível em `https://github.com/lucas-botelho/moveis-machado/pull/18`. O PR usa `Related to #7`, não fecha automaticamente a issue e não ativa integração automática.
 
 ## Context and Orientation
 
@@ -178,3 +180,5 @@ Não serão adicionadas dependências. O modelo previsto é:
 2026-10-14: plano inicial criado após leitura da issue #7, da dependência #6, do inventário da issue #6, do código atual e das fontes oficiais. O plano assume implementação completa em PR draft e bloqueia integração/publicação até aprovação empresarial.
 
 2026-10-14: atualizado após implementação, testes e revisão visual. Registados o ajuste mobile, os resultados de validação, a indisponibilidade do detector e o gate empresarial ainda aberto.
+
+2026-10-14: branch publicada e PR draft #18 aberto sem merge ou auto-merge; o plano fica concluído no âmbito técnico, com os gates empresariais documentados.
