@@ -17,6 +17,7 @@ import "@fontsource-variable/cormorant-garamond/wght-italic.css";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter } from "@/components/site";
+import { CookieConsentExperience, ConsentProvider } from "@/components/cookie-consent";
 import { content, resolveLanguage } from "@/lib/site-content";
 import brandMark from "@/assets/brand-mark.svg?url&no-inline";
 import brandIcon from "@/assets/brand-mark-32.png?url&no-inline";
@@ -133,13 +134,19 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const language = useRouterState({
+    select: (state) => resolveLanguage(state.location.search.lang),
+  });
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <SiteHeader />
-      <Outlet />
-      <SiteFooter />
+      <ConsentProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <SiteHeader />
+        <Outlet />
+        <SiteFooter />
+        <CookieConsentExperience lang={language} />
+      </ConsentProvider>
     </QueryClientProvider>
   );
 }

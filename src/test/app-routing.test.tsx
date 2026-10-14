@@ -40,4 +40,13 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).toBe(path);
     expect(router.buildLocation({ to: path, search: { lang: "en" } }).href).toBe(`${path}?lang=en`);
   });
+
+  it("matches the cookie policy and preserves the selected language", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    expect(router.matchRoutes("/cookies").at(-1)?.routeId).toBe("/cookies");
+    expect(router.buildLocation({ to: "/cookies", search: { lang: "en" } }).href).toBe(
+      "/cookies?lang=en",
+    );
+  });
 });

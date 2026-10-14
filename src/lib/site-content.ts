@@ -407,6 +407,281 @@ export const content = {
     aboutIntro: "We are based in Odivelas and work across Lisbon and the surrounding area.",
   },
 };
+
+export const cookieConsentContent: Record<
+  Language,
+  {
+    bannerTitle: string;
+    bannerDescription: string;
+    reject: string;
+    accept: string;
+    customize: string;
+    save: string;
+    close: string;
+    preferencesTitle: string;
+    preferencesDescription: string;
+    necessaryTitle: string;
+    necessaryDescription: string;
+    alwaysActive: string;
+    externalMediaTitle: string;
+    externalMediaDescription: string;
+    diagnosticsTitle: string;
+    diagnosticsDescription: string;
+    manage: string;
+    policyLink: string;
+    mapTitle: string;
+    mapDescription: string;
+    loadMap: string;
+  }
+> = {
+  pt: {
+    bannerTitle: "A sua privacidade, sem atalhos.",
+    bannerDescription:
+      "Guardamos apenas a sua escolha neste dispositivo. O mapa Google e o diagnóstico opcional só são ativados com a sua autorização.",
+    reject: "Rejeitar opcionais",
+    accept: "Aceitar opcionais",
+    customize: "Personalizar",
+    save: "Guardar escolhas",
+    close: "Fechar preferências",
+    preferencesTitle: "Preferências de privacidade",
+    preferencesDescription:
+      "Escolha que recursos opcionais podem funcionar. Pode alterar esta decisão a qualquer momento no rodapé.",
+    necessaryTitle: "Armazenamento necessário",
+    necessaryDescription:
+      "Guarda a versão, as categorias e a data da sua escolha para que o site a respeite nas visitas seguintes.",
+    alwaysActive: "Sempre ativo",
+    externalMediaTitle: "Conteúdo externo",
+    externalMediaDescription:
+      "Permite carregar o mapa Google incorporado. Sem esta opção, a morada e a ligação externa continuam disponíveis.",
+    diagnosticsTitle: "Diagnóstico",
+    diagnosticsDescription:
+      "Permite comunicar erros técnicos aos hooks da Lovable quando estes existem no ambiente de preview.",
+    manage: "Gerir cookies",
+    policyLink: "Política de Cookies",
+    mapTitle: "Mapa não carregado",
+    mapDescription:
+      "O mapa Google é conteúdo externo e pode receber dados técnicos do seu dispositivo. Pode carregá-lo agora ou abrir apenas as direções numa nova página.",
+    loadMap: "Carregar mapa",
+  },
+  en: {
+    bannerTitle: "Your privacy, without shortcuts.",
+    bannerDescription:
+      "We only store your choice on this device. Google Maps and optional diagnostics are enabled only with your permission.",
+    reject: "Reject optional",
+    accept: "Accept optional",
+    customize: "Customise",
+    save: "Save choices",
+    close: "Close preferences",
+    preferencesTitle: "Privacy preferences",
+    preferencesDescription:
+      "Choose which optional resources may operate. You can change this decision at any time in the footer.",
+    necessaryTitle: "Necessary storage",
+    necessaryDescription:
+      "Stores the version, categories and date of your choice so the site can respect it on later visits.",
+    alwaysActive: "Always active",
+    externalMediaTitle: "External content",
+    externalMediaDescription:
+      "Allows the embedded Google map to load. The address and external directions link remain available without it.",
+    diagnosticsTitle: "Diagnostics",
+    diagnosticsDescription:
+      "Allows technical errors to be sent to Lovable hooks when they are present in the preview environment.",
+    manage: "Manage cookies",
+    policyLink: "Cookie Policy",
+    mapTitle: "Map not loaded",
+    mapDescription:
+      "Google Maps is external content and may receive technical data from your device. You can load it now or open directions in a new page.",
+    loadMap: "Load map",
+  },
+};
+
+export const cookiePolicyContent: Record<
+  Language,
+  {
+    metaTitle: string;
+    metaDescription: string;
+    label: string;
+    title: string;
+    intro: string;
+    updated: string;
+    reference: string;
+    sections: readonly { title: string; paragraphs: readonly string[] }[];
+    inventoryTitle: string;
+    inventory: readonly {
+      name: string;
+      provider: string;
+      purpose: string;
+      duration: string;
+      category: string;
+    }[];
+    inventoryLabels: {
+      name: string;
+      provider: string;
+      purpose: string;
+      duration: string;
+      category: string;
+    };
+  }
+> = {
+  pt: {
+    metaTitle: "Política de Cookies",
+    metaDescription:
+      "Saiba que armazenamento e recursos externos a Móveis Machado utiliza e como pode gerir as suas preferências.",
+    label: "PRIVACIDADE E CONTROLO",
+    title: "Política de Cookies.",
+    intro:
+      "Esta política descreve o armazenamento no dispositivo e os recursos externos presentes neste site. O conteúdo em português europeu é a versão de referência.",
+    updated: "Última atualização: 14 de outubro de 2026",
+    reference: "Versão de referência: 2026-10-14",
+    sections: [
+      {
+        title: "O que acontece antes da sua escolha",
+        paragraphs: [
+          "O conteúdo principal, as fotografias, as fontes e a navegação são servidos sem carregar o mapa Google e sem autorizar diagnóstico opcional. Não encontrámos analytics, pixels de marketing ou publicidade no código carregado pelo site.",
+          "O banner não bloqueia o acesso ao site. Aceitar e rejeitar estão disponíveis na primeira camada, e todas as categorias opcionais começam desligadas quando personaliza.",
+        ],
+      },
+      {
+        title: "Como guardamos e alteramos a escolha",
+        paragraphs: [
+          "A escolha é guardada no localStorage do seu browser com a versão desta política, as categorias e um timestamp. Este registo é necessário para respeitar a sua decisão e não contém nome, email ou identificador publicitário.",
+          "Pode usar “Gerir cookies” no rodapé para aceitar, rejeitar ou alterar categorias. Uma mudança material de finalidade, fornecedor ou categoria exige nova versão e volta a apresentar a escolha.",
+        ],
+      },
+      {
+        title: "Google Maps e ligações externas",
+        paragraphs: [
+          "O iframe Google Maps só é criado depois de autorizar Conteúdo externo ou selecionar “Carregar mapa”. A partir daí, a Google pode receber endereço IP, informação do browser/dispositivo e definir armazenamento segundo as suas próprias regras. Os nomes e durações concretos podem variar por localização, sessão e políticas da Google.",
+          "A morada e a ligação “Como chegar” funcionam sem ativar o iframe. Ao abrir Google Maps ou WhatsApp numa nova página, passa a interagir diretamente com esse serviço externo e aplicam-se as respetivas políticas.",
+        ],
+      },
+      {
+        title: "Diagnóstico no ambiente de preview",
+        paragraphs: [
+          "O código reconhece hooks opcionais da Lovable usados para comunicar erros técnicos no editor/preview. Só os chama quando autoriza Diagnóstico e quando o próprio ambiente disponibiliza esses hooks. O site público não instala por si uma plataforma de analytics.",
+        ],
+      },
+      {
+        title: "Limites do inventário",
+        paragraphs: [
+          "O inventário abaixo corresponde ao código e ao build auditados nesta versão. Serviços de alojamento podem manter logs técnicos fora do browser; esse tratamento pertence à Política de Privacidade, cuja confirmação empresarial continua pendente.",
+          "A Política de Cookies deve ser revista sempre que forem adicionados analytics, marketing, novos embeds ou outro armazenamento no dispositivo.",
+        ],
+      },
+    ],
+    inventoryTitle: "Inventário observado",
+    inventoryLabels: {
+      name: "Nome/recurso",
+      provider: "Fornecedor",
+      purpose: "Finalidade",
+      duration: "Duração",
+      category: "Categoria",
+    },
+    inventory: [
+      {
+        name: "moveis-machado:consent (localStorage)",
+        provider: "Móveis Machado / este site",
+        purpose: "Guardar versão, categorias e timestamp da escolha.",
+        duration: "Até 6 meses, nova versão da política ou remoção pelo utilizador.",
+        category: "Necessário",
+      },
+      {
+        name: "Iframe Google Maps e armazenamento definido pela Google",
+        provider: "Google",
+        purpose: "Apresentar o mapa interativo da morada.",
+        duration:
+          "Apenas após opt-in; cookies/armazenamento e duração variam segundo a Google e a sessão.",
+        category: "Conteúdo externo",
+      },
+      {
+        name: "Hooks de erro Lovable",
+        provider: "Lovable, quando presente no preview/editor",
+        purpose: "Diagnosticar erros técnicos da aplicação.",
+        duration: "Não é criado armazenamento pelo código do site; retenção do host por confirmar.",
+        category: "Diagnóstico",
+      },
+    ],
+  },
+  en: {
+    metaTitle: "Cookie Policy",
+    metaDescription:
+      "Learn which storage and external resources Móveis Machado uses and how to manage your preferences.",
+    label: "PRIVACY AND CONTROL",
+    title: "Cookie Policy.",
+    intro:
+      "This policy describes device storage and external resources present on this website. The European Portuguese text is the reference version.",
+    updated: "Last updated: 14 October 2026",
+    reference: "Reference version: 2026-10-14",
+    sections: [
+      {
+        title: "What happens before your choice",
+        paragraphs: [
+          "The main content, photographs, fonts and navigation are served without loading Google Maps or enabling optional diagnostics. We found no analytics, marketing pixels or advertising in the code loaded by the site.",
+          "The banner does not block access. Accept and reject are available in the first layer, and all optional categories start off when you customise.",
+        ],
+      },
+      {
+        title: "How we store and change your choice",
+        paragraphs: [
+          "Your choice is stored in your browser's localStorage with the policy version, categories and a timestamp. This record is necessary to respect your decision and contains no name, email address or advertising identifier.",
+          "Use “Manage cookies” in the footer to accept, reject or change categories. A material change to a purpose, provider or category requires a new version and presents the choice again.",
+        ],
+      },
+      {
+        title: "Google Maps and external links",
+        paragraphs: [
+          "The Google Maps iframe is only created after you allow External content or select “Load map”. Google may then receive an IP address and browser/device information and set storage under its own rules. Exact names and durations can vary by location, session and Google's policies.",
+          "The address and “Get directions” link work without enabling the iframe. When you open Google Maps or WhatsApp in a new page, you interact directly with that external service and its policies apply.",
+        ],
+      },
+      {
+        title: "Diagnostics in the preview environment",
+        paragraphs: [
+          "The code recognises optional Lovable hooks used to report technical errors in the editor/preview. It only calls them when you allow Diagnostics and the environment provides those hooks. The public site does not install an analytics platform itself.",
+        ],
+      },
+      {
+        title: "Inventory limits",
+        paragraphs: [
+          "The inventory below reflects the code and build audited for this version. Hosting services may keep technical logs outside the browser; that processing belongs in the Privacy Policy and still awaits company confirmation.",
+          "This Cookie Policy must be reviewed whenever analytics, marketing, new embeds or other device storage are added.",
+        ],
+      },
+    ],
+    inventoryTitle: "Observed inventory",
+    inventoryLabels: {
+      name: "Name/resource",
+      provider: "Provider",
+      purpose: "Purpose",
+      duration: "Duration",
+      category: "Category",
+    },
+    inventory: [
+      {
+        name: "moveis-machado:consent (localStorage)",
+        provider: "Móveis Machado / this site",
+        purpose: "Store the version, categories and timestamp of the choice.",
+        duration: "Up to 6 months, a new policy version or removal by the user.",
+        category: "Necessary",
+      },
+      {
+        name: "Google Maps iframe and storage set by Google",
+        provider: "Google",
+        purpose: "Display an interactive map of the address.",
+        duration:
+          "Only after opt-in; cookies/storage and duration vary according to Google and the session.",
+        category: "External content",
+      },
+      {
+        name: "Lovable error hooks",
+        provider: "Lovable, when present in the preview/editor",
+        purpose: "Diagnose technical application errors.",
+        duration: "The site code creates no storage; host retention remains to be confirmed.",
+        category: "Diagnostics",
+      },
+    ],
+  },
+};
+
 export const whatsappUrl = "https://wa.me/351933776729";
 export const mapsUrl = "https://share.google/uK5M3YaRHoAcBMNPD";
 export const mapsEmbedUrl =
