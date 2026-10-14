@@ -39,6 +39,10 @@ export default defineConfig({
         prerender: { enabled: true, outputPath: "/contact/index.html" },
       },
       {
+        path: `${pagesBasePath}/cookies`,
+        prerender: { enabled: true, outputPath: "/cookies/index.html" },
+      },
+      {
         path: `${pagesBasePath}/projects`,
         prerender: { enabled: true, outputPath: "/projects/index.html" },
       },

@@ -13,6 +13,7 @@ export const PUBLIC_PATHS = [
   "/projects",
   "/about",
   "/contact",
+  "/cookies",
 ] as const;
 
 export type PublicPath = (typeof PUBLIC_PATHS)[number];

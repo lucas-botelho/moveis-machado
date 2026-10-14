@@ -2,7 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MapPin } from "lucide-react";
 import { useLanguage, PageHeading, Eyebrow } from "@/components/site";
 import { Button } from "@/components/ui/button";
-import { content, pageMeta, whatsappUrl, mapsUrl, mapsEmbedUrl } from "@/lib/site-content";
+import { useConsent } from "@/components/cookie-consent";
+import {
+  content,
+  cookieConsentContent,
+  pageMeta,
+  whatsappUrl,
+  mapsUrl,
+  mapsEmbedUrl,
+  type Language,
+} from "@/lib/site-content";
 export const Route = createFileRoute("/contact")({
   head: ({ match }) =>
     match.search.lang === "en"
@@ -58,20 +67,51 @@ function Contact() {
           <a href={mapsUrl} target="_blank" rel="noreferrer" className="text-link">
             {t.directions}
           </a>
-          <iframe
-            className="contact-map"
-            src={mapsEmbedUrl}
-            title={
-              lang === "pt"
-                ? "Mapa da Móveis Machado em Odivelas"
-                : "Map to Móveis Machado in Odivelas"
-            }
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+          <ConsentMap lang={lang} />
         </div>
       </section>
     </main>
+  );
+}
+
+export function ConsentMap({ lang }: { lang: Language }) {
+  const consent = useConsent();
+  const copy = cookieConsentContent[lang];
+
+  if (consent.record?.categories.externalMedia) {
+    return (
+      <iframe
+        className="contact-map"
+        src={mapsEmbedUrl}
+        title={
+          lang === "pt" ? "Mapa da Móveis Machado em Odivelas" : "Map to Móveis Machado in Odivelas"
+        }
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+      />
+    );
+  }
+
+  return (
+    <div className="contact-map contact-map-placeholder" data-testid="map-placeholder">
+      <MapPin aria-hidden="true" size={30} strokeWidth={1.25} />
+      <div>
+        <h3>{copy.mapTitle}</h3>
+        <p>{copy.mapDescription}</p>
+      </div>
+      <div className="contact-map-actions">
+        <Button
+          type="button"
+          variant="luxury"
+          onClick={() => consent.allowCategory("externalMedia")}
+        >
+          {copy.loadMap}
+        </Button>
+        <a href={mapsUrl} target="_blank" rel="noreferrer" className="text-link">
+          {content[lang].directions}
+        </a>
+      </div>
+    </div>
   );
 }

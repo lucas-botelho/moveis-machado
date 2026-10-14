@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { ArrowDown, Menu, X, Ruler, Hammer, MapPin, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useConsent } from "@/components/cookie-consent";
 import heroImage from "@/assets/interior-hero.jpg";
 import materialImage from "@/assets/material-study.jpg";
 import brandMark from "@/assets/brand-mark.svg?url&no-inline";
 import {
   content,
+  cookieConsentContent,
   projects,
   mapsUrl,
   servicePages,
@@ -498,6 +500,8 @@ export function ServicePage({ service }: { service: ServiceSlug }) {
 export function SiteFooter() {
   const lang = useLanguage();
   const t = content[lang];
+  const cookieCopy = cookieConsentContent[lang];
+  const consent = useConsent();
   return (
     <footer className="site-footer">
       <div className="footer-main">
@@ -533,6 +537,14 @@ export function SiteFooter() {
         <span>
           © {new Date().getFullYear()} Móveis Machado. {t.rights}
         </span>
+        <div className="footer-legal-links">
+          <Link to="/cookies" search={{ lang }}>
+            {cookieCopy.policyLink}
+          </Link>
+          <button type="button" onClick={() => consent.setPreferencesOpen(true)}>
+            {cookieCopy.manage}
+          </button>
+        </div>
       </div>
     </footer>
   );
