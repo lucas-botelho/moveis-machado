@@ -164,6 +164,9 @@
   --atelier-border: oklch(0.44 0.018 135);
   --detail: oklch(0.73 0.066 83);
   --contact-shade: oklch(0.16 0.018 140 / 0.62);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-label: 0.75rem;
 }
 
 html {
@@ -307,7 +310,7 @@ a {
   line-height: 1.15;
 }
 .brand-tagline {
-  font-size: 8px;
+  font-size: var(--text-label);
   text-transform: uppercase;
   margin-top: 6px;
   display: block;
@@ -318,7 +321,7 @@ a {
   gap: 30px;
 }
 .nav-link {
-  font-size: 11px;
+  font-size: var(--text-small);
   color: var(--muted-foreground);
   padding: 10px 0;
   position: relative;
@@ -349,7 +352,7 @@ a {
 .navigation-button {
   color: var(--muted-foreground);
   background: transparent;
-  font-size: 10px;
+  font-size: var(--text-label);
   padding: 4px;
   height: 28px;
   border-radius: 0;
@@ -361,7 +364,7 @@ a {
 }
 .luxury-button,
 .hero-button {
-  font-size: 10px;
+  font-size: var(--text-small);
   font-weight: 500;
   height: 45px;
   border-radius: 0;
@@ -416,7 +419,7 @@ a {
   max-width: 1000px;
 }
 .eyebrow {
-  font-size: 9px;
+  font-size: var(--text-label);
   font-weight: 500;
   text-transform: uppercase;
   display: flex;
@@ -446,8 +449,8 @@ a {
   font-weight: 400;
 }
 .hero-description {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--text-body);
+  line-height: 1.75;
   max-width: 390px;
   margin: 24px 0 31px;
   opacity: 0.87;
@@ -461,7 +464,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 9px;
+  font-size: var(--text-label);
 }
 .hero-scroll {
   display: flex;
@@ -482,7 +485,7 @@ a {
   display: flex;
   gap: 11px;
   align-items: center;
-  font-size: 10px;
+  font-size: var(--text-small);
   color: var(--muted-foreground);
 }
 .trust-item svg {
@@ -513,7 +516,7 @@ a {
   font-weight: 400;
 }
 .text-link {
-  font-size: 10px;
+  font-size: var(--text-small);
   display: inline-flex;
   align-items: center;
   border-bottom: 1px solid var(--border);
@@ -548,7 +551,7 @@ a {
   margin-bottom: 11px;
 }
 .service-item p {
-  font-size: 11px;
+  font-size: var(--text-body);
   color: var(--muted-foreground);
   line-height: 1.9;
 }
@@ -561,7 +564,6 @@ a {
   margin-bottom: 55px;
 }
 .projects-section .section-title {
-  max-width: 500px;
   font-size: 62px;
 }
 .project-grid {
@@ -609,7 +611,7 @@ a {
   min-height: 2.4em;
 }
 .project-info p {
-  font-size: 9px;
+  font-size: var(--text-small);
   color: var(--muted-foreground);
   margin-top: 5px;
 }
@@ -625,18 +627,16 @@ a {
   padding-bottom: 65px;
 }
 .story-text {
-  max-width: 470px;
+  min-width: 0;
 }
 .story-section .eyebrow {
   color: var(--detail);
 }
 .story-section .section-title {
   font-size: 65px;
-  max-width: 440px;
 }
 .story-section .body-copy {
   color: var(--atelier-muted);
-  font-size: 13px;
   margin: 28px 0 32px;
 }
 .story-section .text-link {
@@ -667,7 +667,7 @@ a {
 .story-visual figcaption span {
   font-family: var(--font-sans);
   font-style: normal;
-  font-size: 8px;
+  font-size: var(--text-label);
   color: var(--atelier-muted);
 }
 .story-signature {
@@ -683,11 +683,11 @@ a {
 }
 .story-signature span:last-child {
   color: var(--atelier-muted);
-  font-size: 8px;
+  font-size: var(--text-label);
 }
 .body-copy {
-  font-size: 12px;
-  line-height: 2;
+  font-size: var(--text-body);
+  line-height: 1.8;
   color: var(--muted-foreground);
   margin: 25px 0;
   max-width: 510px;
@@ -721,9 +721,9 @@ a {
 }
 .stat > span {
   color: var(--atelier-muted);
-  font-size: 10px;
-  max-width: 90px;
-  line-height: 1.8;
+  font-size: var(--text-small);
+  max-width: 120px;
+  line-height: 1.6;
 }
 .process-section {
   display: grid;
@@ -734,7 +734,6 @@ a {
 }
 .process-intro .section-title {
   font-size: 56px;
-  max-width: 460px;
 }
 .process-visual {
   margin: 35px 0 0;
@@ -748,7 +747,7 @@ a {
 .process-visual figcaption {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: var(--text-label);
   color: var(--muted-foreground);
   padding-top: 12px;
 }
@@ -773,7 +772,7 @@ a {
   margin: 0 0 9px;
 }
 .process-item p {
-  font-size: 12px;
+  font-size: var(--text-body);
   color: var(--muted-foreground);
   line-height: 1.9;
   max-width: 330px;
@@ -804,7 +803,7 @@ a {
 .contact-content {
   position: relative;
   z-index: 1;
-  max-width: 650px;
+  max-width: 900px;
 }
 .contact-band h2 {
   font-family: var(--font-display);
@@ -814,8 +813,8 @@ a {
   margin: 25px 0;
 }
 .contact-band p {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--text-body);
+  line-height: 1.75;
   max-width: 370px;
   color: var(--inverse);
   margin-bottom: 30px;
@@ -831,7 +830,7 @@ a {
   border-top: 1px solid var(--atelier-border);
   padding-top: 18px;
   color: var(--inverse);
-  font-size: 8px;
+  font-size: var(--text-label);
 }
 .site-footer {
   padding: 72px 7% 28px;
@@ -850,14 +849,14 @@ a {
   padding-bottom: 45px;
 }
 .footer-copy {
-  font-size: 11px;
+  font-size: var(--text-body);
   color: var(--muted-foreground);
   line-height: 1.9;
   max-width: 280px;
   margin-top: 20px;
 }
 .footer-heading {
-  font-size: 10px;
+  font-size: var(--text-label);
   margin-bottom: 18px;
   font-weight: 600;
 }
@@ -866,7 +865,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   gap: 13px;
-  font-size: 11px;
+  font-size: var(--text-small);
   color: var(--muted-foreground);
 }
 .footer-bottom {
@@ -875,7 +874,7 @@ a {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  font-size: 9px;
+  font-size: var(--text-label);
   color: var(--muted-foreground);
 }
 .page-heading {
@@ -889,8 +888,8 @@ a {
 }
 .page-heading p {
   margin-top: 20px;
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--text-body);
+  line-height: 1.75;
   color: var(--muted-foreground);
   max-width: 550px;
 }
@@ -911,8 +910,8 @@ a {
   text-decoration: none;
 }
 .service-detail p {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--text-body);
+  line-height: 1.75;
   color: var(--muted-foreground);
 }
 .service-detail > .text-link {
@@ -925,7 +924,6 @@ a {
   gap: clamp(48px, 8vw, 120px);
 }
 .service-page-primary .section-title {
-  max-width: 760px;
   margin-top: 18px;
 }
 .service-page-primary .body-copy {
@@ -946,8 +944,8 @@ a {
 .service-page-planning p,
 .service-page-facts p {
   margin-top: 14px;
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--text-body);
+  line-height: 1.75;
   color: var(--muted-foreground);
 }
 .service-page-facts {
@@ -978,13 +976,13 @@ a {
   border-right: 0;
 }
 .service-page-steps span {
-  font-size: 10px;
+  font-size: var(--text-label);
   letter-spacing: 0.18em;
   color: var(--detail);
 }
 .service-page-steps p {
   margin-top: 34px;
-  font-size: 12px;
+  font-size: var(--text-body);
   line-height: 1.8;
 }
 .service-page-cta {
@@ -998,7 +996,6 @@ a {
   color: var(--background);
 }
 .service-page-cta h2 {
-  max-width: 700px;
   margin-top: 16px;
   font-family: var(--font-display);
   font-size: clamp(38px, 5vw, 64px);
@@ -1008,8 +1005,8 @@ a {
 .service-page-cta p {
   max-width: 620px;
   margin-top: 20px;
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--text-body);
+  line-height: 1.75;
   color: color-mix(in oklab, var(--background) 70%, transparent);
 }
 .contact-layout {
@@ -1029,7 +1026,7 @@ a {
 }
 .contact-location address {
   font-style: normal;
-  font-size: 13px;
+  font-size: var(--text-body);
   line-height: 2;
   margin-bottom: 25px;
 }
@@ -1047,12 +1044,12 @@ a {
   margin-top: 30px;
 }
 .faq summary {
-  font-size: 12px;
+  font-size: var(--text-small);
   cursor: pointer;
   padding: 15px 0;
 }
 .faq p {
-  font-size: 11px;
+  font-size: var(--text-body);
   color: var(--muted-foreground);
   line-height: 1.9;
   padding-bottom: 15px;
@@ -1201,7 +1198,7 @@ a {
     padding: 23px 7%;
   }
   .trust-item {
-    font-size: 9px;
+    font-size: var(--text-label);
   }
   .section {
     padding: 60px 7%;
@@ -1303,7 +1300,6 @@ a {
   }
   .footer-bottom {
     flex-direction: column;
-    font-size: 8px;
   }
   .page-heading {
     padding: 55px 7% 40px;
@@ -1349,9 +1345,6 @@ a {
   }
 }
 @media (max-width: 420px) {
-  .brand-tagline {
-    font-size: 7px;
-  }
   .brand {
     gap: 8px;
   }
@@ -1385,9 +1378,6 @@ a {
   .service-item {
     padding-right: 5px;
     padding-left: 16px;
-  }
-  .hero .eyebrow {
-    font-size: 8px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

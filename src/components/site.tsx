@@ -79,7 +79,7 @@ export function SiteHeader() {
           >
             PT
           </Button>
-          <span className="text-muted-foreground text-[10px]">/</span>
+          <span className="text-muted-foreground text-xs">/</span>
           <Button
             variant="navigation"
             aria-pressed={lang === "en"}
