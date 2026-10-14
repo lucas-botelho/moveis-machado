@@ -20,6 +20,9 @@ O requisito aprovado é a issue GitHub #2, https://github.com/lucas-botelho/move
 - [x] (2026-10-13 22:49 WEST) Executar typecheck, testes, lint, build normal e build com base path de GitHub Pages.
 - [x] (2026-10-13 22:51 WEST) Publicar `codex/issue-2-service-pages` e abrir o PR #9 em rascunho.
 - [x] (2026-10-13 22:51 WEST) CI do PR #9 concluiu com sucesso (run #41).
+- [x] (2026-10-14 12:03 WEST) Rever o estado atual do PR #9 e detetar repetição do rótulo do serviço entre `PageHeading` e o início do conteúdo.
+- [x] (2026-10-14 12:06 WEST) Remover o segundo rótulo sem alterar a hierarquia ou a cópia; build Pages gerou 17 páginas e as três rotas de serviço ficaram com um H1 e uma ocorrência do rótulo.
+- [x] (2026-10-14 12:06 WEST) Revalidar 14 testes, typecheck, lint dirigido, Prettier, build Pages e destinos internos; tudo passou (um aviso Fast Refresh preexistente).
 - [ ] Obter revisão editorial do responsável e só então finalizar o PR/integrar.
 
 ## Surprises & Discoveries
@@ -29,6 +32,8 @@ O requisito aprovado é a issue GitHub #2, https://github.com/lucas-botelho/move
 - O repositório só contém fotografias reais de cozinhas. Para não insinuar portefólio inexistente de roupeiros ou mobiliário, as páginas de serviço serão editoriais e não adicionarão galerias nem imagens geradas.
 - O primeiro HTML produzido para as rotas filhas continha a página agregadora porque `services.tsx` não renderizava `<Outlet />`. A correção converteu `services.tsx` numa rota layout e moveu o agregador para `services.index.tsx`; o HTML final confirma o H1 de cada serviço e apenas um canonical.
 - A pré-visualização local não foi acessível pelo browser integrado (`ERR_CONNECTION_TIMED_OUT`), apesar do processo de preview iniciar em `127.0.0.1:4173`. A verificação visual foi substituída por inspeção do HTML e CSS do build; este limite deve ser referido no PR.
+- A revisão do componente `ServicePage` no head `6488dae` encontrou que `PageHeading` já mostra o rótulo em maiúsculas e o mesmo rótulo voltava a aparecer como `Eyebrow` no início da primeira secção. O `404` do branch #4 não é presente neste branch; este build da #2 foi validado separadamente e não recebe a correção de domínio do PR #12 até à integração.
+- A duplicação do rótulo foi removida. O build com `PAGES_BASE_PATH=/moveis-machado` gerou 17 páginas; as páginas de cozinhas, roupeiros e móveis têm uma ocorrência do respetivo rótulo, um H1 e canonical/hreflang, sem destinos internos/ativos inexistentes.
 
 ## Decision Log
 
@@ -44,9 +49,13 @@ O requisito aprovado é a issue GitHub #2, https://github.com/lucas-botelho/move
     Rationale: os critérios proíbem inventar capacidade operacional; o conteúdo atual é a única fonte interna confirmada.
     Date/Author: 2026-10-13 / Codex
 
+    Decision: remover o segundo rótulo repetido no componente partilhado de serviço, preservando H1, títulos, factos e CTA (assumida, refinamento técnico/editorial sem alterar copy).
+    Rationale: o rótulo de serviço já está no PageHeading imediatamente acima; repeti-lo como Eyebrow no início da primeira secção não acrescenta informação.
+    Date/Author: 2026-10-14 / Codex
+
 ## Outcomes & Retrospective
 
-A implementação local e o CI do PR estão completos; os builds produziram as três páginas com H1/title únicos e links internos em PT/EN. Falta a revisão editorial pelo responsável da Móveis Machado, requerida explicitamente antes da publicação. O PR #9 permanece em rascunho e a issue #2 continua aberta até essa revisão estar registada.
+A implementação e a validação local incluem agora a remoção da repetição do rótulo. Os 14 testes, typecheck, lint dirigido, Prettier e build Pages passaram; HTML das três páginas tem H1 e rótulo únicos e os destinos internos resolvem. Falta revisão editorial pelo responsável da Móveis Machado, requerida explicitamente antes da publicação. O PR #9 permanece draft e a issue #2 continua aberta até essa revisão estar registada e CI atualizar o novo head.
 
 ## Context and Orientation
 
@@ -72,6 +81,10 @@ O marco fica concluído quando cada rota é alcançável por links HTML da homep
 
 Alargar routing e testes de SEO para verificar os três matches, a presença no sitemap, metadados únicos e URLs com idioma. Adicionar um teste de renderização que prove que os links de serviço mantêm `lang=en`. Executar typecheck, testes, lint e os dois builds. Rever o diff contra os critérios, atualizar este plano, fazer commits não destrutivos, abrir PR com `Fixes #2`, aguardar checks e integrar apenas quando os gates estiverem verdes.
 
+### Milestone 4: remover a repetição do rótulo de serviço
+
+Em `src/components/site.tsx`, `ServicePage` usa `PageHeading` com `page.label` e volta a renderizar o mesmo valor numa `Eyebrow` dentro da secção seguinte. Retirar apenas essa `Eyebrow`; manter o título de âmbito (`page.scopeTitle`), texto, materiais, área, processo e CTA. Construir o site com o base path Pages e confirmar que cada uma das três páginas tem uma única ocorrência do rótulo, continua com um H1 e mantém os links/locales.
+
 ## Concrete Steps
 
 Executar a partir de `E:\Dev\Projects\moveis-machado`:
@@ -89,7 +102,7 @@ As operações Git ficam limitadas a `codex/issue-2-service-pages`. Não usar fo
 
 Os testes provam matches para `/services/kitchens`, `/services/wardrobes` e `/services/furniture`; o sitemap contém 16 entradas no total (`8 rotas x 2 idiomas`); links de serviço apontam para destinos distintos e preservam o idioma.
 
-O HTML prerenderizado de cada rota deve conter um title, description e H1 próprios. PT-PT e EN não podem aparecer misturados dentro da variante selecionada. A homepage, `/services` e o rodapé devem fornecer links rastreáveis. O lint deve terminar sem erros; os 7 avisos preexistentes de Fast Refresh são tolerados se não houver avisos novos.
+O HTML prerenderizado de cada rota deve conter um title, description e H1 próprios. O rótulo do serviço deve aparecer uma vez em cada idioma/página, no cabeçalho. PT-PT e EN não podem aparecer misturados dentro da variante selecionada. A homepage, `/services` e o rodapé devem fornecer links rastreáveis. O lint deve terminar sem erros; os 7 avisos preexistentes de Fast Refresh são tolerados se não houver avisos novos.
 
 ## Idempotence and Recovery
 
@@ -121,3 +134,4 @@ Baseline observado:
 2026-10-13: plano inicial criado depois de confirmar a issue #2 e inspecionar a arquitetura, conteúdo, rotas, testes, sitemap e configuração de prerender.
 
 2026-10-13: registada implementação, validação local e CI bem-sucedidos, incluindo a correção da relação layout/rotas filhas; a integração permanece condicionada pela revisão editorial explicitamente pedida nos critérios da issue.
+2026-10-14: removido o segundo eyebrow repetido após PageHeading e validados 14 testes, typecheck, lint dirigido, Prettier e build Pages com 17 páginas; a revisão editorial e CI do novo head continuam pendentes.

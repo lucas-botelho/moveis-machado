@@ -438,7 +438,6 @@ export function ServicePage({ service }: { service: ServiceSlug }) {
       <PageHeading label={page.label} title={page.title} description={page.description} />
       <section className="section service-page-section">
         <div className="service-page-primary">
-          <Eyebrow line>{page.label}</Eyebrow>
           <h2 className="section-title">{page.scopeTitle}</h2>
           <p className="body-copy">{page.scopeCopy}</p>
           <div className="service-page-planning">
