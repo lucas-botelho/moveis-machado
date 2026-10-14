@@ -46,6 +46,18 @@ export default defineConfig({
         path: `${pagesBasePath}/services`,
         prerender: { enabled: true, outputPath: "/services/index.html" },
       },
+      {
+        path: `${pagesBasePath}/services/kitchens`,
+        prerender: { enabled: true, outputPath: "/services/kitchens/index.html" },
+      },
+      {
+        path: `${pagesBasePath}/services/wardrobes`,
+        prerender: { enabled: true, outputPath: "/services/wardrobes/index.html" },
+      },
+      {
+        path: `${pagesBasePath}/services/furniture`,
+        prerender: { enabled: true, outputPath: "/services/furniture/index.html" },
+      },
     ],
   },
 });
