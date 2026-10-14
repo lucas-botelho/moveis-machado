@@ -18,11 +18,11 @@ A issue GitHub #4 define o âmbito, incluindo baseline, LCP/CLS, fontes, imagens
 - [x] (2026-10-14 11:34 WEST) Remover animações iniciais do hero/page headings; priorizar só a primeira imagem em Projetos; self-host Manrope/Cormorant e incluir licenças OFL.
 - [x] (2026-10-14 11:34 WEST) Repetir Lighthouse em localhost, comparar CLS/LCP/bytes, confirmar ausência de pedidos Google Fonts e documentar limitações de comparabilidade.
 - [x] (2026-10-14 11:34 WEST) Executar typecheck, testes, lint dirigido, Prettier, builds normal e GitHub Pages; registar falha preexistente do lint global neste checkout Windows.
-- [ ] Abrir PR próprio para este trabalho parcial e documentar os gates ainda pendentes.
+- [x] (2026-10-14 11:38 WEST) Abrir PR draft #12 para este trabalho parcial e atualizar a issue #4 com âmbito, validação e gates restantes.
 - [ ] Integrar após revisão/checks; voltar depois da issue #7 para consentimento/mapa e após acesso do proprietário para Search Console.
 - [ ] Depois da issue #7, medir novamente a interação entre consentimento, mapa e layout; obter acesso do proprietário ao Search Console para submissão do sitemap ou registar bloqueio.
 
-Concluído nesta paragem: baseline publicado duplicado, otimizações independentes de consentimento, matriz Lighthouse repetida em localhost e validação de build. Pendente: publicar branch/PR, obter CI/review, confirmar domínio final, integrar #7 para o mapa e receber acesso do proprietário ao Search Console.
+Concluído nesta paragem: baseline publicado duplicado, otimizações independentes de consentimento, matriz Lighthouse repetida em localhost, validação de build, PR #12 aberto e CI #49 passado no commit inicial (SHA `11fba0151f7eb40b5bb8365e5eae8032d392ef3b`). Pendente: CI do commit final do plano, revisão e integração do PR, confirmar domínio final, integrar #7 para o mapa e receber acesso do proprietário ao Search Console.
 
 ## Surprises & Discoveries
 
@@ -136,4 +136,4 @@ Não estão previstas novas interfaces de produto. Fontes Fontsource são servid
 
 2026-10-14: plano inicial criado no branch `codex/issue-4-performance` após inspeção da issue e do código de `origin/main`; regista PSI sem quota e exige baseline antes de otimizar.
 2026-10-14: baseline Lighthouse duplicado confirmou atraso de animação no conteúdo LCP, primeira imagem lazy em Projetos e pedidos globais de fontes; plano revisto para implementar apenas estas correções mensuráveis.
-2026-10-14: implementadas e validadas as alterações independentes de consentimento; pós-teste local e limitação de origem diferente registados. Plano permanece aberto até PR/review/CI, issue #7 e acesso Search Console.
+2026-10-14: implementadas e validadas as alterações independentes de consentimento; pós-teste local e limitação de origem diferente registados. PR draft #12 aberto e CI #49 passou no primeiro commit. Plano permanece aberto até revisão/integração, issue #7 e acesso Search Console.
