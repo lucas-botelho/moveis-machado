@@ -2,6 +2,7 @@ import { loadEnv, type Plugin } from "vite";
 
 import {
   DEFAULT_SITE_URL,
+  createNotFoundHtml,
   createRobotsTxt,
   createSitemapXml,
   resolveSiteUrl,
@@ -40,9 +41,24 @@ export function seoFilesPlugin(): Plugin {
         next();
       });
     },
-    generateBundle() {
+    generateBundle(_options, bundle) {
       this.emitFile({ type: "asset", fileName: "sitemap.xml", source: createSitemapXml(siteUrl) });
       this.emitFile({ type: "asset", fileName: "robots.txt", source: createRobotsTxt(siteUrl) });
+      const stylesheet = Object.values(bundle).find(
+        (asset) =>
+          asset.type === "asset" &&
+          asset.fileName.endsWith(".css") &&
+          typeof asset.source === "string" &&
+          asset.source.includes(".not-found-page"),
+      );
+      const stylesheetPath = stylesheet
+        ? `/${basePath ? `${basePath}/` : ""}${stylesheet.fileName}`
+        : "";
+      this.emitFile({
+        type: "asset",
+        fileName: "404.html",
+        source: createNotFoundHtml(basePath, stylesheetPath),
+      });
     },
   };
 }

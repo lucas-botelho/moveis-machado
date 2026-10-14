@@ -7,6 +7,7 @@ import {
   SEO_LANGUAGES,
   buildLanguageAlternates,
   buildLanguageUrl,
+  createNotFoundHtml,
   createRobotsTxt,
   createSitemapXml,
   getLegacyPortugueseRedirectUrl,
@@ -14,6 +15,21 @@ import {
 } from "@/lib/seo-shared";
 
 describe("SEO URLs", () => {
+  it("uses the currently published GitHub Pages origin for default SEO URLs", () => {
+    expect(resolveSiteUrl()).toBe("https://lucas-botelho.github.io/moveis-machado");
+
+    const head = pageMeta("/contact", "pt", "Contactos", "Descrição");
+    const canonical = head.links.find((link) => link.rel === "canonical");
+
+    expect(canonical?.href).toBe("https://lucas-botelho.github.io/moveis-machado/contact?lang=pt");
+    expect(createSitemapXml()).toContain(
+      "<loc>https://lucas-botelho.github.io/moveis-machado/contact?lang=pt</loc>",
+    );
+    expect(createRobotsTxt()).toContain(
+      "Sitemap: https://lucas-botelho.github.io/moveis-machado/sitemap.xml",
+    );
+  });
+
   it("normalizes the configured site URL and preserves a deployment base path", () => {
     expect(resolveSiteUrl("https://example.com/moveis-machado///?ignored=yes#section")).toBe(
       "https://example.com/moveis-machado",
@@ -46,6 +62,20 @@ describe("SEO URLs", () => {
 });
 
 describe("SEO discovery files", () => {
+  it("renders an accessible bilingual static 404 with deployment-aware language links", () => {
+    const html = createNotFoundHtml("/moveis-machado", "/moveis-machado/assets/site.css");
+
+    expect(html).toContain('<html lang="pt-PT">');
+    expect(html).toContain('<main class="not-found-page" id="main-content">');
+    expect(html).toContain('data-pt="Não encontrámos esta página."');
+    expect(html).toContain('data-en="We couldn&#39;t find this page."');
+    expect(html.match(/<h1\b/g)).toHaveLength(1);
+    expect(html).toContain('href="/moveis-machado/?lang=pt"');
+    expect(html).toContain('href="/moveis-machado/?lang=en"');
+    expect(html).toContain('href="/moveis-machado/assets/site.css"');
+    expect(html).toContain('name="robots" content="noindex, follow"');
+  });
+
   it("generates one sitemap entry per public path and language without the legacy route", () => {
     const sitemap = createSitemapXml("https://example.com");
     const locations = sitemap.match(/<loc>/g) ?? [];

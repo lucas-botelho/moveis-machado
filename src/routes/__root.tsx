@@ -11,33 +11,35 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/cormorant-garamond";
+import "@fontsource-variable/cormorant-garamond/wght-italic.css";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter } from "@/components/site";
-import { resolveLanguage } from "@/lib/site-content";
+import { content, resolveLanguage } from "@/lib/site-content";
 import brandMark from "@/assets/brand-mark.svg?url&no-inline";
 import brandIcon from "@/assets/brand-mark-32.png?url&no-inline";
 
 function NotFoundComponent() {
+  const language = useRouterState({
+    select: (state) => resolveLanguage(state.location.search.lang),
+  });
+  const copy = language === "pt" ? content.pt.notFound : content.en.notFound;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <main className="not-found-page" id="main-content">
+      <div className="not-found-content">
+        <p className="not-found-code" aria-hidden="true">
+          404
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            search={{ lang: "pt" }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <h1>{copy.title}</h1>
+        <p>{copy.description}</p>
+        <Link to="/" search={{ lang: language }} className="not-found-action">
+          {copy.action}
+        </Link>
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -103,10 +105,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: brandIcon, type: "image/png", sizes: "32x32" },
       { rel: "icon", href: brandMark, type: "image/svg+xml", sizes: "any" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&display=swap",
-      },
     ],
   }),
   shellComponent: RootShell,

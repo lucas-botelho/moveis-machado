@@ -144,8 +144,8 @@
 }
 
 @theme inline {
-  --font-sans: "Manrope", sans-serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope Variable", sans-serif;
+  --font-display: "Cormorant Garamond Variable", Georgia, serif;
   --color-inverse: var(--inverse);
   --color-brand-soft: var(--brand-soft);
   --color-atelier: var(--atelier);
@@ -169,6 +169,93 @@
 html {
   scroll-behavior: smooth;
 }
+
+.not-found-page {
+  display: grid;
+  min-height: 70svh;
+  place-items: center;
+  padding: clamp(3rem, 9vw, 8rem) 1.5rem;
+  background: var(--background);
+  text-align: center;
+}
+
+.not-found-content {
+  width: min(100%, 42rem);
+}
+
+.not-found-content h1 {
+  margin: 0.5rem auto 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 500;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.not-found-content > p:not(.not-found-code) {
+  max-width: 42ch;
+  margin: 1.25rem auto 0;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+.not-found-code {
+  margin: 0;
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 22vw, 12rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.75;
+}
+
+.not-found-action {
+  display: inline-flex;
+  min-height: 2.875rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.not-found-action:hover {
+  background: color-mix(in oklch, var(--primary) 88%, black);
+}
+
+.not-found-action:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
+}
+
+.not-found-languages {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  font-size: 0.875rem;
+}
+
+.not-found-languages a {
+  color: var(--foreground);
+  text-underline-offset: 0.2em;
+}
+
+.not-found-languages a:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);

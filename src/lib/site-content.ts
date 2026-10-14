@@ -2,6 +2,7 @@ import walnut from "@/assets/kitchen-walnut.webp";
 import island from "@/assets/kitchen-island.webp";
 import contemporary from "@/assets/kitchen-contemporary.webp";
 import { createPageHead } from "@/lib/seo";
+import { notFoundContent } from "@/lib/not-found-content";
 import type { PublicPath, SeoLanguage } from "@/lib/seo-shared";
 
 export type Language = SeoLanguage;
@@ -243,6 +244,7 @@ export const projects = [
 ];
 export const content = {
   pt: {
+    notFound: notFoundContent.pt,
     nav: ["Início", "O que fazemos", "Projetos", "Sobre nós", "Contactos"],
     quote: "Pedir orçamento",
     tagline: "Feito para o seu espaço",
@@ -324,6 +326,7 @@ export const content = {
     aboutIntro: "Trabalhamos em Odivelas e servimos Lisboa e a região envolvente.",
   },
   en: {
+    notFound: notFoundContent.en,
     nav: ["Home", "What we do", "Projects", "Our story", "Contact"],
     quote: "Request a quote",
     tagline: "Made for your space",
