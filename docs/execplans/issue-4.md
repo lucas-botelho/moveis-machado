@@ -19,23 +19,33 @@ A issue GitHub #4 define o âmbito, incluindo baseline, LCP/CLS, fontes, imagens
 - [x] (2026-10-14 11:34 WEST) Repetir Lighthouse em localhost, comparar CLS/LCP/bytes, confirmar ausência de pedidos Google Fonts e documentar limitações de comparabilidade.
 - [x] (2026-10-14 11:34 WEST) Executar typecheck, testes, lint dirigido, Prettier, builds normal e GitHub Pages; registar falha preexistente do lint global neste checkout Windows.
 - [x] (2026-10-14 11:38 WEST) Abrir PR draft #12 para este trabalho parcial e atualizar a issue #4 com âmbito, validação e gates restantes.
+- [x] (2026-10-14 11:44 WEST) Inspecionar o HTML e os ficheiros de descoberta do build Pages; confirmar divergência entre o host publicado e o domínio canonical predefinido.
+- [x] (2026-10-14 11:46 WEST) Confirmar que o build Pages não emite `404.html`; a página React existente não cobre pedidos de ficheiros/rotas inexistentes no host estático.
+- [x] (2026-10-14 11:53 WEST) Corrigir o domínio predefinido de canonical/og:url/sitemap para o URL Pages atual e acrescentar testes de regressão.
+- [x] (2026-10-14 11:53 WEST) Criar fallback estático `404.html` bilingue, acessível e responsivo, respeitando `PAGES_BASE_PATH` e `?lang=`; cobrir o build no CI.
+- [x] (2026-10-14 11:53 WEST) Revalidar links internos, headings, alt, 404, canonical, robots e sitemap no build Pages; typecheck, 11 testes, lint dirigido e Prettier passaram.
+- [ ] Atualizar PR #12 e issue #4 e obter novo CI.
 - [ ] Integrar após revisão/checks; voltar depois da issue #7 para consentimento/mapa e após acesso do proprietário para Search Console.
 - [ ] Depois da issue #7, medir novamente a interação entre consentimento, mapa e layout; obter acesso do proprietário ao Search Console para submissão do sitemap ou registar bloqueio.
 
-Concluído nesta paragem: baseline publicado duplicado, otimizações independentes de consentimento, matriz Lighthouse repetida em localhost, validação de build, PR #12 aberto e GitHub Actions runs #49 e #51 passados (run #51 confirmou o head `9a0be43fe2ce667c6b030a69ec520ce0dee442d9`). Pendente: revisão/integração do PR, confirmar domínio final, integrar #7 para o mapa e receber acesso do proprietário ao Search Console.
+Concluído nesta paragem: baseline publicado duplicado, otimizações independentes de consentimento, matriz Lighthouse repetida em localhost, canonical/og/sitemap para a origem Pages atual, fallback 404 localizado e auditoria estática Pages. Pendente: publicar esta atualização no PR #12 e obter CI, revisão/integração, confirmação do domínio final, integrar #7 para o mapa e receber acesso do proprietário ao Search Console.
 
 ## Surprises & Discoveries
 
 - A imagem LCP da homepage já tem `width=1920`, `height=1088` e `fetchPriority="high"`; é o `interior-hero.jpg` original (1920×1088, 295 368 bytes). A estratégia deve medir a contribuição real antes de alterar esse recurso.
 - Imagens de projetos já usam `loading="lazy"` e dimensões, a imagem de processo também é lazy, e o estudo de materiais (1536×1024) é lazy. O CSS reserva proporções para imagens de projeto e mapa. Não foi confirmado se as dimensões HTML declaradas nas fotografias de projetos coincidem com os ficheiros WebP.
 - O root pedia Google Fonts em todas as rotas. Os pacotes Fontsource 5.3.0 agora servem as variantes variáveis same-origin; as licenças OFL estão em `public/licenses/`.
+- Descoberta nova: o build com `PAGES_BASE_PATH=/moveis-machado` emitia canonical, `og:url`, sitemap e robots para `artisan-ambiance-hub.lovable.app`, porque `DEFAULT_SITE_URL` não estava configurado no workflow. O README identifica `https://lucas-botelho.github.io/moveis-machado/` como página atual e o workflow publica no GitHub Pages com a base `/moveis-machado`. A URL predefinida deve refletir essa origem; um domínio personalizado futuro continua dependente de confirmação do responsável.
+- Descoberta nova: não existe `dist/client/404.html`; o `notFoundComponent` do router só é mostrado quando a aplicação recebe o pedido, mas GitHub Pages responde diretamente a rotas inexistentes. É necessário um documento estático de fallback no root do artefacto publicado, com recuperação para a homepage e seleção de idioma.
+- O `404.html` emitido partilha a cópia PT/EN com o fallback do router, contém um único H1, `noindex, follow`, seletor de idioma e links base-path-aware. O CI agora verifica a presença desse artefacto.
+- A abertura do preview local no browser in-app expirou com `ERR_CONNECTION_TIMED_OUT`; não foi possível verificar screenshot no browser. O CSS/HTML gerados e a auditoria estática confirmam apresentação responsiva, foco visível e conteúdo localizado.
 - O build anterior reportou um bundle de cliente `index` com 396,79 kB (126,91 kB gzip), mas essa medição pertence ao commit/base dessa execução, não é um baseline de rede de Lighthouse. A composição deve ser analisada antes de propor code splitting ou remoção de dependências.
 - Lighthouse CLI 13.5.0 com Chrome Headless 155 completou duas passagens em cada combinação. No mobile, LCP mediano foi 4,83 s na homepage, 2,96 s em Projetos, 2,96 s em Serviços e 5,82 s em Contactos. Desktop ficou entre 0,51 e 1,00 s. TBT foi baixo (0–18 ms), mas não é INP nem Core Web Vitals de utilizadores reais.
 - A auditoria mostrou `element render delay` de cerca de 1,87 s para a imagem LCP da homepage, 2,08 s para o H1 de Serviços, e 2,08 s para o H1 de Contactos; todos aparecem sob elementos `.entrance` com animação inicial de opacidade/posição. Em Projetos, a primeira fotografia tem aproximadamente 1,07 s de atraso de carregamento do recurso porque a galeria aplica `loading="lazy"` a todos os itens.
 - As páginas transferem entre 570 e 972 KiB por navegação no mobile (inclui fontes Google globais). Pontuação e CLS baseline por rota estão no artefacto `docs/performance/issue-4.md`.
 - O pós-teste em localhost não é comparação direta ao baseline do GitHub Pages: origem/RTT/cache/servidor diferem. No mobile, score/LCP/CLS/FCP medianos foram início 77/5301 ms/0,016/2584 ms, serviços 96/2487 ms/0/2112 ms, projetos 91/3201 ms/0/2114 ms, contactos 98/1963 ms/0/2113 ms. Métricas completas e limitações constam de `docs/performance/issue-4.md`; não se declara ganho consistente de LCP para início/projetos.
 - O build cliente manteve 396,68 kB (126,84 kB gzip), praticamente igual ao chunk anterior (396,79 kB/126,91 kB). Scores desktop pós-build foram 99–100 e CLS máximo 0,016. O HTML de Projetos confirma `loading="eager"`/`fetchpriority="high"` na primeira foto.
-- `bun run lint` reportou 491 erros de Prettier por CRLF em ficheiros não alterados. `bunx eslint` dirigido aos TSX alterados passou sem erros (um aviso Fast Refresh preexistente); testes (9/9), typecheck, Prettier dirigido, build normal e build Pages passaram.
+- `bun run lint` reportou 491 erros de Prettier por CRLF em ficheiros não alterados. `bunx eslint` dirigido aos ficheiros alterados passou sem erros; testes (11/11), typecheck, Prettier dirigido e build Pages passaram.
 - O carregamento do mapa em Contactos está lazy e tem proporção 16:9, mas começa sem escolha explícita do utilizador. A correção de consentimento é dependência da issue #7 e fica pendente neste PR parcial.
 
 ## Decision Log
@@ -56,9 +66,17 @@ Concluído nesta paragem: baseline publicado duplicado, otimizações independen
     Rationale: o endereço é reproduzível e coincide com a configuração GitHub Pages existente, mas não prova que seja o domínio canónico da marca.
     Date/Author: 2026-10-14 / Codex (pressuposto explícito)
 
+    Decision: alinhar o domínio predefinido de SEO com `https://lucas-botelho.github.io/moveis-machado`, preservando `VITE_SITE_URL` como override para eventual domínio personalizado confirmado.
+    Rationale: o workflow publica em GitHub Pages, mas canonical/og/sitemap estavam a apontar para o host de preview Lovable. README e workflow comprovam a URL Pages atual, não comprovam que ela deva substituir um domínio comercial futuro.
+    Date/Author: 2026-10-14 / Codex (opção técnica assumida; domínio comercial continua pendente)
+
+    Decision: gerar `404.html` no plugin de ficheiros SEO, usando conteúdo PT/EN centralizado e links com o prefixo de deployment e a query de idioma.
+    Rationale: o router não recebe os pedidos de rotas inexistentes servidas pelo GitHub Pages; o fallback estático tem de existir no diretório raiz do artefacto e suportar navegação sem depender do React.
+    Date/Author: 2026-10-14 / Codex (opção técnica dentro da issue #4)
+
 ## Outcomes & Retrospective
 
-A inspeção confirmou que o hero já tem prioridade/dimensões, mas animação inicial começava com conteúdo invisível; a primeira foto em Projetos estava lazy apesar de ser LCP e Google Fonts era global. As alterações removem essas animações do topo, dão prioridade à primeira foto apenas na rota Projetos, self-host as duas famílias e distribuem as licenças. Baseline publicado e pós-teste local foram registados, sem alegar comparação estritamente equivalente. Testes/typecheck/lint dirigido e ambos os builds passaram. O lint global permanece com CRLF incompatível em ficheiros não tocados do checkout Windows. A issue continua incompleta: domínio canónico, PR/review/CI/integração, mapa/consentimento (#7), validação integral de links e Search Console pelo proprietário estão pendentes.
+A inspeção confirmou que o hero já tem prioridade/dimensões, mas animação inicial começava com conteúdo invisível; a primeira foto em Projetos estava lazy apesar de ser LCP e Google Fonts era global. As alterações removem essas animações do topo, dão prioridade à primeira foto apenas na rota Projetos, self-host as duas famílias e distribuem as licenças. A auditoria posterior revelou canonical/og/sitemap no host Lovable e ausência de fallback estático 404; ambos foram corrigidos. Build Pages prerenderizou 11 páginas e a inspeção estática verificou links internos, headings, alt, canonical, robots, sitemap e 404; a verificação visual no browser ficou indisponível por timeout do preview local. Baseline publicado e pós-teste local foram registados, sem alegar comparação estritamente equivalente. Testes (11/11), typecheck, lint dirigido e build passaram. O lint global permanece com CRLF incompatível em ficheiros não tocados do checkout Windows. A issue continua incompleta: domínio personalizado, PR/review/CI/integração, mapa/consentimento (#7) e Search Console pelo proprietário estão pendentes.
 
 ## Context and Orientation
 
@@ -81,6 +99,10 @@ Em `src/components/site.tsx`, retirar `entrance` do hero/page headings cujo cont
 ### Milestone 3: provar alterações e registar regressões/limitações
 
 Repetir as mesmas medições e comparar cada rota/dispositivo; verificar LCP e estabilidade, requisições externas e bytes, carregar fontes sem flash/CLS e confirmar dimensões reservadas em mapas/imagens. Executar typecheck, testes, lint, build e build com `PAGES_BASE_PATH=/moveis-machado`. Documentar resultados reais e limitações. Search Console exige acesso do proprietário; nunca submeter sitemap com credenciais ou propriedade presumidas.
+
+### Milestone 4: alinhar SEO técnico à origem Pages atual e cobrir o fallback 404
+
+O build local com `PAGES_BASE_PATH=/moveis-machado` mostrou `canonical` e `og:url` em `https://artisan-ambiance-hub.lovable.app/...`; `build/seo-files.ts` também deriva sitemap/robots dessa origem. `README.md` referencia a página atual como `https://lucas-botelho.github.io/moveis-machado/`, e `.github/workflows/ci.yml` faz deploy pelo workflow Pages com a base `/moveis-machado`. Alterar `DEFAULT_SITE_URL` em `src/lib/seo-shared.ts` para esse host/base e testar explicitamente canonical e discovery files. Manter `VITE_SITE_URL` como override quando um domínio comercial for confirmado; não concluir issue #3 nem alegar que o domínio de marca foi confirmado. Emitir ainda um `404.html` autónomo via `build/seo-files.ts`, com cópia em `src/lib/site-content.ts`, idioma derivado de `?lang=`, link de regresso localizado e caminhos corretos no deployment base. Acrescentar testes unitários e uma asserção de artefacto no workflow; verificar visual/responsividade e links no resultado Pages.
 
 ## Concrete Steps
 
@@ -136,4 +158,4 @@ Não estão previstas novas interfaces de produto. Fontes Fontsource são servid
 
 2026-10-14: plano inicial criado no branch `codex/issue-4-performance` após inspeção da issue e do código de `origin/main`; regista PSI sem quota e exige baseline antes de otimizar.
 2026-10-14: baseline Lighthouse duplicado confirmou atraso de animação no conteúdo LCP, primeira imagem lazy em Projetos e pedidos globais de fontes; plano revisto para implementar apenas estas correções mensuráveis.
-2026-10-14: implementadas e validadas as alterações independentes de consentimento; pós-teste local e limitação de origem diferente registados. PR draft #12 aberto; GitHub Actions runs #49 e #51 passaram, sem revisão ainda. Plano permanece aberto até revisão/integração, issue #7 e acesso Search Console.
+2026-10-14: implementadas e validadas as alterações independentes de consentimento; pós-teste local e limitação de origem diferente registados. PR draft #12 aberto; GitHub Actions runs #49, #51 e #53 passaram, sem revisão ainda. Auditoria do HTML encontrou canonicals e sitemap no host Lovable e ausência de `404.html`; Milestone 4 ampliada para resolver ambos e testar antes de avançar.

@@ -1,6 +1,8 @@
+import { notFoundContent } from "./not-found-content";
+
 export type SeoLanguage = "pt" | "en";
 
-export const DEFAULT_SITE_URL = "https://artisan-ambiance-hub.lovable.app";
+export const DEFAULT_SITE_URL = "https://lucas-botelho.github.io/moveis-machado";
 
 export const PUBLIC_PATHS = ["/", "/services", "/projects", "/about", "/contact"] as const;
 
@@ -88,6 +90,59 @@ export function createRobotsTxt(siteUrl = DEFAULT_SITE_URL): string {
   sitemapUrl.pathname = `${sitemapUrl.pathname.replace(/\/+$/, "")}/sitemap.xml`;
 
   return [`User-agent: *`, `Allow: /`, ``, `Sitemap: ${sitemapUrl.toString()}`, ``].join("\n");
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+export function createNotFoundHtml(basePath = "", stylesheetPath = ""): string {
+  const prefix = basePath ? `/${basePath.replace(/^\/+|\/+$/g, "")}` : "";
+  const stylesheet = stylesheetPath
+    ? `<link rel="stylesheet" href="${escapeHtml(stylesheetPath)}">`
+    : "";
+
+  return `<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, follow">
+    <title>404 | Móveis Machado</title>
+    ${stylesheet}
+  </head>
+  <body>
+    <main class="not-found-page" id="main-content">
+      <div class="not-found-content">
+        <p class="not-found-code" aria-hidden="true">404</p>
+        <h1 id="not-found-title" data-pt="${escapeHtml(notFoundContent.pt.title)}" data-en="${escapeHtml(notFoundContent.en.title)}">${escapeHtml(notFoundContent.pt.title)}</h1>
+        <p id="not-found-description" data-pt="${escapeHtml(notFoundContent.pt.description)}" data-en="${escapeHtml(notFoundContent.en.description)}">${escapeHtml(notFoundContent.pt.description)}</p>
+        <a class="not-found-action" id="not-found-action" href="${prefix}/?lang=pt" data-pt-href="${prefix}/?lang=pt" data-en-href="${prefix}/?lang=en" data-pt="${escapeHtml(notFoundContent.pt.action)}" data-en="${escapeHtml(notFoundContent.en.action)}">${escapeHtml(notFoundContent.pt.action)}</a>
+        <nav class="not-found-languages" aria-label="${escapeHtml(notFoundContent.pt.languageLabel)} / ${escapeHtml(notFoundContent.en.languageLabel)}">
+          <a href="${prefix}/?lang=pt" lang="pt-PT">${escapeHtml(notFoundContent.pt.languageLabel)}</a>
+          <a href="${prefix}/?lang=en" lang="en">${escapeHtml(notFoundContent.en.languageLabel)}</a>
+        </nav>
+      </div>
+    </main>
+    <script>
+      (() => {
+        const language = new URLSearchParams(window.location.search).get("lang") === "en" ? "en" : "pt";
+        document.documentElement.lang = language === "pt" ? "pt-PT" : "en";
+        document.querySelectorAll("[data-pt][data-en]").forEach((element) => {
+          element.textContent = element.getAttribute("data-" + language);
+        });
+        const action = document.getElementById("not-found-action");
+        action.href = action.getAttribute("data-" + language + "-href");
+      })();
+    </script>
+  </body>
+</html>
+`;
 }
 
 export function getLegacyPortugueseRedirectUrl(requestUrl: string): string | undefined {
