@@ -24,11 +24,11 @@ A issue GitHub #4 define o âmbito, incluindo baseline, LCP/CLS, fontes, imagens
 - [x] (2026-10-14 11:53 WEST) Corrigir o domínio predefinido de canonical/og:url/sitemap para o URL Pages atual e acrescentar testes de regressão.
 - [x] (2026-10-14 11:53 WEST) Criar fallback estático `404.html` bilingue, acessível e responsivo, respeitando `PAGES_BASE_PATH` e `?lang=`; cobrir o build no CI.
 - [x] (2026-10-14 11:53 WEST) Revalidar links internos, headings, alt, 404, canonical, robots e sitemap no build Pages; typecheck, 11 testes, lint dirigido e Prettier passaram.
-- [x] (2026-10-14 11:56 WEST) Atualizar PR #12 e issue #4; GitHub Actions “Validate Lovable app” run #55 passou para o commit `f3816a7`.
+- [x] (2026-10-14 11:56 WEST) Atualizar PR #12 e issue #4; GitHub Actions “Validate Lovable app” run #57 passou para o head atualizado `e93cf59` (além do run #55 no commit `f3816a7`).
 - [ ] Integrar após revisão/checks; voltar depois da issue #7 para consentimento/mapa e após acesso do proprietário para Search Console.
 - [ ] Depois da issue #7, medir novamente a interação entre consentimento, mapa e layout; obter acesso do proprietário ao Search Console para submissão do sitemap ou registar bloqueio.
 
-Concluído nesta paragem: baseline publicado duplicado, otimizações independentes de consentimento, matriz Lighthouse repetida em localhost, canonical/og/sitemap para a origem Pages atual, fallback 404 localizado e auditoria estática Pages; PR #12 e issue #4 atualizados e run #55 passou. Pendente: revisão/integração, confirmação do domínio final, integrar #7 para o mapa e receber acesso do proprietário ao Search Console.
+Concluído nesta paragem: baseline publicado duplicado, otimizações independentes de consentimento, matriz Lighthouse repetida em localhost, canonical/og/sitemap para a origem Pages atual, fallback 404 localizado e auditoria estática Pages; PR #12 e issue #4 atualizados e runs #55/#57 passaram. Pendente: revisão/integração, confirmação do domínio final, integrar #7 para o mapa e receber acesso do proprietário ao Search Console.
 
 ## Surprises & Discoveries
 
