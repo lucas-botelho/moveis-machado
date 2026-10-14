@@ -22,7 +22,7 @@ A issue GitHub #4 define o âmbito, incluindo baseline, LCP/CLS, fontes, imagens
 - [ ] Integrar após revisão/checks; voltar depois da issue #7 para consentimento/mapa e após acesso do proprietário para Search Console.
 - [ ] Depois da issue #7, medir novamente a interação entre consentimento, mapa e layout; obter acesso do proprietário ao Search Console para submissão do sitemap ou registar bloqueio.
 
-Concluído nesta paragem: baseline publicado duplicado, otimizações independentes de consentimento, matriz Lighthouse repetida em localhost, validação de build, PR #12 aberto e CI #49 passado no commit inicial (SHA `11fba0151f7eb40b5bb8365e5eae8032d392ef3b`). Pendente: CI do commit final do plano, revisão e integração do PR, confirmar domínio final, integrar #7 para o mapa e receber acesso do proprietário ao Search Console.
+Concluído nesta paragem: baseline publicado duplicado, otimizações independentes de consentimento, matriz Lighthouse repetida em localhost, validação de build, PR #12 aberto e GitHub Actions runs #49 e #51 passados (run #51 confirmou o head `9a0be43fe2ce667c6b030a69ec520ce0dee442d9`). Pendente: revisão/integração do PR, confirmar domínio final, integrar #7 para o mapa e receber acesso do proprietário ao Search Console.
 
 ## Surprises & Discoveries
 
@@ -136,4 +136,4 @@ Não estão previstas novas interfaces de produto. Fontes Fontsource são servid
 
 2026-10-14: plano inicial criado no branch `codex/issue-4-performance` após inspeção da issue e do código de `origin/main`; regista PSI sem quota e exige baseline antes de otimizar.
 2026-10-14: baseline Lighthouse duplicado confirmou atraso de animação no conteúdo LCP, primeira imagem lazy em Projetos e pedidos globais de fontes; plano revisto para implementar apenas estas correções mensuráveis.
-2026-10-14: implementadas e validadas as alterações independentes de consentimento; pós-teste local e limitação de origem diferente registados. PR draft #12 aberto e CI #49 passou no primeiro commit. Plano permanece aberto até revisão/integração, issue #7 e acesso Search Console.
+2026-10-14: implementadas e validadas as alterações independentes de consentimento; pós-teste local e limitação de origem diferente registados. PR draft #12 aberto; GitHub Actions runs #49 e #51 passaram, sem revisão ainda. Plano permanece aberto até revisão/integração, issue #7 e acesso Search Console.
