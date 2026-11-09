@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 
 import { CookieConsentExperience, ConsentProvider, useConsent } from "@/components/cookie-consent";
 import {
@@ -10,7 +10,6 @@ import {
   readConsent,
   writeConsent,
 } from "@/lib/consent";
-import { reportLovableError } from "@/lib/lovable-error-reporting";
 import { ConsentMap } from "@/routes/contact";
 
 function ConsentHarness({ withMap = false }: { withMap?: boolean }) {
@@ -38,8 +37,6 @@ function renderConsent(withMap = false) {
 describe("Cookie consent", () => {
   beforeEach(() => {
     window.localStorage.clear();
-    delete window.__lovableEvents;
-    delete window.__lovableReportRuntimeError;
   });
 
   it("starts with optional categories off on a first visit", async () => {
@@ -51,7 +48,7 @@ describe("Cookie consent", () => {
     fireEvent.click(screen.getByRole("button", { name: "Personalizar" }));
 
     expect(screen.getByRole("checkbox", { name: /Conteúdo externo/ })).not.toBeChecked();
-    expect(screen.getByRole("checkbox", { name: /Diagnóstico/ })).not.toBeChecked();
+    expect(screen.queryByRole("checkbox", { name: /Diagnóstico/ })).not.toBeInTheDocument();
   });
 
   it("accepts all optional categories and persists the proof", async () => {
@@ -64,7 +61,7 @@ describe("Cookie consent", () => {
         screen.queryByRole("heading", { name: "A sua privacidade, sem atalhos." }),
       ).not.toBeInTheDocument(),
     );
-    expect(readConsent()?.categories).toEqual({ externalMedia: true, diagnostics: true });
+    expect(readConsent()?.categories).toEqual({ externalMedia: true });
   });
 
   it("rejects all optional categories as directly as accepting", async () => {
@@ -72,7 +69,7 @@ describe("Cookie consent", () => {
 
     fireEvent.click(await screen.findByRole("button", { name: "Rejeitar opcionais" }));
 
-    expect(readConsent()?.categories).toEqual({ externalMedia: false, diagnostics: false });
+    expect(readConsent()?.categories).toEqual({ externalMedia: false });
   });
 
   it("stores a partial category choice", async () => {
@@ -82,11 +79,11 @@ describe("Cookie consent", () => {
     fireEvent.click(screen.getByRole("checkbox", { name: /Conteúdo externo/ }));
     fireEvent.click(screen.getByRole("button", { name: "Guardar escolhas" }));
 
-    expect(readConsent()?.categories).toEqual({ externalMedia: true, diagnostics: false });
+    expect(readConsent()?.categories).toEqual({ externalMedia: true });
   });
 
   it("removes the embedded map immediately after revocation", async () => {
-    writeConsent({ externalMedia: true, diagnostics: true });
+    writeConsent({ externalMedia: true });
     renderConsent(true);
 
     expect(await screen.findByTitle("Mapa da Móveis Machado em Odivelas")).toBeInTheDocument();
@@ -99,7 +96,7 @@ describe("Cookie consent", () => {
 
   it("treats an older policy version as a new visit", () => {
     const oldRecord = {
-      ...createConsentRecord({ externalMedia: true, diagnostics: true }),
+      ...createConsentRecord({ externalMedia: true }),
       version: "2025-01",
     };
     window.localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(oldRecord));
@@ -108,27 +105,16 @@ describe("Cookie consent", () => {
   });
 
   it("expires a valid choice after six months", () => {
-    const record = createConsentRecord(
-      { externalMedia: true, diagnostics: false },
-      "2026-01-01T00:00:00.000Z",
-    );
+    const record = createConsentRecord({ externalMedia: true }, "2026-01-01T00:00:00.000Z");
 
     expect(
       parseConsentRecord(JSON.stringify(record), Date.parse("2026-08-01T00:00:00.000Z")),
     ).toBeNull();
   });
 
-  it("only reports Lovable diagnostics after opt-in", () => {
-    const captureException = vi.fn();
-    window.__lovableEvents = { captureException };
+  it("stores the current policy version", () => {
+    writeConsent({ externalMedia: false });
 
-    reportLovableError(new Error("before"));
-    expect(captureException).not.toHaveBeenCalled();
-
-    writeConsent({ externalMedia: false, diagnostics: true });
-    reportLovableError(new Error("after"));
-
-    expect(captureException).toHaveBeenCalledTimes(1);
     expect(readConsent()?.version).toBe(CONSENT_POLICY_VERSION);
   });
 });

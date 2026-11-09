@@ -1,10 +1,9 @@
 export const CONSENT_STORAGE_KEY = "moveis-machado:consent";
-export const CONSENT_POLICY_VERSION = "2026-10-14";
+export const CONSENT_POLICY_VERSION = "2026-11-09";
 export const CONSENT_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 183;
 
 export type ConsentCategories = {
   externalMedia: boolean;
-  diagnostics: boolean;
 };
 
 export type ConsentCategory = keyof ConsentCategories;
@@ -19,7 +18,6 @@ type ConsentStorage = Pick<Storage, "getItem" | "setItem" | "removeItem">;
 
 export const DEFAULT_CONSENT_CATEGORIES: ConsentCategories = {
   externalMedia: false,
-  diagnostics: false,
 };
 
 function isConsentRecord(value: unknown, now: number): value is ConsentRecord {
@@ -34,8 +32,7 @@ function isConsentRecord(value: unknown, now: number): value is ConsentRecord {
     now - Date.parse(candidate.timestamp) <= CONSENT_MAX_AGE_MS &&
     candidate.categories !== null &&
     typeof candidate.categories === "object" &&
-    typeof candidate.categories.externalMedia === "boolean" &&
-    typeof candidate.categories.diagnostics === "boolean"
+    typeof candidate.categories.externalMedia === "boolean"
   );
 }
 

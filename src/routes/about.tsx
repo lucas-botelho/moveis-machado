@@ -16,13 +16,13 @@ export const Route = createFileRoute("/about")({
           "/about",
           "en",
           "Our story",
-          "Móveis Machado: over 40 years making kitchens, wardrobes and furniture to measure in Odivelas.",
+          "Móveis Machado: over 40 years making kitchens, cabinets and furniture to measure in Odivelas.",
         )
       : pageMeta(
           "/about",
           "pt",
           "A nossa história",
-          "Móveis Machado: mais de 40 anos de fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas.",
+          "Móveis Machado: mais de 40 anos de fabrico próprio de cozinhas, armários e móveis por medida em Odivelas.",
         ),
   component: About,
 });

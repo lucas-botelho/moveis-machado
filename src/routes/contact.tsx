@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { useLanguage, PageHeading } from "@/components/site";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { useLanguage } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import { useConsent } from "@/components/cookie-consent";
 import {
@@ -9,7 +9,7 @@ import {
   cookieConsentContent,
   pageMeta,
   whatsappUrl,
-  mapsUrl,
+  directionsUrl,
   mapsEmbedUrl,
   type Language,
 } from "@/lib/site-content";
@@ -35,10 +35,9 @@ function Contact() {
   const t = content[lang];
   return (
     <main>
-      <PageHeading label={t.nav[4] ?? ""} title={t.contactTitle} description={t.contactIntro} />
       <section className="section contact-layout">
         <div>
-          <h2 className="section-title">{t.contactWaysTitle}</h2>
+          <h1 className="section-title">{t.contactWaysTitle}</h1>
           <ul className="contact-ways">
             <li>
               <Phone aria-hidden="true" />
@@ -49,13 +48,6 @@ function Contact() {
               <Mail aria-hidden="true" />
               <span>{t.emailLabel}</span>
               <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
-            </li>
-            <li>
-              <Instagram aria-hidden="true" />
-              <span>{t.instagram}</span>
-              <a href={contactDetails.instagramUrl} target="_blank" rel="noreferrer">
-                {contactDetails.instagramHandle}
-              </a>
             </li>
           </ul>
           <Button variant="luxury" asChild>
@@ -86,9 +78,6 @@ function Contact() {
           <p className="contact-area">
             <strong>{t.contactSub}.</strong> {t.contactCopy}
           </p>
-          <a href={mapsUrl} target="_blank" rel="noreferrer" className="text-link">
-            {t.directions}
-          </a>
           <ConsentMap lang={lang} />
         </div>
       </section>
@@ -141,7 +130,7 @@ export function ConsentMap({ lang }: { lang: Language }) {
         >
           {copy.loadMap}
         </Button>
-        <a href={mapsUrl} target="_blank" rel="noreferrer" className="text-link">
+        <a href={directionsUrl} target="_blank" rel="noreferrer" className="text-link">
           {content[lang].directions}
         </a>
       </div>
