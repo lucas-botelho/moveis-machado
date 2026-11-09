@@ -1,0 +1,159 @@
+- generic [active] [ref=f5e1]:
+  - banner [ref=f5e2]:
+    - link "Móveis Machado Feito para o seu espaço" [ref=f5e3] [cursor=pointer]:
+      - /url: /?lang=pt
+      - generic [ref=f5e5]:
+        - generic [ref=f5e6]: Móveis Machado
+        - generic [ref=f5e7]: Feito para o seu espaço
+    - generic [ref=f5e8]:
+      - generic "Language" [ref=f5e9]:
+        - button "PT" [pressed] [ref=f5e10] [cursor=pointer]
+        - generic [ref=f5e11]: /
+        - button "EN" [ref=f5e12] [cursor=pointer]
+      - button "Abrir menu" [ref=f5e13] [cursor=pointer]
+  - main [ref=f5e14]:
+    - generic [ref=f5e15]:
+      - img "Ambiente de inspiração com cozinha e mobiliário em madeira" [ref=f5e16]
+      - generic [ref=f5e17]:
+        - generic [ref=f5e18]: FABRICO PRÓPRIO EM ODIVELAS
+        - heading "Móveis Machado" [level=1] [ref=f5e20]
+        - heading [level=2] [ref=f5e21]:
+          - text: Cozinhas e móveis.
+          - emphasis [ref=f5e22]: À sua medida.
+        - paragraph [ref=f5e23]: Fabricamos cozinhas, roupeiros e móveis por medida em Odivelas. Acompanhamos o projeto do desenho à instalação.
+        - link "Explorar projetos" [ref=f5e24] [cursor=pointer]:
+          - /url: /projects?lang=pt
+      - link "Descubra a Móveis Machado" [ref=f5e26] [cursor=pointer]:
+        - /url: "#craft"
+    - generic [ref=f5e29]:
+      - generic [ref=f5e30]: Mais de 40 anos de experiência
+      - generic [ref=f5e35]: Fabrico próprio
+      - generic [ref=f5e41]: Do desenho à instalação
+      - generic [ref=f5e49]: Odivelas · Grande Lisboa
+    - generic [ref=f5e54]:
+      - generic [ref=f5e55]:
+        - generic [ref=f5e56]:
+          - generic [ref=f5e57]: O QUE FAZEMOS
+          - heading "O que podemos fabricar." [level=2] [ref=f5e58]
+        - link "Ver serviços" [ref=f5e59] [cursor=pointer]:
+          - /url: /services?lang=pt
+      - generic [ref=f5e60]:
+        - link [ref=f5e61] [cursor=pointer]:
+          - /url: /services/kitchens?lang=pt
+          - heading "Cozinhas por medida" [level=3] [ref=f5e62]
+          - paragraph [ref=f5e63]: Disposição e acabamentos adaptados ao espaço.
+        - link [ref=f5e64] [cursor=pointer]:
+          - /url: /services/wardrobes?lang=pt
+          - heading "Roupeiros por medida" [level=3] [ref=f5e65]
+          - paragraph [ref=f5e66]: Arrumação para o que precisa de guardar.
+        - link [ref=f5e67] [cursor=pointer]:
+          - /url: /services/furniture?lang=pt
+          - heading "Móveis por medida" [level=3] [ref=f5e68]
+          - paragraph [ref=f5e69]: Móveis para a sala e o espaço de trabalho.
+    - generic [ref=f5e70]:
+      - generic [ref=f5e71]:
+        - generic [ref=f5e72]:
+          - generic [ref=f5e73]: O NOSSO TRABALHO
+          - heading "Cozinhas que fabricámos." [level=2] [ref=f5e74]
+        - link "Ver todos os projetos" [ref=f5e75] [cursor=pointer]:
+          - /url: /projects?lang=pt
+      - generic [ref=f5e76]:
+        - article [ref=f5e77]:
+          - button "Cozinha com ilha" [ref=f5e78] [cursor=pointer]:
+            - img "Cozinha com ilha" [ref=f5e79]
+          - generic [ref=f5e81]:
+            - heading "Cozinha com ilha" [level=3] [ref=f5e82]
+            - paragraph [ref=f5e83]: Cozinhas por medida
+        - article [ref=f5e84]:
+          - button "Branco e madeira" [ref=f5e85] [cursor=pointer]:
+            - img "Branco e madeira" [ref=f5e86]
+          - generic [ref=f5e88]:
+            - heading "Branco e madeira" [level=3] [ref=f5e89]
+            - paragraph [ref=f5e90]: Cozinhas por medida
+        - article [ref=f5e91]:
+          - button "Linhas contemporâneas" [ref=f5e92] [cursor=pointer]:
+            - img "Linhas contemporâneas" [ref=f5e93]
+          - generic [ref=f5e95]:
+            - heading "Linhas contemporâneas" [level=3] [ref=f5e96]
+            - paragraph [ref=f5e97]: Cozinhas por medida
+    - generic [ref=f5e98]:
+      - generic [ref=f5e99]:
+        - generic [ref=f5e100]: SOBRE A MÓVEIS MACHADO
+        - heading "Fabrico próprio em Odivelas." [level=2] [ref=f5e102]
+        - paragraph [ref=f5e103]: Há mais de 40 anos, fabricamos cozinhas, roupeiros e móveis por medida. Acompanhamos o trabalho desde o desenho até à instalação.
+        - link "Conheça a nossa história" [ref=f5e104] [cursor=pointer]:
+          - /url: /about?lang=pt
+        - generic [ref=f5e105]:
+          - generic [ref=f5e106]: Móveis Machado
+          - generic [ref=f5e107]: ODIVELAS · PORTUGAL
+      - figure "Estudo de materiais Imagem de inspiração" [ref=f5e108]:
+        - 'img "Estudo de inspiração de materiais: madeira, tecido e pedra" [ref=f5e109]'
+        - generic [ref=f5e110]:
+          - text: Estudo de materiais
+          - generic [ref=f5e111]: Imagem de inspiração
+      - generic [ref=f5e112]:
+        - generic [ref=f5e113]:
+          - strong [ref=f5e114]: 40+
+          - generic [ref=f5e115]: anos de experiência
+        - generic [ref=f5e116]:
+          - strong [ref=f5e117]: Fabrico próprio
+          - generic [ref=f5e118]: Do desenho à instalação
+    - generic [ref=f5e119]:
+      - generic [ref=f5e120]:
+        - generic [ref=f5e121]: COMO TRABALHAMOS
+        - heading "Como fazemos o seu projeto." [level=2] [ref=f5e123]
+        - figure "Do desenho à instalação" [ref=f5e124]:
+          - img "Branco e madeira" [ref=f5e125]
+      - generic [ref=f5e127]:
+        - generic [ref=f5e129]:
+          - heading "Conversamos" [level=3] [ref=f5e130]
+          - paragraph [ref=f5e131]: Conversamos sobre o que pretende e as características do espaço.
+        - generic [ref=f5e133]:
+          - heading "Planeamos" [level=3] [ref=f5e134]
+          - paragraph [ref=f5e135]: Definimos as medidas, a disposição, os materiais e os acabamentos.
+        - generic [ref=f5e137]:
+          - heading "Fabricamos" [level=3] [ref=f5e138]
+          - paragraph [ref=f5e139]: Produzimos os móveis na nossa oficina.
+        - generic [ref=f5e141]:
+          - heading "Instalamos" [level=3] [ref=f5e142]
+          - paragraph [ref=f5e143]: Tratamos da montagem no local.
+    - generic [ref=f5e144]:
+      - generic [ref=f5e145]:
+        - generic [ref=f5e146]: CONTACTOS E ORÇAMENTOS
+        - heading "Fale-nos do seu projeto." [level=2] [ref=f5e148]
+        - paragraph [ref=f5e149]: Diga-nos o que pretende fazer e onde. Se tiver medidas ou fotografias do espaço, partilhe-as connosco.
+        - link "Pedir orçamento" [ref=f5e150] [cursor=pointer]:
+          - /url: /contact?lang=pt
+      - generic [ref=f5e151]:
+        - generic [ref=f5e152]: MÓVEIS MACHADO
+        - generic [ref=f5e153]: ODIVELAS · GRANDE LISBOA
+  - contentinfo [ref=f5e154]:
+    - generic [ref=f5e155]:
+      - generic [ref=f5e156]:
+        - link "Móveis Machado Feito para o seu espaço" [ref=f5e157] [cursor=pointer]:
+          - /url: /?lang=pt
+          - generic [ref=f5e159]:
+            - generic [ref=f5e160]: Móveis Machado
+            - generic [ref=f5e161]: Feito para o seu espaço
+        - paragraph [ref=f5e162]: Fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas.
+      - generic [ref=f5e163]:
+        - heading "O QUE FAZEMOS" [level=2] [ref=f5e164]
+        - generic [ref=f5e165]:
+          - link "Cozinhas por medida" [ref=f5e166] [cursor=pointer]:
+            - /url: /services/kitchens?lang=pt
+          - link "Roupeiros por medida" [ref=f5e167] [cursor=pointer]:
+            - /url: /services/wardrobes?lang=pt
+          - link "Móveis por medida" [ref=f5e168] [cursor=pointer]:
+            - /url: /services/furniture?lang=pt
+      - generic [ref=f5e169]:
+        - heading "Encontre-nos" [level=2] [ref=f5e170]
+        - generic [ref=f5e171]:
+          - generic [ref=f5e172]: Rua Vítor Cordon 6A2675-459 Odivelas, Portugal
+          - link "Como chegar" [ref=f5e173] [cursor=pointer]:
+            - /url: https://share.google/uK5M3YaRHoAcBMNPD
+    - generic [ref=f5e174]:
+      - generic [ref=f5e175]: © 2026 Móveis Machado. Todos os direitos reservados.
+      - generic [ref=f5e176]:
+        - link "Política de Cookies" [ref=f5e177] [cursor=pointer]:
+          - /url: /cookies?lang=pt
+        - button "Gerir cookies" [ref=f5e178] [cursor=pointer]

@@ -577,9 +577,13 @@ export const content = {
     storyCopy2:
       "Como fabricamos tudo, controlamos cada medida, cada união, cada ferragem e cada acabamento. Quem desenha a sua cozinha fala com quem a fabrica e com quem a monta, e é isso que faz a diferença quando ela chega à sua casa.",
     storyLink: "Conheça a nossa história",
-    years: "anos de oficina em Odivelas",
-    own: "3D",
-    ownSub: "projeto antes de fabricarmos",
+    stats: [
+      { value: "40+", label: "anos de oficina em Odivelas" },
+      { value: "100%", label: "fabrico próprio, peça a peça" },
+      { value: "3D", label: "projeto aprovado antes de fabricarmos" },
+      { value: "1", label: "equipa do desenho à montagem" },
+      { value: "0 €", label: "pela visita, medição e orçamento" },
+    ],
     valuesLabel: "COMO CONSTRUÍMOS",
     valuesTitle: "Feito para o uso de todos os dias.",
     values: [
@@ -726,9 +730,13 @@ export const content = {
     storyCopy2:
       "Because we make everything ourselves, we control every measurement, joint, fitting and finish. The people who design your kitchen talk to the people who make and install it, and that is what makes the difference when it arrives in your home.",
     storyLink: "Discover our story",
-    years: "years in our Odivelas workshop",
-    own: "3D",
-    ownSub: "design before we make it",
+    stats: [
+      { value: "40+", label: "years in our Odivelas workshop" },
+      { value: "100%", label: "made in our own workshop" },
+      { value: "3D", label: "design approved before we make it" },
+      { value: "1", label: "team from design to installation" },
+      { value: "€0", label: "for the visit, measuring and quote" },
+    ],
     valuesLabel: "HOW WE BUILD",
     valuesTitle: "Made for everyday use.",
     values: [

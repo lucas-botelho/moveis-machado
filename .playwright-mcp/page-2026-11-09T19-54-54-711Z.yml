@@ -1,0 +1,84 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - link "Móveis Machado Feito para o seu espaço" [ref=f3e3] [cursor=pointer]:
+      - /url: /?lang=pt
+      - generic [ref=f3e5]:
+        - generic [ref=f3e6]: Móveis Machado
+        - generic [ref=f3e7]: Feito para o seu espaço
+    - navigation "Navegação principal" [ref=f3e8]:
+      - link "Início" [ref=f3e9] [cursor=pointer]:
+        - /url: /?lang=pt
+      - link "O que fazemos" [ref=f3e10] [cursor=pointer]:
+        - /url: /services?lang=pt
+      - link "Projetos" [ref=f3e11] [cursor=pointer]:
+        - /url: /projects?lang=pt
+      - link "Sobre nós" [ref=f3e12] [cursor=pointer]:
+        - /url: /about?lang=pt
+      - link "Contactos" [ref=f3e13] [cursor=pointer]:
+        - /url: /contact?lang=pt
+    - generic [ref=f3e14]:
+      - generic "Language" [ref=f3e15]:
+        - button "PT" [pressed] [ref=f3e16] [cursor=pointer]
+        - generic [ref=f3e17]: /
+        - button "EN" [ref=f3e18] [cursor=pointer]
+      - link "Pedir orçamento" [ref=f3e19] [cursor=pointer]:
+        - /url: /contact?lang=pt
+  - main [ref=f3e20]:
+    - generic [ref=f3e21]:
+      - generic [ref=f3e22]: Contactos
+      - heading "Contactos e orçamentos." [level=1] [ref=f3e23]
+      - paragraph [ref=f3e24]: Visite-nos em Odivelas ou fale connosco pelo WhatsApp.
+    - generic [ref=f3e25]:
+      - generic [ref=f3e26]:
+        - generic [ref=f3e27]: ODIVELAS · LISBOA
+        - heading "Odivelas e Grande Lisboa." [level=2] [ref=f3e28]
+        - paragraph [ref=f3e29]: Trabalhamos principalmente em Lisboa, Odivelas e na região envolvente.
+        - link "Falar pelo WhatsApp" [ref=f3e30] [cursor=pointer]:
+          - /url: https://wa.me/351933776729
+        - group [ref=f3e31]:
+          - generic "Como preparar o seu projeto?" [ref=f3e32] [cursor=pointer]
+        - group [ref=f3e33]:
+          - generic "Que materiais podemos escolher?" [ref=f3e34] [cursor=pointer]
+      - generic [ref=f3e35]:
+        - heading "Móveis Machado" [level=2] [ref=f3e39]
+        - generic [ref=f3e40]: Rua Vítor Cordon 6A2675-459 OdivelasPortugal
+        - link "Como chegar" [ref=f3e41] [cursor=pointer]:
+          - /url: https://share.google/uK5M3YaRHoAcBMNPD
+        - generic [ref=f3e42]:
+          - generic [ref=f3e46]:
+            - heading "Mapa não carregado" [level=3] [ref=f3e47]
+            - paragraph [ref=f3e48]: O mapa Google é conteúdo externo e pode receber dados técnicos do seu dispositivo. Pode carregá-lo agora ou abrir apenas as direções numa nova página.
+          - generic [ref=f3e49]:
+            - button "Carregar mapa" [ref=f3e50] [cursor=pointer]
+            - link "Como chegar" [ref=f3e51] [cursor=pointer]:
+              - /url: https://share.google/uK5M3YaRHoAcBMNPD
+  - contentinfo [ref=f3e52]:
+    - generic [ref=f3e53]:
+      - generic [ref=f3e54]:
+        - link "Móveis Machado Feito para o seu espaço" [ref=f3e55] [cursor=pointer]:
+          - /url: /?lang=pt
+          - generic [ref=f3e57]:
+            - generic [ref=f3e58]: Móveis Machado
+            - generic [ref=f3e59]: Feito para o seu espaço
+        - paragraph [ref=f3e60]: Fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas.
+      - generic [ref=f3e61]:
+        - heading "O QUE FAZEMOS" [level=2] [ref=f3e62]
+        - generic [ref=f3e63]:
+          - link "Cozinhas por medida" [ref=f3e64] [cursor=pointer]:
+            - /url: /services/kitchens?lang=pt
+          - link "Roupeiros por medida" [ref=f3e65] [cursor=pointer]:
+            - /url: /services/wardrobes?lang=pt
+          - link "Móveis por medida" [ref=f3e66] [cursor=pointer]:
+            - /url: /services/furniture?lang=pt
+      - generic [ref=f3e67]:
+        - heading "Encontre-nos" [level=2] [ref=f3e68]
+        - generic [ref=f3e69]:
+          - generic [ref=f3e70]: Rua Vítor Cordon 6A2675-459 Odivelas, Portugal
+          - link "Como chegar" [ref=f3e71] [cursor=pointer]:
+            - /url: https://share.google/uK5M3YaRHoAcBMNPD
+    - generic [ref=f3e72]:
+      - generic [ref=f3e73]: © 2026 Móveis Machado. Todos os direitos reservados.
+      - generic [ref=f3e74]:
+        - link "Política de Cookies" [ref=f3e75] [cursor=pointer]:
+          - /url: /cookies?lang=pt
+        - button "Gerir cookies" [ref=f3e76] [cursor=pointer]

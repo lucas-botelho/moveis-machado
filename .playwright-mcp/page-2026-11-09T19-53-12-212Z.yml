@@ -1,0 +1,98 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - link "Móveis Machado Feito para o seu espaço" [ref=f1e3] [cursor=pointer]:
+      - /url: /?lang=pt
+      - generic [ref=f1e5]:
+        - generic [ref=f1e6]: Móveis Machado
+        - generic [ref=f1e7]: Feito para o seu espaço
+    - navigation "Navegação principal" [ref=f1e8]:
+      - link "Início" [ref=f1e9] [cursor=pointer]:
+        - /url: /?lang=pt
+      - link "O que fazemos" [ref=f1e10] [cursor=pointer]:
+        - /url: /services?lang=pt
+      - link "Projetos" [ref=f1e11] [cursor=pointer]:
+        - /url: /projects?lang=pt
+      - link "Sobre nós" [ref=f1e12] [cursor=pointer]:
+        - /url: /about?lang=pt
+      - link "Contactos" [ref=f1e13] [cursor=pointer]:
+        - /url: /contact?lang=pt
+    - generic [ref=f1e14]:
+      - generic "Language" [ref=f1e15]:
+        - button "PT" [pressed] [ref=f1e16] [cursor=pointer]
+        - generic [ref=f1e17]: /
+        - button "EN" [ref=f1e18] [cursor=pointer]
+      - link "Pedir orçamento" [ref=f1e19] [cursor=pointer]:
+        - /url: /contact?lang=pt
+  - main [ref=f1e20]:
+    - generic [ref=f1e21]:
+      - generic [ref=f1e22]: COZINHAS POR MEDIDA
+      - heading "Uma cozinha pensada para o seu espaço." [level=1] [ref=f1e23]
+      - paragraph [ref=f1e24]: Planeamos e fabricamos cozinhas por medida na nossa oficina em Odivelas, acompanhando cada projeto do desenho à instalação.
+    - generic [ref=f1e25]:
+      - generic [ref=f1e26]:
+        - heading "Disposição, arrumação e utilização" [level=2] [ref=f1e27]
+        - paragraph [ref=f1e28]: Definimos a disposição dos armários e das bancadas de acordo com as características do espaço e a forma como utiliza a cozinha. Cada decisão procura conciliar arrumação, circulação e o uso diário.
+        - generic [ref=f1e29]:
+          - heading "O que definimos consigo" [level=3] [ref=f1e30]
+          - paragraph [ref=f1e31]: Partimos das medidas do espaço e das suas referências para preparar a disposição, as dimensões, os materiais e os acabamentos. O âmbito final é ajustado às necessidades concretas do projeto.
+      - generic [ref=f1e32]:
+        - article [ref=f1e33]:
+          - heading "Materiais e acabamentos" [level=2] [ref=f1e34]
+          - paragraph [ref=f1e35]: Trabalhamos com madeira maciça, MDF lacado e materiais técnicos. A escolha é feita para cada projeto, tendo em conta o resultado pretendido e as condições do espaço.
+        - article [ref=f1e36]:
+          - heading "Oficina em Odivelas" [level=2] [ref=f1e37]
+          - paragraph [ref=f1e38]: Fabricamos em Odivelas e trabalhamos principalmente em Lisboa, Odivelas e na região envolvente. Confirme connosco a localização do seu projeto ao pedir orçamento.
+    - generic [ref=f1e39]:
+      - generic [ref=f1e41]:
+        - generic [ref=f1e42]: COMO TRABALHAMOS
+        - heading "Da primeira conversa à instalação" [level=2] [ref=f1e43]
+      - list [ref=f1e44]:
+        - listitem [ref=f1e45]:
+          - text: "01"
+          - paragraph [ref=f1e46]: Conversamos sobre a cozinha, o espaço e a forma como pretende utilizá-la.
+        - listitem [ref=f1e47]:
+          - text: "02"
+          - paragraph [ref=f1e48]: Definimos medidas, disposição, materiais e acabamentos.
+        - listitem [ref=f1e49]:
+          - text: "03"
+          - paragraph [ref=f1e50]: Fabricamos os elementos na nossa oficina.
+        - listitem [ref=f1e51]:
+          - text: "04"
+          - paragraph [ref=f1e52]: Fazemos a montagem e a instalação no local.
+    - generic [ref=f1e53]:
+      - generic [ref=f1e54]:
+        - generic [ref=f1e55]: CONTACTOS E ORÇAMENTOS
+        - heading "Tem um projeto de cozinha?" [level=2] [ref=f1e56]
+        - paragraph [ref=f1e57]: Envie-nos medidas aproximadas, fotografias do espaço e referências do que pretende. Falamos consigo sobre os próximos passos.
+      - link "Pedir orçamento de cozinha" [ref=f1e58] [cursor=pointer]:
+        - /url: /contact?lang=pt
+  - contentinfo [ref=f1e59]:
+    - generic [ref=f1e60]:
+      - generic [ref=f1e61]:
+        - link "Móveis Machado Feito para o seu espaço" [ref=f1e62] [cursor=pointer]:
+          - /url: /?lang=pt
+          - generic [ref=f1e64]:
+            - generic [ref=f1e65]: Móveis Machado
+            - generic [ref=f1e66]: Feito para o seu espaço
+        - paragraph [ref=f1e67]: Fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas.
+      - generic [ref=f1e68]:
+        - heading "O QUE FAZEMOS" [level=2] [ref=f1e69]
+        - generic [ref=f1e70]:
+          - link "Cozinhas por medida" [ref=f1e71] [cursor=pointer]:
+            - /url: /services/kitchens?lang=pt
+          - link "Roupeiros por medida" [ref=f1e72] [cursor=pointer]:
+            - /url: /services/wardrobes?lang=pt
+          - link "Móveis por medida" [ref=f1e73] [cursor=pointer]:
+            - /url: /services/furniture?lang=pt
+      - generic [ref=f1e74]:
+        - heading "Encontre-nos" [level=2] [ref=f1e75]
+        - generic [ref=f1e76]:
+          - generic [ref=f1e77]: Rua Vítor Cordon 6A2675-459 Odivelas, Portugal
+          - link "Como chegar" [ref=f1e78] [cursor=pointer]:
+            - /url: https://share.google/uK5M3YaRHoAcBMNPD
+    - generic [ref=f1e79]:
+      - generic [ref=f1e80]: © 2026 Móveis Machado. Todos os direitos reservados.
+      - generic [ref=f1e81]:
+        - link "Política de Cookies" [ref=f1e82] [cursor=pointer]:
+          - /url: /cookies?lang=pt
+        - button "Gerir cookies" [ref=f1e83] [cursor=pointer]

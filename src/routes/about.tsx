@@ -31,7 +31,7 @@ function About() {
   const t = content[lang];
   return (
     <main>
-      <Story full />
+      <Story full light />
       <Values />
       <Materials />
       <Process />

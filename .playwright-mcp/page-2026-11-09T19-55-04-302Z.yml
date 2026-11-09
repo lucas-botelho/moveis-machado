@@ -1,0 +1,89 @@
+- generic [active] [ref=f4e1]:
+  - banner [ref=f4e2]:
+    - link "Móveis Machado Feito para o seu espaço" [ref=f4e3] [cursor=pointer]:
+      - /url: /?lang=pt
+      - generic [ref=f4e5]:
+        - generic [ref=f4e6]: Móveis Machado
+        - generic [ref=f4e7]: Feito para o seu espaço
+    - navigation "Navegação principal" [ref=f4e8]:
+      - link "Início" [ref=f4e9] [cursor=pointer]:
+        - /url: /?lang=pt
+      - link "O que fazemos" [ref=f4e10] [cursor=pointer]:
+        - /url: /services?lang=pt
+      - link "Projetos" [ref=f4e11] [cursor=pointer]:
+        - /url: /projects?lang=pt
+      - link "Sobre nós" [ref=f4e12] [cursor=pointer]:
+        - /url: /about?lang=pt
+      - link "Contactos" [ref=f4e13] [cursor=pointer]:
+        - /url: /contact?lang=pt
+    - generic [ref=f4e14]:
+      - generic "Language" [ref=f4e15]:
+        - button "PT" [pressed] [ref=f4e16] [cursor=pointer]
+        - generic [ref=f4e17]: /
+        - button "EN" [ref=f4e18] [cursor=pointer]
+      - link "Pedir orçamento" [ref=f4e19] [cursor=pointer]:
+        - /url: /contact?lang=pt
+  - main [ref=f4e20]:
+    - generic [ref=f4e21]:
+      - generic [ref=f4e22]: O NOSSO TRABALHO
+      - heading "Cozinhas que fabricámos." [level=1] [ref=f4e23]
+      - paragraph [ref=f4e24]: Veja algumas cozinhas do nosso portefólio. Selecione uma fotografia para a ampliar.
+    - generic [ref=f4e26]:
+      - article [ref=f4e27]:
+        - button "Cozinha com ilha" [ref=f4e28] [cursor=pointer]:
+          - img "Cozinha com ilha" [ref=f4e29]
+        - generic [ref=f4e31]:
+          - heading "Cozinha com ilha" [level=3] [ref=f4e32]
+          - paragraph [ref=f4e33]: Cozinhas por medida
+      - article [ref=f4e34]:
+        - button "Branco e madeira" [ref=f4e35] [cursor=pointer]:
+          - img "Branco e madeira" [ref=f4e36]
+        - generic [ref=f4e38]:
+          - heading "Branco e madeira" [level=3] [ref=f4e39]
+          - paragraph [ref=f4e40]: Cozinhas por medida
+      - article [ref=f4e41]:
+        - button "Linhas contemporâneas" [ref=f4e42] [cursor=pointer]:
+          - img "Linhas contemporâneas" [ref=f4e43]
+        - generic [ref=f4e45]:
+          - heading "Linhas contemporâneas" [level=3] [ref=f4e46]
+          - paragraph [ref=f4e47]: Cozinhas por medida
+    - generic [ref=f4e48]:
+      - generic [ref=f4e49]:
+        - generic [ref=f4e50]: CONTACTOS E ORÇAMENTOS
+        - heading "Fale-nos do seu projeto." [level=2] [ref=f4e52]
+        - paragraph [ref=f4e53]: Diga-nos o que pretende fazer e onde. Se tiver medidas ou fotografias do espaço, partilhe-as connosco.
+        - link "Pedir orçamento" [ref=f4e54] [cursor=pointer]:
+          - /url: /contact?lang=pt
+      - generic [ref=f4e55]:
+        - generic [ref=f4e56]: MÓVEIS MACHADO
+        - generic [ref=f4e57]: ODIVELAS · GRANDE LISBOA
+  - contentinfo [ref=f4e58]:
+    - generic [ref=f4e59]:
+      - generic [ref=f4e60]:
+        - link "Móveis Machado Feito para o seu espaço" [ref=f4e61] [cursor=pointer]:
+          - /url: /?lang=pt
+          - generic [ref=f4e63]:
+            - generic [ref=f4e64]: Móveis Machado
+            - generic [ref=f4e65]: Feito para o seu espaço
+        - paragraph [ref=f4e66]: Fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas.
+      - generic [ref=f4e67]:
+        - heading "O QUE FAZEMOS" [level=2] [ref=f4e68]
+        - generic [ref=f4e69]:
+          - link "Cozinhas por medida" [ref=f4e70] [cursor=pointer]:
+            - /url: /services/kitchens?lang=pt
+          - link "Roupeiros por medida" [ref=f4e71] [cursor=pointer]:
+            - /url: /services/wardrobes?lang=pt
+          - link "Móveis por medida" [ref=f4e72] [cursor=pointer]:
+            - /url: /services/furniture?lang=pt
+      - generic [ref=f4e73]:
+        - heading "Encontre-nos" [level=2] [ref=f4e74]
+        - generic [ref=f4e75]:
+          - generic [ref=f4e76]: Rua Vítor Cordon 6A2675-459 Odivelas, Portugal
+          - link "Como chegar" [ref=f4e77] [cursor=pointer]:
+            - /url: https://share.google/uK5M3YaRHoAcBMNPD
+    - generic [ref=f4e78]:
+      - generic [ref=f4e79]: © 2026 Móveis Machado. Todos os direitos reservados.
+      - generic [ref=f4e80]:
+        - link "Política de Cookies" [ref=f4e81] [cursor=pointer]:
+          - /url: /cookies?lang=pt
+        - button "Gerir cookies" [ref=f4e82] [cursor=pointer]

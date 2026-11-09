@@ -1,0 +1,173 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Móveis Machado Feito para o seu espaço" [ref=e3] [cursor=pointer]:
+      - /url: /?lang=pt
+      - generic [ref=e5]:
+        - generic [ref=e6]: Móveis Machado
+        - generic [ref=e7]: Feito para o seu espaço
+    - navigation "Navegação principal" [ref=e8]:
+      - link "Início" [ref=e9] [cursor=pointer]:
+        - /url: /?lang=pt
+      - link "O que fazemos" [ref=e10] [cursor=pointer]:
+        - /url: /services?lang=pt
+      - link "Projetos" [ref=e11] [cursor=pointer]:
+        - /url: /projects?lang=pt
+      - link "Sobre nós" [ref=e12] [cursor=pointer]:
+        - /url: /about?lang=pt
+      - link "Contactos" [ref=e13] [cursor=pointer]:
+        - /url: /contact?lang=pt
+    - generic [ref=e14]:
+      - generic "Language" [ref=e15]:
+        - button "PT" [pressed] [ref=e16] [cursor=pointer]
+        - generic [ref=e17]: /
+        - button "EN" [ref=e18] [cursor=pointer]
+      - link "Pedir orçamento" [ref=e19] [cursor=pointer]:
+        - /url: /contact?lang=pt
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - img "Ambiente de inspiração com cozinha e mobiliário em madeira" [ref=e22]
+      - generic [ref=e23]:
+        - generic [ref=e24]: FABRICO PRÓPRIO EM ODIVELAS
+        - heading "Móveis Machado" [level=1] [ref=e26]
+        - heading [level=2] [ref=e27]:
+          - text: Cozinhas e móveis.
+          - emphasis [ref=e28]: À sua medida.
+        - paragraph [ref=e29]: Fabricamos cozinhas, roupeiros e móveis por medida em Odivelas. Acompanhamos o projeto do desenho à instalação.
+        - link "Explorar projetos" [ref=e30] [cursor=pointer]:
+          - /url: /projects?lang=pt
+      - generic [ref=e31]:
+        - link "Descubra a Móveis Machado" [ref=e32] [cursor=pointer]:
+          - /url: "#craft"
+        - generic [ref=e35]: Imagem de inspiração
+    - generic [ref=e36]:
+      - generic [ref=e37]: Mais de 40 anos de experiência
+      - generic [ref=e42]: Fabrico próprio
+      - generic [ref=e48]: Do desenho à instalação
+      - generic [ref=e56]: Odivelas · Grande Lisboa
+    - generic [ref=e61]:
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - generic [ref=e64]: O QUE FAZEMOS
+          - heading "O que podemos fabricar." [level=2] [ref=e65]
+        - link "Ver serviços" [ref=e66] [cursor=pointer]:
+          - /url: /services?lang=pt
+      - generic [ref=e67]:
+        - link [ref=e68] [cursor=pointer]:
+          - /url: /services/kitchens?lang=pt
+          - heading "Cozinhas por medida" [level=3] [ref=e69]
+          - paragraph [ref=e70]: Disposição e acabamentos adaptados ao espaço.
+        - link [ref=e71] [cursor=pointer]:
+          - /url: /services/wardrobes?lang=pt
+          - heading "Roupeiros por medida" [level=3] [ref=e72]
+          - paragraph [ref=e73]: Arrumação para o que precisa de guardar.
+        - link [ref=e74] [cursor=pointer]:
+          - /url: /services/furniture?lang=pt
+          - heading "Móveis por medida" [level=3] [ref=e75]
+          - paragraph [ref=e76]: Móveis para a sala e o espaço de trabalho.
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - generic [ref=e80]: O NOSSO TRABALHO
+          - heading "Cozinhas que fabricámos." [level=2] [ref=e81]
+        - link "Ver todos os projetos" [ref=e82] [cursor=pointer]:
+          - /url: /projects?lang=pt
+      - generic [ref=e83]:
+        - article [ref=e84]:
+          - button "Cozinha com ilha" [ref=e85] [cursor=pointer]:
+            - img "Cozinha com ilha" [ref=e86]
+          - generic [ref=e88]:
+            - heading "Cozinha com ilha" [level=3] [ref=e89]
+            - paragraph [ref=e90]: Cozinhas por medida
+        - article [ref=e91]:
+          - button "Branco e madeira" [ref=e92] [cursor=pointer]:
+            - img "Branco e madeira" [ref=e93]
+          - generic [ref=e95]:
+            - heading "Branco e madeira" [level=3] [ref=e96]
+            - paragraph [ref=e97]: Cozinhas por medida
+        - article [ref=e98]:
+          - button "Linhas contemporâneas" [ref=e99] [cursor=pointer]:
+            - img "Linhas contemporâneas" [ref=e100]
+          - generic [ref=e102]:
+            - heading "Linhas contemporâneas" [level=3] [ref=e103]
+            - paragraph [ref=e104]: Cozinhas por medida
+    - generic [ref=e105]:
+      - generic [ref=e106]:
+        - generic [ref=e107]: SOBRE A MÓVEIS MACHADO
+        - heading "Fabrico próprio em Odivelas." [level=2] [ref=e109]
+        - paragraph [ref=e110]: Há mais de 40 anos, fabricamos cozinhas, roupeiros e móveis por medida. Acompanhamos o trabalho desde o desenho até à instalação.
+        - link "Conheça a nossa história" [ref=e111] [cursor=pointer]:
+          - /url: /about?lang=pt
+        - generic [ref=e112]:
+          - generic [ref=e113]: Móveis Machado
+          - generic [ref=e114]: ODIVELAS · PORTUGAL
+      - figure "Estudo de materiais Imagem de inspiração" [ref=e115]:
+        - 'img "Estudo de inspiração de materiais: madeira, tecido e pedra" [ref=e116]'
+        - generic [ref=e117]:
+          - text: Estudo de materiais
+          - generic [ref=e118]: Imagem de inspiração
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - strong [ref=e121]: 40+
+          - generic [ref=e122]: anos de experiência
+        - generic [ref=e123]:
+          - strong [ref=e124]: Fabrico próprio
+          - generic [ref=e125]: Do desenho à instalação
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - generic [ref=e128]: COMO TRABALHAMOS
+        - heading "Como fazemos o seu projeto." [level=2] [ref=e130]
+        - figure "Do desenho à instalação" [ref=e131]:
+          - img "Branco e madeira" [ref=e132]
+      - generic [ref=e134]:
+        - generic [ref=e136]:
+          - heading "Conversamos" [level=3] [ref=e137]
+          - paragraph [ref=e138]: Conversamos sobre o que pretende e as características do espaço.
+        - generic [ref=e140]:
+          - heading "Planeamos" [level=3] [ref=e141]
+          - paragraph [ref=e142]: Definimos as medidas, a disposição, os materiais e os acabamentos.
+        - generic [ref=e144]:
+          - heading "Fabricamos" [level=3] [ref=e145]
+          - paragraph [ref=e146]: Produzimos os móveis na nossa oficina.
+        - generic [ref=e148]:
+          - heading "Instalamos" [level=3] [ref=e149]
+          - paragraph [ref=e150]: Tratamos da montagem no local.
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]: CONTACTOS E ORÇAMENTOS
+        - heading "Fale-nos do seu projeto." [level=2] [ref=e155]
+        - paragraph [ref=e156]: Diga-nos o que pretende fazer e onde. Se tiver medidas ou fotografias do espaço, partilhe-as connosco.
+        - link "Pedir orçamento" [ref=e157] [cursor=pointer]:
+          - /url: /contact?lang=pt
+      - generic [ref=e158]:
+        - generic [ref=e159]: MÓVEIS MACHADO
+        - generic [ref=e160]: ODIVELAS · GRANDE LISBOA
+  - contentinfo [ref=e161]:
+    - generic [ref=e162]:
+      - generic [ref=e163]:
+        - link "Móveis Machado Feito para o seu espaço" [ref=e164] [cursor=pointer]:
+          - /url: /?lang=pt
+          - generic [ref=e166]:
+            - generic [ref=e167]: Móveis Machado
+            - generic [ref=e168]: Feito para o seu espaço
+        - paragraph [ref=e169]: Fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas.
+      - generic [ref=e170]:
+        - heading "O QUE FAZEMOS" [level=2] [ref=e171]
+        - generic [ref=e172]:
+          - link "Cozinhas por medida" [ref=e173] [cursor=pointer]:
+            - /url: /services/kitchens?lang=pt
+          - link "Roupeiros por medida" [ref=e174] [cursor=pointer]:
+            - /url: /services/wardrobes?lang=pt
+          - link "Móveis por medida" [ref=e175] [cursor=pointer]:
+            - /url: /services/furniture?lang=pt
+      - generic [ref=e176]:
+        - heading "Encontre-nos" [level=2] [ref=e177]
+        - generic [ref=e178]:
+          - generic [ref=e179]: Rua Vítor Cordon 6A2675-459 Odivelas, Portugal
+          - link "Como chegar" [ref=e180] [cursor=pointer]:
+            - /url: https://share.google/uK5M3YaRHoAcBMNPD
+    - generic [ref=e181]:
+      - generic [ref=e182]: © 2026 Móveis Machado. Todos os direitos reservados.
+      - generic [ref=e183]:
+        - link "Política de Cookies" [ref=e184] [cursor=pointer]:
+          - /url: /cookies?lang=pt
+        - button "Gerir cookies" [ref=e185] [cursor=pointer]

@@ -474,8 +474,8 @@ a {
 .hero-description {
   font-size: var(--text-body);
   line-height: 1.75;
-  max-width: 390px;
-  margin: 24px 0 31px;
+  max-width: 480px;
+  margin: 18px 0 26px;
   opacity: 0.87;
 }
 .hero-bottom {
@@ -513,19 +513,19 @@ a {
   color: var(--primary);
 }
 .section {
-  padding: 88px 7%;
+  padding: 60px 7%;
 }
 .section-heading {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 25px;
-  margin-bottom: 37px;
+  margin-bottom: 26px;
 }
 .section .eyebrow,
 .page-heading .eyebrow {
   color: var(--primary);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 .section-title {
   font-family: var(--font-display);
@@ -547,11 +547,11 @@ a {
 }
 .projects-section {
   background: var(--brand-soft);
-  padding-top: 48px;
-  padding-bottom: 110px;
+  padding-top: 44px;
+  padding-bottom: 64px;
 }
 .projects-section .section-heading {
-  margin-bottom: 55px;
+  margin-bottom: 30px;
 }
 .projects-section .section-title {
   font-size: 62px;
@@ -591,12 +591,31 @@ a {
   background: var(--atelier);
   color: var(--inverse);
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  column-gap: 8%;
-  row-gap: 70px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  column-gap: 5%;
+  row-gap: 36px;
   align-items: center;
-  padding-top: 110px;
-  padding-bottom: 65px;
+  padding-top: 64px;
+  padding-bottom: 48px;
+}
+.story-section.is-light {
+  background: var(--background);
+  color: var(--foreground);
+}
+.story-section.is-light .eyebrow {
+  color: var(--primary);
+}
+.story-section.is-light .body-copy,
+.story-section.is-light .stat dd,
+.story-section.is-light .story-visual figcaption span {
+  color: var(--muted-foreground);
+}
+.story-section.is-light .text-link,
+.story-section.is-light .story-stats {
+  border-color: var(--border);
+}
+.story-section.is-light .stat dt {
+  color: var(--primary);
 }
 .story-text {
   min-width: 0;
@@ -605,11 +624,13 @@ a {
   color: var(--detail);
 }
 .story-section .section-title {
-  font-size: 65px;
+  font-size: 52px;
+  text-wrap: balance;
 }
 .story-section .body-copy {
   color: var(--atelier-muted);
-  margin: 28px 0 32px;
+  margin: 14px 0 18px;
+  max-width: 640px;
 }
 .story-section .text-link {
   border-color: var(--atelier-border);
@@ -659,61 +680,55 @@ a {
 }
 .body-copy {
   font-size: var(--text-body);
-  line-height: 1.8;
+  line-height: 1.75;
   color: var(--muted-foreground);
-  margin: 25px 0;
-  max-width: 510px;
+  margin: 14px 0;
+  max-width: 620px;
 }
 .story-stats {
   grid-column: 1/-1;
-  display: flex;
-  align-items: center;
-  gap: 70px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
   border-top: 1px solid var(--atelier-border);
-  padding-top: 38px;
+  padding-top: 24px;
 }
 .stat {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  flex-direction: column;
+  gap: 6px;
 }
-.stat strong {
+.stat dt {
   font-family: var(--font-display);
-  font-size: 37px;
+  font-size: 44px;
   font-weight: 400;
   line-height: 1;
-}
-.stat:first-child strong {
-  font-size: 92px;
   color: var(--detail);
 }
-.stat strong span {
-  font-size: 45px;
-  vertical-align: top;
-}
-.stat > span {
+.stat dd {
+  margin: 0;
   color: var(--atelier-muted);
   font-size: var(--text-small);
-  max-width: 120px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 .process-section {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 56px;
-  padding-top: 110px;
-  padding-bottom: 110px;
+  gap: 28px;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 .process-intro .section-title {
-  font-size: 56px;
+  font-size: 46px;
 }
 .process-visual {
   position: relative;
-  margin: 35px 0 0;
+  margin: 24px 0 0;
 }
 .process-visual img {
   width: 100%;
-  aspect-ratio: 2.1;
+  aspect-ratio: 3;
   object-fit: cover;
 }
 .process-visual .render-badge {
@@ -739,26 +754,26 @@ a {
 .process-item {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 6px;
   border-top: 1px solid var(--border);
-  padding: 25px 0 28px;
+  padding: 14px 0 0;
 }
 .process-item h3 {
   font-family: var(--font-display);
-  font-size: 33px;
+  font-size: 26px;
   font-weight: 500;
-  margin: 0 0 9px;
+  margin: 0 0 4px;
 }
 .process-item p {
-  font-size: var(--text-body);
+  font-size: var(--text-small);
   color: var(--muted-foreground);
-  line-height: 1.9;
-  max-width: 330px;
+  line-height: 1.65;
+  max-width: 520px;
 }
 .contact-band {
   position: relative;
-  min-height: 520px;
-  padding: 85px 7% 90px;
+  min-height: 420px;
+  padding: 60px 7% 80px;
   color: var(--inverse);
   overflow: hidden;
   display: flex;
@@ -793,9 +808,9 @@ a {
 .contact-band p {
   font-size: var(--text-body);
   line-height: 1.75;
-  max-width: 370px;
+  max-width: 520px;
   color: var(--inverse);
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 }
 .contact-bottom {
   position: absolute;
@@ -811,7 +826,7 @@ a {
   font-size: var(--text-label);
 }
 .site-footer {
-  padding: 72px 7% 28px;
+  padding: 52px 7% 24px;
 }
 .site-footer .brand-name {
   font-size: 36px;
@@ -824,13 +839,13 @@ a {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1.2fr 1fr;
   gap: 55px;
-  padding-bottom: 45px;
+  padding-bottom: 32px;
 }
 .footer-copy {
   font-size: var(--text-body);
   color: var(--muted-foreground);
   line-height: 1.9;
-  max-width: 280px;
+  max-width: 340px;
   margin-top: 20px;
 }
 .footer-heading {
@@ -904,7 +919,7 @@ a {
   outline-offset: 4px;
 }
 .page-heading {
-  padding: 72px 7% 52px;
+  padding: 48px 7% 32px;
   border-bottom: 1px solid var(--border);
 }
 .page-heading h1 {
@@ -917,7 +932,7 @@ a {
   font-size: var(--text-body);
   line-height: 1.75;
   color: var(--muted-foreground);
-  max-width: 550px;
+  max-width: 680px;
 }
 .service-detail {
   display: grid;
@@ -1676,8 +1691,8 @@ dd {
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
   gap: clamp(40px, 6vw, 90px);
   align-items: center;
-  padding-top: 110px;
-  padding-bottom: 110px;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 .design-copy .eyebrow {
   color: var(--primary);
@@ -1717,7 +1732,7 @@ dd {
 }
 .values-grid article {
   border-top: 1px solid var(--foreground);
-  padding-top: 22px;
+  padding-top: 16px;
 }
 .values-grid svg {
   width: 20px;
@@ -1725,7 +1740,7 @@ dd {
   color: var(--primary);
 }
 .values-grid h3 {
-  margin: 14px 0 10px;
+  margin: 10px 0 6px;
   font-family: var(--font-display);
   font-size: 27px;
   font-weight: 500;
@@ -2015,7 +2030,7 @@ dd {
     font-size: var(--text-label);
   }
   .section {
-    padding: 60px 7%;
+    padding: 44px 6%;
   }
   .section-title {
     font-size: 40px;
@@ -2044,11 +2059,11 @@ dd {
   }
   .story-section {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding-top: 70px;
+    gap: 28px;
+    padding-top: 48px;
   }
   .story-section .section-title {
-    font-size: 50px;
+    font-size: 40px;
   }
   .story-image {
     aspect-ratio: 1.1;
@@ -2061,18 +2076,12 @@ dd {
     flex-wrap: wrap;
   }
   .story-stats {
-    flex-wrap: wrap;
-    gap: 28px;
-    padding-top: 28px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding-top: 20px;
   }
-  .stat:first-child strong {
-    font-size: 70px;
-  }
-  .stat strong {
-    font-size: 28px;
-  }
-  .stat {
-    gap: 15px;
+  .stat dt {
+    font-size: 36px;
   }
   .process-section {
     gap: 40px;
@@ -2095,8 +2104,8 @@ dd {
     border-bottom: 1px solid var(--border);
   }
   .contact-band {
-    padding: 65px 7% 100px;
-    min-height: 500px;
+    padding: 48px 7% 84px;
+    min-height: 400px;
     align-items: center;
   }
   .contact-band h2 {

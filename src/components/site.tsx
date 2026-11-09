@@ -452,11 +452,11 @@ export function DesignToWork() {
     </section>
   );
 }
-export function Story({ full = false }: { full?: boolean }) {
+export function Story({ full = false, light = false }: { full?: boolean; light?: boolean }) {
   const lang = useLanguage();
   const t = content[lang];
   return (
-    <section className="section story-section">
+    <section className={`section story-section${light ? " is-light" : ""}`}>
       <div className="story-text">
         <Eyebrow line>{t.storyLabel}</Eyebrow>
         <h2 className="section-title">{t.storyTitle}</h2>
@@ -478,18 +478,14 @@ export function Story({ full = false }: { full?: boolean }) {
           height={1200}
         />
       </figure>
-      <div className="story-stats">
-        <div className="stat">
-          <strong>
-            40<span>+</span>
-          </strong>
-          <span>{t.years}</span>
-        </div>
-        <div className="stat">
-          <strong>{t.own}</strong>
-          <span>{t.ownSub}</span>
-        </div>
-      </div>
+      <dl className="story-stats">
+        {t.stats.map((stat) => (
+          <div className="stat" key={stat.value}>
+            <dt>{stat.value}</dt>
+            <dd>{stat.label}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }
