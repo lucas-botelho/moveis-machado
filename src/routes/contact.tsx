@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin } from "lucide-react";
-import { useLanguage, PageHeading, Eyebrow } from "@/components/site";
+import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { useLanguage, PageHeading } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import { useConsent } from "@/components/cookie-consent";
 import {
+  contactDetails,
   content,
   cookieConsentContent,
   pageMeta,
@@ -19,13 +20,13 @@ export const Route = createFileRoute("/contact")({
           "/contact",
           "en",
           "Contact & quotes",
-          "Start your bespoke furniture project with Móveis Machado. Visit us at Rua Vítor Cordon 6A, Odivelas, or message us on WhatsApp.",
+          "Start your bespoke furniture project with Móveis Machado. Call, email or message us on WhatsApp, or visit our workshop in Odivelas. Free visit, quote and 3D design.",
         )
       : pageMeta(
           "/contact",
           "pt",
           "Contactos e orçamentos",
-          "Comece o seu projeto com a Móveis Machado. Visite-nos na Rua Vítor Cordon 6A, Odivelas, ou fale connosco pelo WhatsApp.",
+          "Comece o seu projeto com a Móveis Machado. Ligue, envie email ou mensagem pelo WhatsApp, ou visite a oficina em Odivelas. Visita, orçamento e projeto 3D sem custos.",
         ),
   component: Contact,
 });
@@ -37,25 +38,43 @@ function Contact() {
       <PageHeading label={t.nav[4] ?? ""} title={t.contactTitle} description={t.contactIntro} />
       <section className="section contact-layout">
         <div>
-          <Eyebrow>ODIVELAS · LISBOA</Eyebrow>
-          <h2 className="section-title">{t.contactSub}</h2>
-          <p className="body-copy">{t.contactCopy}</p>
+          <h2 className="section-title">{t.contactWaysTitle}</h2>
+          <ul className="contact-ways">
+            <li>
+              <Phone aria-hidden="true" />
+              <span>{t.phoneLabel}</span>
+              <a href={contactDetails.phoneHref}>{contactDetails.phoneDisplay}</a>
+            </li>
+            <li>
+              <Mail aria-hidden="true" />
+              <span>{t.emailLabel}</span>
+              <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
+            </li>
+            <li>
+              <Instagram aria-hidden="true" />
+              <span>{t.instagram}</span>
+              <a href={contactDetails.instagramUrl} target="_blank" rel="noreferrer">
+                {contactDetails.instagramHandle}
+              </a>
+            </li>
+          </ul>
           <Button variant="luxury" asChild>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">
+              <MessageCircle aria-hidden="true" />
               {t.whatsapp}
             </a>
           </Button>
-          <details className="faq">
-            <summary>{t.prepare}</summary>
-            <p>{t.prepareCopy}</p>
-          </details>
-          <details className="faq">
-            <summary>{t.materials}</summary>
-            <p>{t.materialsCopy}</p>
-          </details>
+          <div className="next-steps">
+            <h2>{t.nextTitle}</h2>
+            <ol>
+              {t.nextSteps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
         </div>
         <div className="contact-location">
-          <MapPin className="text-primary mb-6" size={28} strokeWidth={1.25} />
+          <MapPin className="text-primary mb-6" size={28} strokeWidth={1.25} aria-hidden="true" />
           <h2>Móveis Machado</h2>
           <address>
             Rua Vítor Cordon 6A
@@ -64,10 +83,24 @@ function Contact() {
             <br />
             Portugal
           </address>
+          <p className="contact-area">
+            <strong>{t.contactSub}.</strong> {t.contactCopy}
+          </p>
           <a href={mapsUrl} target="_blank" rel="noreferrer" className="text-link">
             {t.directions}
           </a>
           <ConsentMap lang={lang} />
+        </div>
+      </section>
+      <section className="section faq-section">
+        <h2 className="section-title">{t.faqTitle}</h2>
+        <div>
+          {t.faq.map((item) => (
+            <details className="faq" key={item.q}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
         </div>
       </section>
     </main>

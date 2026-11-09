@@ -1,6 +1,19 @@
 import walnut from "@/assets/kitchen-walnut.webp";
 import island from "@/assets/kitchen-island.webp";
 import contemporary from "@/assets/kitchen-contemporary.webp";
+import marbleIsland from "@/assets/projects/marble-island.webp";
+import marbleColumns from "@/assets/projects/marble-columns.webp";
+import oakGalley from "@/assets/projects/oak-galley.webp";
+import whiteL from "@/assets/projects/white-l.webp";
+import wineWall from "@/assets/projects/wine-wall.webp";
+import wineWall3d from "@/assets/projects/wine-wall-3d.webp";
+import wineWall3dAlt from "@/assets/projects/wine-wall-3d-alt.webp";
+import island3d from "@/assets/projects/island-3d.webp";
+import marbleSwatch from "@/assets/materials/marble.webp";
+import oakSwatch from "@/assets/materials/oak.webp";
+import walnutSwatch from "@/assets/materials/walnut.webp";
+import blackLacquerSwatch from "@/assets/materials/black-lacquer.webp";
+import whiteGlossSwatch from "@/assets/materials/white-gloss.webp";
 import { createPageHead } from "@/lib/seo";
 import { notFoundContent } from "@/lib/not-found-content";
 import type { PublicPath, SeoLanguage } from "@/lib/seo-shared";
@@ -14,6 +27,223 @@ export const servicePaths = {
   furniture: "/services/furniture",
 } as const satisfies Record<ServiceSlug, PublicPath>;
 
+/*
+ * Facts used across the copy come from the brand's own published website
+ * (moveismachado.com: home, about, services and gallery pages) or from the
+ * company's photographs. Do not add prices, deadlines, guarantees, founding
+ * dates or testimonials until the company confirms them.
+ */
+
+export type ProjectImage = {
+  src: string;
+  width: number;
+  height: number;
+  /** "render" marks a 3D design visual; it must never be shown as finished work. */
+  kind: "photo" | "render";
+};
+
+type ProjectCopy = { title: string; type: string; materials: string; summary: string };
+
+export type Project = {
+  slug: string;
+  category: "kitchen" | "furniture";
+  images: readonly ProjectImage[];
+  pt: ProjectCopy;
+  en: ProjectCopy;
+};
+
+export const projects: readonly Project[] = [
+  {
+    slug: "marble-island",
+    category: "kitchen",
+    images: [
+      { src: marbleIsland, width: 1600, height: 1032, kind: "photo" },
+      { src: marbleColumns, width: 1600, height: 1032, kind: "photo" },
+    ],
+    pt: {
+      title: "Ilha e revestimento efeito mármore",
+      type: "Cozinha com ilha",
+      materials: "Lacado branco alto brilho · bancada e revestimento efeito mármore",
+      summary:
+        "Armários altos até ao teto, frentes sem puxadores e uma ilha com placa integrada. As colunas reúnem forno duplo e frigorífico americano numa só parede.",
+    },
+    en: {
+      title: "Island and marble-effect surfaces",
+      type: "Island kitchen",
+      materials: "White high-gloss lacquer · marble-effect worktop and splashback",
+      summary:
+        "Wall units up to the ceiling, handleless fronts and an island with an integrated hob. Tall units bring a double oven and an American fridge together on one wall.",
+    },
+  },
+  {
+    slug: "wine-wall",
+    category: "furniture",
+    images: [
+      { src: wineWall, width: 1600, height: 1104, kind: "photo" },
+      { src: wineWall3d, width: 1600, height: 1132, kind: "render" },
+      { src: wineWall3dAlt, width: 1600, height: 1132, kind: "render" },
+    ],
+    pt: {
+      title: "Garrafeira à medida",
+      type: "Mobiliário por medida",
+      materials: "Perfis pretos com vidro · madeira · garrafeiras em cruz",
+      summary:
+        "Uma parede inteira de arrumação para vinho, com portas em vidro, nichos em cruz e espaço para uma garrafeira climatizada. Foi desenhada em 3D antes de seguir para a oficina.",
+    },
+    en: {
+      title: "Bespoke wine wall",
+      type: "Bespoke furniture",
+      materials: "Black frames with glass · wood · cross-shaped wine racks",
+      summary:
+        "A full wall of wine storage with glass doors, cross racks and room for a wine cooler. It was designed in 3D before going to the workshop.",
+    },
+  },
+  {
+    slug: "walnut",
+    category: "kitchen",
+    images: [{ src: walnut, width: 1600, height: 1200, kind: "photo" }],
+    pt: {
+      title: "Branco e nogueira",
+      type: "Cozinha em L",
+      materials: "Branco mate · nogueira · bancada escura",
+      summary:
+        "Uma cozinha em L que junta a luz das frentes brancas ao calor da nogueira, com armários superiores em duas profundidades.",
+    },
+    en: {
+      title: "White and walnut",
+      type: "L-shaped kitchen",
+      materials: "Matt white · walnut · dark worktop",
+      summary:
+        "An L-shaped kitchen pairing bright white fronts with warm walnut, with wall units in two depths.",
+    },
+  },
+  {
+    slug: "contemporary",
+    category: "kitchen",
+    images: [{ src: contemporary, width: 1600, height: 1200, kind: "photo" }],
+    pt: {
+      title: "Lacado preto e branco",
+      type: "Cozinha contemporânea",
+      materials: "MDF lacado alto brilho · puxador integrado",
+      summary:
+        "Linhas contínuas, puxador integrado e o contraste do lacado preto e branco em alto brilho.",
+    },
+    en: {
+      title: "Black and white lacquer",
+      type: "Contemporary kitchen",
+      materials: "High-gloss lacquered MDF · integrated handle",
+      summary:
+        "Continuous lines, an integrated handle and the contrast of black and white high-gloss lacquer.",
+    },
+  },
+  {
+    slug: "oak-galley",
+    category: "kitchen",
+    images: [{ src: oakGalley, width: 1200, height: 1488, kind: "photo" }],
+    pt: {
+      title: "Corredor em branco e madeira",
+      type: "Cozinha linear",
+      materials: "Lacado branco · madeira · bancada escura",
+      summary:
+        "Uma cozinha linear que aproveita todo o comprimento do espaço, com gavetões, eletrodomésticos encastrados e uma faixa de madeira a aquecer o conjunto.",
+    },
+    en: {
+      title: "White and wood galley",
+      type: "Galley kitchen",
+      materials: "White lacquer · wood · dark worktop",
+      summary:
+        "A galley kitchen that uses the full length of the room, with deep drawers, built-in appliances and a band of wood warming the whole.",
+    },
+  },
+  {
+    slug: "island",
+    category: "kitchen",
+    images: [{ src: island, width: 1600, height: 1200, kind: "photo" }],
+    pt: {
+      title: "Ilha em tom pedra",
+      type: "Cozinha com ilha",
+      materials: "Branco mate · ilha em tom pedra · madeira",
+      summary: "Uma ilha robusta em tom pedra que organiza a cozinha e abre o espaço para a sala.",
+    },
+    en: {
+      title: "Stone-tone island",
+      type: "Island kitchen",
+      materials: "Matt white · stone-tone island · wood",
+      summary:
+        "A solid stone-tone island that organises the kitchen and opens it to the living area.",
+    },
+  },
+  {
+    slug: "white-l",
+    category: "kitchen",
+    images: [{ src: whiteL, width: 1600, height: 1164, kind: "photo" }],
+    pt: {
+      title: "Branco mate com coluna",
+      type: "Cozinha em L",
+      materials: "Branco mate · bancada escura · eletrodomésticos encastrados",
+      summary:
+        "Frentes em branco mate sem puxadores aparentes, coluna até ao teto e eletrodomésticos encastrados à altura certa.",
+    },
+    en: {
+      title: "Matt white with tall unit",
+      type: "L-shaped kitchen",
+      materials: "Matt white · dark worktop · built-in appliances",
+      summary:
+        "Matt white handleless fronts, a floor-to-ceiling tall unit and built-in appliances at the right height.",
+    },
+  },
+];
+
+export function projectBySlug(slug: string) {
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) throw new Error(`Unknown project: ${slug}`);
+  return project;
+}
+
+export const featuredProjectSlugs = ["walnut", "contemporary", "island"] as const;
+
+export const designToWork = {
+  render: { src: wineWall3d, width: 1600, height: 1132 },
+  photo: { src: wineWall, width: 1600, height: 1104 },
+  process: { src: island3d, width: 1599, height: 899 },
+};
+
+export const heroImage = { src: marbleIsland, width: 1600, height: 1032 };
+
+export const materials = [
+  {
+    image: walnutSwatch,
+    pt: { name: "Madeira", copy: "Carvalho, nogueira e faia, em maciço ou folheado." },
+    en: { name: "Wood", copy: "Oak, walnut and beech, solid or veneered." },
+  },
+  {
+    image: whiteGlossSwatch,
+    pt: { name: "MDF lacado", copy: "Mate ou alto brilho, na cor que escolher." },
+    en: { name: "Lacquered MDF", copy: "Matt or high gloss, in the colour you choose." },
+  },
+  {
+    image: oakSwatch,
+    pt: { name: "Laminados técnicos", copy: "Termolaminados resistentes ao uso diário." },
+    en: { name: "Technical laminates", copy: "Thermolaminates made for daily use." },
+  },
+  {
+    image: marbleSwatch,
+    pt: { name: "Pedra e cerâmica técnica", copy: "Bancadas e revestimentos de veio contínuo." },
+    en: {
+      name: "Stone and technical ceramic",
+      copy: "Worktops and splashbacks with continuous veining.",
+    },
+  },
+  {
+    image: blackLacquerSwatch,
+    pt: { name: "Ferragens e acabamentos", copy: "Fecho suave, puxador integrado ou sem puxador." },
+    en: {
+      name: "Hardware and details",
+      copy: "Soft-close fittings, integrated or handleless fronts.",
+    },
+  },
+] as const;
+
 type ServicePageContent = {
   metaTitle: string;
   metaDescription: string;
@@ -24,6 +254,8 @@ type ServicePageContent = {
   scopeCopy: string;
   planningTitle: string;
   planningCopy: string;
+  includedTitle: string;
+  included: readonly string[];
   materialsTitle: string;
   materialsCopy: string;
   areaTitle: string;
@@ -35,102 +267,131 @@ type ServicePageContent = {
   ctaLabel: string;
 };
 
+export const serviceGalleries: Record<ServiceSlug, readonly string[]> = {
+  kitchens: ["marble-island", "walnut", "contemporary", "oak-galley"],
+  wardrobes: [],
+  furniture: ["wine-wall"],
+};
+
 export const servicePages: Record<Language, Record<ServiceSlug, ServicePageContent>> = {
   pt: {
     kitchens: {
       metaTitle: "Cozinhas por medida em Odivelas",
       metaDescription:
-        "Cozinhas por medida com fabrico próprio em Odivelas. Planeamento, materiais, acabamentos e instalação para projetos na Grande Lisboa.",
+        "Cozinhas por medida com fabrico próprio em Odivelas. Projeto 3D, materiais nobres, ferragens de fecho suave e instalação em Lisboa e na Grande Lisboa.",
       label: "COZINHAS POR MEDIDA",
-      title: "Uma cozinha pensada para o seu espaço.",
+      title: "A cozinha que o seu espaço pede.",
       description:
-        "Planeamos e fabricamos cozinhas por medida na nossa oficina em Odivelas, acompanhando cada projeto do desenho à instalação.",
-      scopeTitle: "Disposição, arrumação e utilização",
+        "Desenhamos, fabricamos e instalamos cozinhas por medida a partir da nossa oficina em Odivelas. Veja o projeto em 3D antes de cortarmos a primeira peça.",
+      scopeTitle: "Pensada para a forma como cozinha",
       scopeCopy:
-        "Definimos a disposição dos armários e das bancadas de acordo com as características do espaço e a forma como utiliza a cozinha. Cada decisão procura conciliar arrumação, circulação e o uso diário.",
+        "Uma boa cozinha resolve-se nos centímetros: a altura das bancadas, a profundidade dos armários, o caminho entre o frigorífico, a placa e o lava-loiça. Partimos das medidas reais da sua casa e da forma como a usa todos os dias para desenhar cada módulo.",
       planningTitle: "O que definimos consigo",
       planningCopy:
-        "Partimos das medidas do espaço e das suas referências para preparar a disposição, as dimensões, os materiais e os acabamentos. O âmbito final é ajustado às necessidades concretas do projeto.",
+        "Disposição, arrumação interior, eletrodomésticos encastrados, iluminação, materiais e acabamentos. Antes de avançar, mostramos-lhe o projeto em 3D para ajustar o que for preciso.",
+      includedTitle: "Incluído em cada cozinha",
+      included: [
+        "Visita, medição e orçamento sem custos",
+        "Projeto 3D antes do fabrico",
+        "Estruturas reforçadas e ferragens de fecho suave",
+        "Integração de eletrodomésticos encastrados",
+        "Montagem pela nossa equipa e assistência pós-venda",
+      ],
       materialsTitle: "Materiais e acabamentos",
       materialsCopy:
-        "Trabalhamos com madeira maciça, MDF lacado e materiais técnicos. A escolha é feita para cada projeto, tendo em conta o resultado pretendido e as condições do espaço.",
+        "Madeira maciça de carvalho, nogueira ou faia, MDF lacado mate ou alto brilho, termolaminados, pedra natural e cerâmica técnica. Ajudamos a escolher a combinação que resiste ao uso diário e envelhece bem.",
       areaTitle: "Oficina em Odivelas",
       areaCopy:
-        "Fabricamos em Odivelas e trabalhamos principalmente em Lisboa, Odivelas e na região envolvente. Confirme connosco a localização do seu projeto ao pedir orçamento.",
-      processTitle: "Da primeira conversa à instalação",
+        "Fabricamos tudo na nossa oficina, o que nos dá controlo sobre medidas, uniões e acabamentos. Instalamos em Lisboa, Odivelas e nos concelhos vizinhos.",
+      processTitle: "Da primeira conversa à cozinha instalada",
       process: [
-        "Conversamos sobre a cozinha, o espaço e a forma como pretende utilizá-la.",
-        "Definimos medidas, disposição, materiais e acabamentos.",
-        "Fabricamos os elementos na nossa oficina.",
-        "Fazemos a montagem e a instalação no local.",
+        "Visitamos o espaço, tiramos medidas e ouvimos como usa a cozinha.",
+        "Preparamos o projeto 3D e o orçamento, e afinamos consigo cada detalhe.",
+        "Fabricamos todos os módulos na nossa oficina em Odivelas.",
+        "Montamos, ajustamos e entregamos a cozinha pronta a usar.",
       ],
-      ctaTitle: "Tem um projeto de cozinha?",
+      ctaTitle: "Vamos desenhar a sua cozinha?",
       ctaCopy:
-        "Envie-nos medidas aproximadas, fotografias do espaço e referências do que pretende. Falamos consigo sobre os próximos passos.",
+        "Envie-nos medidas aproximadas, fotografias do espaço e referências do que gosta. Marcamos a visita e preparamos o projeto 3D sem custos.",
       ctaLabel: "Pedir orçamento de cozinha",
     },
     wardrobes: {
       metaTitle: "Roupeiros por medida em Odivelas",
       metaDescription:
-        "Roupeiros por medida com fabrico próprio em Odivelas. Dimensões, arrumação interior, materiais e acabamentos definidos para cada espaço.",
+        "Roupeiros e closets por medida com fabrico próprio em Odivelas. Interiores organizados, portas de batente ou correr e acabamentos à escolha.",
       label: "ROUPEIROS POR MEDIDA",
-      title: "Arrumação desenhada para o que precisa.",
+      title: "Arrumação desenhada para o que guarda.",
       description:
-        "Fabricamos roupeiros com dimensões e organização interior adaptadas ao espaço, desde o planeamento até à instalação.",
-      scopeTitle: "Aproveitar o espaço disponível",
+        "Roupeiros e closets feitos à medida da parede, do teto e do que precisa de guardar, fabricados na nossa oficina em Odivelas.",
+      scopeTitle: "Cada centímetro aproveitado",
       scopeCopy:
-        "Um roupeiro por medida permite ajustar as dimensões ao local e organizar o interior de acordo com o que precisa de guardar. O desenho parte sempre do espaço real e da utilização pretendida.",
+        "Num roupeiro por medida não há espaços perdidos: vai do chão ao teto, contorna vigas e paredes irregulares e organiza o interior com cabides, gavetas, prateleiras e sapateiras na proporção certa para si.",
       planningTitle: "O que definimos consigo",
       planningCopy:
-        "Revemos as medidas, a configuração interior, os materiais e os acabamentos. Estas escolhas são feitas para cada projeto, sem soluções ou dimensões predefinidas.",
+        "Medidas, tipo de portas, organização interior, iluminação e acabamentos. Mostramos-lhe o projeto em 3D antes do fabrico.",
+      includedTitle: "Incluído em cada roupeiro",
+      included: [
+        "Visita, medição e orçamento sem custos",
+        "Projeto 3D antes do fabrico",
+        "Interior organizado à sua medida",
+        "Ferragens de fecho suave",
+        "Montagem pela nossa equipa e assistência pós-venda",
+      ],
       materialsTitle: "Materiais e acabamentos",
       materialsCopy:
-        "Podemos trabalhar com madeira maciça, MDF lacado e materiais técnicos. A combinação adequada é definida durante o planeamento do projeto.",
+        "MDF lacado mate ou alto brilho, madeira maciça ou folheada, termolaminados e espelho. A combinação é escolhida consigo durante o projeto.",
       areaTitle: "Fabrico próprio em Odivelas",
       areaCopy:
-        "A produção é feita na nossa oficina em Odivelas. Trabalhamos principalmente em Lisboa, Odivelas e na região envolvente, mediante confirmação do local do projeto.",
-      processTitle: "Do espaço à instalação",
+        "Produzimos na nossa oficina e instalamos em Lisboa, Odivelas e nos concelhos vizinhos.",
+      processTitle: "Do espaço ao roupeiro instalado",
       process: [
-        "Percebemos o espaço disponível e o que precisa de guardar.",
-        "Planeamos dimensões, organização interior, materiais e acabamentos.",
-        "Produzimos o roupeiro na nossa oficina.",
-        "Montamos e instalamos o roupeiro no local.",
+        "Visitamos o espaço e percebemos o que precisa de guardar.",
+        "Desenhamos o roupeiro em 3D e preparamos o orçamento.",
+        "Fabricamos o roupeiro na nossa oficina.",
+        "Montamos e ajustamos tudo no local.",
       ],
-      ctaTitle: "Quer planear um roupeiro por medida?",
+      ctaTitle: "Quer um roupeiro feito para si?",
       ctaCopy:
-        "Partilhe medidas aproximadas, fotografias e as suas necessidades de arrumação para iniciarmos a conversa.",
+        "Partilhe medidas aproximadas, fotografias e o que precisa de arrumar. Marcamos a visita e preparamos o projeto 3D sem custos.",
       ctaLabel: "Pedir orçamento de roupeiro",
     },
     furniture: {
       metaTitle: "Móveis por medida em Odivelas",
       metaDescription:
-        "Móveis por medida para salas e espaços de trabalho, com fabrico próprio em Odivelas e acompanhamento do desenho à instalação.",
+        "Móveis por medida para sala, escritório e garrafeira, portas interiores e remodelações, com fabrico próprio em Odivelas e instalação na Grande Lisboa.",
       label: "MÓVEIS POR MEDIDA",
-      title: "Mobiliário feito para a sua utilização.",
+      title: "Peças que só fazem sentido na sua casa.",
       description:
-        "Desenhamos e fabricamos móveis por medida para salas e espaços de trabalho, adaptando cada peça ao espaço e à função.",
-      scopeTitle: "Uma peça com medidas e função próprias",
+        "Móveis de sala, estantes, escritórios, garrafeiras e portas interiores, desenhados para o espaço onde vão ficar e fabricados na nossa oficina.",
+      scopeTitle: "Mobiliário integrado na arquitetura",
       scopeCopy:
-        "Planeamos mobiliário para salas e espaços de trabalho a partir das dimensões disponíveis e da utilização de cada peça. O desenho procura responder ao contexto concreto do espaço.",
+        "Um móvel por medida encaixa no nicho, acompanha a altura do teto e responde a uma função concreta: guardar vinho, esconder a televisão, organizar livros ou criar um escritório em casa. Desenhamos cada peça para o lugar e para o uso.",
       planningTitle: "O que definimos consigo",
       planningCopy:
-        "Conversamos sobre a função do móvel, analisamos as medidas e definimos materiais e acabamentos. O projeto resulta dessas escolhas e não de uma configuração genérica.",
+        "Função, medidas, desenho, materiais e acabamentos. Antes de fabricarmos, veja a peça em 3D no seu espaço.",
+      includedTitle: "Também fazemos",
+      included: [
+        "Móveis de sala, estantes e escritórios",
+        "Garrafeiras e vitrinas",
+        "Portas interiores",
+        "Remodelações de cozinhas e interiores",
+        "Assistência pós-venda",
+      ],
       materialsTitle: "Materiais e acabamentos",
       materialsCopy:
-        "Trabalhamos com madeira maciça, MDF lacado e materiais técnicos. Selecionamos os materiais e acabamentos de acordo com as necessidades de cada peça.",
-      areaTitle: "Da oficina de Odivelas à instalação",
-      areaCopy:
-        "Fabricamos em Odivelas e trabalhamos principalmente em Lisboa, Odivelas e na região envolvente. A localização é confirmada connosco antes de avançar.",
-      processTitle: "Do desenho ao móvel instalado",
+        "Madeira maciça de carvalho, nogueira ou faia, MDF lacado, termolaminados, vidro, pedra natural e cerâmica técnica.",
+      areaTitle: "Da oficina de Odivelas à sua casa",
+      areaCopy: "Fabricamos em Odivelas e instalamos em Lisboa, Odivelas e nos concelhos vizinhos.",
+      processTitle: "Do desenho à peça instalada",
       process: [
-        "Conversamos sobre a peça, a utilização e o espaço onde ficará.",
-        "Definimos medidas, desenho, materiais e acabamentos.",
-        "Fabricamos o móvel na nossa oficina.",
-        "Tratamos da montagem e instalação no local.",
+        "Conversamos sobre a peça, a função e o espaço onde vai ficar.",
+        "Desenhamos em 3D e preparamos o orçamento.",
+        "Fabricamos a peça na nossa oficina.",
+        "Montamos e ajustamos tudo no local.",
       ],
       ctaTitle: "Tem uma peça em mente?",
       ctaCopy:
-        "Envie-nos medidas aproximadas, fotografias do espaço e referências para avaliarmos consigo o projeto.",
+        "Envie-nos medidas aproximadas, fotografias do espaço e referências. Marcamos a visita e preparamos o projeto 3D sem custos.",
       ctaLabel: "Pedir orçamento de mobiliário",
     },
   },
@@ -138,97 +399,121 @@ export const servicePages: Record<Language, Record<ServiceSlug, ServicePageConte
     kitchens: {
       metaTitle: "Bespoke kitchens in Odivelas",
       metaDescription:
-        "Bespoke kitchens made in our Odivelas workshop. Planning, materials, finishes and installation for projects across Greater Lisbon.",
+        "Bespoke kitchens made in our Odivelas workshop. 3D design, fine materials, soft-close fittings and installation across Lisbon and Greater Lisbon.",
       label: "BESPOKE KITCHENS",
-      title: "A kitchen planned for your space.",
+      title: "The kitchen your space asks for.",
       description:
-        "We plan and make bespoke kitchens in our Odivelas workshop, handling each project from design to installation.",
-      scopeTitle: "Layout, storage and everyday use",
+        "We design, make and install bespoke kitchens from our workshop in Odivelas. You see the design in 3D before we cut the first panel.",
+      scopeTitle: "Planned around how you cook",
       scopeCopy:
-        "We plan cabinets and worktops around the characteristics of the space and how you use your kitchen. Each decision considers storage, movement and day-to-day use.",
+        "A good kitchen is decided in centimetres: worktop height, cabinet depth, the path between fridge, hob and sink. We start from the real measurements of your home and the way you use it every day to design each unit.",
       planningTitle: "What we define with you",
       planningCopy:
-        "We start with the measurements of the space and your references, then define the layout, dimensions, materials and finishes. The final scope is adapted to the needs of the project.",
+        "Layout, internal storage, built-in appliances, lighting, materials and finishes. Before going ahead, we show you the design in 3D so you can adjust anything you need.",
+      includedTitle: "Included with every kitchen",
+      included: [
+        "Free visit, measuring and quote",
+        "3D design before production",
+        "Reinforced carcasses and soft-close fittings",
+        "Built-in appliance integration",
+        "Installation by our own team and after-sales support",
+      ],
       materialsTitle: "Materials and finishes",
       materialsCopy:
-        "We work with solid wood, lacquered MDF and technical materials. The selection is made for each project, considering the intended result and the conditions of the space.",
+        "Solid oak, walnut or beech, matt or high-gloss lacquered MDF, thermolaminates, natural stone and technical ceramic. We help you choose a combination that stands up to daily use and ages well.",
       areaTitle: "Our workshop in Odivelas",
       areaCopy:
-        "We make our furniture in Odivelas and work mainly in Lisbon, Odivelas and the surrounding area. Confirm your project location with us when requesting a quote.",
-      processTitle: "From the first conversation to installation",
+        "We make everything in our own workshop, which gives us control over measurements, joints and finishes. We install across Lisbon, Odivelas and neighbouring municipalities.",
+      processTitle: "From the first conversation to an installed kitchen",
       process: [
-        "We discuss the kitchen, the space and how you intend to use it.",
-        "We define measurements, layout, materials and finishes.",
-        "We make the components in our own workshop.",
-        "We assemble and install the kitchen on site.",
+        "We visit, measure and listen to how you use your kitchen.",
+        "We prepare the 3D design and quote, and refine every detail with you.",
+        "We make every unit in our Odivelas workshop.",
+        "We install, adjust and hand over a kitchen ready to use.",
       ],
-      ctaTitle: "Planning a new kitchen?",
+      ctaTitle: "Shall we design your kitchen?",
       ctaCopy:
-        "Send us approximate measurements, photographs of the space and references for what you have in mind. We will discuss the next steps with you.",
+        "Send us approximate measurements, photographs of the space and references you like. We book the visit and prepare the 3D design free of charge.",
       ctaLabel: "Request a kitchen quote",
     },
     wardrobes: {
       metaTitle: "Custom wardrobes in Odivelas",
       metaDescription:
-        "Custom wardrobes made in our Odivelas workshop. Dimensions, internal storage, materials and finishes planned for each space.",
+        "Custom wardrobes and walk-in closets made in our Odivelas workshop. Organised interiors, hinged or sliding doors and finishes of your choice.",
       label: "CUSTOM WARDROBES",
-      title: "Storage designed around what you need.",
+      title: "Storage designed around what you keep.",
       description:
-        "We make wardrobes with dimensions and internal organisation suited to your space, from planning through to installation.",
-      scopeTitle: "Making use of the available space",
+        "Wardrobes and walk-in closets built to fit the wall, the ceiling and everything you need to store, made in our Odivelas workshop.",
+      scopeTitle: "Every centimetre put to use",
       scopeCopy:
-        "A custom wardrobe can be sized for its location and organised around what you need to keep. The design always starts with the actual space and its intended use.",
+        "A custom wardrobe wastes no space: it runs floor to ceiling, works around beams and uneven walls, and organises the interior with rails, drawers, shelves and shoe storage in the right proportions for you.",
       planningTitle: "What we define with you",
       planningCopy:
-        "We review measurements, internal organisation, materials and finishes. These choices are made for each project, without predefined dimensions or configurations.",
+        "Measurements, door type, internal layout, lighting and finishes. We show you the design in 3D before production.",
+      includedTitle: "Included with every wardrobe",
+      included: [
+        "Free visit, measuring and quote",
+        "3D design before production",
+        "An interior organised to your needs",
+        "Soft-close fittings",
+        "Installation by our own team and after-sales support",
+      ],
       materialsTitle: "Materials and finishes",
       materialsCopy:
-        "We can work with solid wood, lacquered MDF and technical materials. The appropriate combination is selected while planning the project.",
+        "Matt or high-gloss lacquered MDF, solid or veneered wood, thermolaminates and mirror. The combination is chosen with you during the design.",
       areaTitle: "Made in our Odivelas workshop",
       areaCopy:
-        "Production takes place in our Odivelas workshop. We work mainly in Lisbon, Odivelas and the surrounding area, subject to confirmation of the project location.",
-      processTitle: "From the space to installation",
+        "We make everything in our workshop and install across Lisbon, Odivelas and neighbouring municipalities.",
+      processTitle: "From the space to an installed wardrobe",
       process: [
-        "We understand the available space and what you need to store.",
-        "We plan dimensions, internal organisation, materials and finishes.",
+        "We visit the space and understand what you need to store.",
+        "We design the wardrobe in 3D and prepare the quote.",
         "We make the wardrobe in our own workshop.",
-        "We assemble and install the wardrobe on site.",
+        "We install and adjust everything on site.",
       ],
-      ctaTitle: "Would you like to plan a custom wardrobe?",
+      ctaTitle: "Would you like a wardrobe made for you?",
       ctaCopy:
-        "Share approximate measurements, photographs and your storage needs to start the conversation.",
+        "Share approximate measurements, photographs and what you need to store. We book the visit and prepare the 3D design free of charge.",
       ctaLabel: "Request a wardrobe quote",
     },
     furniture: {
       metaTitle: "Bespoke furniture in Odivelas",
       metaDescription:
-        "Bespoke furniture for living rooms and workspaces, made in our Odivelas workshop and handled from design to installation.",
+        "Bespoke living room, office and wine storage furniture, interior doors and renovations, made in our Odivelas workshop and installed across Greater Lisbon.",
       label: "BESPOKE FURNITURE",
-      title: "Furniture made for how you use it.",
+      title: "Pieces that only make sense in your home.",
       description:
-        "We design and make bespoke furniture for living rooms and workspaces, adapting each piece to its setting and purpose.",
-      scopeTitle: "A piece with its own dimensions and purpose",
+        "Living room units, shelving, home offices, wine walls and interior doors, designed for the space they will live in and made in our workshop.",
+      scopeTitle: "Furniture built into the architecture",
       scopeCopy:
-        "We plan furniture for living rooms and workspaces around the available dimensions and the purpose of each piece. The design responds to the specific setting.",
+        "Bespoke furniture fits the alcove, follows the ceiling height and serves a clear purpose: storing wine, hiding the television, organising books or creating a home office. We design each piece for its place and its use.",
       planningTitle: "What we define with you",
       planningCopy:
-        "We discuss the purpose of the piece, review the dimensions and define materials and finishes. The project grows from those choices rather than a generic configuration.",
+        "Purpose, measurements, design, materials and finishes. Before we make it, you see the piece in 3D in your space.",
+      includedTitle: "We also make",
+      included: [
+        "Living room units, shelving and home offices",
+        "Wine walls and display cabinets",
+        "Interior doors",
+        "Kitchen and interior renovations",
+        "After-sales support",
+      ],
       materialsTitle: "Materials and finishes",
       materialsCopy:
-        "We work with solid wood, lacquered MDF and technical materials. Materials and finishes are selected to suit the needs of each piece.",
-      areaTitle: "From our Odivelas workshop to installation",
+        "Solid oak, walnut or beech, lacquered MDF, thermolaminates, glass, natural stone and technical ceramic.",
+      areaTitle: "From our Odivelas workshop to your home",
       areaCopy:
-        "We make our furniture in Odivelas and work mainly in Lisbon, Odivelas and the surrounding area. We confirm the location with you before proceeding.",
-      processTitle: "From the drawing to installed furniture",
+        "We make everything in Odivelas and install across Lisbon, Odivelas and neighbouring municipalities.",
+      processTitle: "From the drawing to the installed piece",
       process: [
-        "We discuss the piece, its purpose and the space where it will be used.",
-        "We define measurements, design, materials and finishes.",
-        "We make the furniture in our own workshop.",
-        "We handle assembly and installation on site.",
+        "We discuss the piece, its purpose and where it will live.",
+        "We design it in 3D and prepare the quote.",
+        "We make the piece in our own workshop.",
+        "We install and adjust everything on site.",
       ],
       ctaTitle: "Do you have a piece in mind?",
       ctaCopy:
-        "Send us approximate measurements, photographs of the space and references so we can discuss the project with you.",
+        "Send us approximate measurements, photographs of the space and references. We book the visit and prepare the 3D design free of charge.",
       ctaLabel: "Request a furniture quote",
     },
   },
@@ -237,11 +522,7 @@ export const servicePages: Record<Language, Record<ServiceSlug, ServicePageConte
 export function resolveLanguage(value: unknown): Language {
   return value === "en" ? "en" : "pt";
 }
-export const projects = [
-  { image: island, pt: "Cozinha com ilha", en: "Kitchen with an island" },
-  { image: walnut, pt: "Branco e madeira", en: "White & walnut" },
-  { image: contemporary, pt: "Linhas contemporâneas", en: "Contemporary lines" },
-];
+
 export const content = {
   pt: {
     notFound: notFoundContent.pt,
@@ -249,81 +530,153 @@ export const content = {
     quote: "Pedir orçamento",
     tagline: "Feito para o seu espaço",
     heroLabel: "FABRICO PRÓPRIO EM ODIVELAS",
-    heroTitle: "Cozinhas e móveis.",
-    heroItalic: "À sua medida.",
+    heroTitle: "Cozinhas por medida.",
+    heroItalic: "Feitas na nossa oficina.",
     heroDescription:
-      "Fabricamos cozinhas, roupeiros e móveis por medida em Odivelas. Acompanhamos o projeto do desenho à instalação.",
-    explore: "Explorar projetos",
+      "Há mais de 40 anos que desenhamos, fabricamos e instalamos cozinhas, roupeiros e móveis por medida em Lisboa e na Grande Lisboa.",
+    heroPrimary: "Pedir orçamento gratuito",
+    explore: "Ver projetos",
     scroll: "Descubra a Móveis Machado",
+    heroImageLabel: "Projeto real Móveis Machado",
     trust: [
-      "Mais de 40 anos de experiência",
-      "Fabrico próprio",
-      "Do desenho à instalação",
-      "Odivelas · Grande Lisboa",
+      "Mais de 40 anos de oficina",
+      "Projeto 3D sem custos",
+      "Fabrico próprio em Odivelas",
+      "Instalação e pós-venda",
     ],
     servicesLabel: "O QUE FAZEMOS",
-    servicesTitle: "O que podemos fabricar.",
-    servicesLink: "Ver serviços",
+    servicesTitle: "Feito à medida, do chão ao teto.",
+    servicesLink: "Ver todos os serviços",
     services: ["Cozinhas por medida", "Roupeiros por medida", "Móveis por medida"],
     serviceShort: [
-      "Disposição e acabamentos adaptados ao espaço.",
-      "Arrumação para o que precisa de guardar.",
-      "Móveis para a sala e o espaço de trabalho.",
+      "Cozinhas desenhadas ao centímetro, com eletrodomésticos encastrados e ferragens de fecho suave.",
+      "Roupeiros e closets do chão ao teto, com o interior organizado para o que guarda.",
+      "Móveis de sala, escritórios, garrafeiras e portas interiores feitos para o seu espaço.",
     ],
     serviceLong: [
-      "Definimos a disposição dos armários e das bancadas de acordo com o espaço e a forma como utiliza a cozinha. Escolhemos os materiais e os acabamentos para cada projeto.",
-      "Fabricamos roupeiros com dimensões e arrumação interior adequadas ao espaço e ao que precisa de guardar. Os acabamentos são escolhidos para cada projeto.",
-      "Desenhamos e fabricamos móveis para a sala e o espaço de trabalho. Adaptamos as dimensões, os materiais e os acabamentos à utilização de cada peça.",
+      "Desenhamos cada cozinha a partir das medidas reais da sua casa e da forma como cozinha. Estruturas reforçadas, ferragens de fecho suave, eletrodomésticos encastrados e acabamentos à escolha.",
+      "Roupeiros e closets que vão do chão ao teto, contornam paredes irregulares e organizam o interior com cabides, gavetas e prateleiras na proporção certa.",
+      "Móveis de sala, estantes, escritórios, garrafeiras e portas interiores, desenhados para o lugar onde vão ficar. Também fazemos remodelações.",
     ],
-    projectsLabel: "O NOSSO TRABALHO",
-    projectsTitle: "Cozinhas que fabricámos.",
+    servicesExtra: "Também fazemos portas interiores e remodelações.",
+    projectsLabel: "PROJETOS REAIS",
+    projectsTitle: "Trabalho que saiu da nossa oficina.",
     projectsLink: "Ver todos os projetos",
-    category: "Cozinhas por medida",
+    projectView: "Ver projeto",
+    renderLabel: "Projeto 3D",
+    photoLabel: "Obra concluída",
+    designLabel: "DO PROJETO 3D À OBRA",
+    designTitle: "Veja o seu móvel antes de ele existir.",
+    designCopy:
+      "Antes de cortarmos a primeira peça, preparamos o projeto em 3D. Escolha materiais, ajuste medidas e aprove o desenho com tranquilidade. Depois, a oficina faz exatamente o que aprovou.",
+    designRenderCaption: "Projeto 3D",
+    designPhotoCaption: "Garrafeira instalada",
     storyLabel: "SOBRE A MÓVEIS MACHADO",
-    storyTitle: "Fabrico próprio em Odivelas.",
+    storyTitle: "Uma oficina, mais de 40 anos de cozinhas.",
     storyCopy:
-      "Há mais de 40 anos, fabricamos cozinhas, roupeiros e móveis por medida. Acompanhamos o trabalho desde o desenho até à instalação.",
+      "Há mais de quatro décadas que fazemos cozinhas, roupeiros e móveis por medida na nossa oficina em Odivelas. Ao longo desse tempo apurámos um método: rigor técnico, materiais escolhidos com critério e uma construção pensada para durar.",
     storyCopy2:
-      "Trabalhamos com madeira maciça, MDF lacado e materiais técnicos. Definimos os materiais e os acabamentos de acordo com as necessidades de cada projeto.",
+      "Como fabricamos tudo, controlamos cada medida, cada união, cada ferragem e cada acabamento. Quem desenha a sua cozinha fala com quem a fabrica e com quem a monta, e é isso que faz a diferença quando ela chega à sua casa.",
     storyLink: "Conheça a nossa história",
-    years: "anos de experiência",
-    own: "Fabrico próprio",
-    ownSub: "Do desenho à instalação",
-    processLabel: "COMO TRABALHAMOS",
-    processTitle: "Como fazemos o seu projeto.",
-    steps: ["Conversamos", "Planeamos", "Fabricamos", "Instalamos"],
-    stepCopy: [
-      "Conversamos sobre o que pretende e as características do espaço.",
-      "Definimos as medidas, a disposição, os materiais e os acabamentos.",
-      "Produzimos os móveis na nossa oficina.",
-      "Tratamos da montagem no local.",
+    years: "anos de oficina em Odivelas",
+    own: "3D",
+    ownSub: "projeto antes de fabricarmos",
+    valuesLabel: "COMO CONSTRUÍMOS",
+    valuesTitle: "Feito para o uso de todos os dias.",
+    values: [
+      {
+        title: "Estrutura estável",
+        copy: "Caixas reforçadas e uniões bem feitas para armários que não cedem com o peso nem com os anos.",
+      },
+      {
+        title: "Precisão",
+        copy: "Medidas tiradas no local e cortes feitos na nossa oficina, para que tudo encaixe à primeira.",
+      },
+      {
+        title: "Acabamentos cuidados",
+        copy: "Lacados, madeiras e pedras escolhidos consigo e aplicados com atenção ao detalhe.",
+      },
+      {
+        title: "Acompanhamento",
+        copy: "Do primeiro desenho à montagem e depois dela, com assistência pós-venda.",
+      },
     ],
-    ctaLabel: "CONTACTOS E ORÇAMENTOS",
+    materialsLabel: "MATERIAIS",
+    materialsTitle: "Materiais que escolhemos consigo.",
+    materialsIntro:
+      "Amostras retiradas de cozinhas que fabricámos. Na oficina mostramos-lhe as opções ao vivo.",
+    processLabel: "COMO TRABALHAMOS",
+    processTitle: "Quatro passos, uma só equipa.",
+    steps: ["Visita e medição", "Projeto 3D e orçamento", "Fabrico na oficina", "Instalação"],
+    stepCopy: [
+      "Vamos à sua casa, tiramos medidas e ouvimos o que precisa. Deslocação sem custos.",
+      "Desenhamos em 3D, escolhemos materiais consigo e apresentamos um orçamento detalhado.",
+      "Produzimos cada peça em Odivelas, com controlo total sobre medidas e acabamentos.",
+      "A nossa equipa monta e ajusta tudo, e continua disponível depois da entrega.",
+    ],
+    processCaption: "Projeto 3D preparado antes do fabrico",
+    ctaLabel: "ORÇAMENTO SEM COMPROMISSO",
     ctaTitle: "Fale-nos do seu projeto.",
     ctaCopy:
-      "Diga-nos o que pretende fazer e onde. Se tiver medidas ou fotografias do espaço, partilhe-as connosco.",
+      "Diga-nos o que quer fazer e onde. Se tiver medidas ou fotografias do espaço, envie-as: marcamos a visita e preparamos o projeto 3D sem custos.",
     talk: "Pedir orçamento",
-    footerCopy: "Fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas.",
+    footerCopy:
+      "Cozinhas, roupeiros e móveis por medida, com fabrico próprio em Odivelas há mais de 40 anos.",
     find: "Encontre-nos",
+    contactsHeading: "Contactos",
     directions: "Como chegar",
     rights: "Todos os direitos reservados.",
-    contactTitle: "Contactos e orçamentos.",
-    contactIntro: "Visite-nos em Odivelas ou fale connosco pelo WhatsApp.",
-    contactSub: "Odivelas e Grande Lisboa.",
-    contactCopy: "Trabalhamos principalmente em Lisboa, Odivelas e na região envolvente.",
+    contactTitle: "Vamos falar sobre o seu projeto.",
+    contactIntro:
+      "Ligue, envie mensagem ou visite a oficina em Odivelas. O orçamento, o projeto 3D e a deslocação não têm custos.",
+    contactWaysTitle: "Fale connosco",
+    phoneLabel: "Telefone",
+    emailLabel: "Email",
     whatsapp: "Falar pelo WhatsApp",
-    prepare: "Como preparar o seu projeto?",
-    prepareCopy:
-      "Reúna medidas aproximadas, fotografias do espaço e referências do que pretende. O prazo e o valor dependem do âmbito, dos materiais e das condições do projeto.",
-    materials: "Que materiais podemos escolher?",
-    materialsCopy:
-      "Madeira maciça, MDF lacado e materiais técnicos. Definimos os materiais e acabamentos conforme as necessidades do seu projeto.",
+    instagram: "Instagram",
+    contactSub: "Odivelas e Grande Lisboa",
+    contactCopy:
+      "Trabalhamos sobretudo em Lisboa, Odivelas e nos concelhos vizinhos. Diga-nos onde é o projeto e confirmamos a deslocação.",
+    nextTitle: "O que acontece a seguir",
+    nextSteps: [
+      "Envie-nos medidas aproximadas, fotografias e referências do que gosta.",
+      "Marcamos uma visita para medir o espaço e conversar consigo.",
+      "Receba o projeto 3D e o orçamento detalhado, sem compromisso.",
+    ],
+    faqTitle: "Perguntas frequentes",
+    faq: [
+      {
+        q: "Quanto custa o orçamento?",
+        a: "Nada. A visita, a medição, o projeto 3D e o orçamento não têm custos nem compromisso.",
+      },
+      {
+        q: "Como preparo o meu projeto?",
+        a: "Reúna medidas aproximadas, fotografias do espaço e imagens de cozinhas ou móveis de que goste. Com isso conseguimos começar a conversa.",
+      },
+      {
+        q: "Que materiais posso escolher?",
+        a: "Madeira maciça de carvalho, nogueira ou faia, MDF lacado mate ou alto brilho, termolaminados, pedra natural e cerâmica técnica.",
+      },
+      {
+        q: "Quanto tempo demora?",
+        a: "Depende da dimensão do projeto, dos materiais e do estado do espaço. Indicamos o prazo junto com o orçamento.",
+      },
+    ],
     close: "Fechar fotografia",
+    previous: "Fotografia anterior",
+    next: "Fotografia seguinte",
     projectIntro:
-      "Veja algumas cozinhas do nosso portefólio. Selecione uma fotografia para a ampliar.",
+      "Cozinhas e mobiliário fabricados na nossa oficina e instalados em casas da Grande Lisboa. Selecione um projeto para ver todas as imagens.",
+    projectsCount: "projetos",
     serviceIntro:
-      "Fabricamos cozinhas, roupeiros e móveis por medida. Definimos as dimensões, os materiais e os acabamentos para cada projeto.",
-    aboutIntro: "Trabalhamos em Odivelas e servimos Lisboa e a região envolvente.",
+      "Cozinhas, roupeiros e móveis por medida, desenhados em 3D, fabricados na nossa oficina e instalados pela nossa equipa.",
+    serviceExplore: "Conhecer o serviço",
+    serviceGalleryTitle: "Projetos deste serviço",
+    serviceMaterialsTitle: "Algumas das nossas opções",
+    aboutLabel: "SOBRE NÓS",
+    aboutTitle: "Mais de 40 anos a fazer móveis por medida.",
+    aboutIntro:
+      "Uma oficina em Odivelas, uma equipa que desenha, fabrica e instala, e clientes em toda a Grande Lisboa.",
   },
   en: {
     notFound: notFoundContent.en,
@@ -331,80 +684,153 @@ export const content = {
     quote: "Request a quote",
     tagline: "Made for your space",
     heroLabel: "MADE IN OUR ODIVELAS WORKSHOP",
-    heroTitle: "Kitchens and furniture.",
-    heroItalic: "Made to measure.",
+    heroTitle: "Bespoke kitchens.",
+    heroItalic: "Made in our own workshop.",
     heroDescription:
-      "We make kitchens, wardrobes and furniture to measure in Odivelas. We handle each project from design to installation.",
-    explore: "Explore projects",
+      "For over 40 years we have designed, made and installed kitchens, wardrobes and furniture to measure across Lisbon and Greater Lisbon.",
+    heroPrimary: "Request a free quote",
+    explore: "View projects",
     scroll: "Discover Móveis Machado",
+    heroImageLabel: "A real Móveis Machado project",
     trust: [
-      "Over 40 years of experience",
-      "Made in our own workshop",
-      "From design to installation",
-      "Odivelas · Greater Lisbon",
+      "Over 40 years in the workshop",
+      "Free 3D design",
+      "Made in Odivelas",
+      "Installation and after-sales",
     ],
     servicesLabel: "WHAT WE DO",
-    servicesTitle: "What we can make.",
-    servicesLink: "View services",
+    servicesTitle: "Made to measure, floor to ceiling.",
+    servicesLink: "View all services",
     services: ["Bespoke kitchens", "Custom wardrobes", "Bespoke furniture"],
     serviceShort: [
-      "Layouts and finishes suited to your space.",
-      "Storage for what you need to keep.",
-      "Furniture for living rooms and workspaces.",
+      "Kitchens designed to the centimetre, with built-in appliances and soft-close fittings.",
+      "Floor-to-ceiling wardrobes and closets, organised inside for what you keep.",
+      "Living room units, offices, wine walls and interior doors made for your space.",
     ],
     serviceLong: [
-      "We plan cabinets and worktops around the space and how you use your kitchen. We select materials and finishes for each project.",
-      "We make wardrobes with dimensions and internal storage suited to your space and what you need to keep. Finishes are chosen for each project.",
-      "We design and make furniture for living rooms and workspaces. Dimensions, materials and finishes are adapted to how each piece will be used.",
+      "We design each kitchen from the real measurements of your home and the way you cook. Reinforced carcasses, soft-close fittings, built-in appliances and finishes of your choice.",
+      "Wardrobes and closets that run floor to ceiling, work around uneven walls and organise the interior with rails, drawers and shelves in the right proportions.",
+      "Living room units, shelving, home offices, wine walls and interior doors, designed for the place they will live in. We also handle renovations.",
     ],
-    projectsLabel: "OUR WORK",
-    projectsTitle: "Kitchens we have made.",
+    servicesExtra: "We also make interior doors and handle renovations.",
+    projectsLabel: "REAL PROJECTS",
+    projectsTitle: "Work that left our workshop.",
     projectsLink: "View all projects",
-    category: "Bespoke kitchens",
+    projectView: "View project",
+    renderLabel: "3D design",
+    photoLabel: "Completed work",
+    designLabel: "FROM 3D DESIGN TO FINISHED WORK",
+    designTitle: "See your furniture before it exists.",
+    designCopy:
+      "Before we cut the first panel, we prepare the design in 3D. You choose materials, adjust measurements and approve the drawing at your own pace. Then the workshop makes exactly what you saw.",
+    designRenderCaption: "3D design",
+    designPhotoCaption: "Installed wine wall",
     storyLabel: "ABOUT MÓVEIS MACHADO",
-    storyTitle: "Made in our Odivelas workshop.",
+    storyTitle: "One workshop, over 40 years of kitchens.",
     storyCopy:
-      "For over 40 years, we have made kitchens, wardrobes and furniture to measure. We handle the work from design to installation.",
+      "For more than four decades we have made kitchens, wardrobes and furniture to measure in our Odivelas workshop. Over that time we have refined a method: technical rigour, carefully chosen materials and construction built to last.",
     storyCopy2:
-      "We work with solid wood, lacquered MDF and technical materials. Materials and finishes are selected to suit each project.",
+      "Because we make everything ourselves, we control every measurement, joint, fitting and finish. The people who design your kitchen talk to the people who make and install it, and that is what makes the difference when it arrives in your home.",
     storyLink: "Discover our story",
-    years: "years of experience",
-    own: "Our own workshop",
-    ownSub: "From design to installation",
-    processLabel: "HOW WE WORK",
-    processTitle: "How we make your furniture.",
-    steps: ["We discuss", "We plan", "We make", "We install"],
-    stepCopy: [
-      "We discuss what you need and the characteristics of your space.",
-      "We define dimensions, layout, materials and finishes.",
-      "We make the furniture in our own workshop.",
-      "We assemble and install the furniture on site.",
+    years: "years in our Odivelas workshop",
+    own: "3D",
+    ownSub: "design before we make it",
+    valuesLabel: "HOW WE BUILD",
+    valuesTitle: "Made for everyday use.",
+    values: [
+      {
+        title: "Stable structure",
+        copy: "Reinforced carcasses and sound joints, so cabinets hold their shape under weight and over the years.",
+      },
+      {
+        title: "Precision",
+        copy: "Measurements taken on site and panels cut in our own workshop, so everything fits first time.",
+      },
+      {
+        title: "Careful finishes",
+        copy: "Lacquers, woods and stones chosen with you and applied with attention to detail.",
+      },
+      {
+        title: "Ongoing support",
+        copy: "From the first drawing to installation and beyond, with after-sales support.",
+      },
     ],
-    ctaLabel: "CONTACT AND QUOTES",
+    materialsLabel: "MATERIALS",
+    materialsTitle: "Materials we choose with you.",
+    materialsIntro:
+      "Samples taken from kitchens we have made. At the workshop we show you the options in person.",
+    processLabel: "HOW WE WORK",
+    processTitle: "Four steps, one team.",
+    steps: ["Visit and measuring", "3D design and quote", "Made in our workshop", "Installation"],
+    stepCopy: [
+      "We come to your home, take measurements and listen to what you need. No travel charge.",
+      "We design in 3D, choose materials with you and present a detailed quote.",
+      "We make every piece in Odivelas, with full control over measurements and finishes.",
+      "Our team installs and adjusts everything, and stays available after handover.",
+    ],
+    processCaption: "3D design prepared before production",
+    ctaLabel: "NO-OBLIGATION QUOTE",
     ctaTitle: "Tell us about your project.",
     ctaCopy:
-      "Tell us what you need and where. If you have measurements or photographs of the space, share them with us.",
+      "Tell us what you want to make and where. If you have measurements or photographs of the space, send them: we book the visit and prepare the 3D design free of charge.",
     talk: "Request a quote",
-    footerCopy: "Kitchens, wardrobes and furniture made to measure in our Odivelas workshop.",
+    footerCopy:
+      "Kitchens, wardrobes and furniture made to measure in our Odivelas workshop for over 40 years.",
     find: "Find us",
+    contactsHeading: "Contact",
     directions: "Get directions",
     rights: "All rights reserved.",
-    contactTitle: "Contact and quotes.",
-    contactIntro: "Visit us in Odivelas or message us on WhatsApp.",
-    contactSub: "Odivelas and Greater Lisbon.",
-    contactCopy: "We work mainly in Lisbon, Odivelas and the surrounding area.",
+    contactTitle: "Let's talk about your project.",
+    contactIntro:
+      "Call, send a message or visit the workshop in Odivelas. The quote, the 3D design and the visit are free of charge.",
+    contactWaysTitle: "Get in touch",
+    phoneLabel: "Phone",
+    emailLabel: "Email",
     whatsapp: "Message us on WhatsApp",
-    prepare: "How can I prepare for my project?",
-    prepareCopy:
-      "Gather approximate measurements, photographs of the space and references for what you have in mind. Timing and cost depend on the scope, materials and conditions of the project.",
-    materials: "Which materials can we choose?",
-    materialsCopy:
-      "Solid wood, lacquered MDF and technical materials. Materials and finishes are selected to suit the needs of your project.",
+    instagram: "Instagram",
+    contactSub: "Odivelas and Greater Lisbon",
+    contactCopy:
+      "We work mainly in Lisbon, Odivelas and neighbouring municipalities. Tell us where your project is and we will confirm the visit.",
+    nextTitle: "What happens next",
+    nextSteps: [
+      "Send us approximate measurements, photographs and references you like.",
+      "We book a visit to measure the space and talk with you.",
+      "You receive the 3D design and a detailed quote, with no obligation.",
+    ],
+    faqTitle: "Frequently asked questions",
+    faq: [
+      {
+        q: "How much does a quote cost?",
+        a: "Nothing. The visit, measuring, 3D design and quote are free and carry no obligation.",
+      },
+      {
+        q: "How do I prepare for my project?",
+        a: "Gather approximate measurements, photographs of the space and pictures of kitchens or furniture you like. That is enough to start the conversation.",
+      },
+      {
+        q: "Which materials can I choose?",
+        a: "Solid oak, walnut or beech, matt or high-gloss lacquered MDF, thermolaminates, natural stone and technical ceramic.",
+      },
+      {
+        q: "How long does it take?",
+        a: "It depends on the size of the project, the materials and the condition of the space. We give you the timing together with the quote.",
+      },
+    ],
     close: "Close photograph",
-    projectIntro: "Browse kitchens from our portfolio. Select a photograph to enlarge it.",
+    previous: "Previous photograph",
+    next: "Next photograph",
+    projectIntro:
+      "Kitchens and furniture made in our workshop and installed in homes across Greater Lisbon. Select a project to see all its images.",
+    projectsCount: "projects",
     serviceIntro:
-      "We make kitchens, wardrobes and furniture to measure. We define dimensions, materials and finishes for each project.",
-    aboutIntro: "We are based in Odivelas and work across Lisbon and the surrounding area.",
+      "Kitchens, wardrobes and furniture made to measure, designed in 3D, made in our workshop and installed by our own team.",
+    serviceExplore: "Explore this service",
+    serviceGalleryTitle: "Projects in this service",
+    serviceMaterialsTitle: "Some of our options",
+    aboutLabel: "ABOUT US",
+    aboutTitle: "Over 40 years making furniture to measure.",
+    aboutIntro:
+      "A workshop in Odivelas, a team that designs, makes and installs, and clients across Greater Lisbon.",
   },
 };
 
@@ -682,7 +1108,16 @@ export const cookiePolicyContent: Record<
   },
 };
 
-export const whatsappUrl = "https://wa.me/351933776729";
+/* Phone, WhatsApp and email confirmed by the site owner (2026-11-09).
+   Instagram comes from the brand website. */
+export const contactDetails = {
+  phoneDisplay: "+351 964 035 260",
+  phoneHref: "tel:+351964035260",
+  email: "moveismachado@hotmail.com",
+  instagramUrl: "https://www.instagram.com/cozinhasmoveismachado/",
+  instagramHandle: "@cozinhasmoveismachado",
+};
+export const whatsappUrl = "https://wa.me/351964035260";
 export const mapsUrl = "https://share.google/uK5M3YaRHoAcBMNPD";
 export const mapsEmbedUrl =
   "https://www.google.com/maps?q=Rua+V%C3%ADtor+Cordon+6A,+2675-459+Odivelas,+Portugal&output=embed";

@@ -1,5 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useLanguage, PageHeading, Story, Process, ContactBand } from "@/components/site";
+import {
+  useLanguage,
+  PageHeading,
+  Story,
+  Values,
+  Materials,
+  Process,
+  ContactBand,
+} from "@/components/site";
 import { content, pageMeta } from "@/lib/site-content";
 export const Route = createFileRoute("/about")({
   head: ({ match }) =>
@@ -23,8 +31,10 @@ function About() {
   const t = content[lang];
   return (
     <main>
-      <PageHeading label="MÓVEIS MACHADO" title={t.nav[3] ?? ""} description={t.aboutIntro} />
+      <PageHeading label={t.aboutLabel} title={t.aboutTitle} description={t.aboutIntro} />
       <Story full />
+      <Values />
+      <Materials />
       <Process />
       <ContactBand />
     </main>
