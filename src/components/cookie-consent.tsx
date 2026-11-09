@@ -44,7 +44,7 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
       preferencesOpen,
       setPreferencesOpen,
       acceptAll: () => {
-        setRecord(writeConsent({ externalMedia: true, diagnostics: true }));
+        setRecord(writeConsent({ externalMedia: true }));
         setPreferencesOpen(false);
       },
       rejectAll: () => {
@@ -152,17 +152,6 @@ function CookiePreferences({ lang }: { lang: Language }) {
                 type="checkbox"
                 checked={categories.externalMedia}
                 onChange={() => toggle("externalMedia")}
-              />
-            </label>
-            <label className="cookie-category">
-              <span>
-                <strong>{copy.diagnosticsTitle}</strong>
-                <small>{copy.diagnosticsDescription}</small>
-              </span>
-              <input
-                type="checkbox"
-                checked={categories.diagnostics}
-                onChange={() => toggle("diagnostics")}
               />
             </label>
           </div>

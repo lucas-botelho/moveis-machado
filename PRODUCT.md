@@ -26,8 +26,9 @@ O visitante navega entre serviços, projetos, história e contactos em portuguê
 
 - Site público bilingue construído com React, TanStack Router/Start e Vite.
 - O chrome e as secções partilhadas vivem em `src/components/site.tsx`; a cópia bilingue vive em `src/lib/site-content.ts`.
-- O site está ligado à Lovable; não reescrever histórico Git publicado e manter branches sincronizadas em estado funcional.
+- Não reescrever histórico Git publicado e manter a branch `main` em estado funcional: cada push publica o site.
 - Fotografias de projeto são trabalhos reais da marca. Imagens geradas ou de inspiração nunca podem ser apresentadas como obra concluída.
+- Domínio de produção decidido pelo responsável a 2026-11-09: `https://armandomachado.pt` (ativado no CI pela variável `SITE_URL`).
 - Dados legais e empresariais não confirmados permanecem decisões abertas. As Políticas de Privacidade e Cookies exigem aprovação do responsável antes de publicação.
 
 ## Brand Commitments

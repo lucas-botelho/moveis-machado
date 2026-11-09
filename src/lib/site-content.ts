@@ -851,8 +851,6 @@ export const cookieConsentContent: Record<
     alwaysActive: string;
     externalMediaTitle: string;
     externalMediaDescription: string;
-    diagnosticsTitle: string;
-    diagnosticsDescription: string;
     manage: string;
     policyLink: string;
     mapTitle: string;
@@ -863,7 +861,7 @@ export const cookieConsentContent: Record<
   pt: {
     bannerTitle: "A sua privacidade, sem atalhos.",
     bannerDescription:
-      "Guardamos apenas a sua escolha neste dispositivo. O mapa Google e o diagnóstico opcional só são ativados com a sua autorização.",
+      "Guardamos apenas a sua escolha neste dispositivo. O mapa Google só é carregado com a sua autorização.",
     reject: "Rejeitar opcionais",
     accept: "Aceitar opcionais",
     customize: "Personalizar",
@@ -879,9 +877,6 @@ export const cookieConsentContent: Record<
     externalMediaTitle: "Conteúdo externo",
     externalMediaDescription:
       "Permite carregar o mapa Google incorporado. Sem esta opção, a morada e a ligação externa continuam disponíveis.",
-    diagnosticsTitle: "Diagnóstico",
-    diagnosticsDescription:
-      "Permite comunicar erros técnicos aos hooks da Lovable quando estes existem no ambiente de preview.",
     manage: "Gerir cookies",
     policyLink: "Política de Cookies",
     mapTitle: "Mapa não carregado",
@@ -892,7 +887,7 @@ export const cookieConsentContent: Record<
   en: {
     bannerTitle: "Your privacy, without shortcuts.",
     bannerDescription:
-      "We only store your choice on this device. Google Maps and optional diagnostics are enabled only with your permission.",
+      "We only store your choice on this device. Google Maps only loads with your permission.",
     reject: "Reject optional",
     accept: "Accept optional",
     customize: "Customise",
@@ -908,9 +903,6 @@ export const cookieConsentContent: Record<
     externalMediaTitle: "External content",
     externalMediaDescription:
       "Allows the embedded Google map to load. The address and external directions link remain available without it.",
-    diagnosticsTitle: "Diagnostics",
-    diagnosticsDescription:
-      "Allows technical errors to be sent to Lovable hooks when they are present in the preview environment.",
     manage: "Manage cookies",
     policyLink: "Cookie Policy",
     mapTitle: "Map not loaded",
@@ -956,13 +948,13 @@ export const cookiePolicyContent: Record<
     title: "Política de Cookies.",
     intro:
       "Esta política descreve o armazenamento no dispositivo e os recursos externos presentes neste site. O conteúdo em português europeu é a versão de referência.",
-    updated: "Última atualização: 14 de outubro de 2026",
-    reference: "Versão de referência: 2026-10-14",
+    updated: "Última atualização: 9 de novembro de 2026",
+    reference: "Versão de referência: 2026-11-09",
     sections: [
       {
         title: "O que acontece antes da sua escolha",
         paragraphs: [
-          "O conteúdo principal, as fotografias, as fontes e a navegação são servidos sem carregar o mapa Google e sem autorizar diagnóstico opcional. Não encontrámos analytics, pixels de marketing ou publicidade no código carregado pelo site.",
+          "O conteúdo principal, as fotografias, as fontes e a navegação são servidos sem carregar o mapa Google. Não encontrámos analytics, pixels de marketing ou publicidade no código carregado pelo site.",
           "O banner não bloqueia o acesso ao site. Aceitar e rejeitar estão disponíveis na primeira camada, e todas as categorias opcionais começam desligadas quando personaliza.",
         ],
       },
@@ -978,12 +970,6 @@ export const cookiePolicyContent: Record<
         paragraphs: [
           "O iframe Google Maps só é criado depois de autorizar Conteúdo externo ou selecionar “Carregar mapa”. A partir daí, a Google pode receber endereço IP, informação do browser/dispositivo e definir armazenamento segundo as suas próprias regras. Os nomes e durações concretos podem variar por localização, sessão e políticas da Google.",
           "A morada e a ligação “Como chegar” funcionam sem ativar o iframe. Ao abrir Google Maps ou WhatsApp numa nova página, passa a interagir diretamente com esse serviço externo e aplicam-se as respetivas políticas.",
-        ],
-      },
-      {
-        title: "Diagnóstico no ambiente de preview",
-        paragraphs: [
-          "O código reconhece hooks opcionais da Lovable usados para comunicar erros técnicos no editor/preview. Só os chama quando autoriza Diagnóstico e quando o próprio ambiente disponibiliza esses hooks. O site público não instala por si uma plataforma de analytics.",
         ],
       },
       {
@@ -1018,13 +1004,6 @@ export const cookiePolicyContent: Record<
           "Apenas após opt-in; cookies/armazenamento e duração variam segundo a Google e a sessão.",
         category: "Conteúdo externo",
       },
-      {
-        name: "Hooks de erro Lovable",
-        provider: "Lovable, quando presente no preview/editor",
-        purpose: "Diagnosticar erros técnicos da aplicação.",
-        duration: "Não é criado armazenamento pelo código do site; retenção do host por confirmar.",
-        category: "Diagnóstico",
-      },
     ],
   },
   en: {
@@ -1035,13 +1014,13 @@ export const cookiePolicyContent: Record<
     title: "Cookie Policy.",
     intro:
       "This policy describes device storage and external resources present on this website. The European Portuguese text is the reference version.",
-    updated: "Last updated: 14 October 2026",
-    reference: "Reference version: 2026-10-14",
+    updated: "Last updated: 9 November 2026",
+    reference: "Reference version: 2026-11-09",
     sections: [
       {
         title: "What happens before your choice",
         paragraphs: [
-          "The main content, photographs, fonts and navigation are served without loading Google Maps or enabling optional diagnostics. We found no analytics, marketing pixels or advertising in the code loaded by the site.",
+          "The main content, photographs, fonts and navigation are served without loading Google Maps. We found no analytics, marketing pixels or advertising in the code loaded by the site.",
           "The banner does not block access. Accept and reject are available in the first layer, and all optional categories start off when you customise.",
         ],
       },
@@ -1057,12 +1036,6 @@ export const cookiePolicyContent: Record<
         paragraphs: [
           "The Google Maps iframe is only created after you allow External content or select “Load map”. Google may then receive an IP address and browser/device information and set storage under its own rules. Exact names and durations can vary by location, session and Google's policies.",
           "The address and “Get directions” link work without enabling the iframe. When you open Google Maps or WhatsApp in a new page, you interact directly with that external service and its policies apply.",
-        ],
-      },
-      {
-        title: "Diagnostics in the preview environment",
-        paragraphs: [
-          "The code recognises optional Lovable hooks used to report technical errors in the editor/preview. It only calls them when you allow Diagnostics and the environment provides those hooks. The public site does not install an analytics platform itself.",
         ],
       },
       {
@@ -1096,13 +1069,6 @@ export const cookiePolicyContent: Record<
         duration:
           "Only after opt-in; cookies/storage and duration vary according to Google and the session.",
         category: "External content",
-      },
-      {
-        name: "Lovable error hooks",
-        provider: "Lovable, when present in the preview/editor",
-        purpose: "Diagnose technical application errors.",
-        duration: "The site code creates no storage; host retention remains to be confirmed.",
-        category: "Diagnostics",
       },
     ],
   },

@@ -21,9 +21,9 @@ describe("SEO URLs", () => {
     const head = pageMeta("/contact", "pt", "Contactos", "Descrição");
     const canonical = head.links.find((link) => link.rel === "canonical");
 
-    expect(canonical?.href).toBe("https://lucas-botelho.github.io/moveis-machado/contact?lang=pt");
+    expect(canonical?.href).toBe("https://lucas-botelho.github.io/moveis-machado/contact/?lang=pt");
     expect(createSitemapXml()).toContain(
-      "<loc>https://lucas-botelho.github.io/moveis-machado/contact?lang=pt</loc>",
+      "<loc>https://lucas-botelho.github.io/moveis-machado/contact/?lang=pt</loc>",
     );
     expect(createRobotsTxt()).toContain(
       "Sitemap: https://lucas-botelho.github.io/moveis-machado/sitemap.xml",
@@ -35,7 +35,7 @@ describe("SEO URLs", () => {
       "https://example.com/moveis-machado",
     );
     expect(buildLanguageUrl("/contact", "en", "https://example.com/moveis-machado/")).toBe(
-      "https://example.com/moveis-machado/contact?lang=en",
+      "https://example.com/moveis-machado/contact/?lang=en",
     );
   });
 
@@ -44,18 +44,18 @@ describe("SEO URLs", () => {
     const canonical = head.links.find((link) => link.rel === "canonical");
     const alternates = buildLanguageAlternates("/contact", DEFAULT_SITE_URL);
 
-    expect(canonical?.href).toBe(`${DEFAULT_SITE_URL}/contact?lang=pt`);
+    expect(canonical?.href).toBe(`${DEFAULT_SITE_URL}/contact/?lang=pt`);
     expect(alternates).toEqual([
       {
         rel: "alternate",
         hrefLang: "pt-PT",
-        href: `${DEFAULT_SITE_URL}/contact?lang=pt`,
+        href: `${DEFAULT_SITE_URL}/contact/?lang=pt`,
       },
-      { rel: "alternate", hrefLang: "en", href: `${DEFAULT_SITE_URL}/contact?lang=en` },
+      { rel: "alternate", hrefLang: "en", href: `${DEFAULT_SITE_URL}/contact/?lang=en` },
       {
         rel: "alternate",
         hrefLang: "x-default",
-        href: `${DEFAULT_SITE_URL}/contact?lang=pt`,
+        href: `${DEFAULT_SITE_URL}/contact/?lang=pt`,
       },
     ]);
   });
@@ -83,11 +83,11 @@ describe("SEO discovery files", () => {
 
     expect(locations).toHaveLength(PUBLIC_PATHS.length * SEO_LANGUAGES.length);
     expect(languageLinks).toHaveLength(PUBLIC_PATHS.length * SEO_LANGUAGES.length * 3);
-    expect(sitemap).toContain("https://example.com/services?lang=pt");
-    expect(sitemap).toContain("https://example.com/services?lang=en");
-    expect(sitemap).toContain(`https://example.com${servicePaths.kitchens}?lang=pt`);
-    expect(sitemap).toContain(`https://example.com${servicePaths.wardrobes}?lang=en`);
-    expect(sitemap).toContain(`https://example.com${servicePaths.furniture}?lang=pt`);
+    expect(sitemap).toContain("https://example.com/services/?lang=pt");
+    expect(sitemap).toContain("https://example.com/services/?lang=en");
+    expect(sitemap).toContain(`https://example.com${servicePaths.kitchens}/?lang=pt`);
+    expect(sitemap).toContain(`https://example.com${servicePaths.wardrobes}/?lang=en`);
+    expect(sitemap).toContain(`https://example.com${servicePaths.furniture}/?lang=pt`);
     expect(sitemap).not.toContain("/pt?");
   });
 
