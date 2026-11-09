@@ -849,11 +849,11 @@ export const cookieConsentContent: Record<
   }
 > = {
   pt: {
-    bannerTitle: "A sua privacidade, sem atalhos.",
+    bannerTitle: "Valorizamos a sua privacidade",
     bannerDescription:
-      "Guardamos apenas a sua escolha neste dispositivo. O mapa Google só é carregado com a sua autorização.",
-    reject: "Rejeitar opcionais",
-    accept: "Aceitar opcionais",
+      'Usamos apenas o armazenamento necessário para guardar a sua escolha. Conteúdo externo, como o mapa Google, só é carregado se clicar em "Aceitar tudo" ou o ativar em Personalizar.',
+    reject: "Rejeitar",
+    accept: "Aceitar tudo",
     customize: "Personalizar",
     save: "Guardar escolhas",
     close: "Fechar preferências",
@@ -875,11 +875,11 @@ export const cookieConsentContent: Record<
     loadMap: "Carregar mapa",
   },
   en: {
-    bannerTitle: "Your privacy, without shortcuts.",
+    bannerTitle: "We value your privacy",
     bannerDescription:
-      "We only store your choice on this device. Google Maps only loads with your permission.",
-    reject: "Reject optional",
-    accept: "Accept optional",
+      'We only use the storage needed to remember your choice. External content, such as Google Maps, only loads if you click "Accept all" or enable it under Customise.',
+    reject: "Reject",
+    accept: "Accept all",
     customize: "Customise",
     save: "Save choices",
     close: "Close preferences",

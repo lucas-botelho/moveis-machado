@@ -43,7 +43,7 @@ describe("Cookie consent", () => {
     renderConsent();
 
     expect(
-      await screen.findByRole("heading", { name: "A sua privacidade, sem atalhos." }),
+      await screen.findByRole("heading", { name: "Valorizamos a sua privacidade" }),
     ).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: "Personalizar" }));
 
@@ -54,11 +54,11 @@ describe("Cookie consent", () => {
   it("accepts all optional categories and persists the proof", async () => {
     renderConsent();
 
-    fireEvent.click(await screen.findByRole("button", { name: "Aceitar opcionais" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Aceitar tudo" }));
 
     await waitFor(() =>
       expect(
-        screen.queryByRole("heading", { name: "A sua privacidade, sem atalhos." }),
+        screen.queryByRole("heading", { name: "Valorizamos a sua privacidade" }),
       ).not.toBeInTheDocument(),
     );
     expect(readConsent()?.categories).toEqual({ externalMedia: true });
@@ -67,7 +67,7 @@ describe("Cookie consent", () => {
   it("rejects all optional categories as directly as accepting", async () => {
     renderConsent();
 
-    fireEvent.click(await screen.findByRole("button", { name: "Rejeitar opcionais" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Rejeitar" }));
 
     expect(readConsent()?.categories).toEqual({ externalMedia: false });
   });
@@ -88,7 +88,7 @@ describe("Cookie consent", () => {
 
     expect(await screen.findByTitle("Mapa da Móveis Machado em Odivelas")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Gerir teste" }));
-    fireEvent.click(screen.getByRole("button", { name: "Rejeitar opcionais" }));
+    fireEvent.click(screen.getByRole("button", { name: "Rejeitar" }));
 
     expect(screen.queryByTitle("Mapa da Móveis Machado em Odivelas")).not.toBeInTheDocument();
     expect(screen.getByTestId("map-placeholder")).toBeVisible();

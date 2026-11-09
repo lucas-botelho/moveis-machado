@@ -86,20 +86,19 @@ export function CookieConsentExperience({ lang }: { lang: Language }) {
             <p>{copy.bannerDescription}</p>
           </div>
           <div className="cookie-banner-actions">
-            <Button type="button" variant="outline" onClick={consent.rejectAll}>
-              {copy.reject}
-            </Button>
-            <Button type="button" variant="outline" onClick={consent.acceptAll}>
-              {copy.accept}
-            </Button>
-            <Button
+            <button
               type="button"
-              variant="ghost"
-              className="cookie-customize"
+              className="cookie-btn is-outline"
               onClick={() => consent.setPreferencesOpen(true)}
             >
               {copy.customize}
-            </Button>
+            </button>
+            <button type="button" className="cookie-btn" onClick={consent.rejectAll}>
+              {copy.reject}
+            </button>
+            <button type="button" className="cookie-btn" onClick={consent.acceptAll}>
+              {copy.accept}
+            </button>
           </div>
         </section>
       )}
