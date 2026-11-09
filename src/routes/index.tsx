@@ -17,13 +17,13 @@ export const Route = createFileRoute("/")({
           "/",
           "en",
           "Bespoke kitchens & furniture",
-          "Over 40 years designing, making and installing bespoke kitchens, wardrobes and furniture in Odivelas, Greater Lisbon. Free visit, quote and 3D design.",
+          "Over 40 years designing, making and installing bespoke kitchens, cabinets and furniture in Odivelas, Greater Lisbon. Free visit, quote and 3D design.",
         )
       : pageMeta(
           "/",
           "pt",
           "Cozinhas e mobiliário por medida",
-          "Há mais de 40 anos a desenhar, fabricar e instalar cozinhas, roupeiros e móveis por medida em Odivelas. Visita, orçamento e projeto 3D sem custos.",
+          "Há mais de 40 anos a desenhar, fabricar e instalar cozinhas, armários e móveis por medida em Odivelas. Visita, orçamento e projeto 3D sem custos.",
         ),
   component: HomePage,
 });

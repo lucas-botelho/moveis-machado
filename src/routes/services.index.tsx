@@ -9,13 +9,13 @@ export const Route = createFileRoute("/services/")({
           "/services",
           "en",
           "Our services",
-          "Kitchens, wardrobes and furniture made to measure in our Odivelas workshop. From design to installation.",
+          "Kitchens, cabinets and furniture made to measure in our Odivelas workshop. From design to installation.",
         )
       : pageMeta(
           "/services",
           "pt",
           "O que fazemos",
-          "Fabrico próprio de cozinhas, roupeiros e móveis por medida em Odivelas. Do desenho à instalação.",
+          "Fabrico próprio de cozinhas, armários e móveis por medida em Odivelas. Do desenho à instalação.",
         ),
   component: Services,
 });

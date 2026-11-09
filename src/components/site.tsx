@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import {
-  ArrowDown,
   ArrowLeft,
   ArrowRight,
   Check,
@@ -14,13 +13,12 @@ import {
   Box,
   Phone,
   Mail,
-  Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useConsent } from "@/components/cookie-consent";
 import brandMark from "@/assets/brand-mark.svg?url&no-inline";
+import kitchenIsland from "@/assets/kitchen-island.webp";
 import marbleColumns from "@/assets/projects/marble-columns.webp";
-import oakGalley from "@/assets/projects/oak-galley.webp";
 import whiteL from "@/assets/projects/white-l.webp";
 import {
   content,
@@ -32,7 +30,7 @@ import {
   materials,
   projectBySlug,
   projects,
-  mapsUrl,
+  directionsUrl,
   serviceGalleries,
   servicePages,
   servicePaths,
@@ -189,10 +187,6 @@ export function Hero() {
           </div>
         </div>
         <div className="hero-bottom">
-          <a className="hero-scroll" href="#craft">
-            <ArrowDown size={16} aria-hidden="true" />
-            {t.scroll}
-          </a>
           <span className="hero-image-label">{t.heroImageLabel}</span>
         </div>
       </section>
@@ -224,11 +218,11 @@ export function ServicesPreview() {
     <section className="section services-preview" id="craft">
       <figure className="services-visual">
         <img
-          src={oakGalley}
-          alt={projectBySlug("oak-galley")[lang].title}
+          src={whiteL}
+          alt={projectBySlug("white-l")[lang].title}
           loading="lazy"
-          width={1200}
-          height={1488}
+          width={1600}
+          height={1164}
         />
       </figure>
       <div className="services-body">
@@ -477,11 +471,11 @@ export function Story({ full = false }: { full?: boolean }) {
       <figure className="story-visual">
         <img
           className="story-image"
-          src={marbleColumns}
-          alt={projectBySlug("marble-island")[lang].title}
+          src={kitchenIsland}
+          alt={projectBySlug("island")[lang].title}
           loading="lazy"
           width={1600}
-          height={1032}
+          height={1200}
         />
       </figure>
       <div className="story-stats">
@@ -589,11 +583,11 @@ export function ContactBand() {
     <section className="contact-band">
       <img
         className="contact-backdrop"
-        src={whiteL}
+        src={marbleColumns}
         alt=""
         loading="lazy"
         width={1600}
-        height={1164}
+        height={1032}
       />
       <div className="contact-content">
         <Eyebrow line>{t.ctaLabel}</Eyebrow>
@@ -756,10 +750,6 @@ export function SiteFooter() {
               <Mail size={14} aria-hidden="true" />
               {contactDetails.email}
             </a>
-            <a href={contactDetails.instagramUrl} target="_blank" rel="noreferrer">
-              <Instagram size={14} aria-hidden="true" />
-              {contactDetails.instagramHandle}
-            </a>
           </div>
         </div>
         <div>
@@ -773,7 +763,7 @@ export function SiteFooter() {
                 2675-459 Odivelas, Portugal
               </span>
             </span>
-            <a href={mapsUrl} target="_blank" rel="noreferrer">
+            <a href={directionsUrl} target="_blank" rel="noreferrer">
               {t.directions}
             </a>
           </div>

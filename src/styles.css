@@ -374,7 +374,7 @@ a {
   height: 45px;
   border-radius: 0;
   padding: 0 23px;
-  gap: 0;
+  gap: 10px;
   transition:
     background 0.25s,
     color 0.25s;
@@ -485,14 +485,9 @@ a {
   left: 7%;
   right: 7%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   font-size: var(--text-label);
-}
-.hero-scroll {
-  display: flex;
-  align-items: center;
-  gap: 13px;
 }
 .hero-image-label {
   opacity: 0.7;
@@ -704,8 +699,8 @@ a {
 }
 .process-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9%;
+  grid-template-columns: 1fr;
+  gap: 56px;
   padding-top: 110px;
   padding-bottom: 110px;
 }
@@ -715,11 +710,10 @@ a {
 .process-visual {
   position: relative;
   margin: 35px 0 0;
-  max-width: 460px;
 }
 .process-visual img {
   width: 100%;
-  aspect-ratio: 1.6;
+  aspect-ratio: 2.1;
   object-fit: cover;
 }
 .process-visual .render-badge {
@@ -735,20 +729,19 @@ a {
   padding-top: 12px;
 }
 .process-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 40px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .process-item {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 1fr;
+  gap: 10px;
   border-top: 1px solid var(--border);
   padding: 25px 0 28px;
-}
-.process-item:last-child {
-  border-bottom: 1px solid var(--border);
 }
 .process-item h3 {
   font-family: var(--font-display);
@@ -1883,9 +1876,13 @@ dd {
 }
 .faq-section {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
-  gap: clamp(40px, 6vw, 90px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
   border-top: 1px solid var(--border);
+}
+.faq-section .section-title {
+  white-space: nowrap;
+  font-size: clamp(30px, 8vw, 49px);
 }
 .faq-section .faq:first-child {
   margin-top: 0;
@@ -1921,6 +1918,9 @@ dd {
   }
   .story-section {
     column-gap: 45px;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (max-width: 800px) {
@@ -2051,20 +2051,24 @@ dd {
     gap: 15px;
   }
   .process-section {
-    grid-template-columns: 1fr;
     gap: 40px;
   }
   .process-intro .section-title {
     font-size: 43px;
   }
-  .process-visual {
-    max-width: none;
+  .process-visual img {
+    aspect-ratio: 1.6;
   }
   .process-grid {
+    grid-template-columns: 1fr;
     gap: 0;
   }
   .process-item {
     grid-template-columns: 44px 1fr;
+    gap: 0;
+  }
+  .process-item:last-child {
+    border-bottom: 1px solid var(--border);
   }
   .contact-band {
     padding: 65px 7% 100px;
