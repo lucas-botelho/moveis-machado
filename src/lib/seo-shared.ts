@@ -43,7 +43,9 @@ export function buildLanguageUrl(
   const basePath = base.pathname.replace(/\/+$/, "");
   const pagePath = path === "/" ? "" : path;
 
-  base.pathname = `${basePath}${pagePath}` || "/";
+  // Static hosting serves every page as a directory index and redirects
+  // "/about" to "/about/", so canonical URLs always end with a slash.
+  base.pathname = `${basePath}${pagePath}/`;
   base.search = new URLSearchParams({ lang: language }).toString();
   return base.toString();
 }

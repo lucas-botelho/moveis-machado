@@ -21,6 +21,10 @@ import { content, resolveLanguage } from "@/lib/site-content";
 import brandMark from "@/assets/brand-mark.svg?url&no-inline";
 import brandIcon from "@/assets/brand-mark-32.png?url&no-inline";
 
+// Set VITE_GOOGLE_SITE_VERIFICATION to the token Search Console gives for the
+// "HTML tag" verification method (only needed when DNS verification is not possible).
+const GOOGLE_SITE_VERIFICATION = import.meta.env["VITE_GOOGLE_SITE_VERIFICATION"]?.trim();
+
 function NotFoundComponent() {
   const language = useRouterState({
     select: (state) => resolveLanguage(state.location.search.lang),
@@ -82,18 +86,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Móveis Machado | Mobiliário por medida" },
+      { title: "Móveis Machado | Cozinhas e móveis por medida em Odivelas" },
       {
         name: "description",
-        content: "Móveis Machado. Cozinhas e mobiliário por medida em Odivelas, Lisboa.",
+        content:
+          "Cozinhas, roupeiros e móveis por medida com fabrico próprio em Odivelas, Grande Lisboa.",
       },
-      { property: "og:title", content: "Móveis Machado | Mobiliário por medida" },
-      {
-        property: "og:description",
-        content: "Feito para o seu espaço. Cozinhas e mobiliário de fabrico próprio.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#364838" },
+      ...(GOOGLE_SITE_VERIFICATION
+        ? [{ name: "google-site-verification", content: GOOGLE_SITE_VERIFICATION }]
+        : []),
     ],
     links: [
       {
@@ -102,6 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: brandIcon, type: "image/png", sizes: "32x32" },
       { rel: "icon", href: brandMark, type: "image/svg+xml", sizes: "any" },
+      { rel: "apple-touch-icon", href: `${import.meta.env.BASE_URL}apple-touch-icon.png` },
     ],
   }),
   shellComponent: RootShell,

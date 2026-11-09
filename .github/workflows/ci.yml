@@ -1,4 +1,4 @@
-name: Validate Lovable app
+name: Validate and deploy site
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: lovable-ci-${{ github.ref }}
+  group: site-ci-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -23,9 +23,16 @@ jobs:
           bun-version: latest
       - run: bun install --frozen-lockfile
       - run: bun run lint
+      # Custom domain switch: set the repository variable SITE_URL
+      # (Settings > Secrets and variables > Actions > Variables) to
+      # https://armandomachado.pt only after the domain's DNS points to GitHub Pages
+      # and the custom domain is saved in Settings > Pages. While SITE_URL is empty
+      # the site keeps building for https://lucas-botelho.github.io/moveis-machado/.
       - run: bun run build
         env:
-          PAGES_BASE_PATH: /moveis-machado
+          PAGES_BASE_PATH: ${{ vars.SITE_URL == '' && '/moveis-machado' || '' }}
+          VITE_SITE_URL: ${{ vars.SITE_URL }}
+          VITE_GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
       - name: Verify GitHub Pages files
         run: |
           test -s dist/client/index.html

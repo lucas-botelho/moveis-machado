@@ -8,8 +8,10 @@ import {
   ContactBand,
   DesignToWork,
   Materials,
+  useLanguage,
 } from "@/components/site";
 import { pageMeta } from "@/lib/site-content";
+import { createBusinessJsonLd } from "@/lib/seo";
 export const Route = createFileRoute("/")({
   head: ({ match }) =>
     match.search.lang === "en"
@@ -29,8 +31,11 @@ export const Route = createFileRoute("/")({
 });
 
 export function HomePage() {
+  const lang = useLanguage();
+  const jsonLd = createBusinessJsonLd(lang);
   return (
     <main>
+      <script type={jsonLd.type} dangerouslySetInnerHTML={{ __html: jsonLd.children }} />
       <Hero />
       <ServicesPreview />
       <ProjectsPreview />

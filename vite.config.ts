@@ -1,67 +1,76 @@
-// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
-// or the app will break with duplicate plugins:
-//   - TanStack devtools (dev-only, first), tanstackStart, viteReact, tailwindcss, tsConfigPaths,
-//     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
-//     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
-// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import tailwindcss from "@tailwindcss/vite";
+import viteReact from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import tsConfigPaths from "vite-tsconfig-paths";
 import { seoFilesPlugin } from "./build/seo-files";
 
 const pagesBasePath = process.env["PAGES_BASE_PATH"]?.replace(/\/+$/, "") ?? "";
 const publicBase = pagesBasePath ? `${pagesBasePath}/` : "/";
 
+const prerenderedPaths = [
+  "/",
+  "/pt",
+  "/about",
+  "/contact",
+  "/cookies",
+  "/projects",
+  "/services",
+  "/services/kitchens",
+  "/services/wardrobes",
+  "/services/furniture",
+];
+
 export default defineConfig({
-  vite: {
-    base: publicBase,
-    plugins: [seoFilesPlugin()],
-  },
-  nitro: false,
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
-    router: { basepath: pagesBasePath || "/" },
-    prerender: {
-      enabled: true,
-      autoStaticPathsDiscovery: false,
-      crawlLinks: true,
-      failOnError: true,
-    },
-    pages: [
-      { path: `${pagesBasePath}/`, prerender: { enabled: true, outputPath: "/index.html" } },
-      { path: `${pagesBasePath}/pt`, prerender: { enabled: true, outputPath: "/pt/index.html" } },
-      {
-        path: `${pagesBasePath}/about`,
-        prerender: { enabled: true, outputPath: "/about/index.html" },
-      },
-      {
-        path: `${pagesBasePath}/contact`,
-        prerender: { enabled: true, outputPath: "/contact/index.html" },
-      },
-      {
-        path: `${pagesBasePath}/cookies`,
-        prerender: { enabled: true, outputPath: "/cookies/index.html" },
-      },
-      {
-        path: `${pagesBasePath}/projects`,
-        prerender: { enabled: true, outputPath: "/projects/index.html" },
-      },
-      {
-        path: `${pagesBasePath}/services`,
-        prerender: { enabled: true, outputPath: "/services/index.html" },
-      },
-      {
-        path: `${pagesBasePath}/services/kitchens`,
-        prerender: { enabled: true, outputPath: "/services/kitchens/index.html" },
-      },
-      {
-        path: `${pagesBasePath}/services/wardrobes`,
-        prerender: { enabled: true, outputPath: "/services/wardrobes/index.html" },
-      },
-      {
-        path: `${pagesBasePath}/services/furniture`,
-        prerender: { enabled: true, outputPath: "/services/furniture/index.html" },
-      },
+  base: publicBase,
+  css: { transformer: "lightningcss" },
+  resolve: {
+    alias: { "@": `${process.cwd()}/src` },
+    dedupe: [
+      "react",
+      "react-dom",
+      "react/jsx-runtime",
+      "react/jsx-dev-runtime",
+      "@tanstack/react-query",
+      "@tanstack/query-core",
     ],
   },
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "react-dom/client",
+      "react/jsx-runtime",
+      "react/jsx-dev-runtime",
+    ],
+  },
+  server: { host: "::", port: 8080 },
+  plugins: [
+    tailwindcss(),
+    tsConfigPaths({ projects: ["./tsconfig.json"] }),
+    tanstackStart({
+      importProtection: {
+        behavior: "error",
+        client: { files: ["**/server/**"], specifiers: ["server-only"] },
+      },
+      // Use src/server.ts (our SSR error wrapper) as the server entry.
+      server: { entry: "server" },
+      router: { basepath: pagesBasePath || "/" },
+      prerender: {
+        enabled: true,
+        autoStaticPathsDiscovery: false,
+        crawlLinks: true,
+        failOnError: true,
+      },
+      pages: prerenderedPaths.map((path) => ({
+        path: `${pagesBasePath}${path}`,
+        prerender: {
+          enabled: true,
+          outputPath: path === "/" ? "/index.html" : `${path}/index.html`,
+        },
+      })),
+    }),
+    viteReact(),
+    seoFilesPlugin(),
+  ],
 });
