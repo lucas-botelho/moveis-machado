@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useLanguage, PageHeading, ContactBand, Process } from "@/components/site";
+import { useLanguage, PageHeading, ContactBand, Process, Materials } from "@/components/site";
 import { content, pageMeta, servicePaths, serviceSlugs } from "@/lib/site-content";
 
 export const Route = createFileRoute("/services/")({
@@ -36,11 +36,13 @@ function Services() {
             </h2>
             <p>{t.serviceLong[i]}</p>
             <Link to={servicePaths[slug]} search={{ lang }} className="text-link">
-              {lang === "pt" ? "Conhecer o serviço" : "Explore this service"}
+              {t.serviceExplore}
             </Link>
           </article>
         ))}
+        <p className="services-extra">{t.servicesExtra}</p>
       </section>
+      <Materials />
       <Process />
       <ContactBand />
     </main>

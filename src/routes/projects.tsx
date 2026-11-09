@@ -1,5 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useLanguage, PageHeading, ProjectGrid, ContactBand } from "@/components/site";
+import {
+  useLanguage,
+  PageHeading,
+  ProjectGrid,
+  ContactBand,
+  DesignToWork,
+} from "@/components/site";
 import { content, pageMeta } from "@/lib/site-content";
 export const Route = createFileRoute("/projects")({
   head: ({ match }) =>
@@ -8,13 +14,13 @@ export const Route = createFileRoute("/projects")({
           "/projects",
           "en",
           "Our projects",
-          "Explore real Móveis Machado kitchen projects: island kitchens, walnut finishes and contemporary lines.",
+          "Real Móveis Machado projects: island kitchens, walnut and lacquer finishes, marble-effect surfaces and a bespoke wine wall designed in 3D.",
         )
       : pageMeta(
           "/projects",
           "pt",
           "Os nossos projetos",
-          "Conheça os projetos Móveis Machado. Cozinhas com ilha, acabamentos em madeira e linhas contemporâneas.",
+          "Projetos reais Móveis Machado: cozinhas com ilha, nogueira e lacados, superfícies efeito mármore e uma garrafeira desenhada em 3D.",
         ),
   component: Projects,
 });
@@ -25,8 +31,9 @@ function Projects() {
     <main>
       <PageHeading label={t.projectsLabel} title={t.projectsTitle} description={t.projectIntro} />
       <section className="section">
-        <ProjectGrid priorityFirstImage />
+        <ProjectGrid priorityFirstImage headingLevel={2} detailed />
       </section>
+      <DesignToWork />
       <ContactBand />
     </main>
   );

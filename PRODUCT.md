@@ -16,7 +16,7 @@ Apresentar a Móveis Machado, os serviços de fabrico próprio e projetos reais,
 
 ## Positioning
 
-A empresa apresenta mais de 40 anos de experiência, fabrico próprio em Odivelas e acompanhamento do desenho à instalação. Estes são factos já usados na cópia do produto; novas afirmações comerciais não devem ser inventadas.
+A empresa apresenta mais de 40 anos de experiência, fabrico próprio em Odivelas, projeto 3D antes do fabrico e acompanhamento do desenho à instalação e pós-venda, tal como publicado no site oficial da marca. Novas afirmações comerciais (prazos, preços, garantias, ano de fundação, testemunhos) não devem ser inventadas.
 
 ## Operating Context
 
@@ -36,8 +36,12 @@ Preservar o nome Móveis Machado, a marca existente em `src/assets/brand-mark.sv
 
 ## Evidence on Hand
 
-- Fotografias de portefólio em `src/assets/kitchen-*.webp`.
-- Imagens de inspiração identificadas como tal em `src/assets/interior-hero.jpg` e `src/assets/material-study.jpg`.
+- Fotografias de portefólio em `src/assets/kitchen-*.webp` e `src/assets/projects/*.webp` (fotografias reais enviadas pela empresa, com correção de cor, enquadramento e remoção de autocolantes dos eletrodomésticos; nada foi acrescentado à obra).
+- Renders 3D da empresa em `src/assets/projects/*-3d*.webp`, sempre identificados como "Projeto 3D" e nunca como obra concluída.
+- Amostras de materiais em `src/assets/materials/*.webp`, recortadas das fotografias reais.
+- Factos comerciais publicados no site oficial `moveismachado.com` (páginas Início, Acerca e Serviços): orçamento, projeto 3D, deslocação e instalação sem custos, assistência pós-venda, materiais (carvalho, nogueira, faia, MDF lacado, termolaminados, pedra natural, cerâmica técnica), portas interiores, remodelações, e Instagram.
+- Telefone e WhatsApp `+351 964 035 260` e email `moveismachado@hotmail.com` confirmados pelo responsável a 2026-11-09.
+- As imagens de inspiração `src/assets/interior-hero.jpg` e `src/assets/material-study.jpg` deixaram de ser usadas nas páginas.
 - Conteúdo de serviços e processo em `src/lib/site-content.ts`.
 - Inventário técnico parcial de privacidade em `docs/execplans/issue-6.md` e requisitos de consentimento em `docs/execplans/issue-7.md`.
 - Não existem no repositório aprovação jurídica/empresarial final, testemunhos, preços, certificações ou prazos que possam ser acrescentados por inferência.
