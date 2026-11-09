@@ -22,7 +22,6 @@ function CookiePolicy() {
       <article className="section legal-page">
         <div className="legal-meta">
           <p>{page.updated}</p>
-          <p>{page.reference}</p>
         </div>
 
         {page.sections.map((section) => (

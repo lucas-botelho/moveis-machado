@@ -200,7 +200,7 @@ export function projectBySlug(slug: string) {
   return project;
 }
 
-export const featuredProjectSlugs = ["walnut", "contemporary", "island"] as const;
+export const featuredProjectSlugs = ["walnut", "contemporary", "marble-island"] as const;
 
 export const designToWork = {
   render: { src: wineWall3d, width: 1600, height: 1132 },
@@ -316,20 +316,20 @@ export const servicePages: Record<Language, Record<ServiceSlug, ServicePageConte
       ctaLabel: "Pedir orçamento de cozinha",
     },
     wardrobes: {
-      metaTitle: "Roupeiros por medida em Odivelas",
+      metaTitle: "Armários por medida em Odivelas",
       metaDescription:
-        "Roupeiros e closets por medida com fabrico próprio em Odivelas. Interiores organizados, portas de batente ou correr e acabamentos à escolha.",
-      label: "ROUPEIROS POR MEDIDA",
+        "Armários por medida com fabrico próprio em Odivelas. Arrumação do chão ao teto, interiores organizados e acabamentos à escolha.",
+      label: "ARMÁRIOS POR MEDIDA",
       title: "Arrumação desenhada para o que guarda.",
       description:
-        "Roupeiros e closets feitos à medida da parede, do teto e do que precisa de guardar, fabricados na nossa oficina em Odivelas.",
+        "Armários feitos à medida da parede, do teto e do que precisa de guardar, fabricados na nossa oficina em Odivelas.",
       scopeTitle: "Cada centímetro aproveitado",
       scopeCopy:
-        "Num roupeiro por medida não há espaços perdidos: vai do chão ao teto, contorna vigas e paredes irregulares e organiza o interior com cabides, gavetas, prateleiras e sapateiras na proporção certa para si.",
+        "Num armário por medida não há espaços perdidos: vai do chão ao teto, contorna vigas e paredes irregulares e organiza o interior com prateleiras, gavetas e divisórias na proporção certa para o que guarda.",
       planningTitle: "O que definimos consigo",
       planningCopy:
-        "Medidas, tipo de portas, organização interior, iluminação e acabamentos. Mostramos-lhe o projeto em 3D antes do fabrico.",
-      includedTitle: "Incluído em cada roupeiro",
+        "Medidas, tipo de portas, organização interior e acabamentos. Mostramos-lhe o projeto em 3D antes do fabrico.",
+      includedTitle: "Incluído em cada armário",
       included: [
         "Visita, medição e orçamento sem custos",
         "Projeto 3D antes do fabrico",
@@ -339,21 +339,21 @@ export const servicePages: Record<Language, Record<ServiceSlug, ServicePageConte
       ],
       materialsTitle: "Materiais e acabamentos",
       materialsCopy:
-        "MDF lacado mate ou alto brilho, madeira maciça ou folheada, termolaminados e espelho. A combinação é escolhida consigo durante o projeto.",
+        "MDF lacado mate ou alto brilho, madeira maciça ou folheada e termolaminados. A combinação é escolhida consigo durante o projeto.",
       areaTitle: "Fabrico próprio em Odivelas",
       areaCopy:
         "Produzimos na nossa oficina e instalamos em Lisboa, Odivelas e nos concelhos vizinhos.",
-      processTitle: "Do espaço ao roupeiro instalado",
+      processTitle: "Do espaço ao armário instalado",
       process: [
         "Visitamos o espaço e percebemos o que precisa de guardar.",
-        "Desenhamos o roupeiro em 3D e preparamos o orçamento.",
-        "Fabricamos o roupeiro na nossa oficina.",
+        "Desenhamos o armário em 3D e preparamos o orçamento.",
+        "Fabricamos o armário na nossa oficina.",
         "Montamos e ajustamos tudo no local.",
       ],
-      ctaTitle: "Quer um roupeiro feito para si?",
+      ctaTitle: "Precisa de um armário feito à medida?",
       ctaCopy:
         "Partilhe medidas aproximadas, fotografias e o que precisa de arrumar. Marcamos a visita e preparamos o projeto 3D sem custos.",
-      ctaLabel: "Pedir orçamento de roupeiro",
+      ctaLabel: "Pedir orçamento de armário",
     },
     furniture: {
       metaTitle: "Móveis por medida em Odivelas",
@@ -437,20 +437,20 @@ export const servicePages: Record<Language, Record<ServiceSlug, ServicePageConte
       ctaLabel: "Request a kitchen quote",
     },
     wardrobes: {
-      metaTitle: "Custom wardrobes in Odivelas",
+      metaTitle: "Bespoke cabinets in Odivelas",
       metaDescription:
-        "Custom wardrobes and walk-in closets made in our Odivelas workshop. Organised interiors, hinged or sliding doors and finishes of your choice.",
-      label: "CUSTOM WARDROBES",
+        "Bespoke cabinets made in our Odivelas workshop. Floor-to-ceiling storage, organised interiors and finishes of your choice.",
+      label: "BESPOKE CABINETS",
       title: "Storage designed around what you keep.",
       description:
-        "Wardrobes and walk-in closets built to fit the wall, the ceiling and everything you need to store, made in our Odivelas workshop.",
+        "Cabinets built to fit the wall, the ceiling and everything you need to store, made in our Odivelas workshop.",
       scopeTitle: "Every centimetre put to use",
       scopeCopy:
-        "A custom wardrobe wastes no space: it runs floor to ceiling, works around beams and uneven walls, and organises the interior with rails, drawers, shelves and shoe storage in the right proportions for you.",
+        "A bespoke cabinet wastes no space: it runs floor to ceiling, works around beams and uneven walls, and organises the interior with shelves, drawers and dividers in the right proportions for what you keep.",
       planningTitle: "What we define with you",
       planningCopy:
-        "Measurements, door type, internal layout, lighting and finishes. We show you the design in 3D before production.",
-      includedTitle: "Included with every wardrobe",
+        "Measurements, door type, internal layout and finishes. We show you the design in 3D before production.",
+      includedTitle: "Included with every cabinet",
       included: [
         "Free visit, measuring and quote",
         "3D design before production",
@@ -460,21 +460,21 @@ export const servicePages: Record<Language, Record<ServiceSlug, ServicePageConte
       ],
       materialsTitle: "Materials and finishes",
       materialsCopy:
-        "Matt or high-gloss lacquered MDF, solid or veneered wood, thermolaminates and mirror. The combination is chosen with you during the design.",
+        "Matt or high-gloss lacquered MDF, solid or veneered wood and thermolaminates. The combination is chosen with you during the design.",
       areaTitle: "Made in our Odivelas workshop",
       areaCopy:
         "We make everything in our workshop and install across Lisbon, Odivelas and neighbouring municipalities.",
-      processTitle: "From the space to an installed wardrobe",
+      processTitle: "From the space to an installed cabinet",
       process: [
         "We visit the space and understand what you need to store.",
-        "We design the wardrobe in 3D and prepare the quote.",
-        "We make the wardrobe in our own workshop.",
+        "We design the cabinet in 3D and prepare the quote.",
+        "We make the cabinet in our own workshop.",
         "We install and adjust everything on site.",
       ],
-      ctaTitle: "Would you like a wardrobe made for you?",
+      ctaTitle: "Need a cabinet made to measure?",
       ctaCopy:
         "Share approximate measurements, photographs and what you need to store. We book the visit and prepare the 3D design free of charge.",
-      ctaLabel: "Request a wardrobe quote",
+      ctaLabel: "Request a cabinet quote",
     },
     furniture: {
       metaTitle: "Bespoke furniture in Odivelas",
@@ -533,10 +533,9 @@ export const content = {
     heroTitle: "Cozinhas por medida.",
     heroItalic: "Feitas na nossa oficina.",
     heroDescription:
-      "Há mais de 40 anos que desenhamos, fabricamos e instalamos cozinhas, roupeiros e móveis por medida em Lisboa e na Grande Lisboa.",
+      "Há mais de 40 anos que desenhamos, fabricamos e instalamos cozinhas, armários e móveis por medida em Lisboa e na Grande Lisboa.",
     heroPrimary: "Pedir orçamento gratuito",
     explore: "Ver projetos",
-    scroll: "Descubra a Móveis Machado",
     heroImageLabel: "Projeto real Móveis Machado",
     trust: [
       "Mais de 40 anos de oficina",
@@ -547,20 +546,20 @@ export const content = {
     servicesLabel: "O QUE FAZEMOS",
     servicesTitle: "Feito à medida, do chão ao teto.",
     servicesLink: "Ver todos os serviços",
-    services: ["Cozinhas por medida", "Roupeiros por medida", "Móveis por medida"],
+    services: ["Cozinhas por medida", "Armários por medida", "Móveis por medida"],
     serviceShort: [
       "Cozinhas desenhadas ao centímetro, com eletrodomésticos encastrados e ferragens de fecho suave.",
-      "Roupeiros e closets do chão ao teto, com o interior organizado para o que guarda.",
+      "Armários do chão ao teto, com o interior organizado para o que guarda.",
       "Móveis de sala, escritórios, garrafeiras e portas interiores feitos para o seu espaço.",
     ],
     serviceLong: [
       "Desenhamos cada cozinha a partir das medidas reais da sua casa e da forma como cozinha. Estruturas reforçadas, ferragens de fecho suave, eletrodomésticos encastrados e acabamentos à escolha.",
-      "Roupeiros e closets que vão do chão ao teto, contornam paredes irregulares e organizam o interior com cabides, gavetas e prateleiras na proporção certa.",
+      "Armários que vão do chão ao teto, contornam paredes irregulares e organizam o interior com prateleiras, gavetas e divisórias na proporção certa.",
       "Móveis de sala, estantes, escritórios, garrafeiras e portas interiores, desenhados para o lugar onde vão ficar. Também fazemos remodelações.",
     ],
     servicesExtra: "Também fazemos portas interiores e remodelações.",
     projectsLabel: "PROJETOS REAIS",
-    projectsTitle: "Trabalho que saiu da nossa oficina.",
+    projectsTitle: "Os nossos trabalhos:",
     projectsLink: "Ver todos os projetos",
     projectView: "Ver projeto",
     renderLabel: "Projeto 3D",
@@ -570,11 +569,11 @@ export const content = {
     designCopy:
       "Antes de cortarmos a primeira peça, preparamos o projeto em 3D. Escolha materiais, ajuste medidas e aprove o desenho com tranquilidade. Depois, a oficina faz exatamente o que aprovou.",
     designRenderCaption: "Projeto 3D",
-    designPhotoCaption: "Garrafeira instalada",
+    designPhotoCaption: "Instalação",
     storyLabel: "SOBRE A MÓVEIS MACHADO",
     storyTitle: "Uma oficina, mais de 40 anos de cozinhas.",
     storyCopy:
-      "Há mais de quatro décadas que fazemos cozinhas, roupeiros e móveis por medida na nossa oficina em Odivelas. Ao longo desse tempo apurámos um método: rigor técnico, materiais escolhidos com critério e uma construção pensada para durar.",
+      "Há mais de quatro décadas que fazemos cozinhas, armários e móveis por medida na nossa oficina em Odivelas. Ao longo desse tempo apurámos um método: rigor técnico, materiais escolhidos com critério e uma construção pensada para durar.",
     storyCopy2:
       "Como fabricamos tudo, controlamos cada medida, cada união, cada ferragem e cada acabamento. Quem desenha a sua cozinha fala com quem a fabrica e com quem a monta, e é isso que faz a diferença quando ela chega à sua casa.",
     storyLink: "Conheça a nossa história",
@@ -621,19 +620,15 @@ export const content = {
       "Diga-nos o que quer fazer e onde. Se tiver medidas ou fotografias do espaço, envie-as: marcamos a visita e preparamos o projeto 3D sem custos.",
     talk: "Pedir orçamento",
     footerCopy:
-      "Cozinhas, roupeiros e móveis por medida, com fabrico próprio em Odivelas há mais de 40 anos.",
+      "Cozinhas, armários e móveis por medida, com fabrico próprio em Odivelas há mais de 40 anos.",
     find: "Encontre-nos",
     contactsHeading: "Contactos",
     directions: "Como chegar",
     rights: "Todos os direitos reservados.",
-    contactTitle: "Vamos falar sobre o seu projeto.",
-    contactIntro:
-      "Ligue, envie mensagem ou visite a oficina em Odivelas. O orçamento, o projeto 3D e a deslocação não têm custos.",
     contactWaysTitle: "Fale connosco",
     phoneLabel: "Telefone",
     emailLabel: "Email",
     whatsapp: "Falar pelo WhatsApp",
-    instagram: "Instagram",
     contactSub: "Odivelas e Grande Lisboa",
     contactCopy:
       "Trabalhamos sobretudo em Lisboa, Odivelas e nos concelhos vizinhos. Diga-nos onde é o projeto e confirmamos a deslocação.",
@@ -669,7 +664,7 @@ export const content = {
       "Cozinhas e mobiliário fabricados na nossa oficina e instalados em casas da Grande Lisboa. Selecione um projeto para ver todas as imagens.",
     projectsCount: "projetos",
     serviceIntro:
-      "Cozinhas, roupeiros e móveis por medida, desenhados em 3D, fabricados na nossa oficina e instalados pela nossa equipa.",
+      "Cozinhas, armários e móveis por medida, desenhados em 3D, fabricados na nossa oficina e instalados pela nossa equipa.",
     serviceExplore: "Conhecer o serviço",
     serviceGalleryTitle: "Projetos deste serviço",
     serviceMaterialsTitle: "Algumas das nossas opções",
@@ -687,10 +682,9 @@ export const content = {
     heroTitle: "Bespoke kitchens.",
     heroItalic: "Made in our own workshop.",
     heroDescription:
-      "For over 40 years we have designed, made and installed kitchens, wardrobes and furniture to measure across Lisbon and Greater Lisbon.",
+      "For over 40 years we have designed, made and installed kitchens, cabinets and furniture to measure across Lisbon and Greater Lisbon.",
     heroPrimary: "Request a free quote",
     explore: "View projects",
-    scroll: "Discover Móveis Machado",
     heroImageLabel: "A real Móveis Machado project",
     trust: [
       "Over 40 years in the workshop",
@@ -701,20 +695,20 @@ export const content = {
     servicesLabel: "WHAT WE DO",
     servicesTitle: "Made to measure, floor to ceiling.",
     servicesLink: "View all services",
-    services: ["Bespoke kitchens", "Custom wardrobes", "Bespoke furniture"],
+    services: ["Bespoke kitchens", "Bespoke cabinets", "Bespoke furniture"],
     serviceShort: [
       "Kitchens designed to the centimetre, with built-in appliances and soft-close fittings.",
-      "Floor-to-ceiling wardrobes and closets, organised inside for what you keep.",
+      "Floor-to-ceiling cabinets, organised inside for what you keep.",
       "Living room units, offices, wine walls and interior doors made for your space.",
     ],
     serviceLong: [
       "We design each kitchen from the real measurements of your home and the way you cook. Reinforced carcasses, soft-close fittings, built-in appliances and finishes of your choice.",
-      "Wardrobes and closets that run floor to ceiling, work around uneven walls and organise the interior with rails, drawers and shelves in the right proportions.",
+      "Cabinets that run floor to ceiling, work around uneven walls and organise the interior with shelves, drawers and dividers in the right proportions.",
       "Living room units, shelving, home offices, wine walls and interior doors, designed for the place they will live in. We also handle renovations.",
     ],
     servicesExtra: "We also make interior doors and handle renovations.",
     projectsLabel: "REAL PROJECTS",
-    projectsTitle: "Work that left our workshop.",
+    projectsTitle: "Our work:",
     projectsLink: "View all projects",
     projectView: "View project",
     renderLabel: "3D design",
@@ -724,11 +718,11 @@ export const content = {
     designCopy:
       "Before we cut the first panel, we prepare the design in 3D. You choose materials, adjust measurements and approve the drawing at your own pace. Then the workshop makes exactly what you saw.",
     designRenderCaption: "3D design",
-    designPhotoCaption: "Installed wine wall",
+    designPhotoCaption: "Installation",
     storyLabel: "ABOUT MÓVEIS MACHADO",
     storyTitle: "One workshop, over 40 years of kitchens.",
     storyCopy:
-      "For more than four decades we have made kitchens, wardrobes and furniture to measure in our Odivelas workshop. Over that time we have refined a method: technical rigour, carefully chosen materials and construction built to last.",
+      "For more than four decades we have made kitchens, cabinets and furniture to measure in our Odivelas workshop. Over that time we have refined a method: technical rigour, carefully chosen materials and construction built to last.",
     storyCopy2:
       "Because we make everything ourselves, we control every measurement, joint, fitting and finish. The people who design your kitchen talk to the people who make and install it, and that is what makes the difference when it arrives in your home.",
     storyLink: "Discover our story",
@@ -775,19 +769,15 @@ export const content = {
       "Tell us what you want to make and where. If you have measurements or photographs of the space, send them: we book the visit and prepare the 3D design free of charge.",
     talk: "Request a quote",
     footerCopy:
-      "Kitchens, wardrobes and furniture made to measure in our Odivelas workshop for over 40 years.",
+      "Kitchens, cabinets and furniture made to measure in our Odivelas workshop for over 40 years.",
     find: "Find us",
     contactsHeading: "Contact",
     directions: "Get directions",
     rights: "All rights reserved.",
-    contactTitle: "Let's talk about your project.",
-    contactIntro:
-      "Call, send a message or visit the workshop in Odivelas. The quote, the 3D design and the visit are free of charge.",
     contactWaysTitle: "Get in touch",
     phoneLabel: "Phone",
     emailLabel: "Email",
     whatsapp: "Message us on WhatsApp",
-    instagram: "Instagram",
     contactSub: "Odivelas and Greater Lisbon",
     contactCopy:
       "We work mainly in Lisbon, Odivelas and neighbouring municipalities. Tell us where your project is and we will confirm the visit.",
@@ -823,7 +813,7 @@ export const content = {
       "Kitchens and furniture made in our workshop and installed in homes across Greater Lisbon. Select a project to see all its images.",
     projectsCount: "projects",
     serviceIntro:
-      "Kitchens, wardrobes and furniture made to measure, designed in 3D, made in our workshop and installed by our own team.",
+      "Kitchens, cabinets and furniture made to measure, designed in 3D, made in our workshop and installed by our own team.",
     serviceExplore: "Explore this service",
     serviceGalleryTitle: "Projects in this service",
     serviceMaterialsTitle: "Some of our options",
@@ -921,7 +911,6 @@ export const cookiePolicyContent: Record<
     title: string;
     intro: string;
     updated: string;
-    reference: string;
     sections: readonly { title: string; paragraphs: readonly string[] }[];
     inventoryTitle: string;
     inventory: readonly {
@@ -943,65 +932,61 @@ export const cookiePolicyContent: Record<
   pt: {
     metaTitle: "Política de Cookies",
     metaDescription:
-      "Saiba que armazenamento e recursos externos a Móveis Machado utiliza e como pode gerir as suas preferências.",
-    label: "PRIVACIDADE E CONTROLO",
+      "Saiba que informação a Móveis Machado guarda no seu dispositivo, quando é usado o Google Maps e como pode alterar a sua escolha.",
+    label: "PRIVACIDADE",
     title: "Política de Cookies.",
     intro:
-      "Esta política descreve o armazenamento no dispositivo e os recursos externos presentes neste site. O conteúdo em português europeu é a versão de referência.",
+      "Este site não usa cookies de publicidade nem de estatísticas. Guardamos apenas a sua escolha de privacidade e só carregamos o mapa Google se o autorizar.",
     updated: "Última atualização: 9 de novembro de 2026",
-    reference: "Versão de referência: 2026-11-09",
     sections: [
       {
-        title: "O que acontece antes da sua escolha",
+        title: "O que usamos",
         paragraphs: [
-          "O conteúdo principal, as fotografias, as fontes e a navegação são servidos sem carregar o mapa Google. Não encontrámos analytics, pixels de marketing ou publicidade no código carregado pelo site.",
-          "O banner não bloqueia o acesso ao site. Aceitar e rejeitar estão disponíveis na primeira camada, e todas as categorias opcionais começam desligadas quando personaliza.",
+          "Para funcionar, o site guarda no seu browser um único registo com a escolha que fez no aviso de cookies. Este registo não inclui o seu nome, email ou qualquer identificador de publicidade.",
+          "Não usamos ferramentas de estatísticas, pixels de redes sociais nem publicidade.",
         ],
       },
       {
-        title: "Como guardamos e alteramos a escolha",
+        title: "Mapa Google",
         paragraphs: [
-          "A escolha é guardada no localStorage do seu browser com a versão desta política, as categorias e um timestamp. Este registo é necessário para respeitar a sua decisão e não contém nome, email ou identificador publicitário.",
-          "Pode usar “Gerir cookies” no rodapé para aceitar, rejeitar ou alterar categorias. Uma mudança material de finalidade, fornecedor ou categoria exige nova versão e volta a apresentar a escolha.",
+          "O mapa da página de contactos é fornecido pela Google e só é carregado se aceitar o conteúdo externo ou carregar em “Carregar mapa”. Nessa altura a Google pode recolher dados técnicos do seu dispositivo, como o endereço IP, e guardar cookies próprios de acordo com a política de privacidade da Google.",
+          "Se preferir não carregar o mapa, a morada continua visível e a ligação “Como chegar” abre o Google Maps numa nova página.",
         ],
       },
       {
-        title: "Google Maps e ligações externas",
+        title: "Ligações externas",
         paragraphs: [
-          "O iframe Google Maps só é criado depois de autorizar Conteúdo externo ou selecionar “Carregar mapa”. A partir daí, a Google pode receber endereço IP, informação do browser/dispositivo e definir armazenamento segundo as suas próprias regras. Os nomes e durações concretos podem variar por localização, sessão e políticas da Google.",
-          "A morada e a ligação “Como chegar” funcionam sem ativar o iframe. Ao abrir Google Maps ou WhatsApp numa nova página, passa a interagir diretamente com esse serviço externo e aplicam-se as respetivas políticas.",
+          "Ao abrir o Google Maps ou o WhatsApp a partir deste site, passa a utilizar diretamente esses serviços, e aplicam-se as políticas de privacidade de cada um.",
         ],
       },
       {
-        title: "Limites do inventário",
+        title: "Como alterar a sua escolha",
         paragraphs: [
-          "O inventário abaixo corresponde ao código e ao build auditados nesta versão. Serviços de alojamento podem manter logs técnicos fora do browser; esse tratamento pertence à Política de Privacidade, cuja confirmação empresarial continua pendente.",
-          "A Política de Cookies deve ser revista sempre que forem adicionados analytics, marketing, novos embeds ou outro armazenamento no dispositivo.",
+          "Pode aceitar, rejeitar ou alterar a sua escolha a qualquer momento em “Gerir cookies”, no rodapé de todas as páginas. A escolha é válida durante seis meses; depois disso, ou se esta política mudar, voltamos a perguntar.",
         ],
       },
     ],
-    inventoryTitle: "Inventário observado",
+    inventoryTitle: "Resumo",
     inventoryLabels: {
-      name: "Nome/recurso",
+      name: "O quê",
       provider: "Fornecedor",
-      purpose: "Finalidade",
+      purpose: "Para quê",
       duration: "Duração",
       category: "Categoria",
     },
     inventory: [
       {
-        name: "moveis-machado:consent (localStorage)",
-        provider: "Móveis Machado / este site",
-        purpose: "Guardar versão, categorias e timestamp da escolha.",
-        duration: "Até 6 meses, nova versão da política ou remoção pelo utilizador.",
+        name: "Escolha de cookies (armazenamento local)",
+        provider: "Móveis Machado",
+        purpose: "Lembrar a escolha que fez no aviso de cookies.",
+        duration: "Seis meses, ou até apagar os dados do browser.",
         category: "Necessário",
       },
       {
-        name: "Iframe Google Maps e armazenamento definido pela Google",
+        name: "Mapa Google",
         provider: "Google",
-        purpose: "Apresentar o mapa interativo da morada.",
-        duration:
-          "Apenas após opt-in; cookies/armazenamento e duração variam segundo a Google e a sessão.",
+        purpose: "Mostrar a localização da oficina num mapa interativo.",
+        duration: "Definida pela Google. Só é usado depois de o autorizar.",
         category: "Conteúdo externo",
       },
     ],
@@ -1009,46 +994,43 @@ export const cookiePolicyContent: Record<
   en: {
     metaTitle: "Cookie Policy",
     metaDescription:
-      "Learn which storage and external resources Móveis Machado uses and how to manage your preferences.",
-    label: "PRIVACY AND CONTROL",
+      "Learn what Móveis Machado stores on your device, when Google Maps is used and how to change your choice.",
+    label: "PRIVACY",
     title: "Cookie Policy.",
     intro:
-      "This policy describes device storage and external resources present on this website. The European Portuguese text is the reference version.",
+      "This website uses no advertising or analytics cookies. We only store your privacy choice and only load Google Maps if you allow it.",
     updated: "Last updated: 9 November 2026",
-    reference: "Reference version: 2026-11-09",
     sections: [
       {
-        title: "What happens before your choice",
+        title: "What we use",
         paragraphs: [
-          "The main content, photographs, fonts and navigation are served without loading Google Maps. We found no analytics, marketing pixels or advertising in the code loaded by the site.",
-          "The banner does not block access. Accept and reject are available in the first layer, and all optional categories start off when you customise.",
+          "To work, the site stores a single record in your browser with the choice you made in the cookie notice. It contains no name, email address or advertising identifier.",
+          "We use no analytics tools, social media pixels or advertising.",
         ],
       },
       {
-        title: "How we store and change your choice",
+        title: "Google Maps",
         paragraphs: [
-          "Your choice is stored in your browser's localStorage with the policy version, categories and a timestamp. This record is necessary to respect your decision and contains no name, email address or advertising identifier.",
-          "Use “Manage cookies” in the footer to accept, reject or change categories. A material change to a purpose, provider or category requires a new version and presents the choice again.",
+          "The map on the contact page is provided by Google and only loads if you allow external content or select “Load map”. Google may then collect technical data from your device, such as your IP address, and set its own cookies under Google's privacy policy.",
+          "If you prefer not to load the map, the address remains visible and the “Get directions” link opens Google Maps in a new page.",
         ],
       },
       {
-        title: "Google Maps and external links",
+        title: "External links",
         paragraphs: [
-          "The Google Maps iframe is only created after you allow External content or select “Load map”. Google may then receive an IP address and browser/device information and set storage under its own rules. Exact names and durations can vary by location, session and Google's policies.",
-          "The address and “Get directions” link work without enabling the iframe. When you open Google Maps or WhatsApp in a new page, you interact directly with that external service and its policies apply.",
+          "When you open Google Maps or WhatsApp from this site, you use those services directly and their own privacy policies apply.",
         ],
       },
       {
-        title: "Inventory limits",
+        title: "How to change your choice",
         paragraphs: [
-          "The inventory below reflects the code and build audited for this version. Hosting services may keep technical logs outside the browser; that processing belongs in the Privacy Policy and still awaits company confirmation.",
-          "This Cookie Policy must be reviewed whenever analytics, marketing, new embeds or other device storage are added.",
+          "You can accept, reject or change your choice at any time with “Manage cookies” in the footer of every page. Your choice lasts six months; after that, or if this policy changes, we ask again.",
         ],
       },
     ],
-    inventoryTitle: "Observed inventory",
+    inventoryTitle: "Summary",
     inventoryLabels: {
-      name: "Name/resource",
+      name: "What",
       provider: "Provider",
       purpose: "Purpose",
       duration: "Duration",
@@ -1056,35 +1038,33 @@ export const cookiePolicyContent: Record<
     },
     inventory: [
       {
-        name: "moveis-machado:consent (localStorage)",
-        provider: "Móveis Machado / this site",
-        purpose: "Store the version, categories and timestamp of the choice.",
-        duration: "Up to 6 months, a new policy version or removal by the user.",
+        name: "Cookie choice (local storage)",
+        provider: "Móveis Machado",
+        purpose: "Remember the choice you made in the cookie notice.",
+        duration: "Six months, or until you clear your browser data.",
         category: "Necessary",
       },
       {
-        name: "Google Maps iframe and storage set by Google",
+        name: "Google Maps",
         provider: "Google",
-        purpose: "Display an interactive map of the address.",
-        duration:
-          "Only after opt-in; cookies/storage and duration vary according to Google and the session.",
+        purpose: "Show the workshop's location on an interactive map.",
+        duration: "Set by Google. Only used after you allow it.",
         category: "External content",
       },
     ],
   },
 };
 
-/* Phone, WhatsApp and email confirmed by the site owner (2026-11-09).
-   Instagram comes from the brand website. */
+/* Phone, WhatsApp and email confirmed by the site owner (2026-11-09). */
 export const contactDetails = {
   phoneDisplay: "+351 964 035 260",
   phoneHref: "tel:+351964035260",
   email: "moveismachado@hotmail.com",
-  instagramUrl: "https://www.instagram.com/cozinhasmoveismachado/",
-  instagramHandle: "@cozinhasmoveismachado",
 };
 export const whatsappUrl = "https://wa.me/351964035260";
-export const mapsUrl = "https://share.google/uK5M3YaRHoAcBMNPD";
+/** Opens Google Maps in route mode with the workshop as destination. */
+export const directionsUrl =
+  "https://www.google.com/maps/dir/?api=1&destination=Rua+V%C3%ADtor+Cordon+6A%2C+2675-459+Odivelas%2C+Portugal";
 export const mapsEmbedUrl =
   "https://www.google.com/maps?q=Rua+V%C3%ADtor+Cordon+6A,+2675-459+Odivelas,+Portugal&output=embed";
 export function pageMeta(path: PublicPath, language: Language, title: string, description: string) {

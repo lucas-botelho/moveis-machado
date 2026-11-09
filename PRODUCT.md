@@ -8,7 +8,7 @@ web
 
 ## Users
 
-Público principal inferido a partir da cópia existente: clientes particulares na Grande Lisboa que procuram cozinhas, roupeiros ou mobiliário por medida e querem conhecer o trabalho antes de pedir orçamento. Esta inferência aguarda confirmação do responsável do produto.
+Público principal inferido a partir da cópia existente: clientes particulares na Grande Lisboa que procuram cozinhas, armários ou mobiliário por medida e querem conhecer o trabalho antes de pedir orçamento. Esta inferência aguarda confirmação do responsável do produto.
 
 ## Product Purpose
 
