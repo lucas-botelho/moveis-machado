@@ -5,6 +5,9 @@ import marbleIsland from "@/assets/projects/marble-island.webp";
 import marbleColumns from "@/assets/projects/marble-columns.webp";
 import oakGalley from "@/assets/projects/oak-galley.webp";
 import whiteL from "@/assets/projects/white-l.webp";
+import oakWaterfallIsland from "@/assets/projects/oak-waterfall-island.webp";
+import oakWaterfallColumns from "@/assets/projects/oak-waterfall-columns.webp";
+import oakWaterfallPeninsula from "@/assets/projects/oak-waterfall-peninsula.webp";
 import wineWall from "@/assets/projects/wine-wall.webp";
 import wineWall3d from "@/assets/projects/wine-wall-3d.webp";
 import wineWall3dAlt from "@/assets/projects/wine-wall-3d-alt.webp";
@@ -50,6 +53,29 @@ export type Project = {
 
 export const projects: readonly Project[] = [
   {
+    slug: "oak-waterfall",
+    category: "kitchen",
+    images: [
+      { src: oakWaterfallIsland, width: 1024, height: 768, kind: "photo" },
+      { src: oakWaterfallColumns, width: 1024, height: 768, kind: "photo" },
+      { src: oakWaterfallPeninsula, width: 1024, height: 768, kind: "photo" },
+    ],
+    pt: {
+      title: "Madeira e ilha efeito mármore",
+      type: "Cozinha com ilha",
+      materials: "Colunas em madeira · branco mate · bancada efeito mármore",
+      summary:
+        "Uma parede de colunas em madeira reúne forno duplo, frigorífico americano e garrafeira climatizada. Em frente, uma ilha branca com bancada efeito mármore até ao chão e placa integrada.",
+    },
+    en: {
+      title: "Wood and marble-effect island",
+      type: "Island kitchen",
+      materials: "Wood tall units · matt white · marble-effect worktop",
+      summary:
+        "A wall of wood tall units brings together a double oven, an American fridge and a wine cooler. Opposite, a white island whose marble-effect worktop runs down to the floor, with an integrated hob.",
+    },
+  },
+  {
     slug: "walnut",
     category: "kitchen",
     images: [{ src: walnut, width: 1600, height: 1200, kind: "photo" }],
@@ -88,6 +114,24 @@ export const projects: readonly Project[] = [
     },
   },
   {
+    slug: "island",
+    category: "kitchen",
+    images: [{ src: island, width: 1600, height: 1200, kind: "photo" }],
+    pt: {
+      title: "Ilha em tom pedra",
+      type: "Cozinha com ilha",
+      materials: "Branco mate · ilha em tom pedra · madeira",
+      summary: "Uma ilha robusta em tom pedra que organiza a cozinha e abre o espaço para a sala.",
+    },
+    en: {
+      title: "Stone-tone island",
+      type: "Island kitchen",
+      materials: "Matt white · stone-tone island · wood",
+      summary:
+        "A solid stone-tone island that organises the kitchen and opens it to the living area.",
+    },
+  },
+  {
     slug: "oak-galley",
     category: "kitchen",
     images: [{ src: oakGalley, width: 1200, height: 1488, kind: "photo" }],
@@ -104,24 +148,6 @@ export const projects: readonly Project[] = [
       materials: "White lacquer · wood · dark worktop",
       summary:
         "A galley kitchen that uses the full length of the room, with deep drawers, built-in appliances and a band of wood warming the whole.",
-    },
-  },
-  {
-    slug: "island",
-    category: "kitchen",
-    images: [{ src: island, width: 1600, height: 1200, kind: "photo" }],
-    pt: {
-      title: "Ilha em tom pedra",
-      type: "Cozinha com ilha",
-      materials: "Branco mate · ilha em tom pedra · madeira",
-      summary: "Uma ilha robusta em tom pedra que organiza a cozinha e abre o espaço para a sala.",
-    },
-    en: {
-      title: "Stone-tone island",
-      type: "Island kitchen",
-      materials: "Matt white · stone-tone island · wood",
-      summary:
-        "A solid stone-tone island that organises the kitchen and opens it to the living area.",
     },
   },
   {
