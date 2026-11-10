@@ -21,8 +21,8 @@ const OG_IMAGE = {
   width: "1200",
   height: "630",
   alt: {
-    pt: "Cozinha por medida Móveis Machado com lacado branco e revestimento efeito mármore",
-    en: "Móveis Machado bespoke kitchen with white lacquer and marble-effect splashback",
+    pt: "Cozinha por medida Armando Machado com lacado branco e revestimento efeito mármore",
+    en: "Armando Machado bespoke kitchen with white lacquer and marble-effect splashback",
   },
 } as const;
 
@@ -39,14 +39,14 @@ export function createPageHead({
   title: string;
   description: string;
 }) {
-  const brandedTitle = `${title} | Móveis Machado`;
+  const brandedTitle = `${title} | Armando Machado`;
   const url = buildLanguageUrl(path, language, SITE_URL);
 
   return {
     meta: [
       { title: brandedTitle },
       { name: "description", content: description },
-      { property: "og:site_name", content: "Móveis Machado" },
+      { property: "og:site_name", content: "Armando Machado" },
       { property: "og:title", content: brandedTitle },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
@@ -75,7 +75,8 @@ export function createBusinessJsonLd(language: Language) {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "@id": `${SITE_URL}/#business`,
-    name: "Móveis Machado",
+    name: "Armando Machado",
+    alternateName: "Móveis Machado",
     url: homeUrl,
     logo: publicFileUrl("logo.png"),
     image: OG_IMAGE.url,

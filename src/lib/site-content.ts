@@ -286,7 +286,7 @@ export const content = {
       "Há mais de 40 anos que desenhamos, fabricamos e instalamos cozinhas, armários e móveis por medida em Odivelas e na Grande Lisboa.",
     heroPrimary: "Pedir orçamento gratuito",
     explore: "Ver projetos",
-    heroImageLabel: "Projeto real Móveis Machado",
+    heroImageLabel: "Projeto real Armando Machado",
     trust: [
       "Há mais de 40 anos no mercado",
       "Projeto 3D sem custos",
@@ -321,7 +321,7 @@ export const content = {
       "Antes de cortarmos a primeira peça, preparamos o projeto em 3D. Escolha materiais, ajuste medidas e aprove o desenho com tranquilidade. Depois, a fábrica faz exatamente o que aprovou.",
     designRenderCaption: "Projeto 3D",
     designPhotoCaption: "Instalação",
-    storyLabel: "SOBRE A MÓVEIS MACHADO",
+    storyLabel: "SOBRE ARMANDO MACHADO",
     storyTitle: "Uma fábrica, mais de 40 anos de cozinhas.",
     storyCopy:
       "Há mais de quatro décadas que fazemos cozinhas, armários e móveis por medida em Odivelas. Ao longo desse tempo apurámos um método: rigor técnico, materiais escolhidos com critério e uma construção pensada para durar.",
@@ -440,7 +440,7 @@ export const content = {
       "For over 40 years we have designed, made and installed kitchens, cabinets and furniture to measure across Lisbon and Greater Lisbon.",
     heroPrimary: "Request a free quote",
     explore: "View projects",
-    heroImageLabel: "A real Móveis Machado project",
+    heroImageLabel: "A real Armando Machado project",
     trust: [
       "Over 40 years in the workshop",
       "Free 3D design",
@@ -475,7 +475,7 @@ export const content = {
       "Before we cut the first panel, we prepare the design in 3D. You choose materials, adjust measurements and approve the drawing at your own pace. Then the workshop makes exactly what you saw.",
     designRenderCaption: "3D design",
     designPhotoCaption: "Installation",
-    storyLabel: "ABOUT MÓVEIS MACHADO",
+    storyLabel: "ABOUT ARMANDO MACHADO",
     storyTitle: "One workshop, over 40 years of kitchens.",
     storyCopy:
       "For more than four decades we have made kitchens, cabinets and furniture to measure in our Odivelas workshop. Over that time we have refined a method: technical rigour, carefully chosen materials and construction built to last.",
@@ -692,7 +692,7 @@ export const cookiePolicyContent: Record<
   pt: {
     metaTitle: "Política de Cookies",
     metaDescription:
-      "Saiba que informação a Móveis Machado guarda no seu dispositivo, quando é usado o Google Maps e como pode alterar a sua escolha.",
+      "Saiba que informação Armando Machado guarda no seu dispositivo, quando é usado o Google Maps e como pode alterar a sua escolha.",
     label: "PRIVACIDADE",
     title: "Política de Cookies.",
     intro:
@@ -737,7 +737,7 @@ export const cookiePolicyContent: Record<
     inventory: [
       {
         name: "Escolha de cookies (armazenamento local)",
-        provider: "Móveis Machado",
+        provider: "Armando Machado",
         purpose: "Lembrar a escolha que fez no aviso de cookies.",
         duration: "Seis meses, ou até apagar os dados do browser.",
         category: "Necessário",
@@ -754,7 +754,7 @@ export const cookiePolicyContent: Record<
   en: {
     metaTitle: "Cookie Policy",
     metaDescription:
-      "Learn what Móveis Machado stores on your device, when Google Maps is used and how to change your choice.",
+      "Learn what Armando Machado stores on your device, when Google Maps is used and how to change your choice.",
     label: "PRIVACY",
     title: "Cookie Policy.",
     intro:
@@ -799,7 +799,7 @@ export const cookiePolicyContent: Record<
     inventory: [
       {
         name: "Cookie choice (local storage)",
-        provider: "Móveis Machado",
+        provider: "Armando Machado",
         purpose: "Remember the choice you made in the cookie notice.",
         duration: "Six months, or until you clear your browser data.",
         category: "Necessary",

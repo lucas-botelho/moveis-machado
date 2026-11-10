@@ -20,13 +20,13 @@ export const Route = createFileRoute("/contact")({
           "/contact",
           "en",
           "Contact & quotes",
-          "Start your bespoke furniture project with Móveis Machado. Call, email or message us on WhatsApp, or visit our workshop in Odivelas. Free visit, quote and 3D design.",
+          "Start your bespoke furniture project with Armando Machado. Call, email or message us on WhatsApp, or visit our workshop in Odivelas. Free visit, quote and 3D design.",
         )
       : pageMeta(
           "/contact",
           "pt",
           "Contactos e orçamentos",
-          "Comece o seu projeto com a Móveis Machado. Ligue, envie email ou mensagem pelo WhatsApp, ou visite a oficina em Odivelas. Visita, orçamento e projeto 3D sem custos.",
+          "Comece o seu projeto com Armando Machado. Ligue, envie email ou mensagem pelo WhatsApp, ou visite a oficina em Odivelas. Visita, orçamento e projeto 3D sem custos.",
         ),
   component: Contact,
 });
@@ -62,7 +62,7 @@ function Contact() {
         <div className="contact-location">
           <div className="contact-location-info">
             <MapPin className="text-primary mb-6" size={28} strokeWidth={1.25} aria-hidden="true" />
-            <h2>Móveis Machado</h2>
+            <h2>Armando Machado</h2>
             <address>
               Rua Vítor Cordon 6A
               <br />
@@ -102,7 +102,7 @@ export function ConsentMap({ lang }: { lang: Language }) {
         className="contact-map"
         src={mapsEmbedUrl}
         title={
-          lang === "pt" ? "Mapa da Móveis Machado em Odivelas" : "Map to Móveis Machado in Odivelas"
+          lang === "pt" ? "Mapa de Armando Machado em Odivelas" : "Map to Armando Machado in Odivelas"
         }
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"

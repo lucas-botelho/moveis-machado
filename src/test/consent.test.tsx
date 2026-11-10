@@ -86,11 +86,11 @@ describe("Cookie consent", () => {
     writeConsent({ externalMedia: true });
     renderConsent(true);
 
-    expect(await screen.findByTitle("Mapa da Móveis Machado em Odivelas")).toBeInTheDocument();
+    expect(await screen.findByTitle("Mapa de Armando Machado em Odivelas")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Gerir teste" }));
     fireEvent.click(screen.getByRole("button", { name: "Rejeitar" }));
 
-    expect(screen.queryByTitle("Mapa da Móveis Machado em Odivelas")).not.toBeInTheDocument();
+    expect(screen.queryByTitle("Mapa de Armando Machado em Odivelas")).not.toBeInTheDocument();
     expect(screen.getByTestId("map-placeholder")).toBeVisible();
   });
 

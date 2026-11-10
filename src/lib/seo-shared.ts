@@ -122,7 +122,7 @@ export function createNotFoundHtml(basePath = "", stylesheetPath = ""): string {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, follow">
-    <title>404 | Móveis Machado</title>
+    <title>404 | Armando Machado</title>
     ${stylesheet}
   </head>
   <body>

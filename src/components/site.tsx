@@ -52,7 +52,7 @@ function Brand() {
         height={100}
       />
       <span>
-        <span className="brand-name">Móveis Machado</span>
+        <span className="brand-name">Armando Machado</span>
         <span className="brand-tagline">{content[lang].tagline}</span>
       </span>
     </Link>
@@ -673,7 +673,7 @@ export function ContactBand() {
         </div>
       </div>
       <div className="contact-bottom">
-        <span>MÓVEIS MACHADO</span>
+        <span>ARMANDO MACHADO</span>
         <span>ODIVELAS · GRANDE LISBOA</span>
       </div>
     </section>
@@ -751,7 +751,7 @@ export function SiteFooter() {
       </div>
       <div className="footer-bottom">
         <span>
-          © {new Date().getFullYear()} Móveis Machado. {t.rights}
+          © {new Date().getFullYear()} Armando Machado. {t.rights}
         </span>
         <div className="footer-legal-links">
           <Link to="/cookies" search={{ lang }}>
