@@ -156,7 +156,7 @@ export function Eyebrow({ children, line = false }: { children: React.ReactNode;
 export function Hero() {
   const lang = useLanguage();
   const t = content[lang];
-  const featured = projectBySlug("marble-island");
+  const featured = projectBySlug("contemporary");
   return (
     <>
       <section className="hero">

@@ -208,7 +208,7 @@ export const designToWork = {
   processRender: { src: laundryKitchen3d, width: 1600, height: 1132 },
 };
 
-export const heroImage = { src: marbleIsland, width: 1600, height: 1032 };
+export const heroImage = { src: contemporary, width: 1600, height: 1200 };
 
 export const materials = [
   {
