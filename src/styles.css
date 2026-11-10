@@ -299,6 +299,10 @@ a {
   align-items: center;
   gap: 13px;
   flex-shrink: 0;
+  min-width: 0;
+}
+.brand > span {
+  min-width: 0;
 }
 .brand-mark {
   display: block;
@@ -909,6 +913,8 @@ a {
 }
 .footer-legal-links a,
 .footer-legal-links button {
+  display: inline-flex;
+  align-items: center;
   color: inherit;
   font: inherit;
   text-decoration: underline;
@@ -938,6 +944,8 @@ a {
   font-family: var(--font-display);
   font-size: 66px;
   font-weight: 400;
+  line-height: 1.05;
+  text-wrap: balance;
 }
 .page-heading p {
   margin-top: 20px;
@@ -1875,6 +1883,7 @@ dd {
   border-top: 1px solid var(--border);
 }
 .contact-ways li {
+  text-align: left;
   display: grid;
   grid-template-columns: 22px 90px minmax(0, 1fr);
   gap: 14px;
@@ -1949,8 +1958,11 @@ dd {
   border-top: 1px solid var(--border);
 }
 .faq-section .section-title {
-  white-space: nowrap;
   font-size: clamp(30px, 8vw, 49px);
+  text-wrap: balance;
+}
+.faq-section > * {
+  min-width: 0;
 }
 .faq-section .faq:first-child {
   margin-top: 0;
@@ -2127,8 +2139,9 @@ dd {
     gap: 0;
   }
   .process-item {
-    grid-template-columns: 44px 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
+    padding-bottom: 16px;
   }
   .process-item:last-child {
     border-bottom: 1px solid var(--border);
@@ -2448,5 +2461,116 @@ img.is-loading {
   }
   .project-carousel-track {
     gap: 16px;
+  }
+}
+
+/* Mobile polish: one gutter, nothing wider than the screen, header never clips. */
+@media (max-width: 800px) {
+  .site-header .brand {
+    flex-shrink: 1;
+  }
+  .site-header .brand-name,
+  .site-header .brand-tagline {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .header-actions {
+    flex: none;
+  }
+  .site-navigation.is-open,
+  .hero-content,
+  .trust-band,
+  .page-heading,
+  .contact-band,
+  .site-footer {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .hero-bottom,
+  .contact-bottom {
+    left: 6%;
+    right: 6%;
+  }
+  .page-heading {
+    padding-top: 40px;
+    padding-bottom: 32px;
+  }
+  .service-page-cta {
+    margin: 0 6% 56px;
+  }
+  .design-pair {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 10px;
+  }
+  .design-pair img {
+    aspect-ratio: 0.8;
+  }
+  .design-arrow {
+    transform: none;
+    width: 18px;
+    height: 18px;
+  }
+  .design-pair .render-badge {
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+  .contact-location {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 24px 20px;
+  }
+  .contact-map-placeholder {
+    aspect-ratio: auto;
+    min-height: 0;
+  }
+  .service-page-section > *,
+  .services-preview > *,
+  .design-section > *,
+  .materials-section > *,
+  .service-materials > * {
+    min-width: 0;
+  }
+}
+@media (max-width: 520px) {
+  .footer-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .footer-legal-links {
+    gap: 0 18px;
+  }
+  .page-heading h1 {
+    font-size: 44px;
+  }
+  .contact-band h2 {
+    font-size: 44px;
+  }
+  .section-title,
+  .projects-section .section-title,
+  .story-section .section-title,
+  .process-intro .section-title {
+    font-size: 36px;
+  }
+  .service-page-cta {
+    padding: 28px 22px;
+  }
+}
+@media (max-width: 800px) {
+  /* Let the hero grow with its copy so the photo label never collides with the actions on short phones. */
+  .hero {
+    height: auto;
+    min-height: clamp(520px, calc(100svh - 122px), 720px);
+    max-height: none;
+  }
+  .hero-content {
+    padding-bottom: 88px;
+  }
+  .hero-bottom {
+    bottom: 24px;
+  }
+}
+@media (max-width: 420px) {
+  .hero-content {
+    padding-top: 64px;
   }
 }
