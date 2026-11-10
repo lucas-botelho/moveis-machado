@@ -1,0 +1,8 @@
+.node_modules-old
+.output
+.wrangler
+.tanstack
+.playwright-mcp
+.impeccable
+.taste-skill
+dist
