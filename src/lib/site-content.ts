@@ -283,12 +283,12 @@ export const content = {
     heroTitle: "Cozinhas para a sua casa.",
     heroItalic: "Feitas á sua medida.",
     heroDescription:
-      "Há mais de 40 anos que desenhamos, fabricamos e instalamos cozinhas, armários e móveis por medida em Lisboa e na Grande Lisboa.",
+      "Há mais de 40 anos que desenhamos, fabricamos e instalamos cozinhas, armários e móveis por medida em Odivelas e na Grande Lisboa.",
     heroPrimary: "Pedir orçamento gratuito",
     explore: "Ver projetos",
     heroImageLabel: "Projeto real Móveis Machado",
     trust: [
-      "Mais de 40 anos de mercado",
+      "Há mais de 40 anos no mercado",
       "Projeto 3D sem custos",
       "Fabrico próprio em Odivelas",
       "Instalação e pós-venda",
@@ -387,7 +387,7 @@ export const content = {
     whatsapp: "Falar pelo WhatsApp",
     contactSub: "Odivelas e Grande Lisboa",
     contactCopy:
-      "Trabalhamos sobretudo em Lisboa, Odivelas e nos concelhos vizinhos. Diga-nos onde é o projeto e confirmamos a deslocação.",
+      "Trabalhamos sobretudo em Lisboa, Odivelas e nos concelhos vizinhos. Diga-nos onde é o projeto e agendamos a deslocação.",
     nextTitle: "O que acontece a seguir",
     nextSteps: [
       "Envie-nos medidas aproximadas, fotografias e referências do que gosta.",
@@ -398,7 +398,7 @@ export const content = {
     faq: [
       {
         q: "Quanto custa o orçamento?",
-        a: "Nada. A visita, a medição, o projeto 3D e o orçamento não têm custos nem compromisso.",
+        a: "A visita, a medição, o projeto 3D e o orçamento não têm custos nem compromisso.",
       },
       {
         q: "Como preparo o meu projeto?",
