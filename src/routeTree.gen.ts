@@ -17,9 +17,6 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as PtRouteImport } from './routes/pt'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
-import { Route as ServicesFurnitureRouteImport } from './routes/services.furniture'
-import { Route as ServicesKitchensRouteImport } from './routes/services.kitchens'
-import { Route as ServicesWardrobesRouteImport } from './routes/services.wardrobes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -61,21 +58,6 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesFurnitureRoute = ServicesFurnitureRouteImport.update({
-  id: '/furniture',
-  path: '/furniture',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesKitchensRoute = ServicesKitchensRouteImport.update({
-  id: '/kitchens',
-  path: '/kitchens',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesWardrobesRoute = ServicesWardrobesRouteImport.update({
-  id: '/wardrobes',
-  path: '/wardrobes',
-  getParentRoute: () => ServicesRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -85,9 +67,6 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/pt': typeof PtRoute
   '/services': typeof ServicesRouteWithChildren
-  '/services/furniture': typeof ServicesFurnitureRoute
-  '/services/kitchens': typeof ServicesKitchensRoute
-  '/services/wardrobes': typeof ServicesWardrobesRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -97,9 +76,6 @@ export interface FileRoutesByTo {
   '/cookies': typeof CookiesRoute
   '/projects': typeof ProjectsRoute
   '/pt': typeof PtRoute
-  '/services/furniture': typeof ServicesFurnitureRoute
-  '/services/kitchens': typeof ServicesKitchensRoute
-  '/services/wardrobes': typeof ServicesWardrobesRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -111,9 +87,6 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/pt': typeof PtRoute
   '/services': typeof ServicesRouteWithChildren
-  '/services/furniture': typeof ServicesFurnitureRoute
-  '/services/kitchens': typeof ServicesKitchensRoute
-  '/services/wardrobes': typeof ServicesWardrobesRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -126,22 +99,10 @@ export interface FileRouteTypes {
     | '/projects'
     | '/pt'
     | '/services'
-    | '/services/furniture'
-    | '/services/kitchens'
-    | '/services/wardrobes'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/cookies'
-    | '/projects'
-    | '/pt'
-    | '/services/furniture'
-    | '/services/kitchens'
-    | '/services/wardrobes'
-    | '/services'
+    '/' | '/about' | '/contact' | '/cookies' | '/projects' | '/pt' | '/services'
   id:
     | '__root__'
     | '/'
@@ -151,9 +112,6 @@ export interface FileRouteTypes {
     | '/projects'
     | '/pt'
     | '/services'
-    | '/services/furniture'
-    | '/services/kitchens'
-    | '/services/wardrobes'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -225,41 +183,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/furniture': {
-      id: '/services/furniture'
-      path: '/furniture'
-      fullPath: '/services/furniture'
-      preLoaderRoute: typeof ServicesFurnitureRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/kitchens': {
-      id: '/services/kitchens'
-      path: '/kitchens'
-      fullPath: '/services/kitchens'
-      preLoaderRoute: typeof ServicesKitchensRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/wardrobes': {
-      id: '/services/wardrobes'
-      path: '/wardrobes'
-      fullPath: '/services/wardrobes'
-      preLoaderRoute: typeof ServicesWardrobesRouteImport
-      parentRoute: typeof ServicesRoute
-    }
   }
 }
 
 interface ServicesRouteChildren {
-  ServicesFurnitureRoute: typeof ServicesFurnitureRoute
-  ServicesKitchensRoute: typeof ServicesKitchensRoute
-  ServicesWardrobesRoute: typeof ServicesWardrobesRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
-  ServicesFurnitureRoute: ServicesFurnitureRoute,
-  ServicesKitchensRoute: ServicesKitchensRoute,
-  ServicesWardrobesRoute: ServicesWardrobesRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 

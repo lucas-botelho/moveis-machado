@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
 
-const serviceRoutes = ["/services/kitchens", "/services/wardrobes", "/services/furniture"] as const;
+const removedServiceRoutes = ["/services/kitchens", "/services/wardrobes", "/services/furniture"] as const;
 
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
@@ -32,13 +32,16 @@ describe("App routing", () => {
     );
   });
 
-  it.each(serviceRoutes)("matches the service page at %s and preserves English", (path) => {
+  it("matches the single services page", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
 
-    const matches = router.matchRoutes(path);
+    expect(router.matchRoutes("/services").at(-1)?.routeId).toBe("/services/");
+  });
 
-    expect(matches.at(-1)?.routeId).toBe(path);
-    expect(router.buildLocation({ to: path, search: { lang: "en" } }).href).toBe(`${path}?lang=en`);
+  it.each(removedServiceRoutes)("no longer has a service subpage at %s", (path) => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    expect(router.matchRoutes(path).at(-1)?.routeId).not.toBe(path);
   });
 
   it("matches the cookie policy and preserves the selected language", () => {

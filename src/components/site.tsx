@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useSearch } from "@tanstack/react-router";
+import { Link, useSearch } from "@tanstack/react-router";
 import {
   ArrowLeft,
   ArrowRight,
-  Check,
   Menu,
   X,
   Ruler,
@@ -32,13 +31,8 @@ import {
   projectBySlug,
   projects,
   directionsUrl,
-  serviceGalleries,
-  servicePages,
-  servicePaths,
   serviceSlugs,
-  type Language,
   type Project,
-  type ServiceSlug,
 } from "@/lib/site-content";
 export function useLanguage() {
   const search = useSearch({ from: "__root__" });
@@ -67,14 +61,10 @@ function Brand() {
 export function SiteHeader() {
   const lang = useLanguage();
   const t = content[lang];
-  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   useEffect(() => {
     document.documentElement.lang = lang === "pt" ? "pt-PT" : "en";
   }, [lang]);
-  const switchLanguage = (value: Language) => {
-    void navigate({ to: ".", search: { lang: value }, resetScroll: false });
-  };
   return (
     <header className="site-header">
       <Brand />
@@ -99,25 +89,6 @@ export function SiteHeader() {
         </Link>
       </nav>
       <div className="header-actions">
-        <div className="language-switch" aria-label="Language">
-          <Button
-            variant="navigation"
-            aria-pressed={lang === "pt"}
-            onClick={() => switchLanguage("pt")}
-          >
-            PT
-          </Button>
-          <span className="text-muted-foreground text-xs" aria-hidden="true">
-            /
-          </span>
-          <Button
-            variant="navigation"
-            aria-pressed={lang === "en"}
-            onClick={() => switchLanguage("en")}
-          >
-            EN
-          </Button>
-        </div>
         <Button variant="luxury" asChild className="header-enquiry">
           <Link to="/contact" search={{ lang }}>
             {t.quote}
@@ -230,7 +201,7 @@ export function ServicesPreview() {
         <h2 className="section-title">{t.servicesTitle}</h2>
         <div className="service-list">
           {serviceSlugs.map((slug, i) => (
-            <Link to={servicePaths[slug]} search={{ lang }} className="service-item" key={slug}>
+            <Link to="/services" search={{ lang }} className="service-item" key={slug}>
               <div>
                 <h3>{t.services[i]}</h3>
                 <p>{t.serviceShort[i]}</p>
@@ -726,93 +697,6 @@ export function PageHeading({
   );
 }
 
-export function ServicePage({ service }: { service: ServiceSlug }) {
-  const lang = useLanguage();
-  const t = content[lang];
-  const page = servicePages[lang][service];
-  const gallery = serviceGalleries[service].map(projectBySlug);
-
-  return (
-    <main>
-      <PageHeading label={page.label} title={page.title} description={page.description} />
-      <section className="section service-page-section">
-        <div className="service-page-primary">
-          <h2 className="section-title">{page.scopeTitle}</h2>
-          <p className="body-copy">{page.scopeCopy}</p>
-          <div className="service-page-planning">
-            <h3>{page.planningTitle}</h3>
-            <p>{page.planningCopy}</p>
-          </div>
-        </div>
-        <div className="service-page-facts">
-          <article>
-            <h2>{page.includedTitle}</h2>
-            <ul className="included-list">
-              {page.included.map((item) => (
-                <li key={item}>
-                  <Check aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </article>
-          <article>
-            <h2>{page.areaTitle}</h2>
-            <p>{page.areaCopy}</p>
-          </article>
-        </div>
-      </section>
-      {gallery.length > 0 && (
-        <section className="section service-gallery">
-          <h2 className="section-title">{t.serviceGalleryTitle}</h2>
-          <ProjectGrid items={gallery} />
-        </section>
-      )}
-      <section className="section service-materials">
-        <div className="service-materials-copy">
-          <h2 className="section-title">{page.materialsTitle}</h2>
-          <p className="body-copy">{page.materialsCopy}</p>
-        </div>
-        <ul className="materials-grid is-small">
-          {materials.map((material) => (
-            <li key={material.pt.name}>
-              <LazyImage src={material.image} alt="" loading="lazy" width={640} height={640} />
-              <strong>{material[lang].name}</strong>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section className="section service-page-process">
-        <div className="section-heading">
-          <div>
-            <Eyebrow>{t.processLabel}</Eyebrow>
-            <h2 className="section-title">{page.processTitle}</h2>
-          </div>
-        </div>
-        <ol className="service-page-steps">
-          {page.process.map((step, index) => (
-            <li key={step}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <p>{step}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-      <section className="service-page-cta">
-        <div>
-          <h2>{page.ctaTitle}</h2>
-          <p>{page.ctaCopy}</p>
-        </div>
-        <Button variant="hero" asChild>
-          <Link to="/contact" search={{ lang }}>
-            {page.ctaLabel}
-          </Link>
-        </Button>
-      </section>
-    </main>
-  );
-}
-
 export function SiteFooter() {
   const lang = useLanguage();
   const t = content[lang];
@@ -829,7 +713,7 @@ export function SiteFooter() {
           <h2 className="footer-heading">{t.servicesLabel}</h2>
           <div className="footer-links">
             {serviceSlugs.map((slug, index) => (
-              <Link to={servicePaths[slug]} search={{ lang }} key={slug}>
+              <Link to="/services" search={{ lang }} key={slug}>
                 {t.services[index]}
               </Link>
             ))}

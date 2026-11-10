@@ -16,9 +16,6 @@ const prerenderedPaths = [
   "/cookies",
   "/projects",
   "/services",
-  "/services/kitchens",
-  "/services/wardrobes",
-  "/services/furniture",
 ];
 
 export default defineConfig({

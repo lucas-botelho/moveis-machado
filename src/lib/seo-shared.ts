@@ -7,9 +7,6 @@ export const DEFAULT_SITE_URL = "https://lucas-botelho.github.io/moveis-machado"
 export const PUBLIC_PATHS = [
   "/",
   "/services",
-  "/services/kitchens",
-  "/services/wardrobes",
-  "/services/furniture",
   "/projects",
   "/about",
   "/contact",
@@ -18,7 +15,8 @@ export const PUBLIC_PATHS = [
 
 export type PublicPath = (typeof PUBLIC_PATHS)[number];
 
-export const SEO_LANGUAGES = ["pt", "en"] as const satisfies readonly SeoLanguage[];
+// Portuguese-only for now; add "en" back here when English is re-enabled.
+export const SEO_LANGUAGES = ["pt"] as const satisfies readonly SeoLanguage[];
 
 export function resolveSiteUrl(value?: string): string {
   const candidate = value?.trim() || DEFAULT_SITE_URL;
@@ -55,7 +53,6 @@ export function buildLanguageAlternates(path: PublicPath, siteUrl = DEFAULT_SITE
 
   return [
     { rel: "alternate", hrefLang: "pt-PT", href: portugueseUrl },
-    { rel: "alternate", hrefLang: "en", href: buildLanguageUrl(path, "en", siteUrl) },
     { rel: "alternate", hrefLang: "x-default", href: portugueseUrl },
   ] as const;
 }
@@ -132,26 +129,11 @@ export function createNotFoundHtml(basePath = "", stylesheetPath = ""): string {
     <main class="not-found-page" id="main-content">
       <div class="not-found-content">
         <p class="not-found-code" aria-hidden="true">404</p>
-        <h1 id="not-found-title" data-pt="${escapeHtml(notFoundContent.pt.title)}" data-en="${escapeHtml(notFoundContent.en.title)}">${escapeHtml(notFoundContent.pt.title)}</h1>
-        <p id="not-found-description" data-pt="${escapeHtml(notFoundContent.pt.description)}" data-en="${escapeHtml(notFoundContent.en.description)}">${escapeHtml(notFoundContent.pt.description)}</p>
-        <a class="not-found-action" id="not-found-action" href="${prefix}/?lang=pt" data-pt-href="${prefix}/?lang=pt" data-en-href="${prefix}/?lang=en" data-pt="${escapeHtml(notFoundContent.pt.action)}" data-en="${escapeHtml(notFoundContent.en.action)}">${escapeHtml(notFoundContent.pt.action)}</a>
-        <nav class="not-found-languages" aria-label="${escapeHtml(notFoundContent.pt.languageLabel)} / ${escapeHtml(notFoundContent.en.languageLabel)}">
-          <a href="${prefix}/?lang=pt" lang="pt-PT">${escapeHtml(notFoundContent.pt.languageLabel)}</a>
-          <a href="${prefix}/?lang=en" lang="en">${escapeHtml(notFoundContent.en.languageLabel)}</a>
-        </nav>
+        <h1 id="not-found-title">${escapeHtml(notFoundContent.pt.title)}</h1>
+        <p id="not-found-description">${escapeHtml(notFoundContent.pt.description)}</p>
+        <a class="not-found-action" id="not-found-action" href="${prefix}/?lang=pt">${escapeHtml(notFoundContent.pt.action)}</a>
       </div>
     </main>
-    <script>
-      (() => {
-        const language = new URLSearchParams(window.location.search).get("lang") === "en" ? "en" : "pt";
-        document.documentElement.lang = language === "pt" ? "pt-PT" : "en";
-        document.querySelectorAll("[data-pt][data-en]").forEach((element) => {
-          element.textContent = element.getAttribute("data-" + language);
-        });
-        const action = document.getElementById("not-found-action");
-        action.href = action.getAttribute("data-" + language + "-href");
-      })();
-    </script>
   </body>
 </html>
 `;

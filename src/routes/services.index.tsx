@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useLanguage, PageHeading, ContactBand, Process, Materials } from "@/components/site";
-import { content, pageMeta, servicePaths, serviceSlugs } from "@/lib/site-content";
+import { content, pageMeta } from "@/lib/site-content";
 
 export const Route = createFileRoute("/services/")({
   head: ({ match }) =>

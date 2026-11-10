@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { pageMeta, servicePaths } from "@/lib/site-content";
+import { pageMeta } from "@/lib/site-content";
 import {
   DEFAULT_SITE_URL,
   PUBLIC_PATHS,
@@ -39,7 +39,7 @@ describe("SEO URLs", () => {
     );
   });
 
-  it("builds one canonical and reciprocal language alternates", () => {
+  it("builds one canonical and only Portuguese language alternates", () => {
     const head = pageMeta("/contact", "pt", "Contactos", "Descrição");
     const canonical = head.links.find((link) => link.rel === "canonical");
     const alternates = buildLanguageAlternates("/contact", DEFAULT_SITE_URL);
@@ -51,7 +51,6 @@ describe("SEO URLs", () => {
         hrefLang: "pt-PT",
         href: `${DEFAULT_SITE_URL}/contact/?lang=pt`,
       },
-      { rel: "alternate", hrefLang: "en", href: `${DEFAULT_SITE_URL}/contact/?lang=en` },
       {
         rel: "alternate",
         hrefLang: "x-default",
@@ -62,16 +61,15 @@ describe("SEO URLs", () => {
 });
 
 describe("SEO discovery files", () => {
-  it("renders an accessible bilingual static 404 with deployment-aware language links", () => {
+  it("renders an accessible Portuguese static 404 with a deployment-aware home link", () => {
     const html = createNotFoundHtml("/moveis-machado", "/moveis-machado/assets/site.css");
 
     expect(html).toContain('<html lang="pt-PT">');
     expect(html).toContain('<main class="not-found-page" id="main-content">');
-    expect(html).toContain('data-pt="Não encontrámos esta página."');
-    expect(html).toContain('data-en="We couldn&#39;t find this page."');
+    expect(html).toContain("Não encontrámos esta página.");
+    expect(html).not.toContain("?lang=en");
     expect(html.match(/<h1\b/g)).toHaveLength(1);
     expect(html).toContain('href="/moveis-machado/?lang=pt"');
-    expect(html).toContain('href="/moveis-machado/?lang=en"');
     expect(html).toContain('href="/moveis-machado/assets/site.css"');
     expect(html).toContain('name="robots" content="noindex, follow"');
   });
@@ -82,12 +80,10 @@ describe("SEO discovery files", () => {
     const languageLinks = sitemap.match(/<xhtml:link /g) ?? [];
 
     expect(locations).toHaveLength(PUBLIC_PATHS.length * SEO_LANGUAGES.length);
-    expect(languageLinks).toHaveLength(PUBLIC_PATHS.length * SEO_LANGUAGES.length * 3);
+    expect(languageLinks).toHaveLength(PUBLIC_PATHS.length * SEO_LANGUAGES.length * 2);
     expect(sitemap).toContain("https://example.com/services/?lang=pt");
-    expect(sitemap).toContain("https://example.com/services/?lang=en");
-    expect(sitemap).toContain(`https://example.com${servicePaths.kitchens}/?lang=pt`);
-    expect(sitemap).toContain(`https://example.com${servicePaths.wardrobes}/?lang=en`);
-    expect(sitemap).toContain(`https://example.com${servicePaths.furniture}/?lang=pt`);
+    expect(sitemap).not.toContain("lang=en");
+    expect(sitemap).not.toContain("/services/kitchens");
     expect(sitemap).not.toContain("/pt?");
   });
 

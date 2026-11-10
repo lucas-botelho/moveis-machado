@@ -7,7 +7,7 @@ describe("Website language selection", () => {
     expect(resolveLanguage("pt")).toBe("pt");
     expect(resolveLanguage("fr")).toBe("pt");
   });
-  it("supports English selection", () => {
-    expect(resolveLanguage("en")).toBe("en");
+  it("serves Portuguese even when English is requested (English is disabled for now)", () => {
+    expect(resolveLanguage("en")).toBe("pt");
   });
 });

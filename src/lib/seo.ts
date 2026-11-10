@@ -52,10 +52,6 @@ export function createPageHead({
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
       { property: "og:locale", content: OG_LOCALE[language] },
-      {
-        property: "og:locale:alternate",
-        content: OG_LOCALE[language === "pt" ? "en" : "pt"],
-      },
       { property: "og:image", content: OG_IMAGE.url },
       { property: "og:image:width", content: OG_IMAGE.width },
       { property: "og:image:height", content: OG_IMAGE.height },
