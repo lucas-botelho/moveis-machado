@@ -25,23 +25,6 @@ function Services() {
   const t = content[lang];
   return (
     <main>
-      <PageHeading label={t.servicesLabel} title={t.servicesTitle} description={t.serviceIntro} />
-      <section className="section">
-        {serviceSlugs.map((slug, i) => (
-          <article className="service-detail" key={slug}>
-            <h2>
-              <Link to={servicePaths[slug]} search={{ lang }}>
-                {t.services[i]}
-              </Link>
-            </h2>
-            <p>{t.serviceLong[i]}</p>
-            <Link to={servicePaths[slug]} search={{ lang }} className="text-link">
-              {t.serviceExplore}
-            </Link>
-          </article>
-        ))}
-        <p className="services-extra">{t.servicesExtra}</p>
-      </section>
       <Materials />
       <Process />
       <ContactBand />

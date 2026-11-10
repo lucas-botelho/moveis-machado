@@ -14,7 +14,9 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
+import { LazyImage } from "@/components/lazy-image";
 import { useConsent } from "@/components/cookie-consent";
 import brandMark from "@/assets/brand-mark.svg?url&no-inline";
 import kitchenIsland from "@/assets/kitchen-island.webp";
@@ -25,7 +27,6 @@ import {
   contactDetails,
   cookieConsentContent,
   designToWork,
-  featuredProjectSlugs,
   heroImage,
   materials,
   projectBySlug,
@@ -159,15 +160,15 @@ export function Hero() {
   return (
     <>
       <section className="hero">
-        <img
+        <LazyImage
           src={heroImage.src}
           alt={featured[lang].title}
           width={heroImage.width}
           height={heroImage.height}
+          loading="eager"
           fetchPriority="high"
         />
         <div className="hero-content">
-          <Eyebrow line>{t.heroLabel}</Eyebrow>
           <h1>
             {t.heroTitle}
             <br />
@@ -217,7 +218,7 @@ export function ServicesPreview() {
   return (
     <section className="section services-preview" id="craft">
       <figure className="services-visual">
-        <img
+        <LazyImage
           src={whiteL}
           alt={projectBySlug("white-l")[lang].title}
           loading="lazy"
@@ -226,14 +227,10 @@ export function ServicesPreview() {
         />
       </figure>
       <div className="services-body">
-        <Eyebrow>{t.servicesLabel}</Eyebrow>
         <h2 className="section-title">{t.servicesTitle}</h2>
         <div className="service-list">
           {serviceSlugs.map((slug, i) => (
             <Link to={servicePaths[slug]} search={{ lang }} className="service-item" key={slug}>
-              <span className="service-index" aria-hidden="true">
-                {String(i + 1).padStart(2, "0")}
-              </span>
               <div>
                 <h3>{t.services[i]}</h3>
                 <p>{t.serviceShort[i]}</p>
@@ -295,7 +292,14 @@ function ProjectLightbox({ project, onClose }: { project: Project; onClose: () =
       </Button>
       <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
         <div className="lightbox-media">
-          <img src={image.src} alt={`${project[lang].title} (${index + 1}/${count})`} />
+          <LazyImage
+            key={image.src}
+            src={image.src}
+            alt={`${project[lang].title} (${index + 1}/${count})`}
+            loading="eager"
+            width={image.width}
+            height={image.height}
+          />
           {image.kind === "render" && <span className="render-badge">{t.renderLabel}</span>}
           {count > 1 && (
             <>
@@ -337,6 +341,53 @@ function ProjectLightbox({ project, onClose }: { project: Project; onClose: () =
   );
 }
 
+function ProjectCard({
+  project,
+  onOpen,
+  heading: Heading = "h3",
+  detailed = false,
+  priority = false,
+}: {
+  project: Project;
+  onOpen: () => void;
+  heading?: "h2" | "h3";
+  detailed?: boolean;
+  priority?: boolean;
+}) {
+  const lang = useLanguage();
+  const t = content[lang];
+  const cover = project.images[0];
+  if (!cover) return null;
+  return (
+    <>
+      <Button
+        variant="ghost"
+        className="project-image-button"
+        onClick={onOpen}
+        aria-label={`${t.projectView}: ${project[lang].title}`}
+      >
+        <LazyImage
+          src={cover.src}
+          alt={project[lang].title}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          width={cover.width}
+          height={cover.height}
+        />
+        {project.images.length > 1 && (
+          <span className="project-count">+{project.images.length - 1}</span>
+        )}
+      </Button>
+      <div className="project-info">
+        <p className="project-type">{project[lang].type}</p>
+        <Heading>{project[lang].title}</Heading>
+        <p>{project[lang].materials}</p>
+        {detailed && <p className="project-summary">{project[lang].summary}</p>}
+      </div>
+    </>
+  );
+}
+
 export function ProjectGrid({
   items = projects,
   priorityFirstImage = false,
@@ -348,51 +399,104 @@ export function ProjectGrid({
   headingLevel?: 2 | 3;
   detailed?: boolean;
 }) {
-  const lang = useLanguage();
-  const t = content[lang];
   const [selected, setSelected] = useState<string | null>(null);
   const project = items.find((p) => p.slug === selected);
-  const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
     <>
       <div className={`project-grid ${detailed ? "is-detailed" : ""}`}>
-        {items.map((p, i) => {
-          const cover = p.images[0];
-          if (!cover) return null;
-          return (
-            <article key={p.slug}>
-              <Button
-                variant="ghost"
-                className="project-image-button"
-                onClick={() => setSelected(p.slug)}
-                aria-label={`${t.projectView}: ${p[lang].title}`}
-              >
-                <img
-                  src={cover.src}
-                  alt={p[lang].title}
-                  loading={priorityFirstImage && i === 0 ? "eager" : "lazy"}
-                  fetchPriority={priorityFirstImage && i === 0 ? "high" : "auto"}
-                  width={cover.width}
-                  height={cover.height}
-                />
-                {p.images.length > 1 && (
-                  <span className="project-count">+{p.images.length - 1}</span>
-                )}
-              </Button>
-              <div className="project-info">
-                <p className="project-type">{p[lang].type}</p>
-                <Heading>{p[lang].title}</Heading>
-                <p>{p[lang].materials}</p>
-                {detailed && <p className="project-summary">{p[lang].summary}</p>}
-              </div>
-            </article>
-          );
-        })}
+        {items.map((p, i) => (
+          <article key={p.slug}>
+            <ProjectCard
+              project={p}
+              onOpen={() => setSelected(p.slug)}
+              heading={headingLevel === 2 ? "h2" : "h3"}
+              detailed={detailed}
+              priority={priorityFirstImage && i === 0}
+            />
+          </article>
+        ))}
       </div>
       {project && <ProjectLightbox project={project} onClose={() => setSelected(null)} />}
     </>
   );
 }
+
+export function ProjectCarousel({
+  items = projects,
+  label,
+}: {
+  items?: readonly Project[];
+  label: string;
+}) {
+  const lang = useLanguage();
+  const [viewportRef, api] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+  const [selected, setSelected] = useState<string | null>(null);
+  const project = items.find((p) => p.slug === selected);
+
+  useEffect(() => {
+    if (!api) return;
+    const update = () => {
+      setCanPrev(api.canScrollPrev());
+      setCanNext(api.canScrollNext());
+    };
+    update();
+    api.on("select", update).on("reInit", update);
+    return () => {
+      api.off("select", update).off("reInit", update);
+    };
+  }, [api]);
+
+  return (
+    <div
+      className="project-carousel"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={label}
+    >
+      <div className="project-carousel-viewport" ref={viewportRef}>
+        <div className="project-carousel-track">
+          {items.map((p, i) => (
+            <article
+              className="project-carousel-slide"
+              key={p.slug}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} / ${items.length}`}
+            >
+              <ProjectCard project={p} onOpen={() => setSelected(p.slug)} />
+            </article>
+          ))}
+        </div>
+      </div>
+      <div className="project-carousel-controls">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="project-carousel-button"
+          aria-label={lang === "pt" ? "Projetos anteriores" : "Previous projects"}
+          disabled={!canPrev}
+          onClick={() => api?.scrollPrev()}
+        >
+          <ArrowLeft />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="project-carousel-button"
+          aria-label={lang === "pt" ? "Projetos seguintes" : "Next projects"}
+          disabled={!canNext}
+          onClick={() => api?.scrollNext()}
+        >
+          <ArrowRight />
+        </Button>
+      </div>
+      {project && <ProjectLightbox project={project} onClose={() => setSelected(null)} />}
+    </div>
+  );
+}
+
 export function ProjectsPreview() {
   const lang = useLanguage();
   const t = content[lang];
@@ -407,7 +511,7 @@ export function ProjectsPreview() {
           {t.projectsLink}
         </Link>
       </div>
-      <ProjectGrid items={featuredProjectSlugs.map(projectBySlug)} />
+      <ProjectCarousel label={t.projectsTitle} />
     </section>
   );
 }
@@ -418,13 +522,12 @@ export function DesignToWork() {
   return (
     <section className="section design-section">
       <div className="design-copy">
-        <Eyebrow line>{t.designLabel}</Eyebrow>
         <h2 className="section-title">{t.designTitle}</h2>
         <p className="body-copy">{t.designCopy}</p>
       </div>
       <div className="design-pair">
         <figure>
-          <img
+          <LazyImage
             src={designToWork.render.src}
             alt={`${project[lang].title}: ${t.designRenderCaption}`}
             loading="lazy"
@@ -437,7 +540,7 @@ export function DesignToWork() {
         </figure>
         <ArrowRight className="design-arrow" aria-hidden="true" />
         <figure>
-          <img
+          <LazyImage
             src={designToWork.photo.src}
             alt={`${project[lang].title}: ${t.designPhotoCaption}`}
             loading="lazy"
@@ -445,7 +548,7 @@ export function DesignToWork() {
             height={designToWork.photo.height}
           />
           <figcaption>
-            <span className="photo-badge">{t.designPhotoCaption}</span>
+            <span className="render-badge is-static">{t.designPhotoCaption}</span>
           </figcaption>
         </figure>
       </div>
@@ -469,7 +572,7 @@ export function Story({ full = false, light = false }: { full?: boolean; light?:
         )}
       </div>
       <figure className="story-visual">
-        <img
+        <LazyImage
           className="story-image"
           src={kitchenIsland}
           alt={projectBySlug("island")[lang].title}
@@ -478,14 +581,6 @@ export function Story({ full = false, light = false }: { full?: boolean; light?:
           height={1200}
         />
       </figure>
-      <dl className="story-stats">
-        {t.stats.map((stat) => (
-          <div className="stat" key={stat.value}>
-            <dt>{stat.value}</dt>
-            <dd>{stat.label}</dd>
-          </div>
-        ))}
-      </dl>
     </section>
   );
 }
@@ -496,14 +591,12 @@ export function Values() {
     <section className="section values-section">
       <div className="section-heading">
         <div>
-          <Eyebrow>{t.valuesLabel}</Eyebrow>
           <h2 className="section-title">{t.valuesTitle}</h2>
         </div>
       </div>
       <div className="values-grid">
         {t.values.map((value) => (
           <article key={value.title}>
-            <Check aria-hidden="true" />
             <h3>{value.title}</h3>
             <p>{value.copy}</p>
           </article>
@@ -519,7 +612,6 @@ export function Materials({ compact = false }: { compact?: boolean }) {
   return (
     <section className={`section materials-section ${compact ? "is-compact" : ""}`}>
       <div className="materials-heading">
-        {!compact && <Eyebrow>{t.materialsLabel}</Eyebrow>}
         <Heading className="section-title">
           {compact ? t.serviceMaterialsTitle : t.materialsTitle}
         </Heading>
@@ -528,7 +620,7 @@ export function Materials({ compact = false }: { compact?: boolean }) {
       <ul className="materials-grid">
         {materials.map((material) => (
           <li key={material.pt.name}>
-            <img src={material.image} alt="" loading="lazy" width={640} height={640} />
+            <LazyImage src={material.image} alt="" loading="lazy" width={640} height={640} />
             <strong>{material[lang].name}</strong>
             <span>{material[lang].copy}</span>
           </li>
@@ -543,25 +635,33 @@ export function Process() {
   return (
     <section className="section process-section">
       <div className="process-intro">
-        <Eyebrow line>{t.processLabel}</Eyebrow>
         <h2 className="section-title">{t.processTitle}</h2>
-        <figure className="process-visual">
-          <img
-            src={designToWork.process.src}
-            alt={t.processCaption}
-            loading="lazy"
-            width={designToWork.process.width}
-            height={designToWork.process.height}
-          />
-          <span className="render-badge">{t.renderLabel}</span>
-        </figure>
+        <div className="process-visual">
+          <figure className="process-drawing">
+            <LazyImage
+              src={designToWork.processDrawing.src}
+              alt={t.processDrawingCaption}
+              loading="lazy"
+              width={designToWork.processDrawing.width}
+              height={designToWork.processDrawing.height}
+            />
+            <span className="render-badge">{t.drawingLabel}</span>
+          </figure>
+          <figure>
+            <LazyImage
+              src={designToWork.processRender.src}
+              alt={t.processCaption}
+              loading="lazy"
+              width={designToWork.processRender.width}
+              height={designToWork.processRender.height}
+            />
+            <span className="render-badge">{t.renderLabel}</span>
+          </figure>
+        </div>
       </div>
       <ol className="process-grid">
         {t.steps.map((s, i) => (
           <li className="process-item" key={s}>
-            <span className="process-index" aria-hidden="true">
-              {String(i + 1).padStart(2, "0")}
-            </span>
             <div>
               <h3>{s}</h3>
               <p>{t.stepCopy[i]}</p>
@@ -577,7 +677,7 @@ export function ContactBand() {
   const t = content[lang];
   return (
     <section className="contact-band">
-      <img
+      <LazyImage
         className="contact-backdrop"
         src={marbleColumns}
         alt=""
@@ -676,7 +776,7 @@ export function ServicePage({ service }: { service: ServiceSlug }) {
         <ul className="materials-grid is-small">
           {materials.map((material) => (
             <li key={material.pt.name}>
-              <img src={material.image} alt="" loading="lazy" width={640} height={640} />
+              <LazyImage src={material.image} alt="" loading="lazy" width={640} height={640} />
               <strong>{material[lang].name}</strong>
             </li>
           ))}
@@ -776,6 +876,9 @@ export function SiteFooter() {
           <button type="button" onClick={() => consent.setPreferencesOpen(true)}>
             {cookieCopy.manage}
           </button>
+          <a href="https://livroreclamacoes.pt/Inicio/" target="_blank" rel="noreferrer">
+            Livro de Reclamações Eletrónico
+          </a>
         </div>
       </div>
     </footer>

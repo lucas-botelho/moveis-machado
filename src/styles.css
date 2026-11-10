@@ -723,13 +723,25 @@ a {
   font-size: 46px;
 }
 .process-visual {
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
   margin: 24px 0 0;
 }
+.process-visual figure {
+  position: relative;
+  margin: 0;
+}
 .process-visual img {
+  display: block;
   width: 100%;
-  aspect-ratio: 3;
+  aspect-ratio: 1.5;
   object-fit: cover;
+}
+/* Keep every dimension of the technical drawing visible. */
+.process-visual .process-drawing img {
+  object-fit: contain;
+  background: #d9d9d9;
 }
 .process-visual .render-badge {
   position: absolute;
@@ -1053,15 +1065,31 @@ a {
 }
 .contact-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 90px;
+  grid-template-columns: minmax(0, 1fr);
+}
+.contact-location-section {
+  padding-top: 0;
 }
 .contact-layout > div {
   min-width: 0;
+  text-align: center;
+}
+.contact-layout .contact-ways {
+  max-width: 680px;
+  margin: 30px auto;
 }
 .contact-location {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1100px;
+  margin: 0 auto;
   background: var(--brand-soft);
-  padding: 38px;
+  padding: clamp(24px, 4vw, 38px);
+}
+.contact-location-info {
+  min-width: 0;
 }
 .contact-location h2 {
   font-family: var(--font-display);
@@ -1078,19 +1106,19 @@ a {
 .contact-map {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   min-height: 220px;
-  margin-top: 28px;
+  margin: 0;
   border: 0;
 }
 .contact-map-placeholder {
   box-sizing: border-box;
-  padding: clamp(24px, 4vw, 42px);
+  padding: clamp(18px, 2.5vw, 30px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 18px;
+  gap: 12px;
   border: 1px solid var(--border);
   background: var(--background);
 }
@@ -1425,10 +1453,10 @@ a {
   border-top: 1px solid var(--border);
   margin-top: 30px;
 }
-.faq summary {
+.faq h3 {
   font-size: var(--text-small);
-  cursor: pointer;
   padding: 15px 0;
+  margin: 0;
 }
 .faq p {
   font-size: var(--text-body);
@@ -1510,7 +1538,7 @@ dd {
 }
 .service-item {
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) 24px;
+  grid-template-columns: minmax(0, 1fr) 24px;
   gap: 16px;
   align-items: start;
   padding: 26px 0;
@@ -1699,7 +1727,7 @@ dd {
 }
 .design-pair {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 18px;
   align-items: center;
 }
@@ -1707,6 +1735,7 @@ dd {
   margin: 0;
 }
 .design-pair img {
+  display: block;
   width: 100%;
   aspect-ratio: 0.95;
   object-fit: cover;
@@ -1755,7 +1784,7 @@ dd {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
   gap: clamp(40px, 6vw, 90px);
-  align-items: end;
+  align-items: center;
   border-top: 1px solid var(--border);
 }
 .materials-heading .body-copy {
@@ -1926,9 +1955,10 @@ dd {
 .faq-section .faq:first-child {
   margin-top: 0;
 }
-.faq summary {
+.faq h3 {
   font-family: var(--font-display);
   font-size: 22px;
+  font-weight: 400;
 }
 @media (min-width: 1600px) {
   .hero-content {
@@ -2089,8 +2119,8 @@ dd {
   .process-intro .section-title {
     font-size: 43px;
   }
-  .process-visual img {
-    aspect-ratio: 1.6;
+  .process-visual {
+    grid-template-columns: 1fr;
   }
   .process-grid {
     grid-template-columns: 1fr;
@@ -2186,7 +2216,11 @@ dd {
     gap: 40px;
   }
   .contact-location {
+    grid-template-columns: 1fr;
     padding: 28px;
+  }
+  .contact-map {
+    aspect-ratio: 16 / 9;
   }
 }
 @media (max-width: 420px) {
@@ -2270,7 +2304,7 @@ dd {
     aspect-ratio: 1.2;
   }
   .service-item {
-    grid-template-columns: 36px minmax(0, 1fr) 20px;
+    grid-template-columns: minmax(0, 1fr) 20px;
   }
   .service-item h3 {
     font-size: 26px;
@@ -2345,5 +2379,74 @@ dd {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* Image skeletons: the shimmer is the <img> element's own background, shown until it decodes. */
+img.is-loading {
+  color: transparent;
+  background-color: var(--muted);
+  background-image: linear-gradient(
+    100deg,
+    transparent 30%,
+    oklch(1 0 0 / 0.55) 50%,
+    transparent 70%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: image-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes image-shimmer {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -120% 0;
+  }
+}
+
+/* Projects carousel (home) */
+.project-carousel {
+  position: relative;
+}
+.project-carousel-viewport {
+  overflow: hidden;
+}
+.project-carousel-track {
+  display: flex;
+  gap: 25px;
+  touch-action: pan-y pinch-zoom;
+}
+.project-carousel-slide {
+  flex: 0 0 calc((100% - 50px) / 3);
+  min-width: 0;
+}
+.project-carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 26px;
+}
+.project-carousel-button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--foreground);
+  border-radius: 999px;
+}
+.project-carousel-button:disabled {
+  opacity: 0.3;
+}
+
+@media (max-width: 1050px) {
+  .project-carousel-slide {
+    flex-basis: calc((100% - 25px) / 2);
+  }
+}
+@media (max-width: 800px) {
+  .project-carousel-slide {
+    flex-basis: 86%;
+  }
+  .project-carousel-track {
+    gap: 16px;
   }
 }

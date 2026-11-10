@@ -8,7 +8,8 @@ import whiteL from "@/assets/projects/white-l.webp";
 import wineWall from "@/assets/projects/wine-wall.webp";
 import wineWall3d from "@/assets/projects/wine-wall-3d.webp";
 import wineWall3dAlt from "@/assets/projects/wine-wall-3d-alt.webp";
-import island3d from "@/assets/projects/island-3d.webp";
+import laundryKitchenDrawing from "@/assets/projects/laundry-kitchen-drawing.webp";
+import laundryKitchen3d from "@/assets/projects/laundry-kitchen-3d.webp";
 import marbleSwatch from "@/assets/materials/marble.webp";
 import oakSwatch from "@/assets/materials/oak.webp";
 import walnutSwatch from "@/assets/materials/walnut.webp";
@@ -53,51 +54,6 @@ export type Project = {
 };
 
 export const projects: readonly Project[] = [
-  {
-    slug: "marble-island",
-    category: "kitchen",
-    images: [
-      { src: marbleIsland, width: 1600, height: 1032, kind: "photo" },
-      { src: marbleColumns, width: 1600, height: 1032, kind: "photo" },
-    ],
-    pt: {
-      title: "Ilha e revestimento efeito mármore",
-      type: "Cozinha com ilha",
-      materials: "Lacado branco alto brilho · bancada e revestimento efeito mármore",
-      summary:
-        "Armários altos até ao teto, frentes sem puxadores e uma ilha com placa integrada. As colunas reúnem forno duplo e frigorífico americano numa só parede.",
-    },
-    en: {
-      title: "Island and marble-effect surfaces",
-      type: "Island kitchen",
-      materials: "White high-gloss lacquer · marble-effect worktop and splashback",
-      summary:
-        "Wall units up to the ceiling, handleless fronts and an island with an integrated hob. Tall units bring a double oven and an American fridge together on one wall.",
-    },
-  },
-  {
-    slug: "wine-wall",
-    category: "furniture",
-    images: [
-      { src: wineWall, width: 1600, height: 1104, kind: "photo" },
-      { src: wineWall3d, width: 1600, height: 1132, kind: "render" },
-      { src: wineWall3dAlt, width: 1600, height: 1132, kind: "render" },
-    ],
-    pt: {
-      title: "Garrafeira à medida",
-      type: "Mobiliário por medida",
-      materials: "Perfis pretos com vidro · madeira · garrafeiras em cruz",
-      summary:
-        "Uma parede inteira de arrumação para vinho, com portas em vidro, nichos em cruz e espaço para uma garrafeira climatizada. Foi desenhada em 3D antes de seguir para a oficina.",
-    },
-    en: {
-      title: "Bespoke wine wall",
-      type: "Bespoke furniture",
-      materials: "Black frames with glass · wood · cross-shaped wine racks",
-      summary:
-        "A full wall of wine storage with glass doors, cross racks and room for a wine cooler. It was designed in 3D before going to the workshop.",
-    },
-  },
   {
     slug: "walnut",
     category: "kitchen",
@@ -192,6 +148,51 @@ export const projects: readonly Project[] = [
         "Matt white handleless fronts, a floor-to-ceiling tall unit and built-in appliances at the right height.",
     },
   },
+  {
+    slug: "marble-island",
+    category: "kitchen",
+    images: [
+      { src: marbleIsland, width: 1600, height: 1032, kind: "photo" },
+      { src: marbleColumns, width: 1600, height: 1032, kind: "photo" },
+    ],
+    pt: {
+      title: "Ilha e revestimento efeito mármore",
+      type: "Cozinha com ilha",
+      materials: "Lacado branco alto brilho · bancada e revestimento efeito mármore",
+      summary:
+        "Armários altos até ao teto, frentes sem puxadores e uma ilha com placa integrada. As colunas reúnem forno duplo e frigorífico americano numa só parede.",
+    },
+    en: {
+      title: "Island and marble-effect surfaces",
+      type: "Island kitchen",
+      materials: "White high-gloss lacquer · marble-effect worktop and splashback",
+      summary:
+        "Wall units up to the ceiling, handleless fronts and an island with an integrated hob. Tall units bring a double oven and an American fridge together on one wall.",
+    },
+  },
+  {
+    slug: "wine-wall",
+    category: "furniture",
+    images: [
+      { src: wineWall, width: 1600, height: 1104, kind: "photo" },
+      { src: wineWall3d, width: 1600, height: 1132, kind: "render" },
+      { src: wineWall3dAlt, width: 1600, height: 1132, kind: "render" },
+    ],
+    pt: {
+      title: "Garrafeira à medida",
+      type: "Mobiliário por medida",
+      materials: "Perfis pretos com vidro · madeira · garrafeiras em cruz",
+      summary:
+        "Uma parede inteira de arrumação para vinho, com portas em vidro, nichos em cruz e espaço para uma garrafeira climatizada. Foi desenhada em 3D antes de seguir para a oficina.",
+    },
+    en: {
+      title: "Bespoke wine wall",
+      type: "Bespoke furniture",
+      materials: "Black frames with glass · wood · cross-shaped wine racks",
+      summary:
+        "A full wall of wine storage with glass doors, cross racks and room for a wine cooler. It was designed in 3D before going to the workshop.",
+    },
+  },
 ];
 
 export function projectBySlug(slug: string) {
@@ -200,12 +201,11 @@ export function projectBySlug(slug: string) {
   return project;
 }
 
-export const featuredProjectSlugs = ["walnut", "contemporary", "marble-island"] as const;
-
 export const designToWork = {
   render: { src: wineWall3d, width: 1600, height: 1132 },
   photo: { src: wineWall, width: 1600, height: 1104 },
-  process: { src: island3d, width: 1599, height: 899 },
+  processDrawing: { src: laundryKitchenDrawing, width: 1436, height: 939 },
+  processRender: { src: laundryKitchen3d, width: 1600, height: 1132 },
 };
 
 export const heroImage = { src: marbleIsland, width: 1600, height: 1032 };
@@ -559,10 +559,11 @@ export const content = {
     ],
     servicesExtra: "Também fazemos portas interiores e remodelações.",
     projectsLabel: "PROJETOS REAIS",
-    projectsTitle: "Os nossos trabalhos:",
+    projectsTitle: "Os nossos trabalhos",
     projectsLink: "Ver todos os projetos",
     projectView: "Ver projeto",
     renderLabel: "Projeto 3D",
+    drawingLabel: "Desenho técnico",
     photoLabel: "Obra concluída",
     designLabel: "DO PROJETO 3D À OBRA",
     designTitle: "Veja o seu móvel antes de ele existir.",
@@ -610,7 +611,7 @@ export const content = {
       "Amostras retiradas de cozinhas que fabricámos. Na oficina mostramos-lhe as opções ao vivo.",
     processLabel: "COMO TRABALHAMOS",
     processTitle: "Quatro passos, uma só equipa.",
-    steps: ["Visita e medição", "Projeto 3D e orçamento", "Fabrico na oficina", "Instalação"],
+    steps: ["Visita", "Projeto 3D e orçamento", "Fabrico", "Instalação"],
     stepCopy: [
       "Vamos à sua casa, tiramos medidas e ouvimos o que precisa. Deslocação sem custos.",
       "Desenhamos em 3D, escolhemos materiais consigo e apresentamos um orçamento detalhado.",
@@ -618,6 +619,7 @@ export const content = {
       "A nossa equipa monta e ajusta tudo, e continua disponível depois da entrega.",
     ],
     processCaption: "Projeto 3D preparado antes do fabrico",
+    processDrawingCaption: "Desenho técnico com as medidas da cozinha antes do fabrico",
     ctaLabel: "ORÇAMENTO SEM COMPROMISSO",
     ctaTitle: "Fale-nos do seu projeto.",
     ctaCopy:
@@ -712,10 +714,11 @@ export const content = {
     ],
     servicesExtra: "We also make interior doors and handle renovations.",
     projectsLabel: "REAL PROJECTS",
-    projectsTitle: "Our work:",
+    projectsTitle: "Our work",
     projectsLink: "View all projects",
     projectView: "View project",
     renderLabel: "3D design",
+    drawingLabel: "Technical drawing",
     photoLabel: "Completed work",
     designLabel: "FROM 3D DESIGN TO FINISHED WORK",
     designTitle: "See your furniture before it exists.",
@@ -771,6 +774,7 @@ export const content = {
       "Our team installs and adjusts everything, and stays available after handover.",
     ],
     processCaption: "3D design prepared before production",
+    processDrawingCaption: "Technical drawing with the kitchen measurements before production",
     ctaLabel: "NO-OBLIGATION QUOTE",
     ctaTitle: "Tell us about your project.",
     ctaCopy:

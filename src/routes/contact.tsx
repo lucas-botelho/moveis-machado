@@ -56,28 +56,24 @@ function Contact() {
               {t.whatsapp}
             </a>
           </Button>
-          <div className="next-steps">
-            <h2>{t.nextTitle}</h2>
-            <ol>
-              {t.nextSteps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ol>
-          </div>
         </div>
+      </section>
+      <section className="section contact-location-section">
         <div className="contact-location">
-          <MapPin className="text-primary mb-6" size={28} strokeWidth={1.25} aria-hidden="true" />
-          <h2>Móveis Machado</h2>
-          <address>
-            Rua Vítor Cordon 6A
-            <br />
-            2675-459 Odivelas
-            <br />
-            Portugal
-          </address>
-          <p className="contact-area">
-            <strong>{t.contactSub}.</strong> {t.contactCopy}
-          </p>
+          <div className="contact-location-info">
+            <MapPin className="text-primary mb-6" size={28} strokeWidth={1.25} aria-hidden="true" />
+            <h2>Móveis Machado</h2>
+            <address>
+              Rua Vítor Cordon 6A
+              <br />
+              2675-459 Odivelas
+              <br />
+              Portugal
+            </address>
+            <p className="contact-area">
+              <strong>{t.contactSub}.</strong> {t.contactCopy}
+            </p>
+          </div>
           <ConsentMap lang={lang} />
         </div>
       </section>
