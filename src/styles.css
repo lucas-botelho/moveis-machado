@@ -144,8 +144,11 @@
 }
 
 @theme inline {
-  --font-sans: "Manrope Variable", sans-serif;
-  --font-display: "Cormorant Garamond Variable", Georgia, serif;
+  /* San Francisco (Apple's system font) everywhere; Segoe UI / Roboto where it is not installed. */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue",
+    "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: var(--font-sans);
   --color-inverse: var(--inverse);
   --color-brand-soft: var(--brand-soft);
   --color-atelier: var(--atelier);
@@ -2572,5 +2575,78 @@ img.is-loading {
 @media (max-width: 420px) {
   .hero-content {
     padding-top: 64px;
+  }
+}
+
+/* System-font headings: sans type is wider than the old serif, so tighten tracking and leading. */
+.hero h1,
+.section-title,
+.page-heading h1,
+.contact-band h2,
+.service-page-cta h2,
+.not-found-content h1 {
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  line-height: 1.1;
+}
+.hero h1 {
+  font-weight: 500;
+}
+.hero h1 em {
+  font-style: normal;
+  font-weight: 500;
+}
+.brand-name {
+  letter-spacing: -0.01em;
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+@media (max-width: 800px) {
+  .hero h1 {
+    font-size: 44px;
+  }
+  .page-heading h1,
+  .contact-band h2 {
+    font-size: 40px;
+  }
+  .section-title,
+  .projects-section .section-title,
+  .story-section .section-title,
+  .process-intro .section-title {
+    font-size: 32px;
+  }
+}
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+  .page-heading h1,
+  .contact-band h2 {
+    font-size: 34px;
+  }
+  .section-title,
+  .projects-section .section-title,
+  .story-section .section-title,
+  .process-intro .section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 800px) {
+  .site-header .brand-name {
+    font-size: 21px;
+    font-weight: 600;
+  }
+  .site-header .brand-tagline {
+    font-size: 10px;
+    margin-top: 3px;
+  }
+}
+@media (max-width: 360px) {
+  .site-header .brand-name {
+    font-size: 18px;
   }
 }

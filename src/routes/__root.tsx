@@ -11,9 +11,6 @@ import {
 } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 
-import "@fontsource-variable/manrope";
-import "@fontsource-variable/cormorant-garamond";
-import "@fontsource-variable/cormorant-garamond/wght-italic.css";
 import appCss from "../styles.css?url";
 import { SiteHeader, SiteFooter } from "@/components/site";
 import { CookieConsentExperience, ConsentProvider } from "@/components/cookie-consent";
